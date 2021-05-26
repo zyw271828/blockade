@@ -19,3 +19,7 @@
 .fill-space {
   flex: 1 1 auto;
 }
+
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}

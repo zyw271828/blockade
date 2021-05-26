@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -40,7 +41,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatMenuModule,
     MatSlideToggleModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
