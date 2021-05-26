@@ -37,6 +37,6 @@ $light-theme: mat.define-light-theme(
   )
 );
 
-.light-theme {
+.lightTheme {
   @include mat.all-component-themes($light-theme);
 }
