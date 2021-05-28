@@ -27,3 +27,8 @@
 :host ::ng-deep .mat-expansion-panel-body {
   padding-right: 0 !important;
 }
+
+.mat-divider.mat-divider-vertical {
+  height: 30px;
+  border-width: 2px;
+}

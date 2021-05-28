@@ -24,10 +24,13 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span class="fill-space">blockade</span>
-      <div fxLayout="row" fxLayoutGap="8px">
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
         <mat-icon>brightness_low</mat-icon>
         <mat-slide-toggle [formControl]="themeToggleControl"></mat-slide-toggle>
         <mat-icon>brightness_high</mat-icon>
+        <mat-divider vertical></mat-divider>
+        <mat-icon>check_circle</mat-icon>
+        <span>Connected</span>
       </div>
     </mat-toolbar>
     <app-dashboard></app-dashboard>
