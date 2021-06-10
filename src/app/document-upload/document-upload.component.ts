@@ -6,6 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./document-upload.component.css']
 })
 export class DocumentUploadComponent implements OnInit {
+  resourceTypes: String[] = [
+    'Plaintext',
+    'Encryption (on chain)',
+    'Encryption (off chain)'
+  ];
+
+  documentTypes: String[] = [
+    'Design',
+    'Production',
+    'Use',
+    'Maintenance',
+    'Transfer'
+  ];
 
   constructor() { }
 

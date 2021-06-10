@@ -1,1 +1,34 @@
-<p>document-upload works!</p>
+<div class="grid-container">
+  <h1 class="mat-h1">Document</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-card class="document-card">
+        <mat-card-header>
+          <mat-card-title>
+            Upload
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="document-card-content">
+          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline">
+              <mat-label>Resource Type</mat-label>
+              <mat-select required>
+                <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
+                  {{resourceType}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Document Type</mat-label>
+              <mat-select required>
+                <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
+                  {{documentType}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

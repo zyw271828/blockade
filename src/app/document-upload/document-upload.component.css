@@ -1,0 +1,15 @@
+.grid-container {
+  margin: 20px;
+}
+
+.document-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.document-card-content {
+  text-align: center;
+}
