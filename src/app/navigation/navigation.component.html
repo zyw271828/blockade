@@ -8,10 +8,10 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Links
+              Document
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a mat-list-item routerLink="/">Link 1</a>
+          <a mat-list-item routerLink="/document/upload">Upload</a>
           <a mat-list-item routerLink="/">Link 2</a>
           <a mat-list-item routerLink="/">Link 3</a>
         </mat-expansion-panel>
@@ -32,6 +32,16 @@
         <mat-icon matTooltip="Connected">check_circle</mat-icon>
       </div>
     </mat-toolbar>
-    <app-dashboard></app-dashboard>
+    <div [ngSwitch]="getUrl()">
+      <div *ngSwitchCase="'/dashboard'">
+        <app-dashboard></app-dashboard>
+      </div>
+      <div *ngSwitchCase="'/document/upload'">
+        <app-document-upload></app-document-upload>
+      </div>
+      <div *ngSwitchDefault>
+        <app-dashboard></app-dashboard>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

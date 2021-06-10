@@ -2,6 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
@@ -18,7 +19,7 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer) { }
+  constructor(private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) { }
 
   themeToggleControl = new FormControl(false);
   @HostBinding('class') className = '';
@@ -33,5 +34,9 @@ export class NavigationComponent {
         this.overlay.getContainerElement().classList.remove(lightClassName);
       }
     });
+  }
+
+  getUrl(): string {
+    return this.router.url;
   }
 }
