@@ -1,7 +1,9 @@
 <div class="grid-container">
   <h1 class="mat-h1">Document</h1>
-  <mat-grid-list cols="2" rowHeight="400px">
-    <mat-grid-tile [colspan]="2" [rowspan]="1">
+  <mat-grid-list cols="2" rowHeight="10px">
+
+    <!-- Precise Query -->
+    <mat-grid-tile [colspan]="2" [rowspan]="37">
       <mat-card class="document-card">
         <mat-card-header>
           <mat-card-title>
@@ -9,7 +11,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="document-card-content">
-          <form [formGroup]="documentQueryForm" novalidate (ngSubmit)="onSubmit()">
+          <form [formGroup]="documentPreciseQueryForm" novalidate (ngSubmit)="onPreciseQuerySubmit()">
             <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
               <!-- Query Method -->
@@ -29,7 +31,7 @@
                     {{resourceType}}
                   </mat-option>
                 </mat-select>
-                <mat-error *ngIf="documentQueryForm.controls['resourceType'].hasError('required')">
+                <mat-error *ngIf="documentPreciseQueryForm.controls['resourceType'].hasError('required')">
                   Resource Type is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
@@ -38,7 +40,7 @@
               <mat-form-field appearance="outline" fxFlex="auto">
                 <mat-label>Resource ID</mat-label>
                 <input matInput required formControlName="resourceID">
-                <mat-error *ngIf="documentQueryForm.controls['resourceID'].hasError('required')">
+                <mat-error *ngIf="documentPreciseQueryForm.controls['resourceID'].hasError('required')">
                   Resource ID is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
@@ -48,7 +50,56 @@
               <!-- Reset & Query -->
               <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
                 <div class="document-card-margin">
-                  <button mat-button color="warn" type="button" (click)="documentQueryForm.reset()">Reset</button>
+                  <button mat-button color="warn" type="button"
+                    (click)="documentPreciseQueryForm.reset()">Reset</button>
+                </div>
+                <div class="document-card-margin">
+                  <button mat-raised-button color="primary" type="submit">Query</button>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Fuzzy Query -->
+    <mat-grid-tile [colspan]="2" [rowspan]="30">
+      <mat-card class="document-card">
+        <mat-card-header>
+          <mat-card-title>
+            Query
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="document-card-content">
+          <form [formGroup]="documentFuzzyQueryForm" novalidate (ngSubmit)="onFuzzyQuerySubmit()">
+            <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+
+              <!-- Query Method -->
+              <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                <mat-label fxFlex="20">Query Method *</mat-label>
+                <mat-radio-group formControlName="queryMethod" fxFlex="auto">
+                  <mat-radio-button value="precise">Precise</mat-radio-button>
+                  <mat-radio-button value="fuzzy">Fuzzy</mat-radio-button>
+                </mat-radio-group>
+              </div>
+
+              <!-- Keyword -->
+              <mat-form-field appearance="outline" fxFlex="auto">
+                <mat-label>Keyword</mat-label>
+                <input matInput required formControlName="keyword">
+                <mat-error *ngIf="documentFuzzyQueryForm.controls['keyword'].hasError('required')">
+                  Keyword is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <div style="height: 8px;"></div>
+
+              <!-- Reset & Query -->
+              <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+                <div class="document-card-margin">
+                  <button mat-button color="warn" type="button" (click)="documentFuzzyQueryForm.reset()">Reset</button>
                 </div>
                 <div class="document-card-margin">
                   <button mat-raised-button color="primary" type="submit">Query</button>

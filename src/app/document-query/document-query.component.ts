@@ -7,10 +7,15 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./document-query.component.css']
 })
 export class DocumentQueryComponent implements OnInit {
-  documentQueryForm = this.fb.group({
+  documentPreciseQueryForm = this.fb.group({
     queryMethod: ['precise', Validators.required],
     resourceType: [null, Validators.required],
     resourceID: [null, Validators.required]
+  });
+
+  documentFuzzyQueryForm = this.fb.group({
+    queryMethod: ['fuzzy', Validators.required],
+    keyword: [null, Validators.required]
   });
 
   resourceTypes: String[] = [
@@ -24,9 +29,15 @@ export class DocumentQueryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
-    // TODO: submit documentQueryForm
+  onPreciseQuerySubmit(): void {
+    // TODO: submit documentPreciseQueryForm
     // TODO: use MatDialog
-    alert('Query successfully');
+    alert('Precise query successfully');
+  }
+
+  onFuzzyQuerySubmit(): void {
+    // TODO: submit documentFuzzyQueryForm
+    // TODO: use MatDialog
+    alert('Fuzzy query successfully');
   }
 }
