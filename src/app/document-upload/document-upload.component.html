@@ -1,6 +1,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Document</h1>
-  <mat-grid-list cols="2" rowHeight="700px">
+  <mat-grid-list cols="2" rowHeight="800px">
     <mat-grid-tile [colspan]="2" [rowspan]="1">
       <mat-card class="document-card">
         <mat-card-header>
@@ -9,7 +9,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="document-card-content">
-          <div fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="0px">
+          <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
             <mat-form-field appearance="outline">
               <mat-label>Resource Type</mat-label>
               <mat-select required>
@@ -27,34 +27,61 @@
               </mat-select>
             </mat-form-field>
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-              <mat-form-field appearance="outline" fxFlex="90">
+              <mat-form-field appearance="outline" fxFlex="auto">
                 <mat-label>Name</mat-label>
                 <input matInput required>
               </mat-form-field>
               <div class="document-card-margin">
-                <mat-checkbox fxFlex="10">IsNamePublic</mat-checkbox>
+                <mat-checkbox fxFlex="auto">IsNamePublic</mat-checkbox>
               </div>
             </div>
             <mat-form-field appearance="outline">
               <mat-label>Entity Asset ID</mat-label>
-              <input matInput>
+              <input matInput placeholder="Optional">
             </mat-form-field>
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-              <mat-form-field appearance="outline" fxFlex="90">
+              <mat-form-field appearance="outline" fxFlex="auto">
                 <mat-label>Preceding Document ID</mat-label>
-                <input matInput>
+                <input matInput placeholder="Optional">
               </mat-form-field>
               <div class="document-card-margin">
                 <button mat-stroked-button fxFlex="auto">Check</button>
               </div>
             </div>
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-              <mat-form-field appearance="outline" fxFlex="90">
+              <mat-form-field appearance="outline" fxFlex="auto">
                 <mat-label>Head Document ID</mat-label>
-                <input matInput>
+                <input matInput placeholder="Optional">
               </mat-form-field>
               <div class="document-card-margin">
                 <button mat-stroked-button fxFlex="auto">Check</button>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+              <mat-form-field appearance="outline" fxFlex="auto">
+                <mat-label>Content</mat-label>
+                <input matInput required placeholder="Filepath">
+              </mat-form-field>
+              <div class="document-card-margin">
+                <button mat-stroked-button color="primary" fxFlex="auto">Browse</button>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+              <mat-form-field appearance="outline" fxFlex="auto">
+                <mat-label>Policy</mat-label>
+                <input matInput required>
+              </mat-form-field>
+              <div class="document-card-margin">
+                <mat-icon matTooltip="Help" fxFlex="auto">help</mat-icon>
+              </div>
+            </div>
+            <div style="height: 8px;"></div>
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+              <div class="document-card-margin">
+                <button mat-button color="warn">Reset</button>
+              </div>
+              <div class="document-card-margin">
+                <button mat-raised-button color="primary">Upload</button>
               </div>
             </div>
           </div>
