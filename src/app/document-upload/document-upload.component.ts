@@ -20,9 +20,14 @@ export class DocumentUploadComponent implements OnInit {
     'Transfer'
   ];
 
+  filename: String = "";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  fileInputChange(fileInputEvent: any) {
+    this.filename = fileInputEvent.target.files[0].name;
+  }
 }

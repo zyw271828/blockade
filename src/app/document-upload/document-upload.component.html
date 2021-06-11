@@ -60,10 +60,12 @@
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
               <mat-form-field appearance="outline" fxFlex="auto">
                 <mat-label>Content</mat-label>
-                <input matInput required placeholder="Filepath">
+                <input matInput required placeholder="Filename" [value]="filename">
               </mat-form-field>
               <div class="document-card-margin">
-                <button mat-stroked-button color="primary" fxFlex="auto">Browse</button>
+                <input #fileInput hidden="true" type="file" onclick="this.value=null"
+                  (change)="fileInputChange($event)">
+                <button mat-stroked-button color="primary" fxFlex="auto" (click)="fileInput.click()">Browse</button>
               </div>
             </div>
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
