@@ -1,6 +1,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Document</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-list cols="2" rowHeight="700px">
     <mat-grid-tile [colspan]="2" [rowspan]="1">
       <mat-card class="document-card">
         <mat-card-header>
@@ -9,7 +9,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="document-card-content">
-          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="0px">
+          <div fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="0px">
             <mat-form-field appearance="outline">
               <mat-label>Resource Type</mat-label>
               <mat-select required>
@@ -25,6 +25,19 @@
                   {{documentType}}
                 </mat-option>
               </mat-select>
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+              <mat-form-field appearance="outline" fxFlex="90">
+                <mat-label>Name</mat-label>
+                <input matInput required>
+              </mat-form-field>
+              <div class="document-card-margin">
+                <mat-checkbox fxFlex="10">IsNamePublic</mat-checkbox>
+              </div>
+            </div>
+            <mat-form-field appearance="outline">
+              <mat-label>Entity Asset ID</mat-label>
+              <input matInput>
             </mat-form-field>
           </div>
         </mat-card-content>

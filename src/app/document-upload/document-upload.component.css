@@ -11,5 +11,9 @@
 }
 
 .document-card-content {
-  text-align: center;
+  margin: 20px;
+}
+
+.document-card-margin {
+  margin-bottom: 20px;
 }
