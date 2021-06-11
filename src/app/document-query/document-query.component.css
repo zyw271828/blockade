@@ -1,0 +1,26 @@
+.grid-container {
+  margin: 20px;
+}
+
+.document-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.document-card-content {
+  margin: 20px;
+}
+
+.document-card-margin {
+  margin-left: 8px;
+  margin-right: 8px;
+  height: 77px;
+}
+
+.mat-radio-group {
+  display: flex;
+  justify-content: space-around;
+}
