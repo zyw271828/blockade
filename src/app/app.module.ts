@@ -25,6 +25,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DocumentQueryComponent } from './document-query/document-query.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
 import { InMemoryDataService } from './in-memory-data.service';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -35,7 +36,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     AppComponent,
     NavigationComponent,
     DashboardComponent,
-    DocumentUploadComponent
+    DocumentUploadComponent,
+    DocumentQueryComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <a mat-list-item routerLink="/document/upload">Upload</a>
-          <a mat-list-item routerLink="/">Link 2</a>
+          <a mat-list-item routerLink="/document/query">Query</a>
           <a mat-list-item routerLink="/">Link 3</a>
         </mat-expansion-panel>
       </mat-accordion>
@@ -38,6 +38,9 @@
       </div>
       <div *ngSwitchCase="'/document/upload'">
         <app-document-upload></app-document-upload>
+      </div>
+      <div *ngSwitchCase="'/document/query'">
+        <app-document-query></app-document-query>
       </div>
       <div *ngSwitchDefault>
         <app-dashboard></app-dashboard>
