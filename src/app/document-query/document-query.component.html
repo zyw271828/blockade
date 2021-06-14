@@ -111,5 +111,25 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+
+    <!-- Query Result -->
+    <mat-grid-tile [colspan]="2" [rowspan]="66">
+      <mat-card class="document-card">
+        <mat-card-header>
+          <mat-card-title>
+            Query Result
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="document-card-content">
+          <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+
+            <!-- Document Query Result Table -->
+            <app-document-query-result-table></app-document-query-result-table>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
   </mat-grid-list>
 </div>
