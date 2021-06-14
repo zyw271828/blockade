@@ -4,34 +4,36 @@ import { MatSort } from '@angular/material/sort';
 import { merge, Observable, of as observableOf } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-// TODO: Replace this with your own data model type
+// Data model type
 export interface DocumentQueryResultTableItem {
-  name: string;
   id: number;
+  resourceID: number;
+  resourceType: string;
+  name: string;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: DocumentQueryResultTableItem[] = [
-  { id: 1, name: 'Hydrogen' },
-  { id: 2, name: 'Helium' },
-  { id: 3, name: 'Lithium' },
-  { id: 4, name: 'Beryllium' },
-  { id: 5, name: 'Boron' },
-  { id: 6, name: 'Carbon' },
-  { id: 7, name: 'Nitrogen' },
-  { id: 8, name: 'Oxygen' },
-  { id: 9, name: 'Fluorine' },
-  { id: 10, name: 'Neon' },
-  { id: 11, name: 'Sodium' },
-  { id: 12, name: 'Magnesium' },
-  { id: 13, name: 'Aluminum' },
-  { id: 14, name: 'Silicon' },
-  { id: 15, name: 'Phosphorus' },
-  { id: 16, name: 'Sulfur' },
-  { id: 17, name: 'Chlorine' },
-  { id: 18, name: 'Argon' },
-  { id: 19, name: 'Potassium' },
-  { id: 20, name: 'Calcium' },
+  { id: 1, resourceID: 20, resourceType: 'Plaintext', name: 'name' },
+  { id: 2, resourceID: 19, resourceType: 'Encryption (on chain)', name: 'name' },
+  { id: 3, resourceID: 18, resourceType: 'Encryption (off chain)', name: 'name' },
+  { id: 4, resourceID: 17, resourceType: 'Plaintext', name: 'name' },
+  { id: 5, resourceID: 16, resourceType: 'Encryption (on chain)', name: 'name' },
+  { id: 6, resourceID: 15, resourceType: 'Encryption (off chain)', name: 'name' },
+  { id: 7, resourceID: 14, resourceType: 'Plaintext', name: 'name' },
+  { id: 8, resourceID: 13, resourceType: 'Encryption (on chain)', name: 'name' },
+  { id: 9, resourceID: 12, resourceType: 'Encryption (off chain)', name: 'name' },
+  { id: 10, resourceID: 11, resourceType: 'Plaintext', name: 'name' },
+  { id: 11, resourceID: 10, resourceType: 'Encryption (on chain)', name: 'name' },
+  { id: 12, resourceID: 9, resourceType: 'Encryption (off chain)', name: 'name' },
+  { id: 13, resourceID: 8, resourceType: 'Plaintext', name: 'name' },
+  { id: 14, resourceID: 7, resourceType: 'Encryption (on chain)', name: 'name' },
+  { id: 15, resourceID: 6, resourceType: 'Encryption (off chain)', name: 'name' },
+  { id: 16, resourceID: 5, resourceType: 'Plaintext', name: 'name' },
+  { id: 17, resourceID: 4, resourceType: 'Encryption (on chain)', name: 'name' },
+  { id: 18, resourceID: 3, resourceType: 'Encryption (off chain)', name: 'name' },
+  { id: 19, resourceID: 2, resourceType: 'Plaintext', name: 'name' },
+  { id: 20, resourceID: 1, resourceType: 'Encryption (on chain)', name: 'name' },
 ];
 
 /**
@@ -97,15 +99,17 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'resourceID': return compare(+a.resourceID, +b.resourceID, isAsc);
+        case 'resourceType': return compare(a.resourceType, b.resourceType, isAsc);
+        case 'name': return compare(a.name, b.name, isAsc);
         default: return 0;
       }
     });
   }
 }
 
-/** Simple sort comparator for example ID/Name columns (for client-side sorting). */
+/** Simple sort comparator for example columns (for client-side sorting). */
 function compare(a: string | number, b: string | number, isAsc: boolean): number {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

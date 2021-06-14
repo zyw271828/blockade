@@ -16,7 +16,12 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   dataSource: DocumentQueryResultTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id',
+    'resourceID',
+    'resourceType',
+    'name',
+    'operation'
+  ];
 
   constructor() {
     this.dataSource = new DocumentQueryResultTableDataSource();
