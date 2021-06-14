@@ -16,7 +16,12 @@ export class DocumentUploadRecordTableComponent implements AfterViewInit {
   dataSource: DocumentUploadRecordTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id',
+    'resourceID',
+    'resourceType',
+    'name',
+    'creationTime'
+  ];
 
   constructor() {
     this.dataSource = new DocumentUploadRecordTableDataSource();
