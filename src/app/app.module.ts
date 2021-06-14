@@ -14,10 +14,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,6 +30,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DocumentQueryComponent } from './document-query/document-query.component';
+import { DocumentUploadRecordTableComponent } from './document-upload-record-table/document-upload-record-table.component';
 import { DocumentUploadRecordComponent } from './document-upload-record/document-upload-record.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -40,7 +44,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     DashboardComponent,
     DocumentUploadComponent,
     DocumentQueryComponent,
-    DocumentUploadRecordComponent
+    DocumentUploadRecordComponent,
+    DocumentUploadRecordTableComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +72,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatInputModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
