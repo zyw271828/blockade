@@ -31,13 +31,11 @@ export class DocumentQueryComponent implements OnInit {
 
   onPreciseQuerySubmit(): void {
     // TODO: submit documentPreciseQueryForm
-    // TODO: use MatDialog
-    alert('Precise query successfully');
+    // TODO: show DocumentQueryResultTable
   }
 
   onFuzzyQuerySubmit(): void {
     // TODO: submit documentFuzzyQueryForm
-    // TODO: use MatDialog
-    alert('Fuzzy query successfully');
+    // TODO: show DocumentQueryResultTable
   }
 }
