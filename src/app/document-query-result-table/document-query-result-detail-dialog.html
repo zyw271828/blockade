@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>{{data.title}}</h1>
-<div mat-dialog-content>
+<div mat-dialog-content class="container">
   <table class="mat-table">
     <tr class="mat-header-row">
       <th class="mat-header-cell">Item</th>
@@ -17,5 +17,6 @@
 </div>
 <div mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Download</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial
+    (click)="downloadDocument(data.resourceID)">Download</button>
 </div>

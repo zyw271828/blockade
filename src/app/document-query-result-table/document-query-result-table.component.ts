@@ -59,4 +59,8 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
 })
 export class DocumentQueryResultDetailDialog {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  downloadDocument(resourceID: number) {
+    // TODO: download document by resourceID 
+  }
 }
