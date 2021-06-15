@@ -99,7 +99,7 @@
 
     <!-- Query Result -->
     <!-- TODO: automatically resize according to result table -->
-    <mat-grid-tile [colspan]="2" [rowspan]="66">
+    <mat-grid-tile *ngIf="isResultShow" [colspan]="2" [rowspan]="66">
       <mat-card class="document-card">
         <mat-card-header>
           <mat-card-title>

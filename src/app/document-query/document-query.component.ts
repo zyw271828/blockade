@@ -29,6 +29,8 @@ export class DocumentQueryComponent implements OnInit {
     'Encryption (off chain)'
   ];
 
+  isResultShow: boolean = false;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -36,11 +38,11 @@ export class DocumentQueryComponent implements OnInit {
 
   onPreciseQuerySubmit(): void {
     // TODO: submit documentPreciseQueryForm
-    // TODO: show DocumentQueryResultTable
+    this.isResultShow = true;
   }
 
   onFuzzyQuerySubmit(): void {
     // TODO: submit documentFuzzyQueryForm
-    // TODO: show DocumentQueryResultTable
+    this.isResultShow = true;
   }
 }
