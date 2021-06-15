@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DialogData {
+  title: string;
+  content: string;
+  action: string;
+}
 
 @Component({
   selector: 'app-document-upload',
@@ -35,19 +42,31 @@ export class DocumentUploadComponent implements OnInit {
 
   filename: String = "";
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   checkPrecedingDocumentID() {
     // TODO: checkPrecedingDocumentID, change color instead of pop-up prompt
-    alert('Preceding Document ID checked');
+    this.dialog.open(DocumentUploadPromptDialog, {
+      data: {
+        title: 'Result',
+        content: 'Preceding Document ID checked',
+        action: 'Close'
+      }
+    });
   }
 
   checkHeadDocumentID() {
     // TODO: checkHeadDocumentID, change color instead of pop-up prompt
-    alert('Head Document ID checked');
+    this.dialog.open(DocumentUploadPromptDialog, {
+      data: {
+        title: 'Result',
+        content: 'Head Document ID checked',
+        action: 'Close'
+      }
+    });
   }
 
   fileInputChange(fileInputEvent: any) {
@@ -56,7 +75,20 @@ export class DocumentUploadComponent implements OnInit {
 
   onSubmit(): void {
     // TODO: submit documentUploadForm
-    // TODO: use MatDialog
-    alert('Upload successfully');
+    this.dialog.open(DocumentUploadPromptDialog, {
+      data: {
+        title: 'Result',
+        content: 'Upload successfully',
+        action: 'Close'
+      }
+    });
   }
+}
+
+@Component({
+  selector: 'document-upload-prompt-dialog',
+  templateUrl: 'document-upload-prompt-dialog.html',
+})
+export class DocumentUploadPromptDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 }

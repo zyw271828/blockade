@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -33,7 +34,7 @@ import { DocumentQueryResultTableComponent } from './document-query-result-table
 import { DocumentQueryComponent } from './document-query/document-query.component';
 import { DocumentUploadRecordTableComponent } from './document-upload-record-table/document-upload-record-table.component';
 import { DocumentUploadRecordComponent } from './document-upload-record/document-upload-record.component';
-import { DocumentUploadComponent } from './document-upload/document-upload.component';
+import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-upload/document-upload.component';
 import { InMemoryDataService } from './in-memory-data.service';
 import { NavigationComponent } from './navigation/navigation.component';
 
@@ -44,6 +45,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     NavigationComponent,
     DashboardComponent,
     DocumentUploadComponent,
+    DocumentUploadPromptDialog,
     DocumentQueryComponent,
     DocumentUploadRecordComponent,
     DocumentUploadRecordTableComponent,
@@ -77,6 +79,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
