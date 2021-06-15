@@ -29,7 +29,8 @@
         <mat-slide-toggle [formControl]="themeToggleControl"></mat-slide-toggle>
         <mat-icon matTooltip="Light theme">brightness_high</mat-icon>
         <mat-divider vertical></mat-divider>
-        <mat-icon matTooltip="Connected">check_circle</mat-icon>
+        <mat-icon *ngIf="isConnected()" matTooltip="Connected">check_circle</mat-icon>
+        <mat-icon *ngIf="!isConnected()" matTooltip="Not connected">error</mat-icon>
       </div>
     </mat-toolbar>
     <div [ngSwitch]="getUrl()">

@@ -39,4 +39,8 @@ export class NavigationComponent {
   getUrl(): string {
     return this.router.url;
   }
+
+  isConnected(): boolean {
+    return true;
+  }
 }
