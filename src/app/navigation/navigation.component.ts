@@ -41,6 +41,7 @@ export class NavigationComponent {
   }
 
   isConnected(): boolean {
+    // TODO: check connectivity
     return true;
   }
 }
