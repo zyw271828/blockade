@@ -7,7 +7,8 @@ import { DocumentQueryResultTableDataSource, DocumentQueryResultTableItem } from
 
 export interface DialogData {
   title: string;
-  content: string;
+  resourceID: number;
+  name: string;
 }
 
 @Component({
@@ -39,12 +40,13 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
-  showDetail(resourceID: number) {
+  showDetail(resourceID: number, name: string) {
     // TODO: get details by resourceID 
     this.dialog.open(DocumentQueryResultDetailDialog, {
       data: {
         title: 'Detail',
-        content: 'resourceID: ' + resourceID
+        resourceID: resourceID,
+        name: name
       }
     });
   }
@@ -52,7 +54,8 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
 
 @Component({
   selector: 'document-query-result-detail-dialog',
-  templateUrl: 'document-query-result-detail-dialog.html',
+  templateUrl: './document-query-result-detail-dialog.html',
+  styleUrls: ['./document-query-result-detail-dialog.css']
 })
 export class DocumentQueryResultDetailDialog {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
