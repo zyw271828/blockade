@@ -30,7 +30,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DocumentQueryResultTableComponent } from './document-query-result-table/document-query-result-table.component';
+import { DocumentQueryResultDetailDialog, DocumentQueryResultTableComponent } from './document-query-result-table/document-query-result-table.component';
 import { DocumentQueryComponent } from './document-query/document-query.component';
 import { DocumentUploadRecordTableComponent } from './document-upload-record-table/document-upload-record-table.component';
 import { DocumentUploadRecordComponent } from './document-upload-record/document-upload-record.component';
@@ -49,7 +49,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     DocumentQueryComponent,
     DocumentUploadRecordComponent,
     DocumentUploadRecordTableComponent,
-    DocumentQueryResultTableComponent
+    DocumentQueryResultTableComponent,
+    DocumentQueryResultDetailDialog
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,14 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { DocumentQueryResultTableDataSource, DocumentQueryResultTableItem } from './document-query-result-table-datasource';
+
+export interface DialogData {
+  title: string;
+  content: string;
+}
 
 @Component({
   selector: 'app-document-query-result-table',
@@ -23,7 +29,7 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
     'operation'
   ];
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.dataSource = new DocumentQueryResultTableDataSource();
   }
 
@@ -32,4 +38,22 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
+
+  showDetail(resourceID: number) {
+    // TODO: get details by resourceID 
+    this.dialog.open(DocumentQueryResultDetailDialog, {
+      data: {
+        title: 'Detail',
+        content: 'resourceID: ' + resourceID
+      }
+    });
+  }
+}
+
+@Component({
+  selector: 'document-query-result-detail-dialog',
+  templateUrl: 'document-query-result-detail-dialog.html',
+})
+export class DocumentQueryResultDetailDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 }
