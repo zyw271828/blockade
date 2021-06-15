@@ -2,9 +2,7 @@
   <h1 class="mat-h1">Document</h1>
   <mat-grid-list cols="2" rowHeight="10px">
 
-    <!-- Precise Query -->
-    <!-- TODO: automatically hide according to query method -->
-    <mat-grid-tile [colspan]="2" [rowspan]="37">
+    <mat-grid-tile [colspan]="2" [rowspan]="currentQueryMethod === this.queryMethods[0] ? 37 : 30">
       <mat-card class="document-card">
         <mat-card-header>
           <mat-card-title>
@@ -12,17 +10,21 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="document-card-content">
-          <form [formGroup]="documentPreciseQueryForm" novalidate (ngSubmit)="onPreciseQuerySubmit()">
-            <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
-              <!-- Query Method -->
-              <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-                <mat-label fxFlex="20">Query Method *</mat-label>
-                <mat-radio-group formControlName="queryMethod" fxFlex="auto">
-                  <mat-radio-button value="precise">Precise</mat-radio-button>
-                  <mat-radio-button value="fuzzy">Fuzzy</mat-radio-button>
-                </mat-radio-group>
-              </div>
+          <!-- Query Method -->
+          <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-label fxFlex="20">Query Method *</mat-label>
+            <mat-radio-group [(ngModel)]="currentQueryMethod" fxFlex="auto">
+              <mat-radio-button *ngFor="let queryMethod of queryMethods" [value]="queryMethod">
+                {{queryMethod}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <!-- Precise Query -->
+          <form [formGroup]="documentPreciseQueryForm" novalidate (ngSubmit)="onPreciseQuerySubmit()">
+            <div *ngIf="currentQueryMethod === this.queryMethods[0]" fxLayout="column"
+              fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
               <!-- Resource Type -->
               <mat-form-field appearance="outline">
@@ -55,37 +57,17 @@
                     (click)="documentPreciseQueryForm.reset()">Reset</button>
                 </div>
                 <div class="document-card-margin">
-                  <button mat-raised-button color="primary" type="submit">Query</button>
+                  <button mat-raised-button color="primary" type="submit">Precise Query</button>
                 </div>
               </div>
 
             </div>
           </form>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
 
-    <!-- Fuzzy Query -->
-    <!-- TODO: automatically hide according to query method -->
-    <mat-grid-tile [colspan]="2" [rowspan]="30">
-      <mat-card class="document-card">
-        <mat-card-header>
-          <mat-card-title>
-            Query
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="document-card-content">
+          <!-- Fuzzy Query -->
           <form [formGroup]="documentFuzzyQueryForm" novalidate (ngSubmit)="onFuzzyQuerySubmit()">
-            <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
-
-              <!-- Query Method -->
-              <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-                <mat-label fxFlex="20">Query Method *</mat-label>
-                <mat-radio-group formControlName="queryMethod" fxFlex="auto">
-                  <mat-radio-button value="precise">Precise</mat-radio-button>
-                  <mat-radio-button value="fuzzy">Fuzzy</mat-radio-button>
-                </mat-radio-group>
-              </div>
+            <div *ngIf="currentQueryMethod === this.queryMethods[1]" fxLayout="column"
+              fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
               <!-- Keyword -->
               <mat-form-field appearance="outline" fxFlex="auto">
@@ -104,12 +86,13 @@
                   <button mat-button color="warn" type="button" (click)="documentFuzzyQueryForm.reset()">Reset</button>
                 </div>
                 <div class="document-card-margin">
-                  <button mat-raised-button color="primary" type="submit">Query</button>
+                  <button mat-raised-button color="primary" type="submit">Fuzzy Query</button>
                 </div>
               </div>
 
             </div>
           </form>
+
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

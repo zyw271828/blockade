@@ -7,14 +7,19 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./document-query.component.css']
 })
 export class DocumentQueryComponent implements OnInit {
+  queryMethods: String[] = [
+    'Precise',
+    'Fuzzy'
+  ];
+
+  currentQueryMethod: String = this.queryMethods[0];
+
   documentPreciseQueryForm = this.fb.group({
-    queryMethod: ['precise', Validators.required],
     resourceType: [null, Validators.required],
     resourceID: [null, Validators.required]
   });
 
   documentFuzzyQueryForm = this.fb.group({
-    queryMethod: ['fuzzy', Validators.required],
     keyword: [null, Validators.required]
   });
 
