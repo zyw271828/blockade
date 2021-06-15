@@ -45,7 +45,7 @@
                 Name is <strong>required</strong>
               </mat-error>
             </mat-form-field>
-            <div class="document-card-margin">
+            <div class="misc-margin">
               <mat-checkbox fxFlex="auto" formControlName="isNamePublic">IsNamePublic</mat-checkbox>
             </div>
           </div>
@@ -62,7 +62,7 @@
               <mat-label>Preceding Document ID</mat-label>
               <input matInput placeholder="Optional" formControlName="precedingDocumentID">
             </mat-form-field>
-            <div class="document-card-margin">
+            <div class="misc-margin">
               <button mat-stroked-button type="button" fxFlex="auto" (click)="checkPrecedingDocumentID()">Check</button>
             </div>
           </div>
@@ -73,7 +73,7 @@
               <mat-label>Head Document ID</mat-label>
               <input matInput placeholder="Optional" formControlName="headDocumentID">
             </mat-form-field>
-            <div class="document-card-margin">
+            <div class="misc-margin">
               <button mat-stroked-button type="button" fxFlex="auto" (click)="checkHeadDocumentID()">Check</button>
             </div>
           </div>
@@ -88,7 +88,7 @@
                 Content is <strong>required</strong>
               </mat-error>
             </mat-form-field>
-            <div class="document-card-margin">
+            <div class="misc-margin">
               <input #fileInput hidden="true" type="file" onclick="this.value=null" (change)="fileInputChange($event)">
               <button mat-stroked-button color="primary" type="button" fxFlex="auto"
                 (click)="fileInput.click()">Browse</button>
@@ -104,7 +104,7 @@
                 Policy is <strong>required</strong>
               </mat-error>
             </mat-form-field>
-            <div class="document-card-margin">
+            <div class="misc-margin">
               <mat-icon matTooltip="Help" fxFlex="auto">help</mat-icon>
             </div>
           </div>
