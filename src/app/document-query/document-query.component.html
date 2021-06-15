@@ -1,121 +1,109 @@
 <div class="grid-container">
   <h1 class="mat-h1">Document</h1>
-  <mat-grid-list cols="2" rowHeight="10px">
 
-    <mat-grid-tile [colspan]="2" [rowspan]="currentQueryMethod === this.queryMethods[0] ? 37 : 30">
-      <mat-card class="document-card">
-        <mat-card-header>
-          <mat-card-title>
-            Query
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="document-card-content">
+  <mat-card class="document-card">
+    <mat-card-header>
+      <mat-card-title>
+        Query
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="document-card-content">
 
-          <!-- Query Method -->
-          <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-label fxFlex="20">Query Method *</mat-label>
-            <mat-radio-group [(ngModel)]="currentQueryMethod" fxFlex="auto">
-              <mat-radio-button *ngFor="let queryMethod of queryMethods" [value]="queryMethod">
-                {{queryMethod}}
-              </mat-radio-button>
-            </mat-radio-group>
+      <div style="height: 10px;"></div>
+
+      <!-- Query Method -->
+      <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+        <mat-label fxFlex="20">Query Method *</mat-label>
+        <mat-radio-group [(ngModel)]="currentQueryMethod" fxFlex="auto">
+          <mat-radio-button *ngFor="let queryMethod of queryMethods" [value]="queryMethod">
+            {{queryMethod}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div style="height: 10px;"></div>
+
+      <!-- Precise Query -->
+      <form [formGroup]="documentPreciseQueryForm" novalidate (ngSubmit)="onPreciseQuerySubmit()">
+        <div *ngIf="currentQueryMethod === this.queryMethods[0]" fxLayout="column" fxLayoutAlign="space-around stretch"
+          fxLayoutGap="0px">
+
+          <!-- Resource Type -->
+          <mat-form-field appearance="outline">
+            <mat-label>Resource Type</mat-label>
+            <mat-select required formControlName="resourceType">
+              <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
+                {{resourceType}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="documentPreciseQueryForm.controls['resourceType'].hasError('required')">
+              Resource Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Resource ID -->
+          <mat-form-field appearance="outline" fxFlex="auto">
+            <mat-label>Resource ID</mat-label>
+            <input matInput required formControlName="resourceID">
+            <mat-error *ngIf="documentPreciseQueryForm.controls['resourceID'].hasError('required')">
+              Resource ID is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <div style="height: 10px;"></div>
+
+          <!-- Reset & Query -->
+          <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+            <button mat-button color="warn" type="button" (click)="documentPreciseQueryForm.reset()">Reset</button>
+            <button mat-raised-button color="primary" type="submit">Precise Query</button>
           </div>
 
-          <!-- Precise Query -->
-          <form [formGroup]="documentPreciseQueryForm" novalidate (ngSubmit)="onPreciseQuerySubmit()">
-            <div *ngIf="currentQueryMethod === this.queryMethods[0]" fxLayout="column"
-              fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+        </div>
+      </form>
 
-              <!-- Resource Type -->
-              <mat-form-field appearance="outline">
-                <mat-label>Resource Type</mat-label>
-                <mat-select required formControlName="resourceType">
-                  <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
-                    {{resourceType}}
-                  </mat-option>
-                </mat-select>
-                <mat-error *ngIf="documentPreciseQueryForm.controls['resourceType'].hasError('required')">
-                  Resource Type is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
+      <!-- Fuzzy Query -->
+      <form [formGroup]="documentFuzzyQueryForm" novalidate (ngSubmit)="onFuzzyQuerySubmit()">
+        <div *ngIf="currentQueryMethod === this.queryMethods[1]" fxLayout="column" fxLayoutAlign="space-around stretch"
+          fxLayoutGap="0px">
 
-              <!-- Resource ID -->
-              <mat-form-field appearance="outline" fxFlex="auto">
-                <mat-label>Resource ID</mat-label>
-                <input matInput required formControlName="resourceID">
-                <mat-error *ngIf="documentPreciseQueryForm.controls['resourceID'].hasError('required')">
-                  Resource ID is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
+          <!-- Keyword -->
+          <mat-form-field appearance="outline" fxFlex="auto">
+            <mat-label>Keyword</mat-label>
+            <input matInput required formControlName="keyword">
+            <mat-error *ngIf="documentFuzzyQueryForm.controls['keyword'].hasError('required')">
+              Keyword is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
 
-              <div style="height: 8px;"></div>
+          <div style="height: 10px;"></div>
 
-              <!-- Reset & Query -->
-              <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-                <div class="document-card-margin">
-                  <button mat-button color="warn" type="button"
-                    (click)="documentPreciseQueryForm.reset()">Reset</button>
-                </div>
-                <div class="document-card-margin">
-                  <button mat-raised-button color="primary" type="submit">Precise Query</button>
-                </div>
-              </div>
-
-            </div>
-          </form>
-
-          <!-- Fuzzy Query -->
-          <form [formGroup]="documentFuzzyQueryForm" novalidate (ngSubmit)="onFuzzyQuerySubmit()">
-            <div *ngIf="currentQueryMethod === this.queryMethods[1]" fxLayout="column"
-              fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
-
-              <!-- Keyword -->
-              <mat-form-field appearance="outline" fxFlex="auto">
-                <mat-label>Keyword</mat-label>
-                <input matInput required formControlName="keyword">
-                <mat-error *ngIf="documentFuzzyQueryForm.controls['keyword'].hasError('required')">
-                  Keyword is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-
-              <div style="height: 8px;"></div>
-
-              <!-- Reset & Query -->
-              <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-                <div class="document-card-margin">
-                  <button mat-button color="warn" type="button" (click)="documentFuzzyQueryForm.reset()">Reset</button>
-                </div>
-                <div class="document-card-margin">
-                  <button mat-raised-button color="primary" type="submit">Fuzzy Query</button>
-                </div>
-              </div>
-
-            </div>
-          </form>
-
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
-    <!-- Query Result -->
-    <!-- TODO: automatically resize according to result table -->
-    <mat-grid-tile *ngIf="isResultShow" [colspan]="2" [rowspan]="66">
-      <mat-card class="document-card">
-        <mat-card-header>
-          <mat-card-title>
-            Query Result
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="document-card-content">
-          <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
-
-            <!-- Document Query Result Table -->
-            <app-document-query-result-table></app-document-query-result-table>
-
+          <!-- Reset & Query -->
+          <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+            <button mat-button color="warn" type="button" (click)="documentFuzzyQueryForm.reset()">Reset</button>
+            <button mat-raised-button color="primary" type="submit">Fuzzy Query</button>
           </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
 
-  </mat-grid-list>
+        </div>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Query Result -->
+  <mat-card *ngIf="isResultShow" class="document-card">
+    <mat-card-header>
+      <mat-card-title>
+        Query Result
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="document-card-content">
+      <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+
+        <!-- Document Query Result Table -->
+        <app-document-query-result-table></app-document-query-result-table>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+
 </div>

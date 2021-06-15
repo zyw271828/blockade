@@ -3,11 +3,7 @@
 }
 
 .document-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .document-card-content {
@@ -15,5 +11,5 @@
 }
 
 .document-card-margin {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }

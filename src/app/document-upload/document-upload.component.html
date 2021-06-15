@@ -1,134 +1,124 @@
 <div class="grid-container">
   <h1 class="mat-h1">Document</h1>
-  <mat-grid-list cols="2" rowHeight="800px">
-    <mat-grid-tile [colspan]="2" [rowspan]="1">
-      <mat-card class="document-card">
-        <mat-card-header>
-          <mat-card-title>
-            Upload
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="document-card-content">
-          <form [formGroup]="documentUploadForm" novalidate (ngSubmit)="onSubmit()">
-            <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+  <mat-card class="document-card">
+    <mat-card-header>
+      <mat-card-title>
+        Upload
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="document-card-content">
+      <form [formGroup]="documentUploadForm" novalidate (ngSubmit)="onSubmit()">
+        <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
-              <!-- Resource Type -->
-              <mat-form-field appearance="outline">
-                <mat-label>Resource Type</mat-label>
-                <mat-select required formControlName="resourceType">
-                  <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
-                    {{resourceType}}
-                  </mat-option>
-                </mat-select>
-                <mat-error *ngIf="documentUploadForm.controls['resourceType'].hasError('required')">
-                  Resource Type is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
+          <!-- Resource Type -->
+          <mat-form-field appearance="outline">
+            <mat-label>Resource Type</mat-label>
+            <mat-select required formControlName="resourceType">
+              <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
+                {{resourceType}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="documentUploadForm.controls['resourceType'].hasError('required')">
+              Resource Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
 
-              <!-- Document Type -->
-              <mat-form-field appearance="outline">
-                <mat-label>Document Type</mat-label>
-                <mat-select required formControlName="documentType">
-                  <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
-                    {{documentType}}
-                  </mat-option>
-                </mat-select>
-                <mat-error *ngIf="documentUploadForm.controls['documentType'].hasError('required')">
-                  Document Type is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
+          <!-- Document Type -->
+          <mat-form-field appearance="outline">
+            <mat-label>Document Type</mat-label>
+            <mat-select required formControlName="documentType">
+              <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
+                {{documentType}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="documentUploadForm.controls['documentType'].hasError('required')">
+              Document Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
 
-              <!-- Name -->
-              <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-                <mat-form-field appearance="outline" fxFlex="auto">
-                  <mat-label>Name</mat-label>
-                  <input matInput required formControlName="name">
-                  <mat-error *ngIf="documentUploadForm.controls['name'].hasError('required')">
-                    Name is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-                <div class="document-card-margin">
-                  <mat-checkbox fxFlex="auto" formControlName="isNamePublic">IsNamePublic</mat-checkbox>
-                </div>
-              </div>
-
-              <!-- Entity Asset ID -->
-              <mat-form-field appearance="outline">
-                <mat-label>Entity Asset ID</mat-label>
-                <input matInput placeholder="Optional" formControlName="entityAssetID">
-              </mat-form-field>
-
-              <!-- Preceding Document ID -->
-              <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-                <mat-form-field appearance="outline" fxFlex="auto">
-                  <mat-label>Preceding Document ID</mat-label>
-                  <input matInput placeholder="Optional" formControlName="precedingDocumentID">
-                </mat-form-field>
-                <div class="document-card-margin">
-                  <button mat-stroked-button type="button" fxFlex="auto"
-                    (click)="checkPrecedingDocumentID()">Check</button>
-                </div>
-              </div>
-
-              <!-- Head Document ID -->
-              <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-                <mat-form-field appearance="outline" fxFlex="auto">
-                  <mat-label>Head Document ID</mat-label>
-                  <input matInput placeholder="Optional" formControlName="headDocumentID">
-                </mat-form-field>
-                <div class="document-card-margin">
-                  <button mat-stroked-button type="button" fxFlex="auto" (click)="checkHeadDocumentID()">Check</button>
-                </div>
-              </div>
-
-              <!-- Content -->
-              <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-                <mat-form-field appearance="outline" fxFlex="auto">
-                  <mat-label>Content</mat-label>
-                  <!-- TODO: Upload file -->
-                  <input matInput required placeholder="Filename" [value]="filename" formControlName="content">
-                  <mat-error *ngIf="documentUploadForm.controls['content'].hasError('required')">
-                    Content is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-                <div class="document-card-margin">
-                  <input #fileInput hidden="true" type="file" onclick="this.value=null"
-                    (change)="fileInputChange($event)">
-                  <button mat-stroked-button color="primary" type="button" fxFlex="auto"
-                    (click)="fileInput.click()">Browse</button>
-                </div>
-              </div>
-
-              <!-- Policy -->
-              <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-                <mat-form-field appearance="outline" fxFlex="auto">
-                  <mat-label>Policy</mat-label>
-                  <input matInput required formControlName="policy">
-                  <mat-error *ngIf="documentUploadForm.controls['policy'].hasError('required')">
-                    Policy is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-                <div class="document-card-margin">
-                  <mat-icon matTooltip="Help" fxFlex="auto">help</mat-icon>
-                </div>
-              </div>
-
-              <div style="height: 8px;"></div>
-
-              <!-- Reset & Upload -->
-              <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-                <div class="document-card-margin">
-                  <button mat-button color="warn" type="button" (click)="documentUploadForm.reset()">Reset</button>
-                </div>
-                <div class="document-card-margin">
-                  <button mat-raised-button color="primary" type="submit">Upload</button>
-                </div>
-              </div>
-
+          <!-- Name -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Name</mat-label>
+              <input matInput required formControlName="name">
+              <mat-error *ngIf="documentUploadForm.controls['name'].hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div class="document-card-margin">
+              <mat-checkbox fxFlex="auto" formControlName="isNamePublic">IsNamePublic</mat-checkbox>
             </div>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+          </div>
+
+          <!-- Entity Asset ID -->
+          <mat-form-field appearance="outline">
+            <mat-label>Entity Asset ID</mat-label>
+            <input matInput placeholder="Optional" formControlName="entityAssetID">
+          </mat-form-field>
+
+          <!-- Preceding Document ID -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Preceding Document ID</mat-label>
+              <input matInput placeholder="Optional" formControlName="precedingDocumentID">
+            </mat-form-field>
+            <div class="document-card-margin">
+              <button mat-stroked-button type="button" fxFlex="auto" (click)="checkPrecedingDocumentID()">Check</button>
+            </div>
+          </div>
+
+          <!-- Head Document ID -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Head Document ID</mat-label>
+              <input matInput placeholder="Optional" formControlName="headDocumentID">
+            </mat-form-field>
+            <div class="document-card-margin">
+              <button mat-stroked-button type="button" fxFlex="auto" (click)="checkHeadDocumentID()">Check</button>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Content</mat-label>
+              <!-- TODO: Upload file -->
+              <input matInput required placeholder="Filename" [value]="filename" formControlName="content">
+              <mat-error *ngIf="documentUploadForm.controls['content'].hasError('required')">
+                Content is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div class="document-card-margin">
+              <input #fileInput hidden="true" type="file" onclick="this.value=null" (change)="fileInputChange($event)">
+              <button mat-stroked-button color="primary" type="button" fxFlex="auto"
+                (click)="fileInput.click()">Browse</button>
+            </div>
+          </div>
+
+          <!-- Policy -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Policy</mat-label>
+              <input matInput required formControlName="policy">
+              <mat-error *ngIf="documentUploadForm.controls['policy'].hasError('required')">
+                Policy is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div class="document-card-margin">
+              <mat-icon matTooltip="Help" fxFlex="auto">help</mat-icon>
+            </div>
+          </div>
+
+          <div style="height: 10px;"></div>
+
+          <!-- Reset & Upload -->
+          <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+            <button mat-button color="warn" type="button" (click)="documentUploadForm.reset()">Reset</button>
+            <button mat-raised-button color="primary" type="submit">Upload</button>
+          </div>
+
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
