@@ -24,17 +24,22 @@
           </mat-form-field>
 
           <!-- Document Type -->
-          <mat-form-field appearance="outline">
-            <mat-label>Document Type</mat-label>
-            <mat-select required formControlName="documentType">
-              <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
-                {{documentType}}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="documentUploadForm.controls['documentType'].hasError('required')">
-              Document Type is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Document Type</mat-label>
+              <mat-select required formControlName="documentType">
+                <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
+                  {{documentType}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="documentUploadForm.controls['documentType'].hasError('required')">
+                Document Type is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div class="misc-margin">
+              <mat-checkbox fxFlex="auto" formControlName="isDocumentTypePublic">IsPublic</mat-checkbox>
+            </div>
+          </div>
 
           <!-- Name -->
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
@@ -46,15 +51,20 @@
               </mat-error>
             </mat-form-field>
             <div class="misc-margin">
-              <mat-checkbox fxFlex="auto" formControlName="isNamePublic">IsNamePublic</mat-checkbox>
+              <mat-checkbox fxFlex="auto" formControlName="isNamePublic">IsPublic</mat-checkbox>
             </div>
           </div>
 
           <!-- Entity Asset ID -->
-          <mat-form-field appearance="outline">
-            <mat-label>Entity Asset ID</mat-label>
-            <input matInput placeholder="Optional" formControlName="entityAssetID">
-          </mat-form-field>
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Entity Asset ID</mat-label>
+              <input matInput placeholder="Optional" formControlName="entityAssetID">
+            </mat-form-field>
+            <div class="misc-margin">
+              <mat-checkbox fxFlex="auto" formControlName="isEntityAssetIDPublic">IsPublic</mat-checkbox>
+            </div>
+          </div>
 
           <!-- Preceding Document ID -->
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
@@ -64,6 +74,9 @@
             </mat-form-field>
             <div class="misc-margin">
               <button mat-stroked-button type="button" fxFlex="auto" (click)="checkPrecedingDocumentID()">Check</button>
+            </div>
+            <div class="misc-margin">
+              <mat-checkbox fxFlex="auto" formControlName="isPrecedingDocumentIDPublic">IsPublic</mat-checkbox>
             </div>
           </div>
 
@@ -75,6 +88,9 @@
             </mat-form-field>
             <div class="misc-margin">
               <button mat-stroked-button type="button" fxFlex="auto" (click)="checkHeadDocumentID()">Check</button>
+            </div>
+            <div class="misc-margin">
+              <mat-checkbox fxFlex="auto" formControlName="isHeadDocumentIDPublic">IsPublic</mat-checkbox>
             </div>
           </div>
 

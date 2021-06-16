@@ -17,11 +17,15 @@ export class DocumentUploadComponent implements OnInit {
   documentUploadForm = this.fb.group({
     resourceType: [null, Validators.required],
     documentType: [null, Validators.required],
+    isDocumentTypePublic: false,
     name: [null, Validators.required],
     isNamePublic: false,
     entityAssetID: null,
+    isEntityAssetIDPublic: false,
     precedingDocumentID: null,
+    isPrecedingDocumentIDPublic: false,
     headDocumentID: null,
+    isHeadDocumentIDPublic: false,
     content: [null, Validators.required],
     policy: [null, Validators.required]
   });
