@@ -13,7 +13,8 @@
           <!-- Resource Type -->
           <mat-form-field appearance="outline">
             <mat-label>Resource Type</mat-label>
-            <mat-select required formControlName="resourceType">
+            <mat-select [(ngModel)]="currentResourceType" required formControlName="resourceType"
+              (selectionChange)="resourceTypeChange(currentResourceType)">
               <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
                 {{resourceType}}
               </mat-option>
@@ -112,7 +113,8 @@
           </div>
 
           <!-- Policy -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+          <div *ngIf="currentResourceType !== this.resourceTypes[0]" fxLayout="row" fxLayoutAlign="space-between center"
+            fxLayoutGap="8px">
             <mat-form-field appearance="outline" fxFlex="auto">
               <mat-label>Policy</mat-label>
               <input matInput required formControlName="policy">

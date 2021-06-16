@@ -36,6 +36,8 @@ export class DocumentUploadComponent implements OnInit {
     'Encryption (off chain)'
   ];
 
+  currentResourceType: String = "";
+
   documentTypes: String[] = [
     'Design',
     'Production',
@@ -73,19 +75,37 @@ export class DocumentUploadComponent implements OnInit {
     });
   }
 
+  resourceTypeChange(currentResourceType: String) {
+    if (currentResourceType === this.resourceTypes[0]) {
+      this.documentUploadForm.get("policy")?.disable();
+    } else {
+      this.documentUploadForm.get("policy")?.enable();
+    }
+  }
+
   fileInputChange(fileInputEvent: any) {
     this.filename = fileInputEvent.target.files[0].name;
   }
 
   onSubmit(): void {
-    // TODO: submit documentUploadForm
-    this.dialog.open(DocumentUploadPromptDialog, {
-      data: {
-        title: 'Result',
-        content: 'Upload successfully',
-        action: 'Close'
-      }
-    });
+    if (this.documentUploadForm.valid) {
+      // TODO: submit documentUploadForm
+      this.dialog.open(DocumentUploadPromptDialog, {
+        data: {
+          title: 'Result',
+          content: 'Upload successfully',
+          action: 'Close'
+        }
+      });
+    } else { // documentUploadForm is invalid
+      this.dialog.open(DocumentUploadPromptDialog, {
+        data: {
+          title: 'Result',
+          content: 'Please check your input',
+          action: 'Close'
+        }
+      });
+    }
   }
 }
 
