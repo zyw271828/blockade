@@ -51,6 +51,10 @@ export class DocumentQueryComponent implements OnInit {
     this.currentIsTimeExact = result;
   }
 
+  clearDocumentType() {
+    this.documentConditionalQueryForm.get("documentType")?.setValue(null);
+  }
+
   conditionalQueryResetButtonClick() {
     this.currentIsTimeExact = false;
     this.documentConditionalQueryForm.reset();
