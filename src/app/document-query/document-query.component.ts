@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Utils } from '../utils';
 
 @Component({
   selector: 'app-document-query',
@@ -23,11 +24,7 @@ export class DocumentQueryComponent implements OnInit {
     keyword: [null, Validators.required]
   });
 
-  resourceTypes: String[] = [
-    'Plaintext',
-    'Encryption (on chain)',
-    'Encryption (off chain)'
-  ];
+  resourceTypes: String[] = Utils.getResourceTypes();
 
   isResultShow: boolean = false;
 

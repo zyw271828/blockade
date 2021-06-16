@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Utils } from '../utils';
 
 export interface DialogData {
   title: string;
@@ -30,21 +31,11 @@ export class DocumentUploadComponent implements OnInit {
     policy: [null, Validators.required]
   });
 
-  resourceTypes: String[] = [
-    'Plaintext',
-    'Encryption (on chain)',
-    'Encryption (off chain)'
-  ];
+  resourceTypes: String[] = Utils.getResourceTypes();
 
   currentResourceType: String = "";
 
-  documentTypes: String[] = [
-    'Design',
-    'Production',
-    'Use',
-    'Maintenance',
-    'Transfer'
-  ];
+  documentTypes: String[] = Utils.getDocumentTypes();
 
   filename: String = "";
 
