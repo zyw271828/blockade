@@ -25,9 +25,9 @@
       </button>
       <span class="fill-space">Blockade</span>
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-        <mat-icon matTooltip="Dark theme">brightness_low</mat-icon>
+        <mat-icon matTooltip="Dark theme">dark_mode</mat-icon>
         <mat-slide-toggle [formControl]="themeToggleControl"></mat-slide-toggle>
-        <mat-icon matTooltip="Light theme">brightness_high</mat-icon>
+        <mat-icon matTooltip="Light theme">light_mode</mat-icon>
         <mat-divider vertical></mat-divider>
         <mat-icon *ngIf="isConnected()" matTooltip="Connected">check_circle</mat-icon>
         <mat-icon *ngIf="!isConnected()" matTooltip="Not connected">error</mat-icon>
