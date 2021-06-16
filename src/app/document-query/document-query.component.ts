@@ -37,12 +37,16 @@ export class DocumentQueryComponent implements OnInit {
   }
 
   onPreciseQuerySubmit(): void {
-    // TODO: submit documentPreciseQueryForm
-    this.isResultShow = true;
+    if (this.documentPreciseQueryForm.valid) {
+      // TODO: submit documentPreciseQueryForm
+      this.isResultShow = true;
+    }
   }
 
   onFuzzyQuerySubmit(): void {
-    // TODO: submit documentFuzzyQueryForm
-    this.isResultShow = true;
+    if (this.documentFuzzyQueryForm.valid) {
+      // TODO: submit documentFuzzyQueryForm
+      this.isResultShow = true;
+    }
   }
 }
