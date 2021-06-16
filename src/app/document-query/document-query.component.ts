@@ -9,18 +9,18 @@ import { Utils } from '../utils';
 })
 export class DocumentQueryComponent implements OnInit {
   queryMethods: String[] = [
-    'Precise',
-    'Fuzzy'
+    'ID',
+    'Conditional'
   ];
 
   currentQueryMethod: String = this.queryMethods[0];
 
-  documentPreciseQueryForm = this.fb.group({
+  documentIDQueryForm = this.fb.group({
     resourceType: [null, Validators.required],
     resourceID: [null, Validators.required]
   });
 
-  documentFuzzyQueryForm = this.fb.group({
+  documentConditionalQueryForm = this.fb.group({
     keyword: [null, Validators.required]
   });
 
@@ -33,16 +33,16 @@ export class DocumentQueryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onPreciseQuerySubmit(): void {
-    if (this.documentPreciseQueryForm.valid) {
-      // TODO: submit documentPreciseQueryForm
+  onIDQuerySubmit(): void {
+    if (this.documentIDQueryForm.valid) {
+      // TODO: submit documentIDQueryForm
       this.isResultShow = true;
     }
   }
 
-  onFuzzyQuerySubmit(): void {
-    if (this.documentFuzzyQueryForm.valid) {
-      // TODO: submit documentFuzzyQueryForm
+  onConditionalQuerySubmit(): void {
+    if (this.documentConditionalQueryForm.valid) {
+      // TODO: submit documentConditionalQueryForm
       this.isResultShow = true;
     }
   }

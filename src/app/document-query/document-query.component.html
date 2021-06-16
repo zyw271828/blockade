@@ -23,8 +23,8 @@
 
       <div style="height: 10px;"></div>
 
-      <!-- Precise Query -->
-      <form [formGroup]="documentPreciseQueryForm" novalidate (ngSubmit)="onPreciseQuerySubmit()">
+      <!-- ID Query -->
+      <form [formGroup]="documentIDQueryForm" novalidate (ngSubmit)="onIDQuerySubmit()">
         <div *ngIf="currentQueryMethod === this.queryMethods[0]" fxLayout="column" fxLayoutAlign="space-around stretch"
           fxLayoutGap="0px">
 
@@ -36,7 +36,7 @@
                 {{resourceType}}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="documentPreciseQueryForm.controls['resourceType'].hasError('required')">
+            <mat-error *ngIf="documentIDQueryForm.controls['resourceType'].hasError('required')">
               Resource Type is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -45,7 +45,7 @@
           <mat-form-field appearance="outline" fxFlex="auto">
             <mat-label>Resource ID</mat-label>
             <input matInput required formControlName="resourceID">
-            <mat-error *ngIf="documentPreciseQueryForm.controls['resourceID'].hasError('required')">
+            <mat-error *ngIf="documentIDQueryForm.controls['resourceID'].hasError('required')">
               Resource ID is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -54,15 +54,15 @@
 
           <!-- Reset & Query -->
           <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-            <button mat-button color="warn" type="button" (click)="documentPreciseQueryForm.reset()">Reset</button>
-            <button mat-raised-button color="primary" type="submit">Precise Query</button>
+            <button mat-button color="warn" type="button" (click)="documentIDQueryForm.reset()">Reset</button>
+            <button mat-raised-button color="primary" type="submit">ID Query</button>
           </div>
 
         </div>
       </form>
 
-      <!-- Fuzzy Query -->
-      <form [formGroup]="documentFuzzyQueryForm" novalidate (ngSubmit)="onFuzzyQuerySubmit()">
+      <!-- Conditional Query -->
+      <form [formGroup]="documentConditionalQueryForm" novalidate (ngSubmit)="onConditionalQuerySubmit()">
         <div *ngIf="currentQueryMethod === this.queryMethods[1]" fxLayout="column" fxLayoutAlign="space-around stretch"
           fxLayoutGap="0px">
 
@@ -70,7 +70,7 @@
           <mat-form-field appearance="outline" fxFlex="auto">
             <mat-label>Keyword</mat-label>
             <input matInput required formControlName="keyword">
-            <mat-error *ngIf="documentFuzzyQueryForm.controls['keyword'].hasError('required')">
+            <mat-error *ngIf="documentConditionalQueryForm.controls['keyword'].hasError('required')">
               Keyword is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -79,8 +79,8 @@
 
           <!-- Reset & Query -->
           <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-            <button mat-button color="warn" type="button" (click)="documentFuzzyQueryForm.reset()">Reset</button>
-            <button mat-raised-button color="primary" type="submit">Fuzzy Query</button>
+            <button mat-button color="warn" type="button" (click)="documentConditionalQueryForm.reset()">Reset</button>
+            <button mat-raised-button color="primary" type="submit">Conditional Query</button>
           </div>
 
         </div>
