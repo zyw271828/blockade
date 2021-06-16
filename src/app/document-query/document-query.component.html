@@ -66,20 +66,53 @@
         <div *ngIf="currentQueryMethod === this.queryMethods[1]" fxLayout="column" fxLayoutAlign="space-around stretch"
           fxLayoutGap="0px">
 
-          <!-- Keyword -->
-          <mat-form-field appearance="outline" fxFlex="auto">
-            <mat-label>Keyword</mat-label>
-            <input matInput required formControlName="keyword">
-            <mat-error *ngIf="documentConditionalQueryForm.controls['keyword'].hasError('required')">
-              Keyword is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
+          <!-- Resource ID -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Resource ID</mat-label>
+              <input matInput formControlName="resourceID">
+            </mat-form-field>
+          </div>
+
+          <!-- Name -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name">
+            </mat-form-field>
+            <div class="misc-margin">
+              <mat-checkbox fxFlex="auto" formControlName="isNameExact">IsNameExact</mat-checkbox>
+            </div>
+          </div>
+
+          <!-- Time -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field *ngIf="currentIsTimeExact" appearance="outline" fxFlex="auto">
+              <mat-label>Time</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="time">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field *ngIf="!currentIsTimeExact" appearance="outline" fxFlex="auto">
+              <mat-label>Time Range</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start time" formControlName="timeAfterInclusive">
+                <input matEndDate placeholder="End time" formControlName="timeBeforeExclusive">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <div class="misc-margin">
+              <mat-checkbox fxFlex="auto" formControlName="isTimeExact"
+                (change)="timeExactCheckboxChange($event.checked)">IsTimeExact</mat-checkbox>
+            </div>
+          </div>
 
           <div style="height: 10px;"></div>
 
           <!-- Reset & Query -->
           <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-            <button mat-button color="warn" type="button" (click)="documentConditionalQueryForm.reset()">Reset</button>
+            <button mat-button color="warn" type="button" (click)="conditionalQueryResetButtonClick()">Reset</button>
             <button mat-raised-button color="primary" type="submit">Conditional Query</button>
           </div>
 

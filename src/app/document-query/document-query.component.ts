@@ -21,16 +21,39 @@ export class DocumentQueryComponent implements OnInit {
   });
 
   documentConditionalQueryForm = this.fb.group({
-    keyword: [null, Validators.required]
+    resourceID: null,
+    name: null,
+    isNameExact: null,
+    time: null,
+    timeAfterInclusive: null,
+    timeBeforeExclusive: null,
+    isTimeExact: null,
+    documentType: null,
+    precedingDocumentID: null,
+    headDocumentID: null,
+    entityAssetID: null
   });
 
   resourceTypes: String[] = Utils.getResourceTypes();
+
+  documentTypes: String[] = Utils.getDocumentTypes();
+
+  currentIsTimeExact: boolean = false;
 
   isResultShow: boolean = false;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  timeExactCheckboxChange(result: boolean) {
+    this.currentIsTimeExact = result;
+  }
+
+  conditionalQueryResetButtonClick() {
+    this.currentIsTimeExact = false;
+    this.documentConditionalQueryForm.reset();
   }
 
   onIDQuerySubmit(): void {
