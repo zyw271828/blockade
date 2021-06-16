@@ -108,6 +108,42 @@
             </div>
           </div>
 
+          <!-- Document Type -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Document Type</mat-label>
+              <mat-select formControlName="documentType">
+                <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
+                  {{documentType}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <!-- Preceding Document ID -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Preceding Document ID</mat-label>
+              <input matInput formControlName="precedingDocumentID">
+            </mat-form-field>
+          </div>
+
+          <!-- Head Document ID -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Head Document ID</mat-label>
+              <input matInput formControlName="headDocumentID">
+            </mat-form-field>
+          </div>
+
+          <!-- Entity Asset ID -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Entity Asset ID</mat-label>
+              <input matInput formControlName="entityAssetID">
+            </mat-form-field>
+          </div>
+
           <div style="height: 10px;"></div>
 
           <!-- Reset & Query -->
