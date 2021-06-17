@@ -13,7 +13,7 @@ export interface DocumentUploadRecordTableItem {
   creationTime: Date;
 }
 
-// TODO: replace this with real data from your application
+// TODO: replace this with real data
 const EXAMPLE_DATA: DocumentUploadRecordTableItem[] = [
   { id: 1, resourceID: 20, resourceType: 'Plaintext', name: 'name', creationTime: new Date() },
   { id: 2, resourceID: 19, resourceType: 'Encryption (on chain)', name: 'name', creationTime: new Date() },

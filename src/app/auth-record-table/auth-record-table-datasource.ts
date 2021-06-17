@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { merge, Observable, of as observableOf } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-// TODO: Replace this with your own data model type
+// Data model type
 export interface AuthRecordTableItem {
   id: number;
   resourceID: number;
@@ -14,7 +14,7 @@ export interface AuthRecordTableItem {
   status: string;
 }
 
-// TODO: replace this with real data from your application
+// TODO: replace this with real data
 const EXAMPLE_DATA: AuthRecordTableItem[] = [
   { id: 1, resourceID: 20, resourceType: 'Plaintext', name: 'name', authSessionID: 'ABCDEF', status: 'Allow' },
   { id: 2, resourceID: 19, resourceType: 'Encryption (on chain)', name: 'name', authSessionID: 'ABCDEF', status: 'Deny' },

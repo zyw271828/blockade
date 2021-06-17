@@ -12,7 +12,7 @@ export interface DocumentQueryResultTableItem {
   name: string;
 }
 
-// TODO: replace this with real data from your application
+// TODO: replace this with real data
 const EXAMPLE_DATA: DocumentQueryResultTableItem[] = [
   { id: 1, resourceID: 20, resourceType: 'Plaintext', name: 'name' },
   { id: 2, resourceID: 19, resourceType: 'Encryption (on chain)', name: 'name' },
