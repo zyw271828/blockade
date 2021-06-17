@@ -16,6 +16,30 @@
           <a mat-list-item routerLink="/document/upload-record">Upload Record</a>
         </mat-expansion-panel>
       </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Asset
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLink="/asset/upload">Upload</a>
+          <a mat-list-item routerLink="/asset/query">Query</a>
+          <a mat-list-item routerLink="/asset/upload-record">Upload Record</a>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Auth
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLink="/auth/request">Request</a>
+          <a mat-list-item routerLink="/auth/record">Record</a>
+          <a mat-list-item routerLink="/auth/approve">Approve</a>
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
