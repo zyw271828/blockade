@@ -70,7 +70,7 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
             <mat-form-field appearance="outline" fxFlex="auto">
               <mat-label>Resource ID</mat-label>
-              <input matInput formControlName="resourceID">
+              <input matInput placeholder="Optional" formControlName="resourceID">
             </mat-form-field>
           </div>
 
@@ -78,7 +78,7 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
             <mat-form-field appearance="outline" fxFlex="auto">
               <mat-label>Name</mat-label>
-              <input matInput formControlName="name">
+              <input matInput placeholder="Optional" formControlName="name">
             </mat-form-field>
             <div class="misc-margin">
               <mat-checkbox fxFlex="auto" formControlName="isNameExact">IsNameExact</mat-checkbox>
@@ -89,7 +89,7 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
             <mat-form-field *ngIf="currentIsTimeExact" appearance="outline" fxFlex="auto">
               <mat-label>Time</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="time">
+              <input matInput placeholder="Optional" [matDatepicker]="picker" formControlName="time">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -127,7 +127,7 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
             <mat-form-field appearance="outline" fxFlex="auto">
               <mat-label>Preceding Document ID</mat-label>
-              <input matInput formControlName="precedingDocumentID">
+              <input matInput placeholder="Optional" formControlName="precedingDocumentID">
             </mat-form-field>
           </div>
 
@@ -135,7 +135,7 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
             <mat-form-field appearance="outline" fxFlex="auto">
               <mat-label>Head Document ID</mat-label>
-              <input matInput formControlName="headDocumentID">
+              <input matInput placeholder="Optional" formControlName="headDocumentID">
             </mat-form-field>
           </div>
 
@@ -143,7 +143,7 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
             <mat-form-field appearance="outline" fxFlex="auto">
               <mat-label>Entity Asset ID</mat-label>
-              <input matInput formControlName="entityAssetID">
+              <input matInput placeholder="Optional" formControlName="entityAssetID">
             </mat-form-field>
           </div>
 
