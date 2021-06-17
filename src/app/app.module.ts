@@ -31,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthRequestComponent } from './auth-request/auth-request.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DocumentQueryResultDetailDialog, DocumentQueryResultTableComponent } from './document-query-result-table/document-query-result-table.component';
 import { DocumentQueryComponent } from './document-query/document-query.component';
@@ -52,7 +53,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     DocumentUploadRecordComponent,
     DocumentUploadRecordTableComponent,
     DocumentQueryResultTableComponent,
-    DocumentQueryResultDetailDialog
+    DocumentQueryResultDetailDialog,
+    AuthRequestComponent
   ],
   imports: [
     BrowserModule,
