@@ -41,6 +41,7 @@ import { DocumentUploadRecordComponent } from './document-upload-record/document
 import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-upload/document-upload.component';
 import { InMemoryDataService } from './in-memory-data.service';
 import { NavigationComponent } from './navigation/navigation.component';
+import { AuthRecordTableComponent } from './auth-record-table/auth-record-table.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     DocumentQueryResultDetailDialog,
     AuthRequestComponent,
     AuthRequestPromptDialog,
-    AuthRecordComponent
+    AuthRecordComponent,
+    AuthRecordTableComponent
   ],
   imports: [
     BrowserModule,
