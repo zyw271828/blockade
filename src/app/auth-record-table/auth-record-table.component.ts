@@ -16,7 +16,14 @@ export class AuthRecordTableComponent implements AfterViewInit {
   dataSource: AuthRecordTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = [
+    'id',
+    'resourceID',
+    'resourceType',
+    'name',
+    'authSessionID',
+    'status'
+  ];
 
   constructor() {
     this.dataSource = new AuthRecordTableDataSource();
