@@ -3,6 +3,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { Utils } from '../utils';
 import { AuthRecordTableDataSource, AuthRecordTableItem } from './auth-record-table-datasource';
 
 export interface DialogData {
@@ -32,6 +33,8 @@ export class AuthRecordTableComponent implements AfterViewInit {
     'status',
     'operation'
   ];
+
+  authRequestStatus: String[] = Utils.getAuthRequestStatus();
 
   constructor(public dialog: MatDialog) {
     this.dataSource = new AuthRecordTableDataSource();

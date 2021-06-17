@@ -13,11 +13,21 @@ export class Utils {
     'Transfer'
   ];
 
+  private static authRequestStatus: String[] = [
+    'Allow',
+    'Deny',
+    'Unknown'
+  ];
+
   static getResourceTypes(): String[] {
     return this.resourceTypes;
   }
 
   static getDocumentTypes(): String[] {
     return this.documentTypes;
+  }
+
+  static getAuthRequestStatus(): String[] {
+    return this.authRequestStatus;
   }
 }
