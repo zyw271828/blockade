@@ -1,1 +1,40 @@
-<p>auth-request works!</p>
+<div class="container">
+  <h1 class="mat-h1">Auth</h1>
+  <mat-card class="auth-card">
+    <mat-card-header>
+      <mat-card-title>
+        Request
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="auth-card-content">
+      <form [formGroup]="authRequestForm" novalidate (ngSubmit)="onSubmit()">
+        <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+
+          <!-- Resource ID -->
+          <mat-form-field appearance="outline" fxFlex="auto">
+            <mat-label>Resource ID</mat-label>
+            <input matInput required formControlName="resourceID">
+            <mat-error *ngIf="authRequestForm.controls['resourceID'].hasError('required')">
+              Resource ID is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Reason -->
+          <mat-form-field appearance="outline" fxFlex="auto">
+            <mat-label>Reason</mat-label>
+            <input matInput placeholder="Optional" formControlName="reason">
+          </mat-form-field>
+
+          <div style="height: 10px;"></div>
+
+          <!-- Reset & Request -->
+          <div class="auth-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+            <button mat-button color="warn" type="button" (click)="authRequestForm.reset()">Reset</button>
+            <button mat-raised-button color="primary" type="submit">Request</button>
+          </div>
+
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
