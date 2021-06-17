@@ -1,0 +1,11 @@
+.container {
+  overflow-x: auto;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.mat-divider.mat-divider-vertical {
+  height: 30px;
+}
