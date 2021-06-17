@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+export interface DialogData {
+  title: string;
+  content: string;
+  action: string;
+}
 
 @Component({
   selector: 'app-auth-request',
@@ -12,7 +19,7 @@ export class AuthRequestComponent implements OnInit {
     reason: null
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -20,13 +27,21 @@ export class AuthRequestComponent implements OnInit {
   onSubmit(): void {
     if (this.authRequestForm.valid) {
       // TODO: submit authRequestForm
-      // this.dialog.open(AuthRequestPromptDialog, {
-      //   data: {
-      //     title: 'Result',
-      //     content: 'Request successfully',
-      //     action: 'Close'
-      //   }
-      // });
+      this.dialog.open(AuthRequestPromptDialog, {
+        data: {
+          title: 'Result',
+          content: 'Request successfully',
+          action: 'Close'
+        }
+      });
     }
   }
+}
+
+@Component({
+  selector: 'auth-request-prompt-dialog',
+  templateUrl: './auth-request-prompt-dialog.html',
+})
+export class AuthRequestPromptDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 }
