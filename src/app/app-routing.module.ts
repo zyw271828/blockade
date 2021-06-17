@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthRecordComponent } from './auth-record/auth-record.component';
 import { AuthRequestComponent } from './auth-request/auth-request.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DocumentQueryComponent } from './document-query/document-query.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'document/query', component: DocumentQueryComponent },
   { path: 'document/upload-record', component: DocumentUploadRecordComponent },
   { path: 'auth/request', component: AuthRequestComponent },
+  { path: 'auth/record', component: AuthRecordComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
