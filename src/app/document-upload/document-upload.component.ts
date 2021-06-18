@@ -33,8 +33,6 @@ export class DocumentUploadComponent implements OnInit {
 
   resourceTypes: String[] = Utils.getResourceTypes('document');
 
-  currentResourceType: String = "";
-
   documentTypes: String[] = Utils.getDocumentTypes();
 
   filename: String = "";
@@ -66,8 +64,8 @@ export class DocumentUploadComponent implements OnInit {
     });
   }
 
-  resourceTypeChange(currentResourceType: String) {
-    if (currentResourceType === this.resourceTypes[0]) {
+  resourceTypeChange(value: string) {
+    if (value === this.resourceTypes[0]) {
       this.documentUploadForm.get("policy")?.disable();
     } else {
       this.documentUploadForm.get("policy")?.enable();

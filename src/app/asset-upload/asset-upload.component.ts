@@ -19,8 +19,6 @@ export class AssetUploadComponent implements OnInit {
 
   resourceTypes: String[] = Utils.getResourceTypes('asset');
 
-  currentResourceType: String = "";
-
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 
   constructor(private fb: FormBuilder) { }
@@ -28,8 +26,8 @@ export class AssetUploadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  resourceTypeChange(currentResourceType: String) {
-    if (currentResourceType === this.resourceTypes[0]) {
+  resourceTypeChange(value: string) {
+    if (value === this.resourceTypes[0]) {
       this.assetUploadForm.get("policy")?.disable();
     } else {
       this.assetUploadForm.get("policy")?.enable();
