@@ -78,6 +78,11 @@ export class DocumentUploadComponent implements OnInit {
     this.filename = fileInputEvent.target.files[0].name;
   }
 
+  documentUploadResetButtonClick() {
+    this.documentUploadForm.get("policy")?.enable();
+    this.documentUploadForm.reset();
+  }
+
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
       // TODO: submit documentUploadForm
