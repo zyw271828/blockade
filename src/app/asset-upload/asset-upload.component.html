@@ -7,7 +7,69 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content class="asset-card-content">
+      <form [formGroup]="assetUploadForm" novalidate (ngSubmit)="onSubmit()">
+        <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
+          <!-- Resource Type -->
+          <mat-form-field appearance="outline">
+            <mat-label>Resource Type</mat-label>
+            <mat-select [(ngModel)]="currentResourceType" required formControlName="resourceType"
+              (selectionChange)="resourceTypeChange(currentResourceType)">
+              <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
+                {{resourceType}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="assetUploadForm.controls['resourceType'].hasError('required')">
+              Resource Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Name -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Name</mat-label>
+              <input matInput required formControlName="name">
+              <mat-error *ngIf="assetUploadForm.controls['name'].hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!-- Component IDs -->
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Component IDs</mat-label>
+              <input matInput required formControlName="componentIDs">
+              <mat-error *ngIf="assetUploadForm.controls['componentIDs'].hasError('required')">
+                Component IDs are <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!-- Policy -->
+          <div *ngIf="currentResourceType !== this.resourceTypes[0]" fxLayout="row" fxLayoutAlign="space-between center"
+            fxLayoutGap="8px">
+            <mat-form-field appearance="outline" fxFlex="auto">
+              <mat-label>Policy</mat-label>
+              <input matInput required formControlName="policy">
+              <mat-error *ngIf="assetUploadForm.controls['policy'].hasError('required')">
+                Policy is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div class="misc-margin">
+              <mat-icon matTooltip="Help" fxFlex="auto">help</mat-icon>
+            </div>
+          </div>
+
+          <div style="height: 10px;"></div>
+
+          <!-- Reset & Upload -->
+          <div class="asset-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+            <button mat-button color="warn" type="button" (click)="assetUploadResetButtonClick()">Reset</button>
+            <button mat-raised-button color="primary" type="submit">Upload</button>
+          </div>
+        </div>
+      </form>
     </mat-card-content>
   </mat-card>
 </div>
