@@ -59,6 +59,18 @@ export class AssetUploadComponent implements OnInit {
     this.componentIDs?.updateValueAndValidity();
   }
 
+  pasteComponentID(event: ClipboardEvent): void {
+    event.preventDefault();
+    event.clipboardData?.getData('text').split(/\n|,|\ /)
+      .forEach(value => {
+        if (value.trim()) {
+          this.componentIDs?.value.push(value.trim());
+        }
+      })
+
+    this.componentIDs?.updateValueAndValidity();
+  }
+
   assetUploadResetButtonClick() {
     this.assetUploadForm.get("policy")?.enable();
     this.assetUploadForm.reset();

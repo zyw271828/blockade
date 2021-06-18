@@ -46,7 +46,7 @@
                 </mat-chip>
                 <input matInput placeholder="New Component ID..." [matChipInputFor]="chipList"
                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
-                  (matChipInputTokenEnd)="addComponentID($event)">
+                  (matChipInputTokenEnd)="addComponentID($event)" (paste)="pasteComponentID($event)">
               </mat-chip-list>
               <mat-error *ngIf="assetUploadForm.controls['componentIDs'].hasError('required')">
                 Component IDs are <strong>required</strong>
