@@ -33,6 +33,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AssetQueryComponent } from './asset-query/asset-query.component';
+import { AssetUploadRecordComponent } from './asset-upload-record/asset-upload-record.component';
 import { AssetUploadComponent, AssetUploadPromptDialog } from './asset-upload/asset-upload.component';
 import { AuthApproveTableComponent } from './auth-approve-table/auth-approve-table.component';
 import { AuthApproveComponent } from './auth-approve/auth-approve.component';
@@ -64,6 +65,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     AssetUploadComponent,
     AssetUploadPromptDialog,
     AssetQueryComponent,
+    AssetUploadRecordComponent,
     AuthRequestComponent,
     AuthRequestPromptDialog,
     AuthRecordComponent,
