@@ -39,7 +39,16 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
             <mat-form-field appearance="outline" fxFlex="auto">
               <mat-label>Component IDs</mat-label>
-              <input matInput required formControlName="componentIDs">
+              <mat-chip-list required formControlName="componentIDs" #chipList>
+                <mat-chip *ngFor="let componentID of assetUploadForm.get('componentIDs')?.value" [selectable]="true"
+                  [removable]="true" (removed)="removeComponentID(componentID)">
+                  {{componentID}}
+                  <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+                <input matInput placeholder="New Component ID..." [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+                  (matChipInputTokenEnd)="addComponentID($event)">
+              </mat-chip-list>
               <mat-error *ngIf="assetUploadForm.controls['componentIDs'].hasError('required')">
                 Component IDs are <strong>required</strong>
               </mat-error>
