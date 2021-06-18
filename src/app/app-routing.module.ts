@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AssetQueryComponent } from './asset-query/asset-query.component';
 import { AssetUploadComponent } from './asset-upload/asset-upload.component';
 import { AuthApproveComponent } from './auth-approve/auth-approve.component';
 import { AuthRecordComponent } from './auth-record/auth-record.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'document/query', component: DocumentQueryComponent },
   { path: 'document/upload-record', component: DocumentUploadRecordComponent },
   { path: 'asset/upload', component: AssetUploadComponent },
+  { path: 'asset/query', component: AssetQueryComponent },
   { path: 'auth/request', component: AuthRequestComponent },
   { path: 'auth/record', component: AuthRecordComponent },
   { path: 'auth/approve', component: AuthApproveComponent },
