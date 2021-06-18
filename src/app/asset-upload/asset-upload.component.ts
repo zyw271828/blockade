@@ -1,8 +1,15 @@
 import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Utils } from '../utils';
+
+export interface DialogData {
+  title: string;
+  content: string;
+  action: string;
+}
 
 @Component({
   selector: 'app-asset-upload',
@@ -21,7 +28,7 @@ export class AssetUploadComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -80,7 +87,29 @@ export class AssetUploadComponent implements OnInit {
   onSubmit(): void {
     if (this.assetUploadForm.valid) {
       // TODO: submit assetUploadForm
+      this.dialog.open(AssetUploadPromptDialog, {
+        data: {
+          title: 'Result',
+          content: 'Upload successfully',
+          action: 'Close'
+        }
+      });
     } else { // assetUploadForm is invalid
+      this.dialog.open(AssetUploadPromptDialog, {
+        data: {
+          title: 'Result',
+          content: 'Please check your input',
+          action: 'Close'
+        }
+      });
     }
   }
+}
+
+@Component({
+  selector: 'asset-upload-prompt-dialog',
+  templateUrl: 'asset-upload-prompt-dialog.html',
+})
+export class AssetUploadPromptDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 }

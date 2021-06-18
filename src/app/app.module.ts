@@ -32,7 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AssetUploadComponent } from './asset-upload/asset-upload.component';
+import { AssetUploadComponent, AssetUploadPromptDialog } from './asset-upload/asset-upload.component';
 import { AuthApproveTableComponent } from './auth-approve-table/auth-approve-table.component';
 import { AuthApproveComponent } from './auth-approve/auth-approve.component';
 import { AuthRecordDetailDialog, AuthRecordTableComponent } from './auth-record-table/auth-record-table.component';
@@ -61,6 +61,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     DocumentQueryResultTableComponent,
     DocumentQueryResultDetailDialog,
     AssetUploadComponent,
+    AssetUploadPromptDialog,
     AuthRequestComponent,
     AuthRequestPromptDialog,
     AuthRecordComponent,
