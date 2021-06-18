@@ -1,5 +1,5 @@
 export class Utils {
-  private static resourceTypes: String[] = [
+  private static documentResourceTypes: String[] = [
     'Plaintext',
     'Encryption (on chain)',
     'Encryption (off chain)'
@@ -13,14 +13,25 @@ export class Utils {
     'Transfer'
   ];
 
+  private static assetResourceTypes: String[] = [
+    'Plaintext',
+    'Encryption'
+  ];
+
   private static authRequestStatus: String[] = [
     'Allow',
     'Deny',
     'Unknown'
   ];
 
-  static getResourceTypes(): String[] {
-    return this.resourceTypes;
+  static getResourceTypes(supertype: string): String[] {
+    if (supertype === 'document') {
+      return this.documentResourceTypes;
+    } else if (supertype === 'asset') {
+      return this.assetResourceTypes;
+    } else {
+      return [];
+    }
   }
 
   static getDocumentTypes(): String[] {

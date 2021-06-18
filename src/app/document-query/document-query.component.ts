@@ -34,7 +34,7 @@ export class DocumentQueryComponent implements OnInit {
     entityAssetID: null
   });
 
-  resourceTypes: String[] = Utils.getResourceTypes();
+  resourceTypes: String[] = Utils.getResourceTypes('document');
 
   documentTypes: String[] = Utils.getDocumentTypes();
 

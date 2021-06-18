@@ -31,7 +31,7 @@ export class DocumentUploadComponent implements OnInit {
     policy: [null, Validators.required]
   });
 
-  resourceTypes: String[] = Utils.getResourceTypes();
+  resourceTypes: String[] = Utils.getResourceTypes('document');
 
   currentResourceType: String = "";
 
