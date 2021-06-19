@@ -17,3 +17,8 @@
 .misc-margin {
   margin-bottom: 20px;
 }
+
+.mat-radio-group {
+  display: flex;
+  justify-content: space-around;
+}
