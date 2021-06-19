@@ -34,6 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AssetQueryResultDetailDialog, AssetQueryResultTableComponent } from './asset-query-result-table/asset-query-result-table.component';
 import { AssetQueryComponent } from './asset-query/asset-query.component';
+import { AssetUploadRecordTableComponent } from './asset-upload-record-table/asset-upload-record-table.component';
 import { AssetUploadRecordComponent } from './asset-upload-record/asset-upload-record.component';
 import { AssetUploadComponent, AssetUploadPromptDialog } from './asset-upload/asset-upload.component';
 import { AuthApproveTableComponent } from './auth-approve-table/auth-approve-table.component';
@@ -69,6 +70,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     AssetQueryResultTableComponent,
     AssetQueryResultDetailDialog,
     AssetUploadRecordComponent,
+    AssetUploadRecordTableComponent,
     AuthRequestComponent,
     AuthRequestPromptDialog,
     AuthRecordComponent,
