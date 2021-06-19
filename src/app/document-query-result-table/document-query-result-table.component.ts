@@ -23,7 +23,8 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   dataSource: DocumentQueryResultTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id',
+  displayedColumns = [
+    'id',
     'resourceID',
     'resourceType',
     'name',

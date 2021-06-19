@@ -38,8 +38,6 @@ export class DocumentQueryComponent implements OnInit {
 
   documentTypes: String[] = Utils.getDocumentTypes();
 
-  currentIsTimeExact: boolean = false;
-
   isResultShow: boolean = false;
 
   constructor(private fb: FormBuilder) { }
@@ -47,17 +45,8 @@ export class DocumentQueryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  timeExactCheckboxChange(result: boolean) {
-    this.currentIsTimeExact = result;
-  }
-
   clearDocumentType() {
     this.documentConditionalQueryForm.get("documentType")?.setValue(null);
-  }
-
-  conditionalQueryResetButtonClick() {
-    this.currentIsTimeExact = false;
-    this.documentConditionalQueryForm.reset();
   }
 
   onIDQuerySubmit(): void {

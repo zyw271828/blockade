@@ -33,22 +33,11 @@ export class AssetQueryComponent implements OnInit {
 
   resourceTypes: String[] = Utils.getResourceTypes('asset');
 
-  currentIsTimeExact: boolean = false;
-
   isResultShow: boolean = false;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-  }
-
-  timeExactCheckboxChange(result: boolean) {
-    this.currentIsTimeExact = result;
-  }
-
-  conditionalQueryResetButtonClick() {
-    this.currentIsTimeExact = false;
-    this.assetConditionalQueryForm.reset();
   }
 
   onIDQuerySubmit(): void {

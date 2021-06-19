@@ -87,13 +87,15 @@
 
           <!-- Time -->
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field *ngIf="currentIsTimeExact" appearance="outline" fxFlex="auto">
+            <mat-form-field *ngIf="assetConditionalQueryForm.get('isTimeExact')?.value" appearance="outline"
+              fxFlex="auto">
               <mat-label>Time</mat-label>
               <input matInput placeholder="Optional" [matDatepicker]="picker" formControlName="time">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-            <mat-form-field *ngIf="!currentIsTimeExact" appearance="outline" fxFlex="auto">
+            <mat-form-field *ngIf="!assetConditionalQueryForm.get('isTimeExact')?.value" appearance="outline"
+              fxFlex="auto">
               <mat-label>Time Range</mat-label>
               <mat-date-range-input [rangePicker]="picker">
                 <input matStartDate placeholder="Start time" formControlName="timeAfterInclusive">
@@ -103,8 +105,7 @@
               <mat-date-range-picker #picker></mat-date-range-picker>
             </mat-form-field>
             <div class="misc-margin">
-              <mat-checkbox fxFlex="auto" formControlName="isTimeExact"
-                (change)="timeExactCheckboxChange($event.checked)">IsTimeExact</mat-checkbox>
+              <mat-checkbox fxFlex="auto" formControlName="isTimeExact">IsTimeExact</mat-checkbox>
             </div>
           </div>
 
@@ -120,7 +121,7 @@
 
           <!-- Reset & Query -->
           <div class="asset-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-            <button mat-button color="warn" type="button" (click)="conditionalQueryResetButtonClick()">Reset</button>
+            <button mat-button color="warn" type="button" (click)="assetConditionalQueryForm.reset()">Reset</button>
             <button mat-raised-button color="primary" type="submit">Conditional Query</button>
           </div>
 
