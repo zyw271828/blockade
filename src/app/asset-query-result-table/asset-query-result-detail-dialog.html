@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content class="container">
+  <table class="mat-table">
+    <tr class="mat-header-row">
+      <th class="mat-header-cell">Item</th>
+      <th class="mat-header-cell">Value</th>
+    </tr>
+    <tr class="mat-row">
+      <td class="mat-cell">ResourceID</td>
+      <td class="mat-cell">{{data.resourceID}}</td>
+    </tr>
+    <tr class="mat-row">
+      <td class="mat-cell">Name</td>
+      <td class="mat-cell">{{data.name}}</td>
+    </tr>
+  </table>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial
+    (click)="downloadAsset(data.resourceID)">Download</button>
+</div>
