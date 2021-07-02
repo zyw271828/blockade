@@ -55,6 +55,7 @@
         <mat-divider vertical></mat-divider>
         <mat-icon *ngIf="isConnected()" matTooltip="Connected">check_circle</mat-icon>
         <mat-icon *ngIf="!isConnected()" matTooltip="Not connected">error</mat-icon>
+        <span *ngIf="!isConnected()" class="mat-body-strong">Not connected</span>
       </div>
     </mat-toolbar>
     <div [ngSwitch]="getUrl()">
