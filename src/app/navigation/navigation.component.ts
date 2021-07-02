@@ -1,10 +1,11 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
+import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { filter, map, shareReplay, withLatestFrom } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navigation',
@@ -12,6 +13,8 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
+  @ViewChild('drawer', { static: true })
+  drawer!: MatSidenav;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -19,7 +22,12 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) { }
+  constructor(private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) {
+    router.events.pipe(
+      withLatestFrom(this.isHandset$),
+      filter(([a, b]) => b && a instanceof NavigationEnd)
+    ).subscribe(_ => this.drawer.close());
+  }
 
   themeToggleControl = new FormControl(false);
   @HostBinding('class') className = '';
