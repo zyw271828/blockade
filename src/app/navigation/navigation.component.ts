@@ -6,6 +6,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, shareReplay, withLatestFrom } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-navigation',
@@ -13,6 +14,8 @@ import { filter, map, shareReplay, withLatestFrom } from 'rxjs/operators';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
+  version = environment.version;
+
   @ViewChild('drawer', { static: true })
   drawer!: MatSidenav;
 
