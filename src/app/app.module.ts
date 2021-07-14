@@ -48,6 +48,7 @@ import { DocumentQueryComponent } from './document-query/document-query.componen
 import { DocumentUploadRecordTableComponent } from './document-upload-record-table/document-upload-record-table.component';
 import { DocumentUploadRecordComponent } from './document-upload-record/document-upload-record.component';
 import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-upload/document-upload.component';
+import { FooterComponent } from './footer/footer.component';
 import { InMemoryDataService } from './in-memory-data.service';
 import { NavigationComponent } from './navigation/navigation.component';
 
@@ -77,7 +78,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     AuthRecordTableComponent,
     AuthRecordDetailDialog,
     AuthApproveComponent,
-    AuthApproveTableComponent
+    AuthApproveTableComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

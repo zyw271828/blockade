@@ -42,12 +42,12 @@
       </mat-accordion>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
+  <mat-sidenav-content fxLayout="column">
+    <mat-toolbar color="primary" style="min-height: 64px !important; height: 64px !important;">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon" matTooltip="Menu">menu</mat-icon>
       </button>
-      <span class="fill-space">Blockade v{{version}}</span>
+      <span class="fill-space">Blockade</span>
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
         <mat-icon matTooltip="Dark theme">dark_mode</mat-icon>
         <mat-slide-toggle [formControl]="themeToggleControl"></mat-slide-toggle>
@@ -58,7 +58,7 @@
         <span *ngIf="!isConnected()" class="mat-body-strong">Not connected</span>
       </div>
     </mat-toolbar>
-    <div [ngSwitch]="getUrl()">
+    <div [ngSwitch]="getUrl()" fxFlex="auto">
       <div *ngSwitchCase="'/dashboard'">
         <app-dashboard></app-dashboard>
       </div>
@@ -93,5 +93,6 @@
         <app-dashboard></app-dashboard>
       </div>
     </div>
+    <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
