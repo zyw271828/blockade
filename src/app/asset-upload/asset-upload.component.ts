@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Utils } from '../utils';
 
 export interface DialogData {
@@ -28,7 +29,7 @@ export class AssetUploadComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -87,12 +88,8 @@ export class AssetUploadComponent implements OnInit {
   onSubmit(): void {
     if (this.assetUploadForm.valid) {
       // TODO: submit assetUploadForm
-      this.dialog.open(AssetUploadPromptDialog, {
-        data: {
-          title: 'Result',
-          content: 'Upload successfully',
-          action: 'Close'
-        }
+      this._snackBar.open('Upload successfully', 'DISMISS', {
+        duration: 3000,
       });
     } else { // assetUploadForm is invalid
       this.dialog.open(AssetUploadPromptDialog, {

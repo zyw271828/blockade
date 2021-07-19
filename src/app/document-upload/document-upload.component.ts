@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Utils } from '../utils';
 
 export interface DialogData {
@@ -37,7 +38,7 @@ export class DocumentUploadComponent implements OnInit {
 
   filename: String = "";
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -84,12 +85,8 @@ export class DocumentUploadComponent implements OnInit {
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
       // TODO: submit documentUploadForm
-      this.dialog.open(DocumentUploadPromptDialog, {
-        data: {
-          title: 'Result',
-          content: 'Upload successfully',
-          action: 'Close'
-        }
+      this._snackBar.open('Upload successfully', 'DISMISS', {
+        duration: 3000,
       });
     } else { // documentUploadForm is invalid
       this.dialog.open(DocumentUploadPromptDialog, {

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface DialogData {
   title: string;
@@ -19,7 +20,7 @@ export class AuthRequestComponent implements OnInit {
     reason: null
   });
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -27,10 +28,14 @@ export class AuthRequestComponent implements OnInit {
   onSubmit(): void {
     if (this.authRequestForm.valid) {
       // TODO: submit authRequestForm
+      this._snackBar.open('Request successfully', 'DISMISS', {
+        duration: 3000,
+      });
+    } else { // authRequestForm is invalid
       this.dialog.open(AuthRequestPromptDialog, {
         data: {
           title: 'Result',
-          content: 'Request successfully',
+          content: 'Please check your input',
           action: 'Close'
         }
       });
