@@ -48,6 +48,11 @@ export class NavigationComponent {
     return this.router.url;
   }
 
+  getUserInfo(): string {
+    // TODO: get user information
+    return "Username (Identity)";
+  }
+
   isConnected(): boolean {
     // TODO: check connectivity
     return true;
