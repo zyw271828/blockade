@@ -3,7 +3,8 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/dashboard">Dashboard</a>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive #dashboardRla="routerLinkActive"
+        [ngClass]="dashboardRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Dashboard</a>
       <mat-accordion>
         <mat-expansion-panel [expanded]="true">
           <mat-expansion-panel-header>
@@ -11,9 +12,14 @@
               Document
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a mat-list-item routerLink="/document/upload">Upload</a>
-          <a mat-list-item routerLink="/document/query">Query</a>
-          <a mat-list-item routerLink="/document/upload-record">Upload Record</a>
+          <a mat-list-item routerLink="/document/upload" routerLinkActive #documentUploadRla="routerLinkActive"
+            [ngClass]="documentUploadRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Upload</a>
+          <a mat-list-item routerLink="/document/query" routerLinkActive #documentQueryRla="routerLinkActive"
+            [ngClass]="documentQueryRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Query</a>
+          <a mat-list-item routerLink="/document/upload-record" routerLinkActive
+            #documentUploadRecordRla="routerLinkActive"
+            [ngClass]="documentUploadRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Upload
+            Record</a>
         </mat-expansion-panel>
       </mat-accordion>
       <mat-accordion>
@@ -23,9 +29,13 @@
               Asset
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a mat-list-item routerLink="/asset/upload">Upload</a>
-          <a mat-list-item routerLink="/asset/query">Query</a>
-          <a mat-list-item routerLink="/asset/upload-record">Upload Record</a>
+          <a mat-list-item routerLink="/asset/upload" routerLinkActive #assetUploadRla="routerLinkActive"
+            [ngClass]="assetUploadRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Upload</a>
+          <a mat-list-item routerLink="/asset/query" routerLinkActive #assetQueryRla="routerLinkActive"
+            [ngClass]="assetQueryRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Query</a>
+          <a mat-list-item routerLink="/asset/upload-record" routerLinkActive #assetUploadRecordRla="routerLinkActive"
+            [ngClass]="assetUploadRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Upload
+            Record</a>
         </mat-expansion-panel>
       </mat-accordion>
       <mat-accordion>
@@ -35,9 +45,12 @@
               Auth
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a mat-list-item routerLink="/auth/request">Request</a>
-          <a mat-list-item routerLink="/auth/record">Record</a>
-          <a mat-list-item routerLink="/auth/approve">Approve</a>
+          <a mat-list-item routerLink="/auth/request" routerLinkActive #authRequestRla="routerLinkActive"
+            [ngClass]="authRequestRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Request</a>
+          <a mat-list-item routerLink="/auth/record" routerLinkActive #authRecordRla="routerLinkActive"
+            [ngClass]="authRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Record</a>
+          <a mat-list-item routerLink="/auth/approve" routerLinkActive #authApproveRla="routerLinkActive"
+            [ngClass]="authApproveRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Approve</a>
         </mat-expansion-panel>
       </mat-accordion>
     </mat-nav-list>
