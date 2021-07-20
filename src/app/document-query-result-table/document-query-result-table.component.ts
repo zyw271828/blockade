@@ -9,6 +9,17 @@ export interface DialogData {
   title: string;
   resourceID: number;
   name: string;
+  resourceType: string;
+  hash: string;
+  ciphertextHash: string;
+  size: string;
+  ciphertextSize: string;
+  creator: string;
+  creationTime: Date;
+  documentType: string;
+  precedingDocumentID: number;
+  headDocumentID: number;
+  entityAssetID: number;
 }
 
 @Component({
@@ -41,13 +52,24 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
-  showDetail(resourceID: number, name: string) {
+  showDetail(resourceID: number) {
     // TODO: get details by resourceID 
     this.dialog.open(DocumentQueryResultDetailDialog, {
       data: {
         title: 'Detail',
         resourceID: resourceID,
-        name: name
+        name: '',
+        resourceType: '',
+        hash: '',
+        ciphertextHash: '',
+        size: '',
+        ciphertextSize: '',
+        creator: '',
+        creationTime: new Date(),
+        documentType: '',
+        precedingDocumentID: '',
+        headDocumentID: '',
+        entityAssetID: ''
       }
     });
   }
