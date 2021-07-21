@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Utils } from '../utils';
 
 @Component({
@@ -40,7 +41,7 @@ export class DocumentQueryComponent implements OnInit {
 
   isResultShow: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -53,6 +54,10 @@ export class DocumentQueryComponent implements OnInit {
     if (this.documentIDQueryForm.valid) {
       // TODO: submit documentIDQueryForm
       this.isResultShow = true;
+    } else { // documentIDQueryForm is invalid
+      this._snackBar.open('Please check your input', 'DISMISS', {
+        duration: 5000
+      });
     }
   }
 
@@ -60,6 +65,10 @@ export class DocumentQueryComponent implements OnInit {
     if (this.documentConditionalQueryForm.valid) {
       // TODO: submit documentConditionalQueryForm
       this.isResultShow = true;
+    } else { // documentConditionalQueryForm is invalid
+      this._snackBar.open('Please check your input', 'DISMISS', {
+        duration: 5000
+      });
     }
   }
 }

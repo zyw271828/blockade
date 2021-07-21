@@ -46,23 +46,15 @@ export class DocumentUploadComponent implements OnInit {
 
   checkPrecedingDocumentID() {
     // TODO: checkPrecedingDocumentID, change color instead of pop-up prompt
-    this.dialog.open(DocumentUploadPromptDialog, {
-      data: {
-        title: 'Result',
-        content: 'Preceding Document ID checked',
-        action: 'Close'
-      }
+    this._snackBar.open('Preceding Document ID checked', 'DISMISS', {
+      duration: 5000
     });
   }
 
   checkHeadDocumentID() {
     // TODO: checkHeadDocumentID, change color instead of pop-up prompt
-    this.dialog.open(DocumentUploadPromptDialog, {
-      data: {
-        title: 'Result',
-        content: 'Head Document ID checked',
-        action: 'Close'
-      }
+    this._snackBar.open('Head Document ID checked', 'DISMISS', {
+      duration: 5000
     });
   }
 
@@ -97,12 +89,8 @@ export class DocumentUploadComponent implements OnInit {
         this.clipboard.copy(transactionID);
       });
     } else { // documentUploadForm is invalid
-      this.dialog.open(DocumentUploadPromptDialog, {
-        data: {
-          title: 'Result',
-          content: 'Please check your input',
-          action: 'Close'
-        }
+      this._snackBar.open('Please check your input', 'DISMISS', {
+        duration: 5000
       });
     }
   }

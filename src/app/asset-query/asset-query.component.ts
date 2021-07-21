@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Utils } from '../utils';
 
 @Component({
@@ -35,7 +36,7 @@ export class AssetQueryComponent implements OnInit {
 
   isResultShow: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +45,10 @@ export class AssetQueryComponent implements OnInit {
     if (this.assetIDQueryForm.valid) {
       // TODO: submit assetIDQueryForm
       this.isResultShow = true;
+    } else { // assetIDQueryForm is invalid
+      this._snackBar.open('Please check your input', 'DISMISS', {
+        duration: 5000
+      });
     }
   }
 
@@ -51,6 +56,10 @@ export class AssetQueryComponent implements OnInit {
     if (this.assetConditionalQueryForm.valid) {
       // TODO: submit assetConditionalQueryForm
       this.isResultShow = true;
+    } else { // assetConditionalQueryForm is invalid
+      this._snackBar.open('Please check your input', 'DISMISS', {
+        duration: 5000
+      });
     }
   }
 }

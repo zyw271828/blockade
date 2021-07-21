@@ -40,12 +40,8 @@ export class AuthRequestComponent implements OnInit {
         this.clipboard.copy(transactionID);
       });
     } else { // authRequestForm is invalid
-      this.dialog.open(AuthRequestPromptDialog, {
-        data: {
-          title: 'Result',
-          content: 'Please check your input',
-          action: 'Close'
-        }
+      this._snackBar.open('Please check your input', 'DISMISS', {
+        duration: 5000
       });
     }
   }

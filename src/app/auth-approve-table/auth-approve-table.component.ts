@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { Utils } from '../utils';
@@ -28,7 +29,7 @@ export class AuthApproveTableComponent implements AfterViewInit {
 
   authRequestStatus: String[] = Utils.getAuthRequestStatus();
 
-  constructor() {
+  constructor(private _snackBar: MatSnackBar) {
     this.dataSource = new AuthApproveTableDataSource();
   }
 
@@ -40,9 +41,15 @@ export class AuthApproveTableComponent implements AfterViewInit {
 
   allowAuthSession(authSessionID: string) {
     // TODO: allow auth request by authSessionID
+    this._snackBar.open('Allowed: ' + authSessionID, 'DISMISS', {
+      duration: 5000
+    });
   }
 
   denyAuthSession(authSessionID: string) {
     // TODO: deny auth request by authSessionID
+    this._snackBar.open('Denied: ' + authSessionID, 'DISMISS', {
+      duration: 5000
+    });
   }
 }

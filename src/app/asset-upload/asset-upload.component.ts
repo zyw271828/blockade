@@ -100,12 +100,8 @@ export class AssetUploadComponent implements OnInit {
         this.clipboard.copy(transactionID);
       });
     } else { // assetUploadForm is invalid
-      this.dialog.open(AssetUploadPromptDialog, {
-        data: {
-          title: 'Result',
-          content: 'Please check your input',
-          action: 'Close'
-        }
+      this._snackBar.open('Please check your input', 'DISMISS', {
+        duration: 5000
       });
     }
   }
