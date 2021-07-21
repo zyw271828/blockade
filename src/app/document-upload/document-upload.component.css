@@ -21,3 +21,7 @@
 ::ng-deep .success-snackbar {
   white-space: pre-wrap;
 }
+
+::ng-deep .help-tooltip {
+  white-space: pre-line;
+}
