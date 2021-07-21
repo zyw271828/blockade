@@ -17,3 +17,7 @@
 .misc-margin {
   margin-bottom: 20px;
 }
+
+::ng-deep .success-snackbar {
+  white-space: pre-wrap;
+}

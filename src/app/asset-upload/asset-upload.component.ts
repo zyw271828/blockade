@@ -1,3 +1,4 @@
+import { Clipboard } from '@angular/cdk/clipboard';
 import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -29,7 +30,7 @@ export class AssetUploadComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private clipboard: Clipboard, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -87,9 +88,16 @@ export class AssetUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.assetUploadForm.valid) {
-      // TODO: submit assetUploadForm
-      this._snackBar.open('Upload successfully', 'DISMISS', {
-        duration: 3000,
+      // TODO: submit assetUploadForm and set transactionID
+      let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
+
+      let transactionIDFormat = transactionID.replace(/(.{32})/g, "$1\n"); // Insert line break after every 32 characters
+      let snackBarRef = this._snackBar.open('Upload successfully\nTransaction ID:\n' + transactionIDFormat, 'COPY', {
+        duration: 5000,
+        panelClass: ['success-snackbar']
+      });
+      snackBarRef.onAction().subscribe(() => {
+        this.clipboard.copy(transactionID);
       });
     } else { // assetUploadForm is invalid
       this.dialog.open(AssetUploadPromptDialog, {

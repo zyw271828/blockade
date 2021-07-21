@@ -1,3 +1,4 @@
+import { Clipboard } from '@angular/cdk/clipboard';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -20,16 +21,23 @@ export class AuthRequestComponent implements OnInit {
     reason: null
   });
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private clipboard: Clipboard, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
     if (this.authRequestForm.valid) {
-      // TODO: submit authRequestForm
-      this._snackBar.open('Request successfully', 'DISMISS', {
-        duration: 3000,
+      // TODO: submit authRequestForm and set transactionID
+      let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
+
+      let transactionIDFormat = transactionID.replace(/(.{32})/g, "$1\n"); // Insert line break after every 32 characters
+      let snackBarRef = this._snackBar.open('Request successfully\nTransaction ID:\n' + transactionIDFormat, 'COPY', {
+        duration: 5000,
+        panelClass: ['success-snackbar']
+      });
+      snackBarRef.onAction().subscribe(() => {
+        this.clipboard.copy(transactionID);
       });
     } else { // authRequestForm is invalid
       this.dialog.open(AuthRequestPromptDialog, {
