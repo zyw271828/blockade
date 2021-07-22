@@ -1,0 +1,13 @@
+.container {
+  margin: 10px;
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+::ng-deep .break-line {
+  white-space: pre-line;
+}

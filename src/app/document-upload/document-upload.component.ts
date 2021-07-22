@@ -7,7 +7,10 @@ import { Utils } from '../utils';
 
 export interface DialogData {
   title: string;
-  content: string;
+  content: {
+    item: string;
+    value: string;
+  }[];
   action: string;
 }
 
@@ -39,7 +42,7 @@ export class DocumentUploadComponent implements OnInit {
 
   filename: String = "";
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private clipboard: Clipboard, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -77,16 +80,31 @@ export class DocumentUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
-      // TODO: submit documentUploadForm and set transactionID
+      // TODO: submit documentUploadForm
+      // TODO: set resourceID, transactionID and symmetricKeyMaterial
+      let resourceID = '00000000000000000000';
       let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
+      let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '00000000\n'
+        + '-----END PUBLIC KEY-----';
 
-      let transactionIDFormat = transactionID.replace(/(.{32})/g, "$1\n"); // Insert line break after every 32 characters
-      let snackBarRef = this._snackBar.open('Upload successfully\nTransaction ID:\n' + transactionIDFormat, 'COPY', {
-        duration: 5000,
-        panelClass: ['success-snackbar']
-      });
-      snackBarRef.onAction().subscribe(() => {
-        this.clipboard.copy(transactionID);
+      this.dialog.open(DocumentUploadPromptDialog, {
+        disableClose: true,
+        data: {
+          title: 'Upload successfully',
+          content: [
+            { item: 'ResourceID', value: resourceID },
+            { item: 'TransactionID', value: transactionID },
+            { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
+          ],
+          action: 'Close'
+        }
       });
     } else { // documentUploadForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
@@ -98,8 +116,19 @@ export class DocumentUploadComponent implements OnInit {
 
 @Component({
   selector: 'document-upload-prompt-dialog',
-  templateUrl: 'document-upload-prompt-dialog.html',
+  templateUrl: './document-upload-prompt-dialog.html',
+  styleUrls: ['./document-upload-prompt-dialog.css']
 })
 export class DocumentUploadPromptDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  displayedColumns: string[] = [
+    'item',
+    'value',
+    'operation'
+  ];
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private clipboard: Clipboard) { }
+
+  copyToClipboard(content: string) {
+    this.clipboard.copy(content);
+  }
 }
