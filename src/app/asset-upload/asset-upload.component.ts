@@ -9,7 +9,10 @@ import { Utils } from '../utils';
 
 export interface DialogData {
   title: string;
-  content: string;
+  content: {
+    item: string;
+    value: string;
+  }[];
   action: string;
 }
 
@@ -30,7 +33,7 @@ export class AssetUploadComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private clipboard: Clipboard, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -88,16 +91,31 @@ export class AssetUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.assetUploadForm.valid) {
-      // TODO: submit assetUploadForm and set transactionID
+      // TODO: submit assetUploadForm
+      // TODO: set resourceID, transactionID and symmetricKeyMaterial
+      let resourceID = '00000000000000000000';
       let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
+      let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '00000000\n'
+        + '-----END PUBLIC KEY-----';
 
-      let transactionIDFormat = transactionID.replace(/(.{32})/g, "$1\n"); // Insert line break after every 32 characters
-      let snackBarRef = this._snackBar.open('Upload successfully\nTransaction ID:\n' + transactionIDFormat, 'COPY', {
-        duration: 5000,
-        panelClass: ['success-snackbar']
-      });
-      snackBarRef.onAction().subscribe(() => {
-        this.clipboard.copy(transactionID);
+      this.dialog.open(AssetUploadPromptDialog, {
+        disableClose: true,
+        data: {
+          title: 'Upload successfully',
+          content: [
+            { item: 'ResourceID', value: resourceID },
+            { item: 'TransactionID', value: transactionID },
+            { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
+          ],
+          action: 'Close'
+        }
       });
     } else { // assetUploadForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
@@ -109,8 +127,19 @@ export class AssetUploadComponent implements OnInit {
 
 @Component({
   selector: 'asset-upload-prompt-dialog',
-  templateUrl: 'asset-upload-prompt-dialog.html',
+  templateUrl: './asset-upload-prompt-dialog.html',
+  styleUrls: ['./asset-upload-prompt-dialog.css']
 })
 export class AssetUploadPromptDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  displayedColumns: string[] = [
+    'item',
+    'value',
+    'operation'
+  ];
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private clipboard: Clipboard) { }
+
+  copyToClipboard(content: string) {
+    this.clipboard.copy(content);
+  }
 }
