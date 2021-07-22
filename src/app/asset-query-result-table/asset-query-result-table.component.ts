@@ -7,19 +7,10 @@ import { AssetQueryResultTableDataSource, AssetQueryResultTableItem } from './as
 
 export interface DialogData {
   title: string;
-  resourceID: number;
-  name: string;
-  resourceType: string;
-  hash: string;
-  ciphertextHash: string;
-  size: string;
-  ciphertextSize: string;
-  creator: string;
-  creationTime: Date;
-  documentType: string;
-  precedingDocumentID: number;
-  headDocumentID: number;
-  entityAssetID: number;
+  content: {
+    item: string;
+    value: string;
+  }[];
 }
 
 @Component({
@@ -53,23 +44,38 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
   }
 
   showDetail(resourceID: number) {
-    // TODO: get details by resourceID 
+    // TODO: get details by resourceID
+    let name = '';
+    let resourceType = '';
+    let hash = '';
+    let ciphertextHash = '';
+    let size = '';
+    let ciphertextSize = '';
+    let creator = '';
+    let creationTime = new Date();
+    let documentType = '';
+    let precedingDocumentID = '';
+    let headDocumentID = '';
+    let entityAssetID = '';
+
     this.dialog.open(AssetQueryResultDetailDialog, {
       data: {
         title: 'Detail',
-        resourceID: resourceID,
-        name: '',
-        resourceType: '',
-        hash: '',
-        ciphertextHash: '',
-        size: '',
-        ciphertextSize: '',
-        creator: '',
-        creationTime: new Date(),
-        documentType: '',
-        precedingDocumentID: '',
-        headDocumentID: '',
-        entityAssetID: ''
+        content: [
+          { item: 'ResourceID', value: resourceID },
+          { item: 'Name', value: name },
+          { item: 'ResourceType', value: resourceType },
+          { item: 'Hash', value: hash },
+          { item: 'CiphertextHash', value: ciphertextHash },
+          { item: 'Size', value: size },
+          { item: 'CiphertextSize', value: ciphertextSize },
+          { item: 'Creator', value: creator },
+          { item: 'CreationTime', value: creationTime },
+          { item: 'DocumentType', value: documentType },
+          { item: 'PrecedingDocumentID', value: precedingDocumentID },
+          { item: 'HeadDocumentID', value: headDocumentID },
+          { item: 'EntityAssetID', value: entityAssetID }
+        ]
       }
     });
   }
@@ -81,9 +87,19 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
   styleUrls: ['./asset-query-result-detail-dialog.css']
 })
 export class AssetQueryResultDetailDialog {
+  displayedColumns: string[] = [
+    'item',
+    'value'
+  ];
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   downloadAsset(resourceID: number) {
-    // TODO: download asset by resourceID 
+    // TODO: download asset by resourceID
+  }
+
+  findInDataSource(dataSource: { item: string; value: string; }[], target: string): string {
+    let result = dataSource.find(row => row.item === target)?.value;
+    return (result === undefined) ? '' : result;
   }
 }
