@@ -6,7 +6,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface DialogData {
   title: string;
-  content: string;
+  content: {
+    item: string;
+    value: string;
+  }[];
   action: string;
 }
 
@@ -21,23 +24,38 @@ export class AuthRequestComponent implements OnInit {
     reason: null
   });
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private clipboard: Clipboard, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
     if (this.authRequestForm.valid) {
-      // TODO: submit authRequestForm and set transactionID
+      // TODO: submit authRequestForm
+      // TODO: set authSessionID, transactionID and symmetricKeyMaterial
+      let authSessionID = 'ABCDEF';
       let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
+      let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '0000000000000000000000000000000000000000000000000000000000000000\n'
+        + '00000000\n'
+        + '-----END PUBLIC KEY-----';
 
-      let transactionIDFormat = transactionID.replace(/(.{32})/g, "$1\n"); // Insert line break after every 32 characters
-      let snackBarRef = this._snackBar.open('Request successfully\nTransaction ID:\n' + transactionIDFormat, 'COPY', {
-        duration: 5000,
-        panelClass: ['success-snackbar']
-      });
-      snackBarRef.onAction().subscribe(() => {
-        this.clipboard.copy(transactionID);
+      this.dialog.open(AuthRequestPromptDialog, {
+        disableClose: true,
+        data: {
+          title: 'Upload successfully',
+          content: [
+            { item: 'AuthSessionID', value: authSessionID },
+            { item: 'TransactionID', value: transactionID },
+            { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
+          ],
+          action: 'Close'
+        }
       });
     } else { // authRequestForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
@@ -50,7 +68,18 @@ export class AuthRequestComponent implements OnInit {
 @Component({
   selector: 'auth-request-prompt-dialog',
   templateUrl: './auth-request-prompt-dialog.html',
+  styleUrls: ['./auth-request-prompt-dialog.css']
 })
 export class AuthRequestPromptDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  displayedColumns: string[] = [
+    'item',
+    'value',
+    'operation'
+  ];
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private clipboard: Clipboard) { }
+
+  copyToClipboard(content: string) {
+    this.clipboard.copy(content);
+  }
 }
