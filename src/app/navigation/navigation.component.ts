@@ -7,6 +7,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, shareReplay, withLatestFrom } from 'rxjs/operators';
 
+import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -16,13 +18,15 @@ export class NavigationComponent {
   @ViewChild('drawer', { static: true })
   drawer!: MatSidenav;
 
+  isConnected: boolean = false;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) {
+  constructor(private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router, private auth: AuthService) {
     router.events.pipe(
       withLatestFrom(this.isHandset$),
       filter(([a, b]) => b && a instanceof NavigationEnd)
@@ -42,6 +46,8 @@ export class NavigationComponent {
         this.overlay.getContainerElement().classList.remove(lightClassName);
       }
     });
+    this.TestConnection();
+    var interval = setInterval(() => this.TestConnection(), 3000); // Set Timer for checking connectivity every 3s.
   }
 
   getUrl(): string {
@@ -53,8 +59,14 @@ export class NavigationComponent {
     return "Username (Identity)";
   }
 
-  isConnected(): boolean {
-    // TODO: check connectivity
-    return true;
+  TestConnection(): void {
+    this.auth.checkConnection().subscribe(res => {
+      if(res.status == 200){
+        this.isConnected = true
+      }
+      else{
+        this.isConnected = false
+      }
+    });
   }
 }
