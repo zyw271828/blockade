@@ -36,7 +36,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
     'operation'
   ];
 
-  authRequestStatus: String[] = Utils.getAuthRequestStatus();
+  authRequestStatus: string[] = Utils.getAuthRequestStatus();
 
   constructor(public dialog: MatDialog) {
     this.dataSource = new AuthRecordTableDataSource();

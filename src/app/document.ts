@@ -1,5 +1,5 @@
 export interface Document {
-  id: Number;
+  id: number;
   resourceType: string;
   documentType: string;
   isDocumentTypePublic: boolean;

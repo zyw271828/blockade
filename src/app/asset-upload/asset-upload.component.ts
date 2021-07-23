@@ -29,7 +29,7 @@ export class AssetUploadComponent implements OnInit {
     policy: [null, Validators.required]
   });
 
-  resourceTypes: String[] = Utils.getResourceTypes('asset');
+  resourceTypes: string[] = Utils.getResourceTypes('asset');
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 

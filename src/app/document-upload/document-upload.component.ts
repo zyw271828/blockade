@@ -38,11 +38,11 @@ export class DocumentUploadComponent implements OnInit {
     policy: [null, Validators.required]
   });
 
-  resourceTypes: String[] = Utils.getResourceTypes('document');
+  resourceTypes: string[] = Utils.getResourceTypes('document');
 
-  documentTypes: String[] = Utils.getDocumentTypes();
+  documentTypes: string[] = Utils.getDocumentTypes();
 
-  filename: String = "";
+  filename: string = "";
 
   constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,
     public dialog: MatDialog, private documentService: DocumentService) { }

@@ -1,11 +1,11 @@
 export class Utils {
-  private static documentResourceTypes: String[] = [
+  private static documentResourceTypes: string[] = [
     'Plaintext',
     'Encryption (on chain)',
     'Encryption (off chain)'
   ];
 
-  private static documentTypes: String[] = [
+  private static documentTypes: string[] = [
     'Design',
     'Production',
     'Use',
@@ -13,18 +13,18 @@ export class Utils {
     'Transfer'
   ];
 
-  private static assetResourceTypes: String[] = [
+  private static assetResourceTypes: string[] = [
     'Plaintext',
     'Encryption'
   ];
 
-  private static authRequestStatus: String[] = [
+  private static authRequestStatus: string[] = [
     'Allow',
     'Deny',
     'Unknown'
   ];
 
-  static getResourceTypes(supertype: string): String[] {
+  static getResourceTypes(supertype: string): string[] {
     if (supertype === 'document') {
       return this.documentResourceTypes;
     } else if (supertype === 'asset') {
@@ -34,11 +34,11 @@ export class Utils {
     }
   }
 
-  static getDocumentTypes(): String[] {
+  static getDocumentTypes(): string[] {
     return this.documentTypes;
   }
 
-  static getAuthRequestStatus(): String[] {
+  static getAuthRequestStatus(): string[] {
     return this.authRequestStatus;
   }
 }
