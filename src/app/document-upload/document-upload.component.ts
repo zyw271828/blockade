@@ -3,6 +3,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { DocumentService } from '../document.service';
 import { Utils } from '../utils';
 
 export interface DialogData {
@@ -42,7 +44,8 @@ export class DocumentUploadComponent implements OnInit {
 
   filename: String = "";
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,
+    public dialog: MatDialog, private documentService: DocumentService) { }
 
   ngOnInit(): void {
   }
@@ -81,6 +84,8 @@ export class DocumentUploadComponent implements OnInit {
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
       // TODO: submit documentUploadForm
+      // The data of the respond needs to be extracted.
+      this.documentService.uploadDocument(this.documentUploadForm.value).subscribe();
       // TODO: set resourceID, transactionID and symmetricKeyMaterial
       let resourceID = '00000000000000000000';
       let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
