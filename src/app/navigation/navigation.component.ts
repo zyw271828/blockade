@@ -19,6 +19,7 @@ export class NavigationComponent {
   drawer!: MatSidenav;
 
   isConnected: boolean = false;
+  username: string = '';
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -46,20 +47,23 @@ export class NavigationComponent {
         this.overlay.getContainerElement().classList.remove(lightClassName);
       }
     });
-    this.TestConnection();
-    var interval = setInterval(() => this.TestConnection(), 3000); // Set Timer for checking connectivity every 3s.
+    this.testConnection();
+    var interval = setInterval(() => this.testConnection(), 3000); // Set Timer for checking connectivity every 3s.
+
+    this.getUserInfo();
   }
 
   getUrl(): string {
     return this.router.url;
   }
 
-  getUserInfo(): string {
-    // TODO: get user information
-    return "Username (Identity)";
+  getUserInfo(): void {
+    this.auth.requestIdentity().subscribe(res => {
+      this.username = res.identity;
+    });
   }
 
-  TestConnection(): void {
+  testConnection(): void {
     this.auth.checkConnection().subscribe(res => {
       if(res.status == 200){
         this.isConnected = true

@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
+import { Identity } from './auth';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +22,14 @@ export class AuthService {
     return this.http.get(pingUrl, { observe: 'response' }).pipe(
       tap(response => console.info("Connection status: ", response.status)),
       catchError(this.handleError('ping'))
+    );
+  }
+
+  requestIdentity(): Observable<Identity> {
+    const identityUrl = `${this.url}/identity`;
+    return this.http.get<Identity>(identityUrl).pipe(
+      tap(_ => console.info('Get identity information.')),
+      catchError(this.handleError<Identity>('identity'))
     );
   }
 
