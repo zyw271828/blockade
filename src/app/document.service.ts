@@ -12,16 +12,15 @@ export class DocumentService {
   private url = 'http://localhost:1080';
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
   };
 
   constructor(private http: HttpClient) { }
 
-  uploadDocument(document: Document): Observable<UploadResult> {
+  uploadDocument(document: FormData): Observable<UploadResult> {
     const documentUrl = `${this.url}/document`;
-    console.info('Document uploading', document);
     return this.http.post<UploadResult>(documentUrl, document, this.httpOptions).pipe(
-      tap(result => console.info('Result received:', result)),
+      tap(result => console.info('Upload Document Result:', result)),
       catchError(this.handleError<UploadResult>('uploadDocument'))
     );
   }

@@ -83,33 +83,25 @@ export class DocumentUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
-      // TODO: submit documentUploadForm
-      // The data of the respond needs to be extracted.
-      this.documentService.uploadDocument(this.documentUploadForm.value).subscribe();
-      // TODO: set resourceID, transactionID and symmetricKeyMaterial
-      let resourceID = '00000000000000000000';
-      let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
-      let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '00000000\n'
-        + '-----END PUBLIC KEY-----';
-
-      this.dialog.open(DocumentUploadPromptDialog, {
-        disableClose: true,
-        data: {
-          title: 'Upload successfully',
-          content: [
-            { item: 'ResourceID', value: resourceID },
-            { item: 'TransactionID', value: transactionID },
-            { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
-          ],
-          action: 'Close'
-        }
+      var resourceID: string = "";
+      var transactionID: string = "";
+      var symmetricKeyMaterial: string = "";
+      this.documentService.uploadDocument(this.documentUploadForm.value).subscribe(res => {
+        resourceID = res.resourceID;
+        transactionID = res.transactionID;
+        symmetricKeyMaterial = res.symmetricKeyMaterial;
+        this.dialog.open(DocumentUploadPromptDialog, {
+          disableClose: true,
+          data: {
+            title: 'Upload successfully',
+            content: [
+              { item: 'ResourceID', value: resourceID },
+              { item: 'TransactionID', value: transactionID },
+              { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
+            ],
+            action: 'Close'
+          }
+        });
       });
     } else { // documentUploadForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
@@ -125,6 +117,7 @@ export class DocumentUploadComponent implements OnInit {
   styleUrls: ['./document-upload-prompt-dialog.css']
 })
 export class DocumentUploadPromptDialog {
+  // TODO: Adjust the format of SymmetricKeyMaterial to make it look nicer.
   displayedColumns: string[] = [
     'item',
     'value',
