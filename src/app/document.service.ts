@@ -9,7 +9,7 @@ import { Document, UploadResult } from './document';
   providedIn: 'root'
 })
 export class DocumentService {
-  private url = 'https://5879aec4-a9da-47c5-ab6d-885144e6f92e.mock.pstmn.io'
+  private url = 'http://localhost:1080';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

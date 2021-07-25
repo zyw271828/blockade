@@ -1,0 +1,38 @@
+[
+  {
+  "request" :
+    {
+      "method" : "get",
+      "uri" : "/ping"
+    },
+  "response" :
+    {
+      "status" : 200,
+      "headers" : {
+        "Access-Control-Allow-Origin" : "*"
+      },
+      "json" : {
+        "result" : "/ping working."
+      }
+    }
+  },
+
+  {
+  "request" :
+    {
+      "method" : "get",
+      "uri" : "/identity"
+    },
+  "response" :
+    {
+      "status" : 200,
+      "headers" : {
+        "Access-Control-Allow-Origin" : "*"
+      },
+      "json" : {
+        "identity" : "Test User 1",
+        "result" : "/identity working."
+      }
+    }
+  }
+]

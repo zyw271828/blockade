@@ -6,6 +6,16 @@
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Mock Server
+
+For API testing purpose, a open-source framework called `Moco` is used. the corresponding config file is `mockServer.json`, you can access the framework [here](https://github.com/dreamhead/moco) and download the standalone Moco runner.
+
+Run Moco HTTP server with the configuration file.
+
+```
+java -jar moco-runner-<version>-standalone.jar http -p 1080 -c mockServer.json
+```
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
