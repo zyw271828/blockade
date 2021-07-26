@@ -13,7 +13,7 @@ For API testing purpose, a open-source framework called `Moco` is used. the corr
 Run Moco HTTP server with the configuration file.
 
 ```
-java -jar moco-runner-<version>-standalone.jar http -p 1080 -c mockServer.json
+java -jar moco-runner-<version>-standalone.jar http -p 1080 -c mock-server.json
 ```
 
 ## Code scaffolding
