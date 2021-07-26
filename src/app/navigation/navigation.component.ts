@@ -19,7 +19,7 @@ export class NavigationComponent {
   drawer!: MatSidenav;
 
   isConnected: boolean = false;
-  username: string = '';
+  username: string = 'Unknown (Unknown)';
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
