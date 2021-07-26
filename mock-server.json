@@ -75,6 +75,7 @@
       },
       "json" : {
         "identity" : "Test User 1",
+        "identityType" : "Supervisor",
         "result" : "/identity working."
       }
     }

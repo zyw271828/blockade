@@ -20,6 +20,7 @@ export class NavigationComponent {
 
   isConnected: boolean = false;
   username: string = '';
+  userType: string = '';
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -60,6 +61,7 @@ export class NavigationComponent {
   getUserInfo(): void {
     this.auth.requestIdentity().subscribe(res => {
       this.username = res.identity;
+      this.userType = res.identityType;
     });
   }
 
