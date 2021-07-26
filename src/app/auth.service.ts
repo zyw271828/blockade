@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { Identity, RequestResult } from './auth';
+import { Auth, Identity, RequestResult, QueryResult } from './auth';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,21 @@ export class AuthService {
     return this.http.post<RequestResult>(authUrl, auth, this.httpOptions).pipe(
       tap(result => console.info('Request Auth Result:', result)),
       catchError(this.handleError<RequestResult>('requestAuth'))
+    );
+  }
+
+  getAuthRecord(): Observable<QueryResult> {
+    const recordUrl = `${this.url}/identity/auths/request-list`;
+    const params = new HttpParams().set("isLatestFirst", "true").set("pageSize", "10");
+    return this.http.get<QueryResult>(recordUrl, { params }).pipe(
+      catchError(this.handleError<QueryResult>('getAuthRecord'))
+    );
+  }
+
+  getAuthInfo(id: string): Observable<Auth> {
+    const authUrl = `${this.url}/auth/${id}`;
+    return this.http.get<Auth>(authUrl).pipe(
+      catchError(this.handleError<Auth>('getAuthInfo'))
     );
   }
 

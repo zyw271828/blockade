@@ -3,7 +3,10 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+
 import { Utils } from '../utils';
+import { Auth} from '../auth';
+import { AuthService } from '../auth.service';
 import { AuthRecordTableDataSource, AuthRecordTableItem } from './auth-record-table-datasource';
 
 export interface DialogData {
@@ -24,6 +27,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<AuthRecordTableItem>;
   dataSource: AuthRecordTableDataSource;
+  data: Auth[] = [];
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
@@ -38,8 +42,12 @@ export class AuthRecordTableComponent implements AfterViewInit {
 
   authRequestStatus: string[] = Utils.getAuthRequestStatus();
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private authService: AuthService) {
     this.dataSource = new AuthRecordTableDataSource();
+  }
+
+  ngOnInit(): void {
+    this.getRecord();
   }
 
   ngAfterViewInit(): void {
@@ -81,6 +89,17 @@ export class AuthRecordTableComponent implements AfterViewInit {
           { item: 'HeadDocumentID', value: headDocumentID },
           { item: 'EntityAssetID', value: entityAssetID }
         ]
+      }
+    });
+  }
+
+  private getRecord(): void {
+    this.data = [];
+    this.authService.getAuthRecord().subscribe(res => {
+      for (let i in res.IDs) {
+        this.authService.getAuthInfo(i).subscribe(resp => {
+          this.data.push(resp);
+        })
       }
     });
   }

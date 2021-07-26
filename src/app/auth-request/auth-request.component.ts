@@ -34,8 +34,6 @@ export class AuthRequestComponent implements OnInit {
 
   onSubmit(): void {
     if (this.authRequestForm.valid) {
-      // TODO: submit authRequestForm
-      // TODO: set authSessionID, transactionID and symmetricKeyMaterial
       var transactionID = '';
       this.authService.requestAuth(this.authRequestForm.value).subscribe(req => {
         transactionID = req.transactionID;

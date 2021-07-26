@@ -92,6 +92,86 @@
   {
   "request" :
     {
+      "method" : "post",
+      "uri" : "/auth/request"
+    },
+  "response" :
+    {
+      "status" : 200,
+      "headers" : {
+        "Access-Control-Allow-Origin" : "*"
+      },
+      "json" : {
+        "transactionID": "112233"
+      }
+    }
+  },
+
+  {
+  "request" :
+    {
+      "method" : "post",
+      "uri" : "/auth/response"
+    },
+  "response" :
+    {
+      "status" : 200,
+      "headers" : {
+        "Access-Control-Allow-Origin" : "*"
+      },
+      "json" : {
+        "transactionID": "112233"
+      }
+    }
+  },
+
+  {
+    "resource": {
+      "name": "auth",
+      "get": [
+        {
+          "id": "*",
+          "response": {
+            "headers" : {
+              "Access-Control-Allow-Origin" : "*"
+            },
+            "json": {
+              "resourceID": "112233",
+              "authSessionID": "123123123",
+              "reason": "test1",
+              "status": 1,
+              "requestor": "2222",
+              "responder": "1111",
+              "requestTimestamp": "2021-06-14T16:48:03.450775698Z",
+              "reqsponseTimestamp": "2021-06-14T16:48:03.450775698Z"
+            }
+          }
+        }
+      ]
+    }
+  },
+
+  {
+  "request" :
+    {
+      "method" : "post",
+      "uri" : "/ks/trigger"
+    },
+  "response" :
+    {
+      "status" : 200,
+      "headers" : {
+        "Access-Control-Allow-Origin" : "*"
+      },
+      "json" : {
+        "transactionID": "112233"
+      }
+    }
+  },
+
+  {
+  "request" :
+    {
       "method" : "get",
       "uri" : "/identity/documents/list"
     },
@@ -127,6 +207,54 @@
       },
       "json" : {
         "IDs" : [
+          "1404",
+          "1405",
+          "1406",
+          "1407"
+        ],
+        "bookmark": "asdfasdfasdf"
+      }
+    }
+  },
+
+  {
+  "request" :
+    {
+      "method" : "get",
+      "uri" : "/identity/auths/request-list"
+    },
+  "response" :
+    {
+      "status" : 200,
+      "headers" : {
+        "Access-Control-Allow-Origin" : "*"
+      },
+      "json" : {
+        "IDs" : [
+          "1404",
+          "1405",
+          "1406",
+          "1407"
+        ],
+        "bookmark": "asdfasdfasdf"
+      }
+    }
+  },
+
+  {
+  "request" :
+    {
+      "method" : "get",
+      "uri" : "/identity/auths/pending-list"
+    },
+  "response" :
+    {
+      "status" : 200,
+      "headers" : {
+        "Access-Control-Allow-Origin" : "*"
+      },
+      "json" : {
+        "resourceIDs" : [
           "1404",
           "1405",
           "1406",
