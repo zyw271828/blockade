@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { Auth, Identity, RequestResult, QueryResult } from './auth';
+import { Auth, Identity, RequestResult, RequestList, PendingRequestList } from './auth';
 
 @Injectable({
   providedIn: 'root'
@@ -41,11 +41,19 @@ export class AuthService {
     );
   }
 
-  getAuthRecord(): Observable<QueryResult> {
+  getAuthRecord(): Observable<RequestList> {
     const recordUrl = `${this.url}/identity/auths/request-list`;
     const params = new HttpParams().set("isLatestFirst", "true").set("pageSize", "10");
-    return this.http.get<QueryResult>(recordUrl, { params }).pipe(
-      catchError(this.handleError<QueryResult>('getAuthRecord'))
+    return this.http.get<RequestList>(recordUrl, { params }).pipe(
+      catchError(this.handleError<RequestList>('getAuthRecord'))
+    );
+  }
+
+  getPendingRecord(): Observable<PendingRequestList> {
+    const recordUrl = `${this.url}/identity/auths/pending-list`;
+    const params = new HttpParams().set("pageSize", "10");
+    return this.http.get<PendingRequestList>(recordUrl, { params }).pipe(
+      catchError(this.handleError<PendingRequestList>('getPendingRecord'))
     );
   }
 
@@ -53,6 +61,17 @@ export class AuthService {
     const authUrl = `${this.url}/auth/${id}`;
     return this.http.get<Auth>(authUrl).pipe(
       catchError(this.handleError<Auth>('getAuthInfo'))
+    );
+  }
+
+  setAuthResult(AuthSessionID: string, result: boolean): Observable<RequestResult> {
+    let data = new FormData();
+    data.append("AuthSessionID", AuthSessionID);
+    data.append("result", String(result));
+    const responseUrl = `${this.url}/auth/response`;
+    return this.http.post<RequestResult>(responseUrl, data, this.httpOptions).pipe(
+      tap(result => console.info('Set Auth Result:', result)),
+      catchError(this.handleError<RequestResult>('setAuthResult'))
     );
   }
 

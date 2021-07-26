@@ -45,7 +45,7 @@ export class DocumentUploadRecordTableComponent implements AfterViewInit {
   private getRecord(): void {
     this.data = [];
     this.documentService.getUploadRecord().subscribe(res => {
-      for (let i in res.IDs) {
+      for (let i of res.IDs) {
         this.documentService.getDocument(i).subscribe(resp => {
           this.data.push(resp);
         })

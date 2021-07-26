@@ -96,7 +96,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
   private getRecord(): void {
     this.data = [];
     this.authService.getAuthRecord().subscribe(res => {
-      for (let i in res.IDs) {
+      for (let i of res.IDs) {
         this.authService.getAuthInfo(i).subscribe(resp => {
           this.data.push(resp);
         })

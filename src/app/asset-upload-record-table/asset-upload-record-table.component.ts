@@ -45,7 +45,7 @@ export class AssetUploadRecordTableComponent implements AfterViewInit {
   private getRecord(): void {
     this.data = [];
     this.assetService.getUploadRecord().subscribe(res => {
-      for (let i in res.IDs) {
+      for (let i of res.IDs) {
         this.assetService.getAsset(i).subscribe(resp => {
           this.data.push(resp);
         })

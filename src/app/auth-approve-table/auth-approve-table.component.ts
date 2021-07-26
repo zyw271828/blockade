@@ -3,7 +3,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+
 import { Utils } from '../utils';
+import { Auth} from '../auth';
+import { AuthService } from '../auth.service';
 import { AuthApproveTableDataSource, AuthApproveTableItem } from './auth-approve-table-datasource';
 
 @Component({
@@ -16,6 +19,7 @@ export class AuthApproveTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<AuthApproveTableItem>;
   dataSource: AuthApproveTableDataSource;
+  data: Auth[] = [];
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
@@ -29,8 +33,12 @@ export class AuthApproveTableComponent implements AfterViewInit {
 
   authRequestStatus: string[] = Utils.getAuthRequestStatus();
 
-  constructor(private _snackBar: MatSnackBar) {
+  constructor(private _snackBar: MatSnackBar, private authService: AuthService) {
     this.dataSource = new AuthApproveTableDataSource();
+  }
+
+  ngOnInit(): void {
+    this.getRecord();
   }
 
   ngAfterViewInit(): void {
@@ -40,16 +48,25 @@ export class AuthApproveTableComponent implements AfterViewInit {
   }
 
   allowAuthSession(authSessionID: string) {
-    // TODO: allow auth request by authSessionID
+    this.authService.setAuthResult(authSessionID, true).subscribe();
     this._snackBar.open('Allowed: ' + authSessionID, 'DISMISS', {
       duration: 5000
     });
   }
 
   denyAuthSession(authSessionID: string) {
-    // TODO: deny auth request by authSessionID
+    this.authService.setAuthResult(authSessionID, false).subscribe();
     this._snackBar.open('Denied: ' + authSessionID, 'DISMISS', {
       duration: 5000
+    });
+  }
+
+  private getRecord(): void {
+    this.data = [];
+    this.authService.getPendingRecord().subscribe(res => {
+      for (let i of res.resourceIDs) {
+        // TODO: determine the type of the resource and get its data accordingly.
+      }
     });
   }
 }

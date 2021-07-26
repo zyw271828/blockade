@@ -19,7 +19,12 @@ export interface RequestResult {
   transactionID: string;
 }
 
-export interface QueryResult {
+export interface RequestList {
   IDs: string[];
+  bookmark: string;
+}
+
+export interface PendingRequestList {
+  resourceIDs: string[];
   bookmark: string;
 }
