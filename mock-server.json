@@ -63,10 +63,80 @@
             }
           }
         }
+      ],
+      "get": [
+        {
+          "id": "*",
+          "response": {
+            "headers" : {
+              "Access-Control-Allow-Origin" : "*"
+            },
+            "json": {
+              "id": "123123123",
+              "name": "test1",
+              "designDocumentID": "1111",
+              "isNamePublic": true,
+              "isDesignDocumentIDPublic": true,
+              "componentIDs": [
+                "1927",
+                "546456",
+                "465456465"
+              ]
+            }
+          }
+        }
       ]
     }
   },
-  
+
+  {
+  "request" :
+    {
+      "method" : "get",
+      "uri" : "/identity/documents/list"
+    },
+  "response" :
+    {
+      "status" : 200,
+      "headers" : {
+        "Access-Control-Allow-Origin" : "*"
+      },
+      "json" : {
+        "IDs" : [
+          "1404",
+          "1405",
+          "1406",
+          "1407"
+        ],
+        "bookmark": "asdfasdfasdf"
+      }
+    }
+  },
+
+  {
+  "request" :
+    {
+      "method" : "get",
+      "uri" : "/identity/assets/list"
+    },
+  "response" :
+    {
+      "status" : 200,
+      "headers" : {
+        "Access-Control-Allow-Origin" : "*"
+      },
+      "json" : {
+        "IDs" : [
+          "1404",
+          "1405",
+          "1406",
+          "1407"
+        ],
+        "bookmark": "asdfasdfasdf"
+      }
+    }
+  },
+
   {
   "request" :
     {
