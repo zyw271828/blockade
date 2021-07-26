@@ -17,6 +17,30 @@
             }
           }
         }
+      ],
+      "get": [
+        {
+          "id": "*",
+          "response": {
+            "headers" : {
+              "Access-Control-Allow-Origin" : "*"
+            },
+            "json": {
+              "id": "123123123",
+              "name": "test1",
+              "documentType": 0,
+              "precedingDocumentID": "2222",
+              "headDocumentID": "1111",
+              "entityAssetID": "3333",
+              "isNamePublic": true,
+              "isTypePublic": true,
+              "isPrecedingDocumentIDPublic": true,
+              "isHeadDocumentIDPublic": true,
+              "isEntityAssetIDPublic": true,
+              "contents": "asdfasdfasdf"
+            }
+          }
+        }
       ]
     }
   },

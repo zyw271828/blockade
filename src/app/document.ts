@@ -20,3 +20,8 @@ export interface UploadResult {
   transactionID: string;
   symmetricKeyMaterial: string;
 }
+
+export interface QueryResult {
+  IDs: string[];
+  bookmark: string;
+}
