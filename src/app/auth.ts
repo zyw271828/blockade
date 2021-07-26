@@ -3,3 +3,7 @@ export interface Identity {
   identityType: string;
   result: string;
 }
+
+export interface RequestResult {
+  transactionID: string;
+}

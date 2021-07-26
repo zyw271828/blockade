@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { Identity } from './auth';
+import { Identity, RequestResult } from './auth';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class AuthService {
   private url = 'http://localhost:1080';
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
   };
 
   constructor(private http: HttpClient) { }
@@ -30,6 +30,14 @@ export class AuthService {
     return this.http.get<Identity>(identityUrl).pipe(
       tap(_ => console.info('Get identity information.')),
       catchError(this.handleError<Identity>('identity'))
+    );
+  }
+
+  requestAuth(auth: FormData): Observable<RequestResult> {
+    const authUrl = `${this.url}/auth/request`;
+    return this.http.post<RequestResult>(authUrl, auth, this.httpOptions).pipe(
+      tap(result => console.info('Request Auth Result:', result)),
+      catchError(this.handleError<RequestResult>('requestAuth'))
     );
   }
 

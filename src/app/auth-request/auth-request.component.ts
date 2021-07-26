@@ -4,6 +4,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { AuthService } from '../auth.service';
+
 export interface DialogData {
   title: string;
   content: {
@@ -24,7 +26,8 @@ export class AuthRequestComponent implements OnInit {
     reason: null
   });
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,
+    public dialog: MatDialog, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -33,30 +36,20 @@ export class AuthRequestComponent implements OnInit {
     if (this.authRequestForm.valid) {
       // TODO: submit authRequestForm
       // TODO: set authSessionID, transactionID and symmetricKeyMaterial
-      let authSessionID = 'ABCDEF';
-      let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
-      let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '00000000\n'
-        + '-----END PUBLIC KEY-----';
-
-      this.dialog.open(AuthRequestPromptDialog, {
-        disableClose: true,
-        data: {
-          title: 'Upload successfully',
-          content: [
-            { item: 'AuthSessionID', value: authSessionID },
-            { item: 'TransactionID', value: transactionID },
-            { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
-          ],
-          action: 'Close'
-        }
-      });
+      var transactionID = '';
+      this.authService.requestAuth(this.authRequestForm.value).subscribe(req => {
+        transactionID = req.transactionID;
+        this.dialog.open(AuthRequestPromptDialog, {
+          disableClose: true,
+          data: {
+            title: 'Upload successfully',
+            content: [
+              { item: 'TransactionID', value: transactionID },
+            ],
+            action: 'Close'
+          }
+        });
+      })
     } else { // authRequestForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
         duration: 5000
