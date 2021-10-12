@@ -9,12 +9,12 @@ import { Utils } from '../utils';
   styleUrls: ['./document-query.component.css']
 })
 export class DocumentQueryComponent implements OnInit {
-  queryMethods: String[] = [
+  queryMethods: string[] = [
     'ID',
     'Conditional'
   ];
 
-  currentQueryMethod: String = this.queryMethods[0];
+  currentQueryMethod: string = this.queryMethods[0];
 
   documentIDQueryForm = this.fb.group({
     resourceType: [null, Validators.required],
@@ -35,9 +35,9 @@ export class DocumentQueryComponent implements OnInit {
     entityAssetID: null
   });
 
-  resourceTypes: String[] = Utils.getResourceTypes('document');
+  resourceTypes: string[] = Utils.getResourceTypes('document');
 
-  documentTypes: String[] = Utils.getDocumentTypes();
+  documentTypes: string[] = Utils.getDocumentTypes();
 
   isResultShow: boolean = false;
 

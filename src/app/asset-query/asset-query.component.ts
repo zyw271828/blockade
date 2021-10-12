@@ -9,12 +9,12 @@ import { Utils } from '../utils';
   styleUrls: ['./asset-query.component.css']
 })
 export class AssetQueryComponent implements OnInit {
-  queryMethods: String[] = [
+  queryMethods: string[] = [
     'ID',
     'Conditional'
   ];
 
-  currentQueryMethod: String = this.queryMethods[0];
+  currentQueryMethod: string = this.queryMethods[0];
 
   assetIDQueryForm = this.fb.group({
     resourceType: [null, Validators.required],
@@ -32,7 +32,7 @@ export class AssetQueryComponent implements OnInit {
     designDocumentID: null
   });
 
-  resourceTypes: String[] = Utils.getResourceTypes('asset');
+  resourceTypes: string[] = Utils.getResourceTypes('asset');
 
   isResultShow: boolean = false;
 
