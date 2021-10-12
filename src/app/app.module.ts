@@ -1,5 +1,4 @@
 import { LayoutModule } from '@angular/cdk/layout';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +29,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AssetQueryResultDetailDialog, AssetQueryResultTableComponent } from './asset-query-result-table/asset-query-result-table.component';
@@ -50,7 +48,6 @@ import { DocumentUploadRecordTableComponent } from './document-upload-record-tab
 import { DocumentUploadRecordComponent } from './document-upload-record/document-upload-record.component';
 import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-upload/document-upload.component';
 import { FooterComponent } from './footer/footer.component';
-import { InMemoryDataService } from './in-memory-data.service';
 import { NavigationComponent } from './navigation/navigation.component';
 
 
@@ -99,7 +96,6 @@ import { NavigationComponent } from './navigation/navigation.component';
     FlexLayoutModule,
     ReactiveFormsModule,
     MatExpansionModule,
-    HttpClientModule,
     MatDividerModule,
     MatTooltipModule,
     MatFormFieldModule,
@@ -115,14 +111,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatChipsModule,
-    MatSnackBarModule,
-
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
