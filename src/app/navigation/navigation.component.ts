@@ -6,6 +6,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, shareReplay, withLatestFrom } from 'rxjs/operators';
+import { IdentityService } from '../identity.service';
 
 @Component({
   selector: 'app-navigation',
@@ -22,7 +23,10 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) {
+  isConnected: boolean = false;
+  userInfo: string = 'Unknown (Unknown)';
+
+  constructor(private identityService: IdentityService, private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) {
     router.events.pipe(
       withLatestFrom(this.isHandset$),
       filter(([a, b]) => b && a instanceof NavigationEnd)
@@ -33,6 +37,9 @@ export class NavigationComponent {
   @HostBinding('class') className = '';
 
   ngOnInit(): void {
+    this.checkConnectivity();
+    this.getUserInfo();
+
     this.themeToggleControl.valueChanges.subscribe((lightTheme) => {
       const lightClassName = 'lightTheme';
       this.className = lightTheme ? lightClassName : '';
@@ -48,13 +55,13 @@ export class NavigationComponent {
     return this.router.url;
   }
 
-  getUserInfo(): string {
-    // TODO: get user information
-    return "Username (Identity)";
+  checkConnectivity(): void {
+    this.identityService.checkConnectivity()
+      .subscribe(isConnected => this.isConnected = isConnected);
   }
 
-  isConnected(): boolean {
-    // TODO: check connectivity
-    return true;
+  getUserInfo(): void {
+    this.identityService.getUserInfo()
+      .subscribe(userInfo => this.userInfo = userInfo);
   }
 }
