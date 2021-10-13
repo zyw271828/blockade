@@ -1,8 +1,8 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server"
-    }
+  "connectivity": [
+    true
+  ],
+  "identity": [
+    "Username (Identity)"
   ]
 }
