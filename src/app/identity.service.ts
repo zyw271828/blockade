@@ -2,14 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IdentityService {
 
-  private connectivityUrl = 'http://localhost:3000/api/v1/connectivity';
-  private identityUrl = 'http://localhost:3000/api/v1/identity';
+  private connectivityUrl = environment.apiEndpoint + '/connectivity';
+  private identityUrl = environment.apiEndpoint + '/identity';
 
   constructor(private http: HttpClient) { }
 
