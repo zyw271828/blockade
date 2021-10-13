@@ -3,6 +3,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Document } from '../document';
+import { DocumentService } from '../document.service';
 import { Utils } from '../utils';
 
 export interface DialogData {
@@ -42,7 +44,7 @@ export class DocumentUploadComponent implements OnInit {
 
   filename: string = "";
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(private documentService: DocumentService, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -80,32 +82,34 @@ export class DocumentUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
-      // TODO: submit documentUploadForm
-      // TODO: set resourceID, transactionID and symmetricKeyMaterial
-      let resourceID = '00000000000000000000';
-      let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
-      let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '00000000\n'
-        + '-----END PUBLIC KEY-----';
+      this.documentService.uploadDocument(this.documentUploadForm.value as Document)
+        .subscribe(document => {
+          // TODO: set resourceID, transactionID and symmetricKeyMaterial
+          let resourceID = '00000000000000000000';
+          let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
+          let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
+            + '0000000000000000000000000000000000000000000000000000000000000000\n'
+            + '0000000000000000000000000000000000000000000000000000000000000000\n'
+            + '0000000000000000000000000000000000000000000000000000000000000000\n'
+            + '0000000000000000000000000000000000000000000000000000000000000000\n'
+            + '0000000000000000000000000000000000000000000000000000000000000000\n'
+            + '0000000000000000000000000000000000000000000000000000000000000000\n'
+            + '00000000\n'
+            + '-----END PUBLIC KEY-----';
 
-      this.dialog.open(DocumentUploadPromptDialog, {
-        disableClose: true,
-        data: {
-          title: 'Upload successfully',
-          content: [
-            { item: 'ResourceID', value: resourceID },
-            { item: 'TransactionID', value: transactionID },
-            { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
-          ],
-          action: 'Close'
-        }
-      });
+          this.dialog.open(DocumentUploadPromptDialog, {
+            disableClose: true,
+            data: {
+              title: 'Upload successfully',
+              content: [
+                { item: 'ResourceID', value: resourceID },
+                { item: 'TransactionID', value: transactionID },
+                { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
+              ],
+              action: 'Close'
+            }
+          });
+        });
     } else { // documentUploadForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
         duration: 5000
