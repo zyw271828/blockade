@@ -3,6 +3,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthRequest } from '../auth-request';
+import { AuthService } from '../auth.service';
 
 export interface DialogData {
   title: string;
@@ -24,39 +26,26 @@ export class AuthRequestComponent implements OnInit {
     reason: null
   });
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(private authService: AuthService, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
     if (this.authRequestForm.valid) {
-      // TODO: submit authRequestForm
-      // TODO: set authSessionID, transactionID and symmetricKeyMaterial
-      let authSessionID = 'ABCDEF';
-      let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
-      let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '00000000\n'
-        + '-----END PUBLIC KEY-----';
-
-      this.dialog.open(AuthRequestPromptDialog, {
-        disableClose: true,
-        data: {
-          title: 'Upload successfully',
-          content: [
-            { item: 'AuthSessionID', value: authSessionID },
-            { item: 'TransactionID', value: transactionID },
-            { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
-          ],
-          action: 'Close'
-        }
-      });
+      this.authService.requestAuth(this.authRequestForm.value as AuthRequest)
+        .subscribe(resourceCreationInfo => {
+          this.dialog.open(AuthRequestPromptDialog, {
+            disableClose: true,
+            data: {
+              title: 'Request successfully',
+              content: [
+                { item: 'TransactionID', value: resourceCreationInfo.transactionID }
+              ],
+              action: 'Close'
+            }
+          });
+        });
     } else { // authRequestForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
         duration: 5000
