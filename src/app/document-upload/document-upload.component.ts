@@ -83,28 +83,15 @@ export class DocumentUploadComponent implements OnInit {
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
       this.documentService.uploadDocument(this.documentUploadForm.value as Document)
-        .subscribe(document => {
-          // TODO: set resourceID, transactionID and symmetricKeyMaterial
-          let resourceID = '00000000000000000000';
-          let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
-          let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
-            + '0000000000000000000000000000000000000000000000000000000000000000\n'
-            + '0000000000000000000000000000000000000000000000000000000000000000\n'
-            + '0000000000000000000000000000000000000000000000000000000000000000\n'
-            + '0000000000000000000000000000000000000000000000000000000000000000\n'
-            + '0000000000000000000000000000000000000000000000000000000000000000\n'
-            + '0000000000000000000000000000000000000000000000000000000000000000\n'
-            + '00000000\n'
-            + '-----END PUBLIC KEY-----';
-
+        .subscribe(resourceCreationInfo => {
           this.dialog.open(DocumentUploadPromptDialog, {
             disableClose: true,
             data: {
               title: 'Upload successfully',
               content: [
-                { item: 'ResourceID', value: resourceID },
-                { item: 'TransactionID', value: transactionID },
-                { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
+                { item: 'ResourceID', value: resourceCreationInfo.resourceID },
+                { item: 'TransactionID', value: resourceCreationInfo.transactionID },
+                { item: 'SymmetricKeyMaterial', value: resourceCreationInfo.symmetricKeyMaterial }
               ],
               action: 'Close'
             }

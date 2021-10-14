@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { Document } from './document';
+import { ResourceCreationInfo } from './resource-creation-info';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class DocumentService {
 
   constructor(private http: HttpClient) { }
 
-  uploadDocument(document: Document): Observable<Document> {
-    return this.http.post<Document>(this.documentUrl, document)
+  uploadDocument(document: Document): Observable<ResourceCreationInfo> {
+    return this.http.post<ResourceCreationInfo>(this.documentUrl, document)
       .pipe(
         tap(_ => console.log('uploadDocument')),
-        catchError(this.handleError<Document>('uploadDocument'))
+        catchError(this.handleError<ResourceCreationInfo>('uploadDocument'))
       );
   }
 
