@@ -5,6 +5,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Asset } from '../asset';
+import { AssetService } from '../asset.service';
 import { Utils } from '../utils';
 
 export interface DialogData {
@@ -33,7 +35,7 @@ export class AssetUploadComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(private assetService: AssetService, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -91,32 +93,21 @@ export class AssetUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.assetUploadForm.valid) {
-      // TODO: submit assetUploadForm
-      // TODO: set resourceID, transactionID and symmetricKeyMaterial
-      let resourceID = '00000000000000000000';
-      let transactionID = '0000000000000000000000000000000000000000000000000000000000000000';
-      let symmetricKeyMaterial = '-----BEGIN PUBLIC KEY-----\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '0000000000000000000000000000000000000000000000000000000000000000\n'
-        + '00000000\n'
-        + '-----END PUBLIC KEY-----';
-
-      this.dialog.open(AssetUploadPromptDialog, {
-        disableClose: true,
-        data: {
-          title: 'Upload successfully',
-          content: [
-            { item: 'ResourceID', value: resourceID },
-            { item: 'TransactionID', value: transactionID },
-            { item: 'SymmetricKeyMaterial', value: symmetricKeyMaterial }
-          ],
-          action: 'Close'
-        }
-      });
+      this.assetService.uploadAsset(this.assetUploadForm.value as Asset)
+        .subscribe(resourceCreationInfo => {
+          this.dialog.open(AssetUploadPromptDialog, {
+            disableClose: true,
+            data: {
+              title: 'Upload successfully',
+              content: [
+                { item: 'ResourceID', value: resourceCreationInfo.resourceID },
+                { item: 'TransactionID', value: resourceCreationInfo.transactionID },
+                { item: 'SymmetricKeyMaterial', value: resourceCreationInfo.symmetricKeyMaterial }
+              ],
+              action: 'Close'
+            }
+          });
+        });
     } else { // assetUploadForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
         duration: 5000
