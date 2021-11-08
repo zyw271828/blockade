@@ -1,10 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { Document } from './document';
 import { ResourceCreationInfo } from './resource-creation-info';
+import { TableRecordData } from './table-record-data';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import { ResourceCreationInfo } from './resource-creation-info';
 export class DocumentService {
 
   private documentUrl = environment.apiEndpoint + '/document';
+  private documentUploadRecordUrl = environment.apiEndpoint + '/identity/documents/list';
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +22,19 @@ export class DocumentService {
       .pipe(
         tap(_ => console.log('uploadDocument')),
         catchError(this.handleError<ResourceCreationInfo>('uploadDocument'))
+      );
+  }
+
+  getDocumentUploadRecordIDs(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
+    return this.http.get<TableRecordData>(this.documentUploadRecordUrl, {
+      params: new HttpParams()
+        .set('isLatestFirst', isLatestFirst)
+        .set('pageSize', pageSize)
+        .set('bookmark', bookmark)
+    })
+      .pipe(
+        tap(_ => console.log('getDocumentUploadRecordIDs')),
+        catchError(this.handleError<TableRecordData>('getDocumentUploadRecordIDs'))
       );
   }
 
