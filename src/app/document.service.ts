@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { Document } from './document';
+import { DocumentMetadata } from './document-metadata';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
@@ -22,6 +23,14 @@ export class DocumentService {
       .pipe(
         tap(_ => console.log('uploadDocument')),
         catchError(this.handleError<ResourceCreationInfo>('uploadDocument'))
+      );
+  }
+
+  getDocumentMetadataById(id: string): Observable<DocumentMetadata> {
+    return this.http.get<DocumentMetadata>(this.documentUrl + '/' + id + '/metadata')
+      .pipe(
+        tap(_ => console.log('getDocumentMetadataById')),
+        catchError(this.handleError<DocumentMetadata>('getDocumentMetadataById'))
       );
   }
 

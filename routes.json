@@ -1,5 +1,6 @@
 {
   "/api/v1/*": "/$1",
   "/auth/request": "/auth-request",
+  "/document/:id/metadata": "/document-metadata?id=:id",
   "/identity/documents/list": "/identity-documents-list"
 }
