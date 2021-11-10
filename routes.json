@@ -1,6 +1,9 @@
 {
   "/api/v1/*": "/$1",
   "/auth/request": "/auth-request",
+  "*isLatestFirst=true*": "$1_sort=id&_order=desc$2",
+  "*isLatestFirst=false*": "$1_sort=id&_order=asc$2",
+  "*pageSize*": "$1_limit$2",
   "/document/:id/metadata": "/document-metadata?id=:id",
   "/identity/documents/list": "/identity-documents-list"
 }
