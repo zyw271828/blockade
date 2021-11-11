@@ -10,7 +10,7 @@ export interface DocumentMetadata {
     "headDocumentID": string;
     "name": string;
     "precedingDocumentID": string;
-  },
+  };
   "creator": string;
   "timestamp": string;
   "hashStored": string;
