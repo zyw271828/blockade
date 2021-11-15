@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { AssetService } from '../asset.service';
 import { AssetUploadRecordTableDataSource, AssetUploadRecordTableItem } from './asset-upload-record-table-datasource';
 
 @Component({
@@ -24,8 +25,8 @@ export class AssetUploadRecordTableComponent implements AfterViewInit {
     'creationTime'
   ];
 
-  constructor() {
-    this.dataSource = new AssetUploadRecordTableDataSource();
+  constructor(private assetService: AssetService) {
+    this.dataSource = new AssetUploadRecordTableDataSource(this.assetService);
   }
 
   ngAfterViewInit(): void {

@@ -392,7 +392,329 @@
       "sizeStored": 0
     }
   ],
-  "identity-documents-list-asc-5": {
+  "asset-metadata": [
+    {
+      "id": 1,
+      "resourceType": 0,
+      "resourceID": "20",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 2,
+      "resourceType": 1,
+      "resourceID": "19",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 3,
+      "resourceType": 0,
+      "resourceID": "18",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 4,
+      "resourceType": 1,
+      "resourceID": "17",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 5,
+      "resourceType": 0,
+      "resourceID": "16",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 6,
+      "resourceType": 1,
+      "resourceID": "15",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 7,
+      "resourceType": 0,
+      "resourceID": "14",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 8,
+      "resourceType": 1,
+      "resourceID": "13",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 9,
+      "resourceType": 0,
+      "resourceID": "12",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 10,
+      "resourceType": 1,
+      "resourceID": "11",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 11,
+      "resourceType": 0,
+      "resourceID": "10",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 12,
+      "resourceType": 1,
+      "resourceID": "9",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 13,
+      "resourceType": 0,
+      "resourceID": "8",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 14,
+      "resourceType": 1,
+      "resourceID": "7",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 15,
+      "resourceType": 0,
+      "resourceID": "6",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 16,
+      "resourceType": 1,
+      "resourceID": "5",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 17,
+      "resourceType": 0,
+      "resourceID": "4",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 18,
+      "resourceType": 1,
+      "resourceID": "3",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 19,
+      "resourceType": 0,
+      "resourceID": "2",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 20,
+      "resourceType": 1,
+      "resourceID": "1",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "asset",
+        "designDocumentID": "00000000000000000000",
+        "name": "name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    }
+  ],
+  "ids-list-asc-5": {
     "IDs": [
       "1",
       "2",
@@ -402,7 +724,7 @@
     ],
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
-  "identity-documents-list-asc-10": {
+  "ids-list-asc-10": {
     "IDs": [
       "1",
       "2",
@@ -417,7 +739,7 @@
     ],
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
-  "identity-documents-list-asc-20": {
+  "ids-list-asc-20": {
     "IDs": [
       "1",
       "2",
@@ -442,7 +764,7 @@
     ],
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
-  "identity-documents-list-desc-5": {
+  "ids-list-desc-5": {
     "IDs": [
       "20",
       "19",
@@ -452,7 +774,7 @@
     ],
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
-  "identity-documents-list-desc-10": {
+  "ids-list-desc-10": {
     "IDs": [
       "20",
       "19",
@@ -467,7 +789,7 @@
     ],
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
-  "identity-documents-list-desc-20": {
+  "ids-list-desc-20": {
     "IDs": [
       "20",
       "19",
