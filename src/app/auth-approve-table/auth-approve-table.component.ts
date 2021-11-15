@@ -27,7 +27,7 @@ export class AuthApproveTableComponent implements AfterViewInit {
     'operation'
   ];
 
-  authRequestStatus: string[] = Utils.getAuthRequestStatus();
+  authSessionStatus: string[] = Utils.getAuthSessionStatus();
 
   constructor(private _snackBar: MatSnackBar) {
     this.dataSource = new AuthApproveTableDataSource();

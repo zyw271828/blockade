@@ -20,10 +20,10 @@ export class Utils {
     'Encryption'
   ];
 
-  private static authRequestStatus: string[] = [
+  private static authSessionStatus: string[] = [
+    'Unknown',
     'Allow',
-    'Deny',
-    'Unknown'
+    'Deny'
   ];
 
   static getResourceTypes(supertype: string): string[] {
@@ -40,8 +40,8 @@ export class Utils {
     return this.documentTypes;
   }
 
-  static getAuthRequestStatus(): string[] {
-    return this.authRequestStatus;
+  static getAuthSessionStatus(): string[] {
+    return this.authSessionStatus;
   }
 
   static formatDate(date: string): string {
