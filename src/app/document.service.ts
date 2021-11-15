@@ -42,7 +42,10 @@ export class DocumentService {
         .set('bookmark', bookmark)
     })
       .pipe(
-        tap(_ => console.log('getDocumentUploadRecordIDs')),
+        tap(_ => console.log('getDocumentUploadRecordIDs'
+          + '\nisLatestFirst: ' + isLatestFirst
+          + '\npageSize: ' + pageSize
+          + '\nbookmark: ' + bookmark)),
         catchError(this.handleError<TableRecordData>('getDocumentUploadRecordIDs'))
       );
   }

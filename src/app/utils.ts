@@ -1,3 +1,5 @@
+import { formatDate } from "@angular/common";
+
 export class Utils {
   private static documentResourceTypes: string[] = [
     'Plaintext',
@@ -40,5 +42,9 @@ export class Utils {
 
   static getAuthRequestStatus(): string[] {
     return this.authRequestStatus;
+  }
+
+  static formatDate(date: string): string {
+    return formatDate(date, 'long', 'en-US');
   }
 }

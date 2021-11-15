@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { DocumentService } from '../document.service';
 import { DocumentUploadRecordTableDataSource, DocumentUploadRecordTableItem } from './document-upload-record-table-datasource';
 
 @Component({
@@ -24,8 +25,8 @@ export class DocumentUploadRecordTableComponent implements AfterViewInit {
     'creationTime'
   ];
 
-  constructor() {
-    this.dataSource = new DocumentUploadRecordTableDataSource();
+  constructor(private documentService: DocumentService) {
+    this.dataSource = new DocumentUploadRecordTableDataSource(this.documentService);
   }
 
   ngAfterViewInit(): void {
