@@ -25,6 +25,7 @@ export class NavigationComponent {
 
   isConnected: boolean = false;
   userInfo: string = 'Unknown (Unknown)';
+  detailedUserInfo: string = 'User Information\nUnknown';
 
   constructor(private identityService: IdentityService, private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) {
     router.events.pipe(
@@ -61,7 +62,16 @@ export class NavigationComponent {
   }
 
   getUserInfo(): void {
-    this.identityService.getUserInfo()
-      .subscribe(userInfo => this.userInfo = userInfo);
+    this.identityService.getUserIdentity()
+      .subscribe(userIdentity => {
+        this.userInfo = userIdentity.userID + ' (' + userIdentity.orgName + ')';
+        this.detailedUserInfo = 'User Information'
+          + '\nUserID: ' + userIdentity.userID
+          + '\nOrgName: ' + userIdentity.orgName
+          + '\nDeptType: ' + userIdentity.deptType
+          + '\nDeptLevel: ' + userIdentity.deptLevel
+          + '\nDeptName: ' + userIdentity.deptName
+          + '\nSuperDeptName: ' + userIdentity.superDeptName;
+      });
   }
 }

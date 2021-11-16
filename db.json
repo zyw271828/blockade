@@ -2,9 +2,14 @@
   "connectivity": [
     true
   ],
-  "identity": [
-    "Username (Identity)"
-  ],
+  "identity": {
+    "userID": "UserID",
+    "orgName": "OrgName",
+    "deptType": "DeptType",
+    "deptLevel": 0,
+    "deptName": "DeptName",
+    "superDeptName": "SuperDeptName"
+  },
   "document": {
     "resourceID": "00000000000000000000",
     "transactionID": "0000000000000000000000000000000000000000000000000000000000000000",

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { UserIdentity } from './user-identity';
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +23,11 @@ export class IdentityService {
       );
   }
 
-  getUserInfo(): Observable<string> {
-    return this.http.get<string>(this.identityUrl)
+  getUserIdentity(): Observable<UserIdentity> {
+    return this.http.get<UserIdentity>(this.identityUrl)
       .pipe(
-        tap(_ => console.log('getUserInfo')),
-        catchError(this.handleError<string>('getUserInfo', 'Unknown (Unknown)'))
+        tap(_ => console.log('getUserIdentity')),
+        catchError(this.handleError<UserIdentity>('getUserIdentity'))
       );
   }
 

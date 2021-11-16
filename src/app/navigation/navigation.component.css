@@ -40,3 +40,7 @@
 .active-link-dark {
   background-color: #494949;
 }
+
+::ng-deep .userinfo-tooltip {
+  white-space: pre-line;
+}

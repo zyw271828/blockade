@@ -66,7 +66,7 @@
         <mat-slide-toggle [formControl]="themeToggleControl"></mat-slide-toggle>
         <mat-icon matTooltip="Light theme">light_mode</mat-icon>
         <mat-divider vertical></mat-divider>
-        <mat-icon [matTooltip]="'User information: ' + userInfo">person</mat-icon>
+        <mat-icon [matTooltip]="detailedUserInfo" matTooltipClass="userinfo-tooltip">person</mat-icon>
         <span *ngIf="(isHandset$ | async) === false" class="mat-body-strong">{{userInfo}}</span>
         <mat-divider vertical></mat-divider>
         <mat-icon *ngIf="isConnected" matTooltip="Connected">check_circle</mat-icon>
