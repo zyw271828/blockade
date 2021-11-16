@@ -3,6 +3,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { AuthService } from '../auth.service';
 import { Utils } from '../utils';
 import { AuthRecordTableDataSource, AuthRecordTableItem } from './auth-record-table-datasource';
 
@@ -38,8 +39,8 @@ export class AuthRecordTableComponent implements AfterViewInit {
 
   authSessionStatus: string[] = Utils.getAuthSessionStatus();
 
-  constructor(public dialog: MatDialog) {
-    this.dataSource = new AuthRecordTableDataSource();
+  constructor(private authService: AuthService, public dialog: MatDialog) {
+    this.dataSource = new AuthRecordTableDataSource(this.authService);
   }
 
   ngAfterViewInit(): void {

@@ -10,5 +10,6 @@
   "/document/:id/metadata": "/document-metadata/:id",
   "/identity/documents/list*": "/ids-list$1",
   "/asset/:id/metadata": "/asset-metadata/:id",
-  "/identity/assets/list*": "/ids-list$1"
+  "/identity/assets/list*": "/ids-list$1",
+  "/identity/auths/request-list*": "/ids-list$1"
 }
