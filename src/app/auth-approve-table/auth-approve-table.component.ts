@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { AuthResponse } from '../auth-response';
 import { AuthService } from '../auth.service';
 import { Utils } from '../utils';
 import { AuthApproveTableDataSource, AuthApproveTableItem } from './auth-approve-table-datasource';
@@ -41,16 +42,30 @@ export class AuthApproveTableComponent implements AfterViewInit {
   }
 
   allowAuthSession(authSessionID: string) {
-    // TODO: allow auth request by authSessionID
-    this._snackBar.open('Allowed: ' + authSessionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
-      duration: 5000
+    this.authService.responseAuth({
+      authSessionID: authSessionID,
+      result: true
+    } as AuthResponse).subscribe(resourceCreationInfo => {
+      this._snackBar.open('Allowed: '
+        + authSessionID.match(/.{1,4}/g)?.join(' ')
+        + ', TransactionID: '
+        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
+        duration: 5000
+      });
     });
   }
 
   denyAuthSession(authSessionID: string) {
-    // TODO: deny auth request by authSessionID
-    this._snackBar.open('Denied: ' + authSessionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
-      duration: 5000
+    this.authService.responseAuth({
+      authSessionID: authSessionID,
+      result: false
+    } as AuthResponse).subscribe(resourceCreationInfo => {
+      this._snackBar.open('Denied: '
+        + authSessionID.match(/.{1,4}/g)?.join(' ')
+        + ', TransactionID: '
+        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
+        duration: 5000
+      });
     });
   }
 }

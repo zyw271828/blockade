@@ -1,6 +1,7 @@
 {
   "/api/v1/*": "/$1",
   "/auth/request": "/auth-request",
+  "/auth/response": "/auth-response",
   "*?isLatestFirst=false*": "$1-asc$2",
   "*?isLatestFirst=true*": "$1-desc$2",
   "*&pageSize=5*": "$1-5$2",

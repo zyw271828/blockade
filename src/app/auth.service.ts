@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { AuthRequest } from './auth-request';
+import { AuthResponse } from './auth-response';
 import { AuthSession } from './auth-session';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
@@ -15,6 +16,7 @@ export class AuthService {
 
   private authUrl = environment.apiEndpoint + '/auth';
   private authRequestUrl = environment.apiEndpoint + '/auth/request';
+  private authResponseUrl = environment.apiEndpoint + '/auth/response';
   private authRecordUrl = environment.apiEndpoint + '/identity/auths/request-list';
   private authApproveUrl = environment.apiEndpoint + '/identity/auths/pending-list';
 
@@ -25,6 +27,14 @@ export class AuthService {
       .pipe(
         tap(_ => console.log('requestAuth')),
         catchError(this.handleError<ResourceCreationInfo>('requestAuth'))
+      );
+  }
+
+  responseAuth(authResponse: AuthResponse): Observable<ResourceCreationInfo> {
+    return this.http.post<ResourceCreationInfo>(this.authResponseUrl, authResponse)
+      .pipe(
+        tap(_ => console.log('responseAuth')),
+        catchError(this.handleError<ResourceCreationInfo>('responseAuth'))
       );
   }
 
