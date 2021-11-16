@@ -42,14 +42,14 @@ export class AuthApproveTableComponent implements AfterViewInit {
 
   allowAuthSession(authSessionID: string) {
     // TODO: allow auth request by authSessionID
-    this._snackBar.open('Allowed: ' + authSessionID, 'DISMISS', {
+    this._snackBar.open('Allowed: ' + authSessionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
       duration: 5000
     });
   }
 
   denyAuthSession(authSessionID: string) {
     // TODO: deny auth request by authSessionID
-    this._snackBar.open('Denied: ' + authSessionID, 'DISMISS', {
+    this._snackBar.open('Denied: ' + authSessionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
       duration: 5000
     });
   }
