@@ -48,9 +48,10 @@ export class AuthApproveTableComponent implements AfterViewInit {
     } as AuthResponse).subscribe(resourceCreationInfo => {
       this._snackBar.open('Allowed: '
         + authSessionID.match(/.{1,4}/g)?.join(' ')
-        + ', TransactionID: '
+        + '\nTransactionID: '
         + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
-        duration: 5000
+        duration: 5000,
+        panelClass: ['result-snackbar']
       });
     });
   }
@@ -62,9 +63,10 @@ export class AuthApproveTableComponent implements AfterViewInit {
     } as AuthResponse).subscribe(resourceCreationInfo => {
       this._snackBar.open('Denied: '
         + authSessionID.match(/.{1,4}/g)?.join(' ')
-        + ', TransactionID: '
+        + '\nTransactionID: '
         + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
-        duration: 5000
+        duration: 5000,
+        panelClass: ['result-snackbar']
       });
     });
   }

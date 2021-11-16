@@ -9,3 +9,7 @@
 .mat-divider.mat-divider-vertical {
   height: 30px;
 }
+
+::ng-deep .result-snackbar {
+  white-space: pre-line;
+}
