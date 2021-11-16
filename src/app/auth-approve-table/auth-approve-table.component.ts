@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { AuthService } from '../auth.service';
 import { Utils } from '../utils';
 import { AuthApproveTableDataSource, AuthApproveTableItem } from './auth-approve-table-datasource';
 
@@ -29,8 +30,8 @@ export class AuthApproveTableComponent implements AfterViewInit {
 
   authSessionStatus: string[] = Utils.getAuthSessionStatus();
 
-  constructor(private _snackBar: MatSnackBar) {
-    this.dataSource = new AuthApproveTableDataSource();
+  constructor(private authService: AuthService, private _snackBar: MatSnackBar) {
+    this.dataSource = new AuthApproveTableDataSource(this.authService);
   }
 
   ngAfterViewInit(): void {

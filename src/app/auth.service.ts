@@ -16,6 +16,7 @@ export class AuthService {
   private authUrl = environment.apiEndpoint + '/auth';
   private authRequestUrl = environment.apiEndpoint + '/auth/request';
   private authRecordUrl = environment.apiEndpoint + '/identity/auths/request-list';
+  private authApproveUrl = environment.apiEndpoint + '/identity/auths/pending-list';
 
   constructor(private http: HttpClient) { }
 
@@ -35,7 +36,7 @@ export class AuthService {
       );
   }
 
-  getAuthSessionIDs(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
+  getAuthSessionRecordIDs(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
     return this.http.get<TableRecordData>(this.authRecordUrl, {
       params: new HttpParams()
         .set('isLatestFirst', isLatestFirst)
@@ -43,11 +44,25 @@ export class AuthService {
         .set('bookmark', bookmark)
     })
       .pipe(
-        tap(_ => console.log('getAuthSessionIDs'
+        tap(_ => console.log('getAuthSessionRecordIDs'
           + '\nisLatestFirst: ' + isLatestFirst
           + '\npageSize: ' + pageSize
           + '\nbookmark: ' + bookmark)),
-        catchError(this.handleError<TableRecordData>('getAuthSessionIDs'))
+        catchError(this.handleError<TableRecordData>('getAuthSessionRecordIDs'))
+      );
+  }
+
+  getAuthSessionApproveIDs(pageSize = 10, bookmark = ''): Observable<TableRecordData> {
+    return this.http.get<TableRecordData>(this.authApproveUrl, {
+      params: new HttpParams()
+        .set('pageSize', pageSize)
+        .set('bookmark', bookmark)
+    })
+      .pipe(
+        tap(_ => console.log('getAuthSessionApproveIDs'
+          + '\npageSize: ' + pageSize
+          + '\nbookmark: ' + bookmark)),
+        catchError(this.handleError<TableRecordData>('getAuthSessionApproveIDs'))
       );
   }
 

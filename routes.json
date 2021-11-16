@@ -11,5 +11,12 @@
   "/identity/documents/list*": "/ids-list$1",
   "/asset/:id/metadata": "/asset-metadata/:id",
   "/identity/assets/list*": "/ids-list$1",
-  "/identity/auths/request-list*": "/ids-list$1"
+  "/identity/auths/request-list*": "/ids-list$1",
+  "*?pageSize=5*": "$1-5$2",
+  "*?pageSize=10*": "$1-10$2",
+  "*?pageSize=20*": "$1-20$2",
+  "/identity/auths/pending-list*": "/ids-list$1",
+  "*ids-list-5": "$1ids-list-asc-5",
+  "*ids-list-10": "$1ids-list-asc-10",
+  "*ids-list-20": "$1ids-list-asc-20"
 }

@@ -81,7 +81,7 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
     let index = 1;
     let authSessionIDs: Observable<string[]>;
 
-    authSessionIDs = this.authService.getAuthSessionIDs(isLatestFirst, pageSize, bookmark)
+    authSessionIDs = this.authService.getAuthSessionRecordIDs(isLatestFirst, pageSize, bookmark)
       .pipe(map((tableRecordData) => {
         this.bookmark = tableRecordData.bookmark;
         return tableRecordData.IDs;
