@@ -14,6 +14,7 @@ import { TableRecordData } from './table-record-data';
 export class DocumentService {
 
   private documentUrl = environment.apiEndpoint + '/document';
+  private documentQueryUrl = environment.apiEndpoint + '/documents/list';
   private documentUploadRecordUrl = environment.apiEndpoint + '/identity/documents/list';
 
   constructor(private http: HttpClient) { }
@@ -23,6 +24,83 @@ export class DocumentService {
       .pipe(
         tap(_ => console.log('uploadDocument')),
         catchError(this.handleError<ResourceCreationInfo>('uploadDocument'))
+      );
+  }
+
+  queryDocumentIDs(
+    isLatestFirst = true,
+    pageSize = 10,
+    bookmark = '',
+    resourceID?: string,
+    name?: string,
+    isNameExact?: boolean,
+    time?: string,
+    timeAfterInclusive?: string,
+    timeBeforeExclusive?: string,
+    isTimeExact?: boolean,
+    documentType?: string,
+    precedingDocumentID?: string,
+    headDocumentID?: string,
+    entityAssetID?: string
+  ): Observable<TableRecordData> {
+    let params = new HttpParams()
+      .set('isLatestFirst', isLatestFirst)
+      .set('pageSize', pageSize)
+      .set('bookmark', bookmark);
+    let logMsg = 'queryDocumentIDs'
+      + '\nisLatestFirst: ' + isLatestFirst
+      + '\npageSize: ' + pageSize
+      + '\nbookmark: ' + bookmark;
+
+    if (resourceID !== undefined) {
+      params = params.append('resourceID', resourceID);
+      logMsg += '\nresourceID: ' + resourceID;
+    }
+    if (name !== undefined) {
+      params = params.append('name', name);
+      logMsg += '\nname: ' + name;
+    }
+    if (isNameExact !== undefined) {
+      params = params.append('isNameExact', isNameExact);
+      logMsg += '\nisNameExact: ' + isNameExact;
+    }
+    if (time !== undefined) {
+      params = params.append('time', time);
+      logMsg += '\ntime: ' + time;
+    }
+    if (timeAfterInclusive !== undefined) {
+      params = params.append('timeAfterInclusive', timeAfterInclusive);
+      logMsg += '\ntimeAfterInclusive: ' + timeAfterInclusive;
+    }
+    if (timeBeforeExclusive !== undefined) {
+      params = params.append('timeBeforeExclusive', timeBeforeExclusive);
+      logMsg += '\ntimeBeforeExclusive: ' + timeBeforeExclusive;
+    }
+    if (isTimeExact !== undefined) {
+      params = params.append('isTimeExact', isTimeExact);
+      logMsg += '\nisTimeExact: ' + isTimeExact;
+    }
+    if (documentType !== undefined) {
+      params = params.append('documentType', documentType);
+      logMsg += '\ndocumentType: ' + documentType;
+    }
+    if (precedingDocumentID !== undefined) {
+      params = params.append('precedingDocumentID', precedingDocumentID);
+      logMsg += '\nprecedingDocumentID: ' + precedingDocumentID;
+    }
+    if (headDocumentID !== undefined) {
+      params = params.append('headDocumentID', headDocumentID);
+      logMsg += '\nheadDocumentID: ' + headDocumentID;
+    }
+    if (entityAssetID !== undefined) {
+      params = params.append('entityAssetID', entityAssetID);
+      logMsg += '\nentityAssetID: ' + entityAssetID;
+    }
+
+    return this.http.get<TableRecordData>(this.documentQueryUrl, { params: params })
+      .pipe(
+        tap(_ => console.log(logMsg)),
+        catchError(this.handleError<TableRecordData>('queryDocumentIDs'))
       );
   }
 

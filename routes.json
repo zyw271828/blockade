@@ -8,6 +8,7 @@
   "*&pageSize=10*": "$1-10$2",
   "*&pageSize=20*": "$1-20$2",
   "*&bookmark=*": "$1",
+  "/documents/list*": "/ids-list$1",
   "/document/:id/metadata": "/document-metadata/:id",
   "/identity/documents/list*": "/ids-list$1",
   "/asset/:id/metadata": "/asset-metadata/:id",
