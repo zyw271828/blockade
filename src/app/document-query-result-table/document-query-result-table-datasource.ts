@@ -96,7 +96,11 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
       let formValues = [];
 
       for (let key in this.documentQueryComponent.documentConditionalQueryForm.value) {
-        formValues.push(this.documentQueryComponent.documentConditionalQueryForm.value[key]);
+        if (key.startsWith('time')) { // time, timeAfterInclusive, timeBeforeExclusive
+          formValues.push(this.documentQueryComponent.documentConditionalQueryForm.value[key]?.toJSON());
+        } else {
+          formValues.push(this.documentQueryComponent.documentConditionalQueryForm.value[key]);
+        }
       }
 
       documentIDs = this.documentService.queryDocumentIDs(
