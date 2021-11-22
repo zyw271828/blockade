@@ -13,6 +13,16 @@ export interface DocumentQueryResultTableItem {
   resourceID: string;
   resourceType: string;
   name: string;
+  hash: string;
+  ciphertextHash: string;
+  size: number;
+  ciphertextSize: number;
+  creator: string;
+  creationTime: string;
+  documentType: string;
+  precedingDocumentID: string;
+  headDocumentID: string;
+  entityAssetID: string;
 }
 
 /**
@@ -69,7 +79,17 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
           id: index,
           resourceID: documentMetadata.resourceID,
           resourceType: Utils.getResourceTypes('document')[documentMetadata.resourceType],
-          name: documentMetadata.extensions.name
+          name: documentMetadata.extensions.name,
+          hash: documentMetadata.hash,
+          ciphertextHash: documentMetadata.hashStored,
+          size: documentMetadata.size,
+          ciphertextSize: documentMetadata.sizeStored,
+          creator: documentMetadata.creator,
+          creationTime: documentMetadata.timestamp,
+          documentType: documentMetadata.extensions.documentType,
+          precedingDocumentID: documentMetadata.extensions.precedingDocumentID,
+          headDocumentID: documentMetadata.extensions.headDocumentID,
+          entityAssetID: documentMetadata.extensions.entityAssetID
         };
       }));
   }

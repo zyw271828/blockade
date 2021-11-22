@@ -45,38 +45,24 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
-  showDetail(resourceID: number) {
-    // TODO: get details by resourceID
-    let name = '';
-    let resourceType = '';
-    let hash = '';
-    let ciphertextHash = '';
-    let size = '';
-    let ciphertextSize = '';
-    let creator = '';
-    let creationTime = new Date();
-    let documentType = '';
-    let precedingDocumentID = '';
-    let headDocumentID = '';
-    let entityAssetID = '';
-
+  showDetail(row: DocumentQueryResultTableItem) {
     this.dialog.open(DocumentQueryResultDetailDialog, {
       data: {
         title: 'Detail',
         content: [
-          { item: 'ResourceID', value: resourceID },
-          { item: 'Name', value: name },
-          { item: 'ResourceType', value: resourceType },
-          { item: 'Hash', value: hash },
-          { item: 'CiphertextHash', value: ciphertextHash },
-          { item: 'Size', value: size },
-          { item: 'CiphertextSize', value: ciphertextSize },
-          { item: 'Creator', value: creator },
-          { item: 'CreationTime', value: creationTime },
-          { item: 'DocumentType', value: documentType },
-          { item: 'PrecedingDocumentID', value: precedingDocumentID },
-          { item: 'HeadDocumentID', value: headDocumentID },
-          { item: 'EntityAssetID', value: entityAssetID }
+          { item: 'ResourceID', value: row.resourceID },
+          { item: 'Name', value: row.name },
+          { item: 'ResourceType', value: row.resourceType },
+          { item: 'Hash', value: row.hash },
+          { item: 'CiphertextHash', value: row.ciphertextHash },
+          { item: 'Size', value: row.size },
+          { item: 'CiphertextSize', value: row.ciphertextSize },
+          { item: 'Creator', value: row.creator },
+          { item: 'CreationTime', value: row.creationTime },
+          { item: 'DocumentType', value: row.documentType },
+          { item: 'PrecedingDocumentID', value: row.precedingDocumentID },
+          { item: 'HeadDocumentID', value: row.headDocumentID },
+          { item: 'EntityAssetID', value: row.entityAssetID }
         ]
       }
     });
