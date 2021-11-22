@@ -71,4 +71,14 @@ export class DocumentQueryComponent implements OnInit {
       });
     }
   }
+
+  resetIDQueryForm(): void {
+    this.documentIDQueryForm.reset();
+    this.isResultShow = false;
+  }
+
+  resetConditionalQueryForm(): void {
+    this.documentConditionalQueryForm.reset();
+    this.isResultShow = false;
+  }
 }

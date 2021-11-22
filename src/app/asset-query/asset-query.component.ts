@@ -62,4 +62,14 @@ export class AssetQueryComponent implements OnInit {
       });
     }
   }
+
+  resetIDQueryForm(): void {
+    this.assetIDQueryForm.reset();
+    this.isResultShow = false;
+  }
+
+  resetConditionalQueryForm(): void {
+    this.assetConditionalQueryForm.reset();
+    this.isResultShow = false;
+  }
 }
