@@ -14,6 +14,16 @@ export interface AuthRecordTableItem {
   name: string;
   authSessionID: string;
   status: string;
+  hash: string;
+  ciphertextHash: string;
+  size: number;
+  ciphertextSize: number;
+  creator: string;
+  creationTime: string;
+  documentType: string;
+  precedingDocumentID: string;
+  headDocumentID: string;
+  entityAssetID: string;
 }
 
 /**
@@ -72,7 +82,18 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
           resourceType: 'resourceType', // TODO: get resourceType
           name: 'name', // TODO: get name
           authSessionID: authSession.authSessionID,
-          status: Utils.getAuthSessionStatus()[authSession.status]
+          status: Utils.getAuthSessionStatus()[authSession.status],
+          // TODO: get details
+          hash: 'hash',
+          ciphertextHash: 'ciphertextHash',
+          size: 0,
+          ciphertextSize: 0,
+          creator: 'creator',
+          creationTime: 'creationTime',
+          documentType: 'documentType',
+          precedingDocumentID: 'precedingDocumentID',
+          headDocumentID: 'headDocumentID',
+          entityAssetID: 'entityAssetID'
         };
       }));
   }

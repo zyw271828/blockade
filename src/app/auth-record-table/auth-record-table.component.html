@@ -42,7 +42,7 @@
       <th mat-header-cell *matHeaderCellDef>Operation</th>
       <td mat-cell *matCellDef="let row">
         <button *ngIf="row.status === authSessionStatus[1]" mat-stroked-button type="button"
-          (click)="showDetail(row.resourceID)">Show</button>
+          (click)="showDetail(row)">Show</button>
       </td>
     </ng-container>
 
