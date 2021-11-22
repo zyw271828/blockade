@@ -3,6 +3,8 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { DocumentQueryComponent } from '../document-query/document-query.component';
+import { DocumentService } from '../document.service';
 import { DocumentQueryResultTableDataSource, DocumentQueryResultTableItem } from './document-query-result-table-datasource';
 
 export interface DialogData {
@@ -33,8 +35,8 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
     'operation'
   ];
 
-  constructor(public dialog: MatDialog) {
-    this.dataSource = new DocumentQueryResultTableDataSource();
+  constructor(private documentQueryComponent: DocumentQueryComponent, private documentService: DocumentService, public dialog: MatDialog) {
+    this.dataSource = new DocumentQueryResultTableDataSource(this.documentQueryComponent, this.documentService);
   }
 
   ngAfterViewInit(): void {

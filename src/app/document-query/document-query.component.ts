@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Utils } from '../utils';
@@ -41,7 +41,7 @@ export class DocumentQueryComponent implements OnInit {
 
   isResultShow: boolean = false;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) { }
+  constructor(private changeDetector: ChangeDetectorRef, private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -52,7 +52,8 @@ export class DocumentQueryComponent implements OnInit {
 
   onIDQuerySubmit(): void {
     if (this.documentIDQueryForm.valid) {
-      // TODO: submit documentIDQueryForm
+      this.isResultShow = false;
+      this.changeDetector.detectChanges();
       this.isResultShow = true;
     } else { // documentIDQueryForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
@@ -63,7 +64,8 @@ export class DocumentQueryComponent implements OnInit {
 
   onConditionalQuerySubmit(): void {
     if (this.documentConditionalQueryForm.valid) {
-      // TODO: submit documentConditionalQueryForm
+      this.isResultShow = false;
+      this.changeDetector.detectChanges();
       this.isResultShow = true;
     } else { // documentConditionalQueryForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
