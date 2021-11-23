@@ -1,40 +1,26 @@
 import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { merge, Observable, of as observableOf } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { forkJoin, merge, Observable, of as observableOf } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
+import { AssetQueryComponent } from '../asset-query/asset-query.component';
+import { AssetService } from '../asset.service';
+import { Utils } from '../utils';
 
 // Data model type
 export interface AssetQueryResultTableItem {
   id: number;
-  resourceID: number;
+  resourceID: string;
   resourceType: string;
   name: string;
+  hash: string;
+  ciphertextHash: string;
+  size: number;
+  ciphertextSize: number;
+  creator: string;
+  creationTime: string;
+  designDocumentID: string;
 }
-
-// TODO: replace this with real data
-const EXAMPLE_DATA: AssetQueryResultTableItem[] = [
-  { id: 1, resourceID: 20, resourceType: 'Plaintext', name: 'name' },
-  { id: 2, resourceID: 19, resourceType: 'Encryption', name: 'name' },
-  { id: 3, resourceID: 18, resourceType: 'Encryption', name: 'name' },
-  { id: 4, resourceID: 17, resourceType: 'Plaintext', name: 'name' },
-  { id: 5, resourceID: 16, resourceType: 'Encryption', name: 'name' },
-  { id: 6, resourceID: 15, resourceType: 'Encryption', name: 'name' },
-  { id: 7, resourceID: 14, resourceType: 'Plaintext', name: 'name' },
-  { id: 8, resourceID: 13, resourceType: 'Encryption', name: 'name' },
-  { id: 9, resourceID: 12, resourceType: 'Encryption', name: 'name' },
-  { id: 10, resourceID: 11, resourceType: 'Plaintext', name: 'name' },
-  { id: 11, resourceID: 10, resourceType: 'Encryption', name: 'name' },
-  { id: 12, resourceID: 9, resourceType: 'Encryption', name: 'name' },
-  { id: 13, resourceID: 8, resourceType: 'Plaintext', name: 'name' },
-  { id: 14, resourceID: 7, resourceType: 'Encryption', name: 'name' },
-  { id: 15, resourceID: 6, resourceType: 'Encryption', name: 'name' },
-  { id: 16, resourceID: 5, resourceType: 'Plaintext', name: 'name' },
-  { id: 17, resourceID: 4, resourceType: 'Encryption', name: 'name' },
-  { id: 18, resourceID: 3, resourceType: 'Encryption', name: 'name' },
-  { id: 19, resourceID: 2, resourceType: 'Plaintext', name: 'name' },
-  { id: 20, resourceID: 1, resourceType: 'Encryption', name: 'name' },
-];
 
 /**
  * Data source for the AssetQueryResultTable view. This class should
@@ -42,11 +28,12 @@ const EXAMPLE_DATA: AssetQueryResultTableItem[] = [
  * (including sorting, pagination, and filtering).
  */
 export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResultTableItem> {
-  data: AssetQueryResultTableItem[] = EXAMPLE_DATA;
+  data: AssetQueryResultTableItem[] = [];
+  bookmark: string = '';
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor() {
+  constructor(private assetQueryComponent: AssetQueryComponent, private assetService: AssetService) {
     super();
   }
 
@@ -56,13 +43,21 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
    * @returns A stream of the items to be rendered.
    */
   connect(): Observable<AssetQueryResultTableItem[]> {
+    // TODO: fix the page turning of MatPaginator
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
       return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
         .pipe(map(() => {
-          return this.getPagedData(this.getSortedData([...this.data]));
-        }));
+          return this.getTableRecordData(this.sort!.direction === 'desc', this.paginator!.pageSize, this.bookmark)
+            .pipe(map((tableRecordData) => {
+              this.data = tableRecordData;
+              return this.data;
+            }));
+        }))
+        .pipe(
+          mergeMap(result => result)
+        );
     } else {
       throw Error('Please set the paginator and sort on the data source before connecting.');
     }
@@ -74,42 +69,77 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
    */
   disconnect(): void { }
 
-  /**
-   * Paginate the data (client-side). If you're using server-side pagination,
-   * this would be replaced by requesting the appropriate data from the server.
-   */
-  private getPagedData(data: AssetQueryResultTableItem[]): AssetQueryResultTableItem[] {
-    if (this.paginator) {
-      const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-      return data.splice(startIndex, this.paginator.pageSize);
+  private getTableItem(assetID: string, index: number): Observable<AssetQueryResultTableItem> {
+    return this.assetService.getAssetMetadataById(assetID)
+      .pipe(map((assetMetadata) => {
+        return {
+          id: index,
+          resourceID: assetMetadata.resourceID,
+          resourceType: Utils.getResourceTypes('asset')[assetMetadata.resourceType],
+          name: assetMetadata.extensions.name,
+          hash: assetMetadata.hash,
+          ciphertextHash: assetMetadata.hashStored,
+          size: assetMetadata.size,
+          ciphertextSize: assetMetadata.sizeStored,
+          creator: assetMetadata.creator,
+          creationTime: assetMetadata.timestamp,
+          designDocumentID: assetMetadata.extensions.designDocumentID
+        };
+      }));
+  }
+
+  private getTableRecordData(isLatestFirst: boolean, pageSize: number, bookmark: string): Observable<AssetQueryResultTableItem[]> {
+    let index = 1;
+    let assetIDs: Observable<string[]>;
+
+    if (this.assetQueryComponent.currentQueryMethod === this.assetQueryComponent.queryMethods[0]) {
+      // ID query
+      // TODO: filter resourceType
+      assetIDs = this.assetService.queryAssetIDs(
+        isLatestFirst,
+        pageSize,
+        bookmark,
+        this.assetQueryComponent.assetIDQueryForm.get('resourceID')?.value
+      )
+        .pipe(map((tableRecordData) => {
+          this.bookmark = tableRecordData.bookmark;
+          return tableRecordData.IDs;
+        }));
     } else {
-      return data;
-    }
-  }
+      // Conditional query
+      let formValues = [];
 
-  /**
-   * Sort the data (client-side). If you're using server-side sorting,
-   * this would be replaced by requesting the appropriate data from the server.
-   */
-  private getSortedData(data: AssetQueryResultTableItem[]): AssetQueryResultTableItem[] {
-    if (!this.sort || !this.sort.active || this.sort.direction === '') {
-      return data;
-    }
-
-    return data.sort((a, b) => {
-      const isAsc = this.sort?.direction === 'asc';
-      switch (this.sort?.active) {
-        case 'id': return compare(+a.id, +b.id, isAsc);
-        case 'resourceID': return compare(+a.resourceID, +b.resourceID, isAsc);
-        case 'resourceType': return compare(a.resourceType, b.resourceType, isAsc);
-        case 'name': return compare(a.name, b.name, isAsc);
-        default: return 0;
+      for (let key in this.assetQueryComponent.assetConditionalQueryForm.value) {
+        if (key.startsWith('time')) { // time, timeAfterInclusive, timeBeforeExclusive
+          formValues.push(this.assetQueryComponent.assetConditionalQueryForm.value[key]?.toJSON());
+        } else {
+          formValues.push(this.assetQueryComponent.assetConditionalQueryForm.value[key]);
+        }
       }
-    });
-  }
-}
 
-/** Simple sort comparator for example columns (for client-side sorting). */
-function compare(a: string | number, b: string | number, isAsc: boolean): number {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+      assetIDs = this.assetService.queryAssetIDs(
+        isLatestFirst,
+        pageSize,
+        bookmark,
+        ...formValues
+      )
+        .pipe(map((tableRecordData) => {
+          this.bookmark = tableRecordData.bookmark;
+          return tableRecordData.IDs;
+        }));
+    }
+
+    return assetIDs
+      .pipe(map((assetIDs) => {
+        return assetIDs.map(assetID => {
+          return this.getTableItem(assetID, index++);
+        });
+      }))
+      .pipe(map((tableItems) => {
+        return forkJoin(tableItems);
+      }))
+      .pipe(
+        mergeMap(result => result)
+      );
+  }
 }

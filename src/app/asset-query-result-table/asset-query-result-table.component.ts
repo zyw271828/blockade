@@ -3,6 +3,8 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { AssetQueryComponent } from '../asset-query/asset-query.component';
+import { AssetService } from '../asset.service';
 import { AssetQueryResultTableDataSource, AssetQueryResultTableItem } from './asset-query-result-table-datasource';
 
 export interface DialogData {
@@ -33,8 +35,8 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
     'operation'
   ];
 
-  constructor(public dialog: MatDialog) {
-    this.dataSource = new AssetQueryResultTableDataSource();
+  constructor(private assetQueryComponent: AssetQueryComponent, private assetService: AssetService, public dialog: MatDialog) {
+    this.dataSource = new AssetQueryResultTableDataSource(this.assetQueryComponent, this.assetService);
   }
 
   ngAfterViewInit(): void {
@@ -43,38 +45,21 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
-  showDetail(resourceID: number) {
-    // TODO: get details by resourceID
-    let name = '';
-    let resourceType = '';
-    let hash = '';
-    let ciphertextHash = '';
-    let size = '';
-    let ciphertextSize = '';
-    let creator = '';
-    let creationTime = new Date();
-    let documentType = '';
-    let precedingDocumentID = '';
-    let headDocumentID = '';
-    let entityAssetID = '';
-
+  showDetail(row: AssetQueryResultTableItem) {
     this.dialog.open(AssetQueryResultDetailDialog, {
       data: {
         title: 'Detail',
         content: [
-          { item: 'ResourceID', value: resourceID },
-          { item: 'Name', value: name },
-          { item: 'ResourceType', value: resourceType },
-          { item: 'Hash', value: hash },
-          { item: 'CiphertextHash', value: ciphertextHash },
-          { item: 'Size', value: size },
-          { item: 'CiphertextSize', value: ciphertextSize },
-          { item: 'Creator', value: creator },
-          { item: 'CreationTime', value: creationTime },
-          { item: 'DocumentType', value: documentType },
-          { item: 'PrecedingDocumentID', value: precedingDocumentID },
-          { item: 'HeadDocumentID', value: headDocumentID },
-          { item: 'EntityAssetID', value: entityAssetID }
+          { item: 'ResourceID', value: row.resourceID },
+          { item: 'Name', value: row.name },
+          { item: 'ResourceType', value: row.resourceType },
+          { item: 'Hash', value: row.hash },
+          { item: 'CiphertextHash', value: row.ciphertextHash },
+          { item: 'Size', value: row.size },
+          { item: 'CiphertextSize', value: row.ciphertextSize },
+          { item: 'Creator', value: row.creator },
+          { item: 'CreationTime', value: row.creationTime },
+          { item: 'DesignDocumentID', value: row.designDocumentID }
         ]
       }
     });

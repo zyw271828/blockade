@@ -14,6 +14,7 @@ import { TableRecordData } from './table-record-data';
 export class AssetService {
 
   private assetUrl = environment.apiEndpoint + '/asset';
+  private assetQueryUrl = environment.apiEndpoint + '/assets/list';
   private assetUploadRecordUrl = environment.apiEndpoint + '/identity/assets/list';
 
   constructor(private http: HttpClient) { }
@@ -23,6 +24,68 @@ export class AssetService {
       .pipe(
         tap(_ => console.log('uploadAsset')),
         catchError(this.handleError<ResourceCreationInfo>('uploadAsset'))
+      );
+  }
+
+  queryAssetIDs(
+    isLatestFirst = true,
+    pageSize = 10,
+    bookmark = '',
+    resourceID?: string,
+    name?: string,
+    isNameExact?: boolean,
+    time?: string,
+    timeAfterInclusive?: string,
+    timeBeforeExclusive?: string,
+    isTimeExact?: boolean,
+    designDocumentID?: string
+  ): Observable<TableRecordData> {
+    let params = new HttpParams()
+      .set('isLatestFirst', isLatestFirst)
+      .set('pageSize', pageSize)
+      .set('bookmark', bookmark);
+    let logMsg = 'queryAssetIDs'
+      + '\nisLatestFirst: ' + isLatestFirst
+      + '\npageSize: ' + pageSize
+      + '\nbookmark: ' + bookmark;
+
+    if (resourceID !== undefined) {
+      params = params.append('resourceID', resourceID);
+      logMsg += '\nresourceID: ' + resourceID;
+    }
+    if (name !== undefined) {
+      params = params.append('name', name);
+      logMsg += '\nname: ' + name;
+    }
+    if (isNameExact !== undefined) {
+      params = params.append('isNameExact', isNameExact);
+      logMsg += '\nisNameExact: ' + isNameExact;
+    }
+    if (time !== undefined) {
+      params = params.append('time', time);
+      logMsg += '\ntime: ' + time;
+    }
+    if (timeAfterInclusive !== undefined) {
+      params = params.append('timeAfterInclusive', timeAfterInclusive);
+      logMsg += '\ntimeAfterInclusive: ' + timeAfterInclusive;
+    }
+    if (timeBeforeExclusive !== undefined) {
+      params = params.append('timeBeforeExclusive', timeBeforeExclusive);
+      logMsg += '\ntimeBeforeExclusive: ' + timeBeforeExclusive;
+    }
+    if (isTimeExact !== undefined) {
+      params = params.append('isTimeExact', isTimeExact);
+      logMsg += '\nisTimeExact: ' + isTimeExact;
+    }
+    if (designDocumentID !== undefined) {
+      params = params.append('designDocumentID', designDocumentID);
+      logMsg += '\ndesignDocumentID: ' + designDocumentID;
+    }
+
+    return this.http.get<TableRecordData>(this.assetQueryUrl, { params: params })
+      .pipe(
+        tap(_ => console.log(logMsg)),
+        catchError(this.handleError<TableRecordData>('queryAssetIDs'))
       );
   }
 
