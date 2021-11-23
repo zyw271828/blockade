@@ -39,6 +39,7 @@ import { AssetUploadRecordComponent } from './asset-upload-record/asset-upload-r
 import { AssetUploadComponent, AssetUploadPromptDialog } from './asset-upload/asset-upload.component';
 import { AuthApproveTableComponent } from './auth-approve-table/auth-approve-table.component';
 import { AuthApproveComponent } from './auth-approve/auth-approve.component';
+import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 import { AuthRecordDetailDialog, AuthRecordTableComponent } from './auth-record-table/auth-record-table.component';
 import { AuthRecordComponent } from './auth-record/auth-record.component';
 import { AuthRequestComponent, AuthRequestPromptDialog } from './auth-request/auth-request.component';
@@ -78,6 +79,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     AuthRecordDetailDialog,
     AuthApproveComponent,
     AuthApproveTableComponent,
+    AuthDialogComponent,
     FooterComponent
   ],
   imports: [

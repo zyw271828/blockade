@@ -1,0 +1,23 @@
+<form [formGroup]="authDialogForm" novalidate (ngSubmit)="onSubmit()">
+  <h1 mat-dialog-title>{{data.title}}</h1>
+  <div class="container">
+    <div style="height: 10px;"></div>
+
+    <div mat-dialog-content>
+      <mat-form-field appearance="outline" fxFlex="auto">
+        <mat-label>Auth Session ID</mat-label>
+        <input matInput required formControlName="authSessionID">
+        <mat-error *ngIf="authDialogForm.controls['authSessionID'].hasError('required')">
+          Auth Session ID is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close type="button" routerLink="/auth/request">Request</button>
+      <div fxFlex></div>
+      <button mat-button mat-dialog-close type="button">Cancel</button>
+      <button mat-button cdkFocusInitial type="submit">Submit</button>
+    </div>
+  </div>
+</form>
