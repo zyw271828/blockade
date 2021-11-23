@@ -1,24 +1,67 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="container">
+  <div fxLayout="column">
+    <h1 class="mat-h1">Dashboard</h1>
+
+    <!-- Card 1 -->
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          Card 1
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <mat-label>Card 1</mat-label>
+        <div style="height: 200px;"></div>
+      </mat-card-content>
+    </mat-card>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex fxLayoutGap.gt-sm="8px">
+      <div fxLayout="column" fxFlex.gt-sm="50" fxFlex>
+
+        <!-- Card 2 -->
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Card 2
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <mat-label>Card 2</mat-label>
+            <div style="height: 200px;"></div>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Card 3 -->
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Card 3
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <mat-label>Card 3</mat-label>
+            <div style="height: 200px;"></div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+
+      <div fxFlex.gt-sm="50" fxFlex>
+
+        <!-- Card 4 -->
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Card 4
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <mat-label>Card 4</mat-label>
+            <div style="height: 519px;"></div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </div>
+  </div>
 </div>
