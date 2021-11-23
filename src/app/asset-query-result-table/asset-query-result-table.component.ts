@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { AssetQueryComponent } from '../asset-query/asset-query.component';
 import { AssetService } from '../asset.service';
+import { Utils } from '../utils';
 import { AssetQueryResultTableDataSource, AssetQueryResultTableItem } from './asset-query-result-table-datasource';
 
 export interface DialogData {
@@ -58,7 +59,7 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
           { item: 'Size', value: row.size },
           { item: 'CiphertextSize', value: row.ciphertextSize },
           { item: 'Creator', value: row.creator },
-          { item: 'CreationTime', value: row.creationTime },
+          { item: 'CreationTime', value: Utils.formatDate(row.creationTime) },
           { item: 'DesignDocumentID', value: row.designDocumentID }
         ]
       }

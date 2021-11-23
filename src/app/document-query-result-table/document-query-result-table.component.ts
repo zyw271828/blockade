@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { DocumentQueryComponent } from '../document-query/document-query.component';
 import { DocumentService } from '../document.service';
+import { Utils } from '../utils';
 import { DocumentQueryResultTableDataSource, DocumentQueryResultTableItem } from './document-query-result-table-datasource';
 
 export interface DialogData {
@@ -58,7 +59,7 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
           { item: 'Size', value: row.size },
           { item: 'CiphertextSize', value: row.ciphertextSize },
           { item: 'Creator', value: row.creator },
-          { item: 'CreationTime', value: row.creationTime },
+          { item: 'CreationTime', value: Utils.formatDate(row.creationTime) },
           { item: 'DocumentType', value: row.documentType },
           { item: 'PrecedingDocumentID', value: row.precedingDocumentID },
           { item: 'HeadDocumentID', value: row.headDocumentID },
