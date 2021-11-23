@@ -165,23 +165,6 @@
           </mat-card-content>
         </mat-card>
 
-        <!-- Query Result -->
-        <mat-card *ngIf="isResultShow" class="document-card">
-          <mat-card-header>
-            <mat-card-title>
-              Query Result
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="document-card-content">
-            <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
-
-              <!-- Document Query Result Table -->
-              <app-document-query-result-table></app-document-query-result-table>
-
-            </div>
-          </mat-card-content>
-        </mat-card>
-
       </div>
 
       <div fxFlex.gt-sm="33" fxFlex>
@@ -199,5 +182,22 @@
         </mat-card>
       </div>
     </div>
+
+    <!-- Query Result -->
+    <mat-card *ngIf="isResultShow" class="document-card">
+      <mat-card-header>
+        <mat-card-title>
+          Query Result
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="document-card-content">
+        <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+
+          <!-- Document Query Result Table -->
+          <app-document-query-result-table></app-document-query-result-table>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
