@@ -1,40 +1,62 @@
 <div class="container">
-  <h1 class="mat-h1">Auth</h1>
-  <mat-card class="auth-card">
-    <mat-card-header>
-      <mat-card-title>
-        Request
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="auth-card-content">
-      <form [formGroup]="authRequestForm" novalidate (ngSubmit)="onSubmit()">
-        <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+  <div fxLayout="column">
+    <h1 class="mat-h1">Auth</h1>
 
-          <!-- Resource ID -->
-          <mat-form-field appearance="outline" fxFlex="auto">
-            <mat-label>Resource ID</mat-label>
-            <input matInput required formControlName="resourceID">
-            <mat-error *ngIf="authRequestForm.controls['resourceID'].hasError('required')">
-              Resource ID is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex fxLayoutGap.gt-sm="8px">
+      <div fxFlex.gt-sm="67" fxFlex>
+        <mat-card class="auth-card">
+          <mat-card-header>
+            <mat-card-title>
+              Request
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="auth-card-content">
+            <form [formGroup]="authRequestForm" novalidate (ngSubmit)="onSubmit()">
+              <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
-          <!-- Reason -->
-          <mat-form-field appearance="outline" fxFlex="auto">
-            <mat-label>Reason</mat-label>
-            <textarea matInput cdkTextareaAutosize placeholder="Optional" formControlName="reason"></textarea>
-          </mat-form-field>
+                <!-- Resource ID -->
+                <mat-form-field appearance="outline" fxFlex="auto">
+                  <mat-label>Resource ID</mat-label>
+                  <input matInput required formControlName="resourceID">
+                  <mat-error *ngIf="authRequestForm.controls['resourceID'].hasError('required')">
+                    Resource ID is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
 
-          <div style="height: 10px;"></div>
+                <!-- Reason -->
+                <mat-form-field appearance="outline" fxFlex="auto">
+                  <mat-label>Reason</mat-label>
+                  <textarea matInput cdkTextareaAutosize placeholder="Optional" formControlName="reason"></textarea>
+                </mat-form-field>
 
-          <!-- Reset & Request -->
-          <div class="auth-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-            <button mat-button color="warn" type="button" (click)="authRequestForm.reset()">Reset</button>
-            <button mat-raised-button color="primary" type="submit">Request</button>
-          </div>
+                <div style="height: 10px;"></div>
 
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+                <!-- Reset & Request -->
+                <div class="auth-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+                  <button mat-button color="warn" type="button" (click)="authRequestForm.reset()">Reset</button>
+                  <button mat-raised-button color="primary" type="submit">Request</button>
+                </div>
+
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div fxFlex.gt-sm="33" fxFlex>
+        <mat-card class="auth-card">
+          <mat-card-header>
+            <mat-card-title>
+              Instruction
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="auth-card-content">
+
+            <mat-label class="instruction">{{instruction}}</mat-label>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>

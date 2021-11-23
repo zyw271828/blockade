@@ -26,6 +26,8 @@ export class AuthRequestComponent implements OnInit {
     reason: null
   });
 
+  instruction: string = 'Some instructions on the auth request page.';
+
   constructor(private authService: AuthService, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {

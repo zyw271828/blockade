@@ -1,87 +1,110 @@
 <div class="container">
-  <h1 class="mat-h1">Asset</h1>
-  <mat-card class="asset-card">
-    <mat-card-header>
-      <mat-card-title>
-        Upload
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="asset-card-content">
-      <form [formGroup]="assetUploadForm" novalidate (ngSubmit)="onSubmit()">
-        <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+  <div fxLayout="column">
+    <h1 class="mat-h1">Asset</h1>
 
-          <!-- Resource Type -->
-          <mat-form-field appearance="outline">
-            <mat-label>Resource Type</mat-label>
-            <mat-select required formControlName="resourceType" (selectionChange)="resourceTypeChange($event.value)">
-              <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
-                {{resourceType}}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="assetUploadForm.controls['resourceType'].hasError('required')">
-              Resource Type is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex fxLayoutGap.gt-sm="8px">
+      <div fxFlex.gt-sm="67" fxFlex>
+        <mat-card class="asset-card">
+          <mat-card-header>
+            <mat-card-title>
+              Upload
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="asset-card-content">
+            <form [formGroup]="assetUploadForm" novalidate (ngSubmit)="onSubmit()">
+              <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
-          <!-- Name -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field appearance="outline" fxFlex="auto">
-              <mat-label>Name</mat-label>
-              <input matInput required formControlName="name">
-              <mat-error *ngIf="assetUploadForm.controls['name'].hasError('required')">
-                Name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
+                <!-- Resource Type -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Resource Type</mat-label>
+                  <mat-select required formControlName="resourceType"
+                    (selectionChange)="resourceTypeChange($event.value)">
+                    <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
+                      {{resourceType}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="assetUploadForm.controls['resourceType'].hasError('required')">
+                    Resource Type is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
 
-          <!-- Component IDs -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field appearance="outline" fxFlex="auto">
-              <mat-label>Component IDs</mat-label>
-              <mat-chip-list required formControlName="componentIDs" #chipList>
-                <mat-chip *ngFor="let componentID of assetUploadForm.get('componentIDs')?.value" [selectable]="true"
-                  [removable]="true" (removed)="removeComponentID(componentID)">
-                  {{componentID}}
-                  <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <input matInput placeholder="New Component ID..." [matChipInputFor]="chipList"
-                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
-                  (matChipInputTokenEnd)="addComponentID($event)" (paste)="pasteComponentID($event)">
-              </mat-chip-list>
-              <mat-error *ngIf="assetUploadForm.controls['componentIDs'].hasError('required')">
-                Component IDs are <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
+                <!-- Name -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Name</mat-label>
+                    <input matInput required formControlName="name">
+                    <mat-error *ngIf="assetUploadForm.controls['name'].hasError('required')">
+                      Name is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
 
-          <!-- Policy -->
-          <div *ngIf="assetUploadForm.get('resourceType')?.value !== this.resourceTypes[0]" fxLayout="row"
-            fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field appearance="outline" fxFlex="auto">
-              <mat-label>Policy</mat-label>
-              <input matInput required formControlName="policy">
-              <mat-error *ngIf="assetUploadForm.controls['policy'].hasError('required')">
-                Policy is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-            <div class="misc-margin">
-              <mat-icon matTooltip='Available keywords:&#13;
-                DeptType, DeptLevel, DeptName, SuperDeptName&#13;
-                Example:&#13;
-                (DeptType == "Dev" && DeptLevel == 2)' matTooltipClass="help-tooltip" fxFlex="auto">help
-              </mat-icon>
-            </div>
-          </div>
+                <!-- Component IDs -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Component IDs</mat-label>
+                    <mat-chip-list required formControlName="componentIDs" #chipList>
+                      <mat-chip *ngFor="let componentID of assetUploadForm.get('componentIDs')?.value"
+                        [selectable]="true" [removable]="true" (removed)="removeComponentID(componentID)">
+                        {{componentID}}
+                        <mat-icon matChipRemove>cancel</mat-icon>
+                      </mat-chip>
+                      <input matInput placeholder="New Component ID..." [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+                        (matChipInputTokenEnd)="addComponentID($event)" (paste)="pasteComponentID($event)">
+                    </mat-chip-list>
+                    <mat-error *ngIf="assetUploadForm.controls['componentIDs'].hasError('required')">
+                      Component IDs are <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
 
-          <div style="height: 10px;"></div>
+                <!-- Policy -->
+                <div *ngIf="assetUploadForm.get('resourceType')?.value !== this.resourceTypes[0]" fxLayout="row"
+                  fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Policy</mat-label>
+                    <input matInput required formControlName="policy">
+                    <mat-error *ngIf="assetUploadForm.controls['policy'].hasError('required')">
+                      Policy is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  <div class="misc-margin">
+                    <mat-icon matTooltip='Available keywords:&#13;
+                      DeptType, DeptLevel, DeptName, SuperDeptName&#13;
+                      Example:&#13;
+                      (DeptType == "Dev" && DeptLevel == 2)' matTooltipClass="help-tooltip" fxFlex="auto">help
+                    </mat-icon>
+                  </div>
+                </div>
 
-          <!-- Reset & Upload -->
-          <div class="asset-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-            <button mat-button color="warn" type="button" (click)="assetUploadResetButtonClick()">Reset</button>
-            <button mat-raised-button color="primary" type="submit">Upload</button>
-          </div>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+                <div style="height: 10px;"></div>
+
+                <!-- Reset & Upload -->
+                <div class="asset-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+                  <button mat-button color="warn" type="button" (click)="assetUploadResetButtonClick()">Reset</button>
+                  <button mat-raised-button color="primary" type="submit">Upload</button>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div fxFlex.gt-sm="33" fxFlex>
+        <mat-card class="asset-card">
+          <mat-card-header>
+            <mat-card-title>
+              Instruction
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="asset-card-content">
+
+            <mat-label class="instruction">{{instruction}}</mat-label>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>

@@ -44,6 +44,8 @@ export class DocumentUploadComponent implements OnInit {
 
   filename: string = "";
 
+  instruction: string = 'Some instructions on the document upload page.';
+
   constructor(private documentService: DocumentService, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {

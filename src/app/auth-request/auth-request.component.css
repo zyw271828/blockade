@@ -17,3 +17,7 @@
 .misc-margin {
   margin-bottom: 20px;
 }
+
+::ng-deep .instruction {
+  white-space: pre-line;
+}

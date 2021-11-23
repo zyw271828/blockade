@@ -36,6 +36,8 @@ export class AssetQueryComponent implements OnInit {
 
   isResultShow: boolean = false;
 
+  instruction: string = 'Some instructions on the asset query page.';
+
   constructor(private changeDetector: ChangeDetectorRef, private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {

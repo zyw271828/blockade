@@ -41,6 +41,8 @@ export class DocumentQueryComponent implements OnInit {
 
   isResultShow: boolean = false;
 
+  instruction: string = 'Some instructions on the document query page.';
+
   constructor(private changeDetector: ChangeDetectorRef, private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {

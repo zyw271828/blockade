@@ -35,6 +35,8 @@ export class AssetUploadComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 
+  instruction: string = 'Some instructions on the asset upload page.';
+
   constructor(private assetService: AssetService, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {

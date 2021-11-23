@@ -1,182 +1,203 @@
 <div class="container">
-  <h1 class="mat-h1">Document</h1>
+  <div fxLayout="column">
+    <h1 class="mat-h1">Document</h1>
 
-  <mat-card class="document-card">
-    <mat-card-header>
-      <mat-card-title>
-        Query
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="document-card-content">
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex fxLayoutGap.gt-sm="8px">
+      <div fxFlex.gt-sm="67" fxFlex>
+        <mat-card class="document-card">
+          <mat-card-header>
+            <mat-card-title>
+              Query
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="document-card-content">
 
-      <div style="height: 10px;"></div>
+            <div style="height: 10px;"></div>
 
-      <!-- Query Method -->
-      <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-        <mat-label fxFlex="20">Query Method *</mat-label>
-        <mat-radio-group [(ngModel)]="currentQueryMethod" fxFlex="auto">
-          <mat-radio-button *ngFor="let queryMethod of queryMethods" [value]="queryMethod">
-            {{queryMethod}}
-          </mat-radio-button>
-        </mat-radio-group>
+            <!-- Query Method -->
+            <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+              <mat-label fxFlex="20">Query Method *</mat-label>
+              <mat-radio-group [(ngModel)]="currentQueryMethod" fxFlex="auto">
+                <mat-radio-button *ngFor="let queryMethod of queryMethods" [value]="queryMethod">
+                  {{queryMethod}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <div style="height: 10px;"></div>
+
+            <!-- ID Query -->
+            <form [formGroup]="documentIDQueryForm" novalidate (ngSubmit)="onIDQuerySubmit()">
+              <div *ngIf="currentQueryMethod === this.queryMethods[0]" fxLayout="column"
+                fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+
+                <!-- Resource Type -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Resource Type</mat-label>
+                  <mat-select required formControlName="resourceType">
+                    <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
+                      {{resourceType}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="documentIDQueryForm.controls['resourceType'].hasError('required')">
+                    Resource Type is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <!-- Resource ID -->
+                <mat-form-field appearance="outline" fxFlex="auto">
+                  <mat-label>Resource ID</mat-label>
+                  <input matInput required formControlName="resourceID">
+                  <mat-error *ngIf="documentIDQueryForm.controls['resourceID'].hasError('required')">
+                    Resource ID is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <div style="height: 10px;"></div>
+
+                <!-- Reset & Query -->
+                <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+                  <button mat-button color="warn" type="button" (click)="resetIDQueryForm()">Reset</button>
+                  <button mat-raised-button color="primary" type="submit">ID Query</button>
+                </div>
+
+              </div>
+            </form>
+
+            <!-- Conditional Query -->
+            <form [formGroup]="documentConditionalQueryForm" novalidate (ngSubmit)="onConditionalQuerySubmit()">
+              <div *ngIf="currentQueryMethod === this.queryMethods[1]" fxLayout="column"
+                fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+
+                <!-- Resource ID -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Resource ID</mat-label>
+                    <input matInput placeholder="Optional" formControlName="resourceID">
+                  </mat-form-field>
+                </div>
+
+                <!-- Name -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Optional" formControlName="name">
+                  </mat-form-field>
+                  <div class="misc-margin">
+                    <mat-checkbox fxFlex="auto" formControlName="isNameExact">IsNameExact</mat-checkbox>
+                  </div>
+                </div>
+
+                <!-- Time -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field *ngIf="documentConditionalQueryForm.get('isTimeExact')?.value" appearance="outline"
+                    fxFlex="auto">
+                    <mat-label>Time</mat-label>
+                    <input matInput placeholder="Optional" [matDatepicker]="picker" formControlName="time">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <mat-form-field *ngIf="!documentConditionalQueryForm.get('isTimeExact')?.value" appearance="outline"
+                    fxFlex="auto">
+                    <mat-label>Time Range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                      <input matStartDate placeholder="Start time" formControlName="timeAfterInclusive">
+                      <input matEndDate placeholder="End time" formControlName="timeBeforeExclusive">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field>
+                  <div class="misc-margin">
+                    <mat-checkbox fxFlex="auto" formControlName="isTimeExact">IsTimeExact</mat-checkbox>
+                  </div>
+                </div>
+
+                <!-- Document Type -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Document Type</mat-label>
+                    <mat-select formControlName="documentType">
+                      <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
+                        {{documentType}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div class="misc-margin">
+                    <button mat-stroked-button type="button" fxFlex="auto" (click)="clearDocumentType()">Clear</button>
+                  </div>
+                </div>
+
+                <!-- Preceding Document ID -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Preceding Document ID</mat-label>
+                    <input matInput placeholder="Optional" formControlName="precedingDocumentID">
+                  </mat-form-field>
+                </div>
+
+                <!-- Head Document ID -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Head Document ID</mat-label>
+                    <input matInput placeholder="Optional" formControlName="headDocumentID">
+                  </mat-form-field>
+                </div>
+
+                <!-- Entity Asset ID -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Entity Asset ID</mat-label>
+                    <input matInput placeholder="Optional" formControlName="entityAssetID">
+                  </mat-form-field>
+                </div>
+
+                <div style="height: 10px;"></div>
+
+                <!-- Reset & Query -->
+                <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+                  <button mat-button color="warn" type="button" (click)="resetConditionalQueryForm()">Reset</button>
+                  <button mat-raised-button color="primary" type="submit">Conditional Query</button>
+                </div>
+
+              </div>
+            </form>
+
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Query Result -->
+        <mat-card *ngIf="isResultShow" class="document-card">
+          <mat-card-header>
+            <mat-card-title>
+              Query Result
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="document-card-content">
+            <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+
+              <!-- Document Query Result Table -->
+              <app-document-query-result-table></app-document-query-result-table>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+
       </div>
 
-      <div style="height: 10px;"></div>
+      <div fxFlex.gt-sm="33" fxFlex>
+        <mat-card class="document-card">
+          <mat-card-header>
+            <mat-card-title>
+              Instruction
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="document-card-content">
 
-      <!-- ID Query -->
-      <form [formGroup]="documentIDQueryForm" novalidate (ngSubmit)="onIDQuerySubmit()">
-        <div *ngIf="currentQueryMethod === this.queryMethods[0]" fxLayout="column" fxLayoutAlign="space-around stretch"
-          fxLayoutGap="0px">
+            <mat-label class="instruction">{{instruction}}</mat-label>
 
-          <!-- Resource Type -->
-          <mat-form-field appearance="outline">
-            <mat-label>Resource Type</mat-label>
-            <mat-select required formControlName="resourceType">
-              <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
-                {{resourceType}}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="documentIDQueryForm.controls['resourceType'].hasError('required')">
-              Resource Type is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-
-          <!-- Resource ID -->
-          <mat-form-field appearance="outline" fxFlex="auto">
-            <mat-label>Resource ID</mat-label>
-            <input matInput required formControlName="resourceID">
-            <mat-error *ngIf="documentIDQueryForm.controls['resourceID'].hasError('required')">
-              Resource ID is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-
-          <div style="height: 10px;"></div>
-
-          <!-- Reset & Query -->
-          <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-            <button mat-button color="warn" type="button" (click)="resetIDQueryForm()">Reset</button>
-            <button mat-raised-button color="primary" type="submit">ID Query</button>
-          </div>
-
-        </div>
-      </form>
-
-      <!-- Conditional Query -->
-      <form [formGroup]="documentConditionalQueryForm" novalidate (ngSubmit)="onConditionalQuerySubmit()">
-        <div *ngIf="currentQueryMethod === this.queryMethods[1]" fxLayout="column" fxLayoutAlign="space-around stretch"
-          fxLayoutGap="0px">
-
-          <!-- Resource ID -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field appearance="outline" fxFlex="auto">
-              <mat-label>Resource ID</mat-label>
-              <input matInput placeholder="Optional" formControlName="resourceID">
-            </mat-form-field>
-          </div>
-
-          <!-- Name -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field appearance="outline" fxFlex="auto">
-              <mat-label>Name</mat-label>
-              <input matInput placeholder="Optional" formControlName="name">
-            </mat-form-field>
-            <div class="misc-margin">
-              <mat-checkbox fxFlex="auto" formControlName="isNameExact">IsNameExact</mat-checkbox>
-            </div>
-          </div>
-
-          <!-- Time -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field *ngIf="documentConditionalQueryForm.get('isTimeExact')?.value" appearance="outline"
-              fxFlex="auto">
-              <mat-label>Time</mat-label>
-              <input matInput placeholder="Optional" [matDatepicker]="picker" formControlName="time">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field *ngIf="!documentConditionalQueryForm.get('isTimeExact')?.value" appearance="outline"
-              fxFlex="auto">
-              <mat-label>Time Range</mat-label>
-              <mat-date-range-input [rangePicker]="picker">
-                <input matStartDate placeholder="Start time" formControlName="timeAfterInclusive">
-                <input matEndDate placeholder="End time" formControlName="timeBeforeExclusive">
-              </mat-date-range-input>
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-date-range-picker #picker></mat-date-range-picker>
-            </mat-form-field>
-            <div class="misc-margin">
-              <mat-checkbox fxFlex="auto" formControlName="isTimeExact">IsTimeExact</mat-checkbox>
-            </div>
-          </div>
-
-          <!-- Document Type -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field appearance="outline" fxFlex="auto">
-              <mat-label>Document Type</mat-label>
-              <mat-select formControlName="documentType">
-                <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
-                  {{documentType}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <div class="misc-margin">
-              <button mat-stroked-button type="button" fxFlex="auto" (click)="clearDocumentType()">Clear</button>
-            </div>
-          </div>
-
-          <!-- Preceding Document ID -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field appearance="outline" fxFlex="auto">
-              <mat-label>Preceding Document ID</mat-label>
-              <input matInput placeholder="Optional" formControlName="precedingDocumentID">
-            </mat-form-field>
-          </div>
-
-          <!-- Head Document ID -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field appearance="outline" fxFlex="auto">
-              <mat-label>Head Document ID</mat-label>
-              <input matInput placeholder="Optional" formControlName="headDocumentID">
-            </mat-form-field>
-          </div>
-
-          <!-- Entity Asset ID -->
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-            <mat-form-field appearance="outline" fxFlex="auto">
-              <mat-label>Entity Asset ID</mat-label>
-              <input matInput placeholder="Optional" formControlName="entityAssetID">
-            </mat-form-field>
-          </div>
-
-          <div style="height: 10px;"></div>
-
-          <!-- Reset & Query -->
-          <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-            <button mat-button color="warn" type="button" (click)="resetConditionalQueryForm()">Reset</button>
-            <button mat-raised-button color="primary" type="submit">Conditional Query</button>
-          </div>
-
-        </div>
-      </form>
-
-    </mat-card-content>
-  </mat-card>
-
-  <!-- Query Result -->
-  <mat-card *ngIf="isResultShow" class="document-card">
-    <mat-card-header>
-      <mat-card-title>
-        Query Result
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="document-card-content">
-      <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
-
-        <!-- Document Query Result Table -->
-        <app-document-query-result-table></app-document-query-result-table>
-
+          </mat-card-content>
+        </mat-card>
       </div>
-    </mat-card-content>
-  </mat-card>
-
+    </div>
+  </div>
 </div>

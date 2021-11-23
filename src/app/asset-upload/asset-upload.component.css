@@ -21,3 +21,7 @@
 ::ng-deep .help-tooltip {
   white-space: pre-line;
 }
+
+::ng-deep .instruction {
+  white-space: pre-line;
+}

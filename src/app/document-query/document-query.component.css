@@ -22,3 +22,7 @@
   display: flex;
   justify-content: space-around;
 }
+
+::ng-deep .instruction {
+  white-space: pre-line;
+}
