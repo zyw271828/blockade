@@ -67,7 +67,8 @@
         <mat-icon matTooltip="Light theme">light_mode</mat-icon>
         <mat-divider vertical></mat-divider>
         <mat-icon [matTooltip]="detailedUserInfo" matTooltipClass="userinfo-tooltip">person</mat-icon>
-        <span *ngIf="(isHandset$ | async) === false" class="mat-body-strong">{{userInfo}}</span>
+        <span *ngIf="(isHandset$ | async) === false" class="mat-body-strong" [matTooltip]="detailedUserInfo"
+          matTooltipClass="userinfo-tooltip">{{userInfo}}</span>
         <mat-divider vertical></mat-divider>
         <mat-icon *ngIf="isConnected" matTooltip="Connected">check_circle</mat-icon>
         <mat-icon *ngIf="!isConnected" matTooltip="Not connected">error</mat-icon>
