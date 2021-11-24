@@ -105,7 +105,6 @@
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Content</mat-label>
-                    <!-- TODO: submit file instead of filename -->
                     <input matInput required placeholder="Filename" [value]="filename" formControlName="content">
                     <mat-error *ngIf="documentUploadForm.controls['content'].hasError('required')">
                       Content is <strong>required</strong>

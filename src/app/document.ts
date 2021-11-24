@@ -10,6 +10,6 @@ export interface Document {
   isPrecedingDocumentIDPublic: boolean;
   headDocumentID: string;
   isHeadDocumentIDPublic: boolean;
-  content: string;
+  content: ArrayBuffer;
   policy: string;
 }

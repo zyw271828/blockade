@@ -73,8 +73,21 @@ export class DocumentUploadComponent implements OnInit {
     }
   }
 
-  fileInputChange(fileInputEvent: any) {
+  async fileInputChange(fileInputEvent: any) {
+    this.filename = '';
+
+    let toFileData = (file: File) => new Promise((resolve, reject) => {
+      let reader = new FileReader();
+
+      reader.readAsArrayBuffer(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+
+    let fileData = await toFileData(fileInputEvent.target.files[0]);
+
     this.filename = fileInputEvent.target.files[0].name;
+    this.documentUploadForm.get('content')?.setValue(fileData);
   }
 
   documentUploadResetButtonClick() {
