@@ -32,26 +32,36 @@
                 fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
                 <!-- Resource Type -->
-                <mat-form-field appearance="outline">
-                  <mat-label>Resource Type</mat-label>
-                  <mat-select required formControlName="resourceType">
-                    <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
-                      {{resourceType}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error *ngIf="assetIDQueryForm.controls['resourceType'].hasError('required')">
-                    Resource Type is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">lock</mat-icon>
+                  </div>
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Resource Type</mat-label>
+                    <mat-select required formControlName="resourceType">
+                      <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
+                        {{resourceType}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="assetIDQueryForm.controls['resourceType'].hasError('required')">
+                      Resource Type is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
 
                 <!-- Resource ID -->
-                <mat-form-field appearance="outline" fxFlex="auto">
-                  <mat-label>Resource ID</mat-label>
-                  <input matInput required formControlName="resourceID">
-                  <mat-error *ngIf="assetIDQueryForm.controls['resourceID'].hasError('required')">
-                    Resource ID is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">pin</mat-icon>
+                  </div>
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Resource ID</mat-label>
+                    <input matInput required formControlName="resourceID">
+                    <mat-error *ngIf="assetIDQueryForm.controls['resourceID'].hasError('required')">
+                      Resource ID is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
 
                 <div style="height: 10px;"></div>
 
@@ -71,6 +81,9 @@
 
                 <!-- Resource ID -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">pin</mat-icon>
+                  </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Resource ID</mat-label>
                     <input matInput placeholder="Optional" formControlName="resourceID">
@@ -79,6 +92,9 @@
 
                 <!-- Name -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">title</mat-icon>
+                  </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Name</mat-label>
                     <input matInput placeholder="Optional" formControlName="name">
@@ -90,6 +106,9 @@
 
                 <!-- Time -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">date_range</mat-icon>
+                  </div>
                   <mat-form-field *ngIf="assetConditionalQueryForm.get('isTimeExact')?.value" appearance="outline"
                     fxFlex="auto">
                     <mat-label>Time</mat-label>
@@ -114,6 +133,9 @@
 
                 <!-- Design Document ID -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">pin</mat-icon>
+                  </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Design Document ID</mat-label>
                     <input matInput placeholder="Optional" formControlName="designDocumentID">

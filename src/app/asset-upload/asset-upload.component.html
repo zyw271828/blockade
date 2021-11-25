@@ -15,21 +15,29 @@
               <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
                 <!-- Resource Type -->
-                <mat-form-field appearance="outline">
-                  <mat-label>Resource Type</mat-label>
-                  <mat-select required formControlName="resourceType"
-                    (selectionChange)="resourceTypeChange($event.value)">
-                    <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
-                      {{resourceType}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error *ngIf="assetUploadForm.controls['resourceType'].hasError('required')">
-                    Resource Type is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">lock</mat-icon>
+                  </div>
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Resource Type</mat-label>
+                    <mat-select required formControlName="resourceType"
+                      (selectionChange)="resourceTypeChange($event.value)">
+                      <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
+                        {{resourceType}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="assetUploadForm.controls['resourceType'].hasError('required')">
+                      Resource Type is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
 
                 <!-- Name -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">title</mat-icon>
+                  </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Name</mat-label>
                     <input matInput required formControlName="name">
@@ -41,6 +49,9 @@
 
                 <!-- Component IDs -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">pin</mat-icon>
+                  </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Component IDs</mat-label>
                     <mat-chip-list required formControlName="componentIDs" #chipList>
@@ -62,6 +73,9 @@
                 <!-- Policy -->
                 <div *ngIf="assetUploadForm.get('resourceType')?.value !== this.resourceTypes[0]" fxLayout="row"
                   fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">policy</mat-icon>
+                  </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Policy</mat-label>
                     <input matInput required formControlName="policy">

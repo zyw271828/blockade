@@ -15,19 +15,29 @@
               <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
                 <!-- Resource ID -->
-                <mat-form-field appearance="outline" fxFlex="auto">
-                  <mat-label>Resource ID</mat-label>
-                  <input matInput required formControlName="resourceID">
-                  <mat-error *ngIf="authRequestForm.controls['resourceID'].hasError('required')">
-                    Resource ID is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">pin</mat-icon>
+                  </div>
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Resource ID</mat-label>
+                    <input matInput required formControlName="resourceID">
+                    <mat-error *ngIf="authRequestForm.controls['resourceID'].hasError('required')">
+                      Resource ID is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
 
                 <!-- Reason -->
-                <mat-form-field appearance="outline" fxFlex="auto">
-                  <mat-label>Reason</mat-label>
-                  <textarea matInput cdkTextareaAutosize placeholder="Optional" formControlName="reason"></textarea>
-                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">notes</mat-icon>
+                  </div>
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Reason</mat-label>
+                    <textarea matInput cdkTextareaAutosize placeholder="Optional" formControlName="reason"></textarea>
+                  </mat-form-field>
+                </div>
 
                 <div style="height: 10px;"></div>
 
