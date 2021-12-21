@@ -11,7 +11,7 @@ import { Utils } from '../utils';
 export class AssetQueryComponent implements OnInit {
   queryMethods: string[] = [
     'ID',
-    'Conditional'
+    '条件'
   ];
 
   currentQueryMethod: string = this.queryMethods[0];
@@ -36,7 +36,7 @@ export class AssetQueryComponent implements OnInit {
 
   isResultShow: boolean = false;
 
-  instruction: string = 'Some instructions on the asset query page.';
+  instruction: string = '实体资产查询页面上的一些说明。';
 
   constructor(private changeDetector: ChangeDetectorRef, private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
@@ -49,7 +49,7 @@ export class AssetQueryComponent implements OnInit {
       this.changeDetector.detectChanges();
       this.isResultShow = true;
     } else { // assetIDQueryForm is invalid
-      this._snackBar.open('Please check your input', 'DISMISS', {
+      this._snackBar.open('请检查您的输入', '关闭', {
         duration: 5000
       });
     }
@@ -62,7 +62,7 @@ export class AssetQueryComponent implements OnInit {
       this.changeDetector.detectChanges();
       this.isResultShow = true;
     } else { // assetConditionalQueryForm is invalid
-      this._snackBar.open('Please check your input', 'DISMISS', {
+      this._snackBar.open('请检查您的输入', '关闭', {
         duration: 5000
       });
     }

@@ -11,7 +11,7 @@ import { Utils } from '../utils';
 export class DocumentQueryComponent implements OnInit {
   queryMethods: string[] = [
     'ID',
-    'Conditional'
+    '条件'
   ];
 
   currentQueryMethod: string = this.queryMethods[0];
@@ -41,7 +41,7 @@ export class DocumentQueryComponent implements OnInit {
 
   isResultShow: boolean = false;
 
-  instruction: string = 'Some instructions on the document query page.';
+  instruction: string = '文档查询页面上的一些说明。';
 
   constructor(private changeDetector: ChangeDetectorRef, private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
@@ -58,7 +58,7 @@ export class DocumentQueryComponent implements OnInit {
       this.changeDetector.detectChanges();
       this.isResultShow = true;
     } else { // documentIDQueryForm is invalid
-      this._snackBar.open('Please check your input', 'DISMISS', {
+      this._snackBar.open('请检查您的输入', '关闭', {
         duration: 5000
       });
     }
@@ -71,7 +71,7 @@ export class DocumentQueryComponent implements OnInit {
       this.changeDetector.detectChanges();
       this.isResultShow = true;
     } else { // documentConditionalQueryForm is invalid
-      this._snackBar.open('Please check your input', 'DISMISS', {
+      this._snackBar.open('请检查您的输入', '关闭', {
         duration: 5000
       });
     }

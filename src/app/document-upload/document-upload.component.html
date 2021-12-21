@@ -1,13 +1,13 @@
 <div class="container">
   <div fxLayout="column">
-    <h1 class="mat-h1">Document</h1>
+    <h1 class="mat-h1">文档</h1>
 
     <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex fxLayoutGap.gt-sm="8px">
       <div fxFlex.gt-sm="67" fxFlex>
         <mat-card class="document-card">
           <mat-card-header>
             <mat-card-title>
-              Upload
+              上传
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="document-card-content">
@@ -20,7 +20,7 @@
                     <mat-icon fxFlex="auto">lock</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Resource Type</mat-label>
+                    <mat-label>资源类型</mat-label>
                     <mat-select required formControlName="resourceType"
                       (selectionChange)="resourceTypeChange($event.value)">
                       <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
@@ -28,7 +28,7 @@
                       </mat-option>
                     </mat-select>
                     <mat-error *ngIf="documentUploadForm.controls['resourceType'].hasError('required')">
-                      Resource Type is <strong>required</strong>
+                      资源类型为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -39,18 +39,18 @@
                     <mat-icon fxFlex="auto">description</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Document Type</mat-label>
+                    <mat-label>文档类型</mat-label>
                     <mat-select required formControlName="documentType">
                       <mat-option *ngFor="let documentType of documentTypes" [value]="documentType">
                         {{documentType}}
                       </mat-option>
                     </mat-select>
                     <mat-error *ngIf="documentUploadForm.controls['documentType'].hasError('required')">
-                      Document Type is <strong>required</strong>
+                      文档类型为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
                   <div class="misc-margin">
-                    <mat-checkbox fxFlex="auto" formControlName="isDocumentTypePublic">IsPublic</mat-checkbox>
+                    <mat-checkbox fxFlex="auto" formControlName="isDocumentTypePublic">可公开</mat-checkbox>
                   </div>
                 </div>
 
@@ -60,14 +60,14 @@
                     <mat-icon fxFlex="auto">title</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Name</mat-label>
+                    <mat-label>名称</mat-label>
                     <input matInput required formControlName="name">
                     <mat-error *ngIf="documentUploadForm.controls['name'].hasError('required')">
-                      Name is <strong>required</strong>
+                      名称为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
                   <div class="misc-margin">
-                    <mat-checkbox fxFlex="auto" formControlName="isNamePublic">IsPublic</mat-checkbox>
+                    <mat-checkbox fxFlex="auto" formControlName="isNamePublic">可公开</mat-checkbox>
                   </div>
                 </div>
 
@@ -77,11 +77,11 @@
                     <mat-icon fxFlex="auto">pin</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Entity Asset ID</mat-label>
-                    <input matInput placeholder="Optional" formControlName="entityAssetID">
+                    <mat-label>实体资产 ID</mat-label>
+                    <input matInput placeholder="选填" formControlName="entityAssetID">
                   </mat-form-field>
                   <div class="misc-margin">
-                    <mat-checkbox fxFlex="auto" formControlName="isEntityAssetIDPublic">IsPublic</mat-checkbox>
+                    <mat-checkbox fxFlex="auto" formControlName="isEntityAssetIDPublic">可公开</mat-checkbox>
                   </div>
                 </div>
 
@@ -91,15 +91,15 @@
                     <mat-icon fxFlex="auto">pin</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Preceding Document ID</mat-label>
-                    <input matInput placeholder="Optional" formControlName="precedingDocumentID">
+                    <mat-label>前序文档 ID</mat-label>
+                    <input matInput placeholder="选填" formControlName="precedingDocumentID">
                   </mat-form-field>
                   <div class="misc-margin">
                     <button mat-stroked-button type="button" fxFlex="auto"
-                      (click)="checkPrecedingDocumentID()">Check</button>
+                      (click)="checkPrecedingDocumentID()">检测</button>
                   </div>
                   <div class="misc-margin">
-                    <mat-checkbox fxFlex="auto" formControlName="isPrecedingDocumentIDPublic">IsPublic</mat-checkbox>
+                    <mat-checkbox fxFlex="auto" formControlName="isPrecedingDocumentIDPublic">可公开</mat-checkbox>
                   </div>
                 </div>
 
@@ -109,15 +109,14 @@
                     <mat-icon fxFlex="auto">pin</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Head Document ID</mat-label>
-                    <input matInput placeholder="Optional" formControlName="headDocumentID">
+                    <mat-label>头文档 ID</mat-label>
+                    <input matInput placeholder="选填" formControlName="headDocumentID">
                   </mat-form-field>
                   <div class="misc-margin">
-                    <button mat-stroked-button type="button" fxFlex="auto"
-                      (click)="checkHeadDocumentID()">Check</button>
+                    <button mat-stroked-button type="button" fxFlex="auto" (click)="checkHeadDocumentID()">检测</button>
                   </div>
                   <div class="misc-margin">
-                    <mat-checkbox fxFlex="auto" formControlName="isHeadDocumentIDPublic">IsPublic</mat-checkbox>
+                    <mat-checkbox fxFlex="auto" formControlName="isHeadDocumentIDPublic">可公开</mat-checkbox>
                   </div>
                 </div>
 
@@ -127,17 +126,17 @@
                     <mat-icon fxFlex="auto">cloud_upload</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Content</mat-label>
-                    <input matInput required placeholder="Filename" [value]="filename" formControlName="content">
+                    <mat-label>内容</mat-label>
+                    <input matInput required placeholder="文件名" [value]="filename" formControlName="content">
                     <mat-error *ngIf="documentUploadForm.controls['content'].hasError('required')">
-                      Content is <strong>required</strong>
+                      内容为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
                   <div class="misc-margin">
                     <input #fileInput hidden="true" type="file" onclick="this.value=null"
                       (change)="fileInputChange($event)">
                     <button mat-stroked-button color="primary" type="button" fxFlex="auto"
-                      (click)="fileInput.click()">Browse</button>
+                      (click)="fileInput.click()">浏览</button>
                   </div>
                 </div>
 
@@ -148,16 +147,16 @@
                     <mat-icon fxFlex="auto">policy</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Policy</mat-label>
+                    <mat-label>策略</mat-label>
                     <input matInput required formControlName="policy">
                     <mat-error *ngIf="documentUploadForm.controls['policy'].hasError('required')">
-                      Policy is <strong>required</strong>
+                      策略为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
                   <div class="misc-margin">
-                    <mat-icon matTooltip='Available keywords:&#13;
+                    <mat-icon matTooltip='可用关键词：&#13;
                       DeptType, DeptLevel, DeptName, SuperDeptName&#13;
-                      Example:&#13;
+                      例子：&#13;
                       (DeptType == "Dev" && DeptLevel == 2)' matTooltipClass="help-tooltip" fxFlex="auto">help
                     </mat-icon>
                   </div>
@@ -167,9 +166,8 @@
 
                 <!-- Reset & Upload -->
                 <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-                  <button mat-button color="warn" type="button"
-                    (click)="documentUploadResetButtonClick()">Reset</button>
-                  <button mat-raised-button color="primary" type="submit">Upload</button>
+                  <button mat-button color="warn" type="button" (click)="documentUploadResetButtonClick()">重置</button>
+                  <button mat-raised-button color="primary" type="submit">上传</button>
                 </div>
 
               </div>
@@ -182,7 +180,7 @@
         <mat-card class="document-card">
           <mat-card-header>
             <mat-card-title>
-              Instruction
+              说明
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="document-card-content">

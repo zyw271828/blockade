@@ -2,28 +2,28 @@ import { formatDate } from "@angular/common";
 
 export class Utils {
   private static documentResourceTypes: string[] = [
-    'Plaintext',
-    'Encryption (on chain)',
-    'Encryption (off chain)'
+    '明文',
+    '加密（链上）',
+    '加密（链下）'
   ];
 
   private static documentTypes: string[] = [
-    'Design',
-    'Production',
-    'Use',
-    'Maintenance',
-    'Transfer'
+    '设计',
+    '生产',
+    '使用',
+    '维修',
+    '转移'
   ];
 
   private static assetResourceTypes: string[] = [
-    'Plaintext',
-    'Encryption'
+    '明文',
+    '加密'
   ];
 
   private static authSessionStatus: string[] = [
-    'Unknown',
-    'Allow',
-    'Deny'
+    '未批复',
+    '允许',
+    '拒绝'
   ];
 
   static getResourceTypes(supertype: string): string[] {

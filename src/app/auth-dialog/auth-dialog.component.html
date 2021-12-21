@@ -5,19 +5,19 @@
 
     <div mat-dialog-content>
       <mat-form-field appearance="outline" fxFlex="auto">
-        <mat-label>Auth Session ID</mat-label>
+        <mat-label>授权会话 ID</mat-label>
         <input matInput required formControlName="authSessionID">
         <mat-error *ngIf="authDialogForm.controls['authSessionID'].hasError('required')">
-          Auth Session ID is <strong>required</strong>
+          授权会话为<strong>必填项</strong>
         </mat-error>
       </mat-form-field>
     </div>
 
     <div mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close type="button" routerLink="/auth/request">Request</button>
+      <button mat-button mat-dialog-close type="button" routerLink="/auth/request">申请</button>
       <div fxFlex></div>
-      <button mat-button mat-dialog-close type="button">Cancel</button>
-      <button mat-button cdkFocusInitial type="submit">Submit</button>
+      <button mat-button mat-dialog-close type="button">取消</button>
+      <button mat-button cdkFocusInitial type="submit">提交</button>
     </div>
   </div>
 </form>

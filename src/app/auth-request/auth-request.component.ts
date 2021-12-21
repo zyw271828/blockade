@@ -26,7 +26,7 @@ export class AuthRequestComponent implements OnInit {
     reason: null
   });
 
-  instruction: string = 'Some instructions on the auth request page.';
+  instruction: string = '访问权申请页面上的一些说明。';
 
   constructor(private authService: AuthService, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
@@ -40,16 +40,16 @@ export class AuthRequestComponent implements OnInit {
           this.dialog.open(AuthRequestPromptDialog, {
             disableClose: true,
             data: {
-              title: 'Request successfully',
+              title: '申请成功',
               content: [
-                { item: 'TransactionID', value: resourceCreationInfo.transactionID }
+                { item: '交易 ID', value: resourceCreationInfo.transactionID }
               ],
-              action: 'Close'
+              action: '关闭'
             }
           });
         });
     } else { // authRequestForm is invalid
-      this._snackBar.open('Please check your input', 'DISMISS', {
+      this._snackBar.open('请检查您的输入', '关闭', {
         duration: 5000
       });
     }

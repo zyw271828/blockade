@@ -1,13 +1,13 @@
 <div class="container">
   <div fxLayout="column">
-    <h1 class="mat-h1">Asset</h1>
+    <h1 class="mat-h1">实体资产</h1>
 
     <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex fxLayoutGap.gt-sm="8px">
       <div fxFlex.gt-sm="67" fxFlex>
         <mat-card class="asset-card">
           <mat-card-header>
             <mat-card-title>
-              Query
+              查询
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="asset-card-content">
@@ -16,7 +16,7 @@
 
             <!-- Query Method -->
             <div class="asset-card-margin" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-              <mat-label fxFlex="20">Query Method *</mat-label>
+              <mat-label fxFlex="20">查询方法 *</mat-label>
               <mat-radio-group [(ngModel)]="currentQueryMethod" fxFlex="auto">
                 <mat-radio-button *ngFor="let queryMethod of queryMethods" [value]="queryMethod">
                   {{queryMethod}}
@@ -37,14 +37,14 @@
                     <mat-icon fxFlex="auto">lock</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Resource Type</mat-label>
+                    <mat-label>资源类型</mat-label>
                     <mat-select required formControlName="resourceType">
                       <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
                         {{resourceType}}
                       </mat-option>
                     </mat-select>
                     <mat-error *ngIf="assetIDQueryForm.controls['resourceType'].hasError('required')">
-                      Resource Type is <strong>required</strong>
+                      资源类型为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -55,10 +55,10 @@
                     <mat-icon fxFlex="auto">pin</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Resource ID</mat-label>
+                    <mat-label>资源 ID</mat-label>
                     <input matInput required formControlName="resourceID">
                     <mat-error *ngIf="assetIDQueryForm.controls['resourceID'].hasError('required')">
-                      Resource ID is <strong>required</strong>
+                      资源 ID 为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -67,8 +67,8 @@
 
                 <!-- Reset & Query -->
                 <div class="asset-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-                  <button mat-button color="warn" type="button" (click)="resetIDQueryForm()">Reset</button>
-                  <button mat-raised-button color="primary" type="submit">ID Query</button>
+                  <button mat-button color="warn" type="button" (click)="resetIDQueryForm()">重置</button>
+                  <button mat-raised-button color="primary" type="submit">ID 查询</button>
                 </div>
 
               </div>
@@ -85,8 +85,8 @@
                     <mat-icon fxFlex="auto">pin</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Resource ID</mat-label>
-                    <input matInput placeholder="Optional" formControlName="resourceID">
+                    <mat-label>资源 ID</mat-label>
+                    <input matInput placeholder="选填" formControlName="resourceID">
                   </mat-form-field>
                 </div>
 
@@ -96,11 +96,11 @@
                     <mat-icon fxFlex="auto">title</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Name</mat-label>
-                    <input matInput placeholder="Optional" formControlName="name">
+                    <mat-label>名称</mat-label>
+                    <input matInput placeholder="选填" formControlName="name">
                   </mat-form-field>
                   <div class="misc-margin">
-                    <mat-checkbox fxFlex="auto" formControlName="isNameExact">IsNameExact</mat-checkbox>
+                    <mat-checkbox fxFlex="auto" formControlName="isNameExact">精确匹配</mat-checkbox>
                   </div>
                 </div>
 
@@ -111,23 +111,23 @@
                   </div>
                   <mat-form-field *ngIf="assetConditionalQueryForm.get('isTimeExact')?.value" appearance="outline"
                     fxFlex="auto">
-                    <mat-label>Time</mat-label>
-                    <input matInput placeholder="Optional" [matDatepicker]="picker" formControlName="time">
+                    <mat-label>时间</mat-label>
+                    <input matInput placeholder="选填" [matDatepicker]="picker" formControlName="time">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
                   <mat-form-field *ngIf="!assetConditionalQueryForm.get('isTimeExact')?.value" appearance="outline"
                     fxFlex="auto">
-                    <mat-label>Time Range</mat-label>
+                    <mat-label>时间范围</mat-label>
                     <mat-date-range-input [rangePicker]="picker">
-                      <input matStartDate placeholder="Start time" formControlName="timeAfterInclusive">
-                      <input matEndDate placeholder="End time" formControlName="timeBeforeExclusive">
+                      <input matStartDate placeholder="开始时间" formControlName="timeAfterInclusive">
+                      <input matEndDate placeholder="结束时间" formControlName="timeBeforeExclusive">
                     </mat-date-range-input>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-date-range-picker #picker></mat-date-range-picker>
                   </mat-form-field>
                   <div class="misc-margin">
-                    <mat-checkbox fxFlex="auto" formControlName="isTimeExact">IsTimeExact</mat-checkbox>
+                    <mat-checkbox fxFlex="auto" formControlName="isTimeExact">精确匹配</mat-checkbox>
                   </div>
                 </div>
 
@@ -137,8 +137,8 @@
                     <mat-icon fxFlex="auto">pin</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Design Document ID</mat-label>
-                    <input matInput placeholder="Optional" formControlName="designDocumentID">
+                    <mat-label>设计文档 ID</mat-label>
+                    <input matInput placeholder="选填" formControlName="designDocumentID">
                   </mat-form-field>
                 </div>
 
@@ -146,8 +146,8 @@
 
                 <!-- Reset & Query -->
                 <div class="asset-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-                  <button mat-button color="warn" type="button" (click)="resetConditionalQueryForm()">Reset</button>
-                  <button mat-raised-button color="primary" type="submit">Conditional Query</button>
+                  <button mat-button color="warn" type="button" (click)="resetConditionalQueryForm()">重置</button>
+                  <button mat-raised-button color="primary" type="submit">条件查询</button>
                 </div>
 
               </div>
@@ -162,7 +162,7 @@
         <mat-card class="asset-card">
           <mat-card-header>
             <mat-card-title>
-              Instruction
+              说明
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="asset-card-content">
@@ -178,7 +178,7 @@
     <mat-card *ngIf="isResultShow" class="asset-card">
       <mat-card-header>
         <mat-card-title>
-          Query Result
+          查询结果
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="asset-card-content">

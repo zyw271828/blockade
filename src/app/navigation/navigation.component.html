@@ -1,56 +1,54 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false" [autoFocus]="false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>菜单</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/dashboard" routerLinkActive #dashboardRla="routerLinkActive"
-        [ngClass]="dashboardRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Dashboard</a>
+        [ngClass]="dashboardRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">仪表盘</a>
       <mat-accordion>
         <mat-expansion-panel [expanded]="true">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Document
+              文档
             </mat-panel-title>
           </mat-expansion-panel-header>
           <a mat-list-item routerLink="/document/upload" routerLinkActive #documentUploadRla="routerLinkActive"
-            [ngClass]="documentUploadRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Upload</a>
+            [ngClass]="documentUploadRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">上传</a>
           <a mat-list-item routerLink="/document/query" routerLinkActive #documentQueryRla="routerLinkActive"
-            [ngClass]="documentQueryRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Query</a>
+            [ngClass]="documentQueryRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">查询</a>
           <a mat-list-item routerLink="/document/upload-record" routerLinkActive
             #documentUploadRecordRla="routerLinkActive"
-            [ngClass]="documentUploadRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Upload
-            Record</a>
+            [ngClass]="documentUploadRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">上传记录</a>
         </mat-expansion-panel>
       </mat-accordion>
       <mat-accordion>
         <mat-expansion-panel [expanded]="true">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Asset
+              实体资产
             </mat-panel-title>
           </mat-expansion-panel-header>
           <a mat-list-item routerLink="/asset/upload" routerLinkActive #assetUploadRla="routerLinkActive"
-            [ngClass]="assetUploadRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Upload</a>
+            [ngClass]="assetUploadRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">上传</a>
           <a mat-list-item routerLink="/asset/query" routerLinkActive #assetQueryRla="routerLinkActive"
-            [ngClass]="assetQueryRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Query</a>
+            [ngClass]="assetQueryRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">查询</a>
           <a mat-list-item routerLink="/asset/upload-record" routerLinkActive #assetUploadRecordRla="routerLinkActive"
-            [ngClass]="assetUploadRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Upload
-            Record</a>
+            [ngClass]="assetUploadRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">上传记录</a>
         </mat-expansion-panel>
       </mat-accordion>
       <mat-accordion>
         <mat-expansion-panel [expanded]="true">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Auth
+              访问权
             </mat-panel-title>
           </mat-expansion-panel-header>
           <a mat-list-item routerLink="/auth/request" routerLinkActive #authRequestRla="routerLinkActive"
-            [ngClass]="authRequestRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Request</a>
+            [ngClass]="authRequestRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">申请</a>
           <a mat-list-item routerLink="/auth/record" routerLinkActive #authRecordRla="routerLinkActive"
-            [ngClass]="authRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Record</a>
+            [ngClass]="authRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">申请记录</a>
           <a mat-list-item routerLink="/auth/approve" routerLinkActive #authApproveRla="routerLinkActive"
-            [ngClass]="authApproveRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Approve</a>
+            [ngClass]="authApproveRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">批复</a>
         </mat-expansion-panel>
       </mat-accordion>
     </mat-nav-list>
@@ -58,21 +56,21 @@
   <mat-sidenav-content fxLayout="column">
     <mat-toolbar color="primary" style="min-height: 64px !important; height: 64px !important;">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon" matTooltip="Menu">menu</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon" matTooltip="菜单">menu</mat-icon>
       </button>
       <span class="fill-space">Blockade</span>
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-        <mat-icon matTooltip="Dark theme">dark_mode</mat-icon>
+        <mat-icon matTooltip="深色主题">dark_mode</mat-icon>
         <mat-slide-toggle [formControl]="themeToggleControl"></mat-slide-toggle>
-        <mat-icon matTooltip="Light theme">light_mode</mat-icon>
+        <mat-icon matTooltip="浅色主题 ">light_mode</mat-icon>
         <mat-divider vertical></mat-divider>
         <mat-icon [matTooltip]="detailedUserInfo" matTooltipClass="userinfo-tooltip">person</mat-icon>
         <span *ngIf="(isHandset$ | async) === false" class="mat-body-strong" [matTooltip]="detailedUserInfo"
           matTooltipClass="userinfo-tooltip">{{userInfo}}</span>
         <mat-divider vertical></mat-divider>
-        <mat-icon *ngIf="isConnected" matTooltip="Connected">check_circle</mat-icon>
-        <mat-icon *ngIf="!isConnected" matTooltip="Not connected">error</mat-icon>
-        <span *ngIf="!isConnected" class="mat-body-strong">Not connected</span>
+        <mat-icon *ngIf="isConnected" matTooltip="已连接">check_circle</mat-icon>
+        <mat-icon *ngIf="!isConnected" matTooltip="未连接">error</mat-icon>
+        <span *ngIf="!isConnected" class="mat-body-strong">未连接</span>
       </div>
     </mat-toolbar>
     <div [ngSwitch]="getUrl()" fxFlex="auto">

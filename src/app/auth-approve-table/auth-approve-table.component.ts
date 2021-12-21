@@ -46,10 +46,10 @@ export class AuthApproveTableComponent implements AfterViewInit {
       authSessionID: authSessionID,
       result: true
     } as AuthResponse).subscribe(resourceCreationInfo => {
-      this._snackBar.open('Allowed: '
+      this._snackBar.open('已允许：'
         + authSessionID.match(/.{1,4}/g)?.join(' ')
-        + '\nTransactionID: '
-        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
+        + '\n交易 ID：'
+        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), '关闭', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });
@@ -61,10 +61,10 @@ export class AuthApproveTableComponent implements AfterViewInit {
       authSessionID: authSessionID,
       result: false
     } as AuthResponse).subscribe(resourceCreationInfo => {
-      this._snackBar.open('Denied: '
+      this._snackBar.open('已拒绝：'
         + authSessionID.match(/.{1,4}/g)?.join(' ')
-        + '\nTransactionID: '
-        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
+        + '\n交易 ID：'
+        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), '关闭', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });

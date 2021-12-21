@@ -49,21 +49,21 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   showDetail(row: DocumentQueryResultTableItem) {
     this.dialog.open(DocumentQueryResultDetailDialog, {
       data: {
-        title: 'Detail',
+        title: '详细信息',
         content: [
-          { item: 'ResourceID', value: row.resourceID },
-          { item: 'Name', value: row.name },
-          { item: 'ResourceType', value: row.resourceType },
-          { item: 'Hash', value: row.hash },
-          { item: 'CiphertextHash', value: row.ciphertextHash },
-          { item: 'Size', value: row.size },
-          { item: 'CiphertextSize', value: row.ciphertextSize },
-          { item: 'Creator', value: row.creator },
-          { item: 'CreationTime', value: Utils.formatDate(row.creationTime) },
-          { item: 'DocumentType', value: row.documentType },
-          { item: 'PrecedingDocumentID', value: row.precedingDocumentID },
-          { item: 'HeadDocumentID', value: row.headDocumentID },
-          { item: 'EntityAssetID', value: row.entityAssetID }
+          { item: '资源 ID', value: row.resourceID },
+          { item: '名称', value: row.name },
+          { item: '资源类型', value: row.resourceType },
+          { item: '散列', value: row.hash },
+          { item: '密文散列', value: row.ciphertextHash },
+          { item: '大小', value: row.size },
+          { item: '密文大小', value: row.ciphertextSize },
+          { item: '创建者', value: row.creator },
+          { item: '创建时间', value: Utils.formatDate(row.creationTime) },
+          { item: '文档类型', value: row.documentType },
+          { item: '前序文档 ID', value: row.precedingDocumentID },
+          { item: '头文档 ID', value: row.headDocumentID },
+          { item: '实体资产 ID', value: row.entityAssetID }
         ]
       }
     });

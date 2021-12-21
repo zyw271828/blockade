@@ -1,13 +1,13 @@
 <div class="container">
   <div fxLayout="column">
-    <h1 class="mat-h1">Auth</h1>
+    <h1 class="mat-h1">访问权</h1>
 
     <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex fxLayoutGap.gt-sm="8px">
       <div fxFlex.gt-sm="67" fxFlex>
         <mat-card class="auth-card">
           <mat-card-header>
             <mat-card-title>
-              Request
+              申请
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="auth-card-content">
@@ -20,10 +20,10 @@
                     <mat-icon fxFlex="auto">pin</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Resource ID</mat-label>
+                    <mat-label>资源 ID</mat-label>
                     <input matInput required formControlName="resourceID">
                     <mat-error *ngIf="authRequestForm.controls['resourceID'].hasError('required')">
-                      Resource ID is <strong>required</strong>
+                      资源 ID 为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -34,8 +34,8 @@
                     <mat-icon fxFlex="auto">notes</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Reason</mat-label>
-                    <textarea matInput cdkTextareaAutosize placeholder="Optional" formControlName="reason"></textarea>
+                    <mat-label>理由</mat-label>
+                    <textarea matInput cdkTextareaAutosize placeholder="选填" formControlName="reason"></textarea>
                   </mat-form-field>
                 </div>
 
@@ -43,8 +43,8 @@
 
                 <!-- Reset & Request -->
                 <div class="auth-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-                  <button mat-button color="warn" type="button" (click)="authRequestForm.reset()">Reset</button>
-                  <button mat-raised-button color="primary" type="submit">Request</button>
+                  <button mat-button color="warn" type="button" (click)="authRequestForm.reset()">重置</button>
+                  <button mat-raised-button color="primary" type="submit">申请</button>
                 </div>
 
               </div>
@@ -57,7 +57,7 @@
         <mat-card class="auth-card">
           <mat-card-header>
             <mat-card-title>
-              Instruction
+              说明
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="auth-card-content">

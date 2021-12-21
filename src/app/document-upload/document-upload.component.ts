@@ -44,7 +44,7 @@ export class DocumentUploadComponent implements OnInit {
 
   filename: string = "";
 
-  instruction: string = 'Some instructions on the document upload page.';
+  instruction: string = '文档上传页面上的一些说明。';
 
   constructor(private documentService: DocumentService, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
@@ -53,14 +53,14 @@ export class DocumentUploadComponent implements OnInit {
 
   checkPrecedingDocumentID() {
     // TODO: checkPrecedingDocumentID, change color instead of pop-up prompt
-    this._snackBar.open('Preceding Document ID checked', 'DISMISS', {
+    this._snackBar.open('前序文档 ID 已检查', '关闭', {
       duration: 5000
     });
   }
 
   checkHeadDocumentID() {
     // TODO: checkHeadDocumentID, change color instead of pop-up prompt
-    this._snackBar.open('Head Document ID checked', 'DISMISS', {
+    this._snackBar.open('头文档 ID 已检查', '关闭', {
       duration: 5000
     });
   }
@@ -102,18 +102,18 @@ export class DocumentUploadComponent implements OnInit {
           this.dialog.open(DocumentUploadPromptDialog, {
             disableClose: true,
             data: {
-              title: 'Upload successfully',
+              title: '上传成功',
               content: [
-                { item: 'ResourceID', value: resourceCreationInfo.resourceID },
-                { item: 'TransactionID', value: resourceCreationInfo.transactionID },
-                { item: 'SymmetricKeyMaterial', value: resourceCreationInfo.symmetricKeyMaterial }
+                { item: '资源 ID', value: resourceCreationInfo.resourceID },
+                { item: '交易 ID', value: resourceCreationInfo.transactionID },
+                { item: '对称密钥材料', value: resourceCreationInfo.symmetricKeyMaterial }
               ],
-              action: 'Close'
+              action: '关闭'
             }
           });
         });
     } else { // documentUploadForm is invalid
-      this._snackBar.open('Please check your input', 'DISMISS', {
+      this._snackBar.open('请检查您的输入', '关闭', {
         duration: 5000
       });
     }

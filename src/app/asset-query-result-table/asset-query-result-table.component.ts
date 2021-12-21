@@ -49,18 +49,18 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
   showDetail(row: AssetQueryResultTableItem) {
     this.dialog.open(AssetQueryResultDetailDialog, {
       data: {
-        title: 'Detail',
+        title: '详细信息',
         content: [
-          { item: 'ResourceID', value: row.resourceID },
-          { item: 'Name', value: row.name },
-          { item: 'ResourceType', value: row.resourceType },
-          { item: 'Hash', value: row.hash },
-          { item: 'CiphertextHash', value: row.ciphertextHash },
-          { item: 'Size', value: row.size },
-          { item: 'CiphertextSize', value: row.ciphertextSize },
-          { item: 'Creator', value: row.creator },
-          { item: 'CreationTime', value: Utils.formatDate(row.creationTime) },
-          { item: 'DesignDocumentID', value: row.designDocumentID }
+          { item: '资源 ID', value: row.resourceID },
+          { item: '名称', value: row.name },
+          { item: '资源类型', value: row.resourceType },
+          { item: '散列', value: row.hash },
+          { item: '密文散列', value: row.ciphertextHash },
+          { item: '大小', value: row.size },
+          { item: '密文大小', value: row.ciphertextSize },
+          { item: '创建者', value: row.creator },
+          { item: '创建时间', value: Utils.formatDate(row.creationTime) },
+          { item: '设计文档 ID', value: row.designDocumentID }
         ]
       }
     });

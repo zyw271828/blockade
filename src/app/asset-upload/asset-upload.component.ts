@@ -35,7 +35,7 @@ export class AssetUploadComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 
-  instruction: string = 'Some instructions on the asset upload page.';
+  instruction: string = '实体资产上传页面上的一些说明。';
 
   constructor(private assetService: AssetService, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
@@ -100,18 +100,18 @@ export class AssetUploadComponent implements OnInit {
           this.dialog.open(AssetUploadPromptDialog, {
             disableClose: true,
             data: {
-              title: 'Upload successfully',
+              title: '上传成功',
               content: [
-                { item: 'ResourceID', value: resourceCreationInfo.resourceID },
-                { item: 'TransactionID', value: resourceCreationInfo.transactionID },
-                { item: 'SymmetricKeyMaterial', value: resourceCreationInfo.symmetricKeyMaterial }
+                { item: '资源 ID', value: resourceCreationInfo.resourceID },
+                { item: '交易 ID', value: resourceCreationInfo.transactionID },
+                { item: '对称密钥材料', value: resourceCreationInfo.symmetricKeyMaterial }
               ],
-              action: 'Close'
+              action: '关闭'
             }
           });
         });
     } else { // assetUploadForm is invalid
-      this._snackBar.open('Please check your input', 'DISMISS', {
+      this._snackBar.open('请检查您的输入', '关闭', {
         duration: 5000
       });
     }

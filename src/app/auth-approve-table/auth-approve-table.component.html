@@ -3,44 +3,44 @@
 
     <!-- Id Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>序号</th>
       <td mat-cell *matCellDef="let row">{{row.id}}</td>
     </ng-container>
 
     <!-- ResourceID Column -->
     <ng-container matColumnDef="resourceID">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>ResourceID</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>资源 ID</th>
       <td mat-cell *matCellDef="let row">{{row.resourceID}}</td>
     </ng-container>
 
     <!-- ResourceType Column -->
     <ng-container matColumnDef="resourceType">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>ResourceType</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>资源类型</th>
       <td mat-cell *matCellDef="let row">{{row.resourceType}}</td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>名称</th>
       <td mat-cell *matCellDef="let row">{{row.name}}</td>
     </ng-container>
 
     <!-- AuthSessionID Column -->
     <ng-container matColumnDef="authSessionID">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>AuthSessionID</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>授权会话 ID</th>
       <td mat-cell *matCellDef="let row">{{row.authSessionID}}</td>
     </ng-container>
 
     <!-- Operation Column -->
     <ng-container matColumnDef="operation">
-      <th mat-header-cell *matHeaderCellDef>Operation</th>
+      <th mat-header-cell *matHeaderCellDef>操作</th>
       <td mat-cell *matCellDef="let row">
         <div [ngSwitch]="row.status">
           <div *ngSwitchCase="authSessionStatus[1]">
-            Allowed
+            已允许
           </div>
           <div *ngSwitchCase="authSessionStatus[2]">
-            Denied
+            已拒绝
           </div>
           <div *ngSwitchCase="authSessionStatus[0]" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
             <button color="primary" mat-stroked-button type="button"
