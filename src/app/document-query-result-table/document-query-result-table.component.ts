@@ -3,6 +3,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { DocumentQueryComponent } from '../document-query/document-query.component';
 import { DocumentService } from '../document.service';
 import { Utils } from '../utils';
@@ -47,24 +48,34 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   }
 
   showDetail(row: DocumentQueryResultTableItem) {
-    this.dialog.open(DocumentQueryResultDetailDialog, {
+    let authDialog = this.dialog.open(AuthDialogComponent, {
       data: {
-        title: 'Detail',
-        content: [
-          { item: 'ResourceID', value: row.resourceID },
-          { item: 'Name', value: row.name },
-          { item: 'ResourceType', value: row.resourceType },
-          { item: 'Hash', value: row.hash },
-          { item: 'CiphertextHash', value: row.ciphertextHash },
-          { item: 'Size', value: row.size },
-          { item: 'CiphertextSize', value: row.ciphertextSize },
-          { item: 'Creator', value: row.creator },
-          { item: 'CreationTime', value: Utils.formatDate(row.creationTime) },
-          { item: 'DocumentType', value: row.documentType },
-          { item: 'PrecedingDocumentID', value: row.precedingDocumentID },
-          { item: 'HeadDocumentID', value: row.headDocumentID },
-          { item: 'EntityAssetID', value: row.entityAssetID }
-        ]
+        title: 'Authentication'
+      }
+    });
+
+    authDialog.afterClosed().subscribe(() => {
+      if (authDialog.componentInstance.isAuthenticated) {
+        this.dialog.open(DocumentQueryResultDetailDialog, {
+          data: {
+            title: 'Detail',
+            content: [
+              { item: 'ResourceID', value: row.resourceID },
+              { item: 'Name', value: row.name },
+              { item: 'ResourceType', value: row.resourceType },
+              { item: 'Hash', value: row.hash },
+              { item: 'CiphertextHash', value: row.ciphertextHash },
+              { item: 'Size', value: row.size },
+              { item: 'CiphertextSize', value: row.ciphertextSize },
+              { item: 'Creator', value: row.creator },
+              { item: 'CreationTime', value: Utils.formatDate(row.creationTime) },
+              { item: 'DocumentType', value: row.documentType },
+              { item: 'PrecedingDocumentID', value: row.precedingDocumentID },
+              { item: 'HeadDocumentID', value: row.headDocumentID },
+              { item: 'EntityAssetID', value: row.entityAssetID }
+            ]
+          }
+        });
       }
     });
   }

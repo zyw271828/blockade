@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface DialogData {
   title: string;
@@ -16,7 +16,9 @@ export class AuthDialogComponent implements OnInit {
     authSessionID: [null, Validators.required]
   });
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private fb: FormBuilder) { }
+  isAuthenticated = false;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private fb: FormBuilder, private dialogRef: MatDialogRef<AuthDialogComponent>) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +26,8 @@ export class AuthDialogComponent implements OnInit {
   onSubmit(): void {
     if (this.authDialogForm.valid) {
       // TODO: submit authSessionID
+      this.isAuthenticated = true;
+      this.dialogRef.close();
     }
   }
 }
