@@ -32,6 +32,8 @@ export class NavigationComponent {
       withLatestFrom(this.isHandset$),
       filter(([a, b]) => b && a instanceof NavigationEnd)
     ).subscribe(_ => this.drawer.close());
+
+    setInterval(() => { this.checkConnectivity(); }, 5000);
   }
 
   themeToggleControl = new FormControl(false);

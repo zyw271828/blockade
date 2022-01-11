@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { UserIdentity } from './user-identity';
 
@@ -10,15 +10,18 @@ import { UserIdentity } from './user-identity';
 })
 export class IdentityService {
 
-  private connectivityUrl = environment.apiEndpoint + '/connectivity';
+  private connectivityUrl = environment.apiEndpoint + '/ping';
   private identityUrl = environment.apiEndpoint + '/identity';
 
   constructor(private http: HttpClient) { }
 
   checkConnectivity(): Observable<boolean> {
-    return this.http.get<boolean>(this.connectivityUrl)
+    return this.http.get(this.connectivityUrl, { observe: 'response' })
       .pipe(
-        tap(_ => console.log('checkConnectivity')),
+        map(response => {
+          console.log('[' + new Date().toISOString() + '] checkConnectivity: ' + response.status);
+          return response.status === HttpStatusCode.Ok;
+        }),
         catchError(this.handleError<boolean>('checkConnectivity', false))
       );
   }

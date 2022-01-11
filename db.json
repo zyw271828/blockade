@@ -1,6 +1,6 @@
 {
-  "connectivity": [
-    true
+  "ping": [
+    "pong"
   ],
   "identity": {
     "userID": "UserID",
