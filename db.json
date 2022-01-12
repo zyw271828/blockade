@@ -946,6 +946,248 @@
       "sizeStored": 0
     }
   ],
+  "asset": [
+    {
+      "id": 1,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    }
+  ],
   "asset-metadata": [
     {
       "id": 1,

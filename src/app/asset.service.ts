@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { Asset } from './asset';
 import { AssetMetadata } from './asset-metadata';
 import { AssetUpload } from './asset-upload';
 import { ResourceCreationInfo } from './resource-creation-info';
@@ -24,6 +25,22 @@ export class AssetService {
       .pipe(
         tap(_ => console.log('uploadAsset')),
         catchError(this.handleError<ResourceCreationInfo>('uploadAsset'))
+      );
+  }
+
+  getAssetById(id: string, resourceType: string, keySwitchSessionID?: string): Observable<Asset> {
+    let params = new HttpParams().set('resourceType', resourceType);
+    let logMsg = 'getAssetById' + '\nresourceType: ' + resourceType;
+
+    if (keySwitchSessionID !== undefined) {
+      params = params.set('keySwitchSessionID', keySwitchSessionID);
+      logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
+    }
+
+    return this.http.get<Asset>(this.assetUrl + '/' + id, { params: params })
+      .pipe(
+        tap(_ => console.log(logMsg)),
+        catchError(this.handleError<Asset>('getAssetById'))
       );
   }
 
