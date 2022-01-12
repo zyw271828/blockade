@@ -1,11 +1,15 @@
 import { formatDate } from "@angular/common";
 
+interface Dictionary<T> {
+  [key: string]: T;
+}
+
 export class Utils {
-  private static documentResourceTypes: string[] = [
-    'Plaintext',
-    'Encryption (on chain)',
-    'Encryption (off chain)'
-  ];
+  private static documentResourceTypes: Dictionary<string> = {
+    plain: 'Plaintext',
+    encrypted: 'Encryption (on chain)',
+    offchain: 'Encryption (off chain)'
+  };
 
   private static documentTypes: string[] = [
     'Design',
@@ -15,10 +19,10 @@ export class Utils {
     'Transfer'
   ];
 
-  private static assetResourceTypes: string[] = [
-    'Plaintext',
-    'Encryption'
-  ];
+  private static assetResourceTypes: Dictionary<string> = {
+    plain: 'Plaintext',
+    encrypted: 'Encryption'
+  };
 
   private static authSessionStatus: string[] = [
     'Unknown',
@@ -26,14 +30,30 @@ export class Utils {
     'Deny'
   ];
 
-  static getResourceTypes(supertype: string): string[] {
-    if (supertype === 'document') {
-      return this.documentResourceTypes;
-    } else if (supertype === 'asset') {
-      return this.assetResourceTypes;
+  static getResourceType(metaType: string, resourceType: string): string {
+    if (metaType === 'document') {
+      return this.documentResourceTypes[resourceType];
+    } else if (metaType === 'asset') {
+      return this.assetResourceTypes[resourceType];
     } else {
-      return [];
+      return '';
     }
+  }
+
+  static getResourceTypes(metaType: string): string[] {
+    let resourceTypes: string[] = [];
+
+    if (metaType === 'document') {
+      Object.entries(this.documentResourceTypes).forEach(
+        ([_, value]) => resourceTypes.push(value)
+      );
+    } else if (metaType === 'asset') {
+      Object.entries(this.assetResourceTypes).forEach(
+        ([_, value]) => resourceTypes.push(value)
+      );
+    }
+
+    return resourceTypes;
   }
 
   static getDocumentTypes(): string[] {

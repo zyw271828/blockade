@@ -18,7 +18,7 @@
   "document-metadata": [
     {
       "id": 1,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "20",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -37,7 +37,7 @@
     },
     {
       "id": 2,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "19",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -56,7 +56,7 @@
     },
     {
       "id": 3,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "18",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -75,7 +75,7 @@
     },
     {
       "id": 4,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "17",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -94,7 +94,7 @@
     },
     {
       "id": 5,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "16",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -113,7 +113,7 @@
     },
     {
       "id": 6,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "15",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -132,7 +132,7 @@
     },
     {
       "id": 7,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "14",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -151,7 +151,7 @@
     },
     {
       "id": 8,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "13",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -170,7 +170,7 @@
     },
     {
       "id": 9,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "12",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -189,7 +189,7 @@
     },
     {
       "id": 10,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "11",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -208,7 +208,7 @@
     },
     {
       "id": 11,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "10",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -227,7 +227,7 @@
     },
     {
       "id": 12,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "9",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -246,7 +246,7 @@
     },
     {
       "id": 13,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "8",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -265,7 +265,7 @@
     },
     {
       "id": 14,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "7",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -284,7 +284,7 @@
     },
     {
       "id": 15,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "6",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -303,7 +303,7 @@
     },
     {
       "id": 16,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "5",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -322,7 +322,7 @@
     },
     {
       "id": 17,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "4",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -341,7 +341,7 @@
     },
     {
       "id": 18,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "3",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -360,7 +360,7 @@
     },
     {
       "id": 19,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "2",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -379,7 +379,7 @@
     },
     {
       "id": 20,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "1",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -400,7 +400,7 @@
   "asset-metadata": [
     {
       "id": 1,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "20",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -416,7 +416,7 @@
     },
     {
       "id": 2,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "19",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -432,7 +432,7 @@
     },
     {
       "id": 3,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "18",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -448,7 +448,7 @@
     },
     {
       "id": 4,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "17",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -464,7 +464,7 @@
     },
     {
       "id": 5,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "16",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -480,7 +480,7 @@
     },
     {
       "id": 6,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "15",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -496,7 +496,7 @@
     },
     {
       "id": 7,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "14",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -512,7 +512,7 @@
     },
     {
       "id": 8,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "13",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -528,7 +528,7 @@
     },
     {
       "id": 9,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "12",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -544,7 +544,7 @@
     },
     {
       "id": 10,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "11",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -560,7 +560,7 @@
     },
     {
       "id": 11,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "10",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -576,7 +576,7 @@
     },
     {
       "id": 12,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "9",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -592,7 +592,7 @@
     },
     {
       "id": 13,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "8",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -608,7 +608,7 @@
     },
     {
       "id": 14,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "7",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -624,7 +624,7 @@
     },
     {
       "id": 15,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "6",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -640,7 +640,7 @@
     },
     {
       "id": 16,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "5",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -656,7 +656,7 @@
     },
     {
       "id": 17,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "4",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -672,7 +672,7 @@
     },
     {
       "id": 18,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "3",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -688,7 +688,7 @@
     },
     {
       "id": 19,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "2",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -704,7 +704,7 @@
     },
     {
       "id": 20,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "1",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,

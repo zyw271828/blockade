@@ -68,7 +68,7 @@ export class DocumentUploadRecordTableDataSource extends DataSource<DocumentUplo
         return {
           id: index,
           resourceID: documentMetadata.resourceID,
-          resourceType: Utils.getResourceTypes('document')[documentMetadata.resourceType],
+          resourceType: Utils.getResourceType('document', documentMetadata.resourceType),
           name: documentMetadata.extensions.name,
           creationTime: Utils.formatDate(documentMetadata.timestamp)
         };

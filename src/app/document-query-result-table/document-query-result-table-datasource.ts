@@ -78,7 +78,7 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
         return {
           id: index,
           resourceID: documentMetadata.resourceID,
-          resourceType: Utils.getResourceTypes('document')[documentMetadata.resourceType],
+          resourceType: Utils.getResourceType('document', documentMetadata.resourceType),
           name: documentMetadata.extensions.name,
           hash: documentMetadata.hash,
           ciphertextHash: documentMetadata.hashStored,

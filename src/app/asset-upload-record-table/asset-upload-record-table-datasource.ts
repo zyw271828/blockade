@@ -68,7 +68,7 @@ export class AssetUploadRecordTableDataSource extends DataSource<AssetUploadReco
         return {
           id: index,
           resourceID: assetMetadata.resourceID,
-          resourceType: Utils.getResourceTypes('asset')[assetMetadata.resourceType],
+          resourceType: Utils.getResourceType('asset', assetMetadata.resourceType),
           name: assetMetadata.extensions.name,
           creationTime: Utils.formatDate(assetMetadata.timestamp)
         };
