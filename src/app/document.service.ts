@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
-import { Document } from './document';
 import { DocumentMetadata } from './document-metadata';
 import { DocumentProperties } from './document-properties';
+import { DocumentUpload } from './document-upload';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
@@ -20,7 +20,7 @@ export class DocumentService {
 
   constructor(private http: HttpClient) { }
 
-  uploadDocument(document: Document): Observable<ResourceCreationInfo> {
+  uploadDocument(document: DocumentUpload): Observable<ResourceCreationInfo> {
     return this.http.post<ResourceCreationInfo>(this.documentUrl, document)
       .pipe(
         tap(_ => console.log('uploadDocument')),

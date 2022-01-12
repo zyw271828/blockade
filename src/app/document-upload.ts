@@ -1,4 +1,4 @@
-export interface Document {
+export interface DocumentUpload {
   resourceType: string;
   documentType: string;
   isDocumentTypePublic: boolean;

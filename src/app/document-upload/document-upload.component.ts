@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Document } from '../document';
+import { DocumentUpload } from '../document-upload';
 import { DocumentService } from '../document.service';
 import { Utils } from '../utils';
 
@@ -97,7 +97,7 @@ export class DocumentUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
-      this.documentService.uploadDocument(this.documentUploadForm.value as Document)
+      this.documentService.uploadDocument(this.documentUploadForm.value as DocumentUpload)
         .subscribe(resourceCreationInfo => {
           this.dialog.open(DocumentUploadPromptDialog, {
             disableClose: true,
