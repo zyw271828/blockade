@@ -82,7 +82,7 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
           resourceType: 'resourceType', // TODO: get resourceType
           name: 'name', // TODO: get name
           authSessionID: authSession.authSessionID,
-          status: Utils.getAuthSessionStatus()[authSession.status],
+          status: Utils.getAuthSessionStatus(authSession.status),
           // TODO: get details
           hash: 'hash',
           ciphertextHash: 'ciphertextHash',

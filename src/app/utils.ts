@@ -24,11 +24,11 @@ export class Utils {
     encrypted: 'Encryption'
   };
 
-  private static authSessionStatus: string[] = [
-    'Unknown',
-    'Allow',
-    'Deny'
-  ];
+  private static authSessionStatuses: Dictionary<string> = {
+    pending: 'Unknown',
+    approved: 'Allow',
+    rejected: 'Deny'
+  };
 
   static getResourceType(metaType: string, resourceType: string): string {
     if (metaType === 'document') {
@@ -60,8 +60,18 @@ export class Utils {
     return this.documentTypes;
   }
 
-  static getAuthSessionStatus(): string[] {
-    return this.authSessionStatus;
+  static getAuthSessionStatus(authSessionStatus: string): string {
+    return this.authSessionStatuses[authSessionStatus];
+  }
+
+  static getAuthSessionStatuses(): string[] {
+    let authSessionStatuses: string[] = [];
+
+    Object.entries(this.authSessionStatuses).forEach(
+      ([_, value]) => authSessionStatuses.push(value)
+    );
+
+    return authSessionStatuses;
   }
 
   static formatDate(date: string): string {
