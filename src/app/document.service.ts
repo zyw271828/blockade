@@ -5,6 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { Document } from './document';
 import { DocumentMetadata } from './document-metadata';
+import { DocumentProperties } from './document-properties';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
@@ -109,6 +110,16 @@ export class DocumentService {
       .pipe(
         tap(_ => console.log('getDocumentMetadataById')),
         catchError(this.handleError<DocumentMetadata>('getDocumentMetadataById'))
+      );
+  }
+
+  getDocumentPropertiesById(id: string, keySwitchSessionID: string): Observable<DocumentProperties> {
+    let params = new HttpParams().set('keySwitchSessionID', keySwitchSessionID);
+
+    return this.http.get<DocumentProperties>(this.documentUrl + '/' + id + '/properties', { params: params })
+      .pipe(
+        tap(_ => console.log('getDocumentPropertiesById' + '\nkeySwitchSessionID: ' + keySwitchSessionID)),
+        catchError(this.handleError<DocumentProperties>('getDocumentPropertiesById'))
       );
   }
 
