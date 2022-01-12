@@ -11,13 +11,13 @@ export class Utils {
     offchain: 'Encryption (off chain)'
   };
 
-  private static documentTypes: string[] = [
-    'Design',
-    'Production',
-    'Use',
-    'Maintenance',
-    'Transfer'
-  ];
+  private static documentTypes: Dictionary<string> = {
+    designDocument: 'Design',
+    productionDocument: 'Production',
+    transferDocument: 'Transfer',
+    usageDocument: 'Usage',
+    repairDocument: 'Repair'
+  };
 
   private static assetResourceTypes: Dictionary<string> = {
     plain: 'Plaintext',
@@ -56,8 +56,18 @@ export class Utils {
     return resourceTypes;
   }
 
+  static getDocumentType(documentType: string): string {
+    return this.documentTypes[documentType];
+  }
+
   static getDocumentTypes(): string[] {
-    return this.documentTypes;
+    let documentTypes: string[] = [];
+
+    Object.entries(this.documentTypes).forEach(
+      ([_, value]) => documentTypes.push(value)
+    );
+
+    return documentTypes;
   }
 
   static getAuthSessionStatus(authSessionStatus: string): string {

@@ -68,7 +68,7 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
               { item: 'Size', value: row.size },
               { item: 'CiphertextSize', value: row.ciphertextSize },
               { item: 'Creator', value: row.creator },
-              { item: 'CreationTime', value: Utils.formatDate(row.creationTime) },
+              { item: 'CreationTime', value: row.creationTime },
               { item: 'DocumentType', value: row.documentType },
               { item: 'PrecedingDocumentID', value: row.precedingDocumentID },
               { item: 'HeadDocumentID', value: row.headDocumentID },

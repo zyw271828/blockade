@@ -89,8 +89,8 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
           size: 0,
           ciphertextSize: 0,
           creator: 'creator',
-          creationTime: '1970-01-01T00:00:00.000Z',
-          documentType: 'documentType',
+          creationTime: Utils.formatDate('1970-01-01T00:00:00.000Z'),
+          documentType: Utils.getDocumentType('designDocument'),
           precedingDocumentID: 'precedingDocumentID',
           headDocumentID: 'headDocumentID',
           entityAssetID: 'entityAssetID'

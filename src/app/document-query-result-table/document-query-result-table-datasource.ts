@@ -85,8 +85,8 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
           size: documentMetadata.size,
           ciphertextSize: documentMetadata.sizeStored,
           creator: documentMetadata.creator,
-          creationTime: documentMetadata.timestamp,
-          documentType: documentMetadata.extensions.documentType,
+          creationTime: Utils.formatDate(documentMetadata.timestamp),
+          documentType: Utils.getDocumentType(documentMetadata.extensions.documentType),
           precedingDocumentID: documentMetadata.extensions.precedingDocumentID,
           headDocumentID: documentMetadata.extensions.headDocumentID,
           entityAssetID: documentMetadata.extensions.entityAssetID

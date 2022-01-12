@@ -43,7 +43,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "productionDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -62,7 +62,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "transferDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -81,7 +81,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "usageDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -100,7 +100,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "repairDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -138,7 +138,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "productionDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -157,7 +157,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "transferDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -176,7 +176,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "usageDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -195,7 +195,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "repairDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -233,7 +233,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "productionDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -252,7 +252,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "transferDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -271,7 +271,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "usageDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -290,7 +290,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "repairDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -328,7 +328,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "productionDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -347,7 +347,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "transferDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -366,7 +366,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "usageDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -385,7 +385,7 @@
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "repairDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
