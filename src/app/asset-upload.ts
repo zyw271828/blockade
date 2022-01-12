@@ -1,4 +1,4 @@
-export interface Asset {
+export interface AssetUpload {
   resourceType: string;
   name: string;
   componentIDs: string[];

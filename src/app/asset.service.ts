@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
-import { Asset } from './asset';
 import { AssetMetadata } from './asset-metadata';
+import { AssetUpload } from './asset-upload';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
@@ -19,7 +19,7 @@ export class AssetService {
 
   constructor(private http: HttpClient) { }
 
-  uploadAsset(asset: Asset): Observable<ResourceCreationInfo> {
+  uploadAsset(asset: AssetUpload): Observable<ResourceCreationInfo> {
     return this.http.post<ResourceCreationInfo>(this.assetUrl, asset)
       .pipe(
         tap(_ => console.log('uploadAsset')),

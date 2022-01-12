@@ -1,6 +1,7 @@
 {
   "/api/v1/*": "/$1",
   "/document": "/document-upload",
+  "/asset": "/asset-upload",
   "/auth/request": "/auth-request",
   "/auth/response": "/auth-response",
   "/ks/trigger": "/ks-trigger",

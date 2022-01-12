@@ -5,7 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Asset } from '../asset';
+import { AssetUpload } from '../asset-upload';
 import { AssetService } from '../asset.service';
 import { Utils } from '../utils';
 
@@ -95,7 +95,7 @@ export class AssetUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.assetUploadForm.valid) {
-      this.assetService.uploadAsset(this.assetUploadForm.value as Asset)
+      this.assetService.uploadAsset(this.assetUploadForm.value as AssetUpload)
         .subscribe(resourceCreationInfo => {
           this.dialog.open(AssetUploadPromptDialog, {
             disableClose: true,
