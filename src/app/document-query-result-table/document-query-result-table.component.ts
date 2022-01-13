@@ -6,7 +6,6 @@ import { MatTable } from '@angular/material/table';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { DocumentQueryComponent } from '../document-query/document-query.component';
 import { DocumentService } from '../document.service';
-import { Utils } from '../utils';
 import { DocumentQueryResultTableDataSource, DocumentQueryResultTableItem } from './document-query-result-table-datasource';
 
 export interface DialogData {
@@ -92,10 +91,16 @@ export class DocumentQueryResultDetailDialog {
     'value'
   ];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private documentService: DocumentService) { }
 
-  downloadDocument(resourceID: number) {
-    // TODO: download document by resourceID
+  downloadDocument(resourceID: string, resourceType: string, keySwitchSessionID?: string) {
+    this.documentService.getDocumentById(resourceID, resourceType, keySwitchSessionID).subscribe(document => {
+      let file = new File([document.content], document.name);
+      let link = self.document.createElement('a');
+
+      link.href = window.URL.createObjectURL(file);;
+      link.click();
+    });
   }
 
   findInDataSource(dataSource: { item: string; value: string; }[], target: string): string {

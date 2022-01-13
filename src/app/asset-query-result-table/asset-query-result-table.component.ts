@@ -6,7 +6,6 @@ import { MatTable } from '@angular/material/table';
 import { AssetQueryComponent } from '../asset-query/asset-query.component';
 import { AssetService } from '../asset.service';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
-import { Utils } from '../utils';
 import { AssetQueryResultTableDataSource, AssetQueryResultTableItem } from './asset-query-result-table-datasource';
 
 export interface DialogData {
@@ -68,7 +67,7 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
               { item: 'Size', value: row.size },
               { item: 'CiphertextSize', value: row.ciphertextSize },
               { item: 'Creator', value: row.creator },
-              { item: 'CreationTime', value: Utils.formatDate(row.creationTime) },
+              { item: 'CreationTime', value: row.creationTime },
               { item: 'DesignDocumentID', value: row.designDocumentID }
             ]
           }
@@ -89,10 +88,16 @@ export class AssetQueryResultDetailDialog {
     'value'
   ];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private assetService: AssetService) { }
 
-  downloadAsset(resourceID: number) {
-    // TODO: download asset by resourceID
+  downloadAsset(resourceID: string, resourceType: string, keySwitchSessionID?: string) {
+    this.assetService.getAssetById(resourceID, resourceType, keySwitchSessionID).subscribe(asset => {
+      let file = new File([], asset.name); // TODO: download asset by resourceID
+      let link = self.document.createElement('a');
+
+      link.href = window.URL.createObjectURL(file);;
+      link.click();
+    });
   }
 
   findInDataSource(dataSource: { item: string; value: string; }[], target: string): string {

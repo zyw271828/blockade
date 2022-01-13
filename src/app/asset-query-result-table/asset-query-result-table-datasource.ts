@@ -82,7 +82,7 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
           size: assetMetadata.size,
           ciphertextSize: assetMetadata.sizeStored,
           creator: assetMetadata.creator,
-          creationTime: assetMetadata.timestamp,
+          creationTime: Utils.formatDate(assetMetadata.timestamp),
           designDocumentID: assetMetadata.extensions.designDocumentID
         };
       }));
