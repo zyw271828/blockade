@@ -52,16 +52,36 @@ export class DocumentUploadComponent implements OnInit {
   }
 
   checkPrecedingDocumentID() {
-    // TODO: checkPrecedingDocumentID, change color instead of pop-up prompt
-    this._snackBar.open('Preceding Document ID checked', 'DISMISS', {
-      duration: 5000
+    // TODO: change color instead of pop-up prompt
+    let precedingDocumentID = this.documentUploadForm.get("precedingDocumentID")?.value;
+
+    this.documentService.checkDocumentIDValidity(precedingDocumentID).subscribe(isValid => {
+      if (isValid) {
+        this._snackBar.open('Preceding Document ID \"' + precedingDocumentID + '\" is valid', 'DISMISS', {
+          duration: 5000
+        });
+      } else {
+        this._snackBar.open('Preceding Document ID \"' + precedingDocumentID + '\" is invalid', 'DISMISS', {
+          duration: 5000
+        });
+      }
     });
   }
 
   checkHeadDocumentID() {
-    // TODO: checkHeadDocumentID, change color instead of pop-up prompt
-    this._snackBar.open('Head Document ID checked', 'DISMISS', {
-      duration: 5000
+    // TODO: change color instead of pop-up prompt
+    let headDocumentID = this.documentUploadForm.get("headDocumentID")?.value;
+
+    this.documentService.checkDocumentIDValidity(headDocumentID).subscribe(isValid => {
+      if (isValid) {
+        this._snackBar.open('Head Document ID \"' + headDocumentID + '\" is valid', 'DISMISS', {
+          duration: 5000
+        });
+      } else {
+        this._snackBar.open('Head Document ID \"' + headDocumentID + '\" is invalid', 'DISMISS', {
+          duration: 5000
+        });
+      }
     });
   }
 

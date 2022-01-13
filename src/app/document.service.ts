@@ -1,7 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { Document } from './document';
 import { DocumentMetadata } from './document-metadata';
@@ -127,6 +127,17 @@ export class DocumentService {
       .pipe(
         tap(_ => console.log('getDocumentMetadataById')),
         catchError(this.handleError<DocumentMetadata>('getDocumentMetadataById'))
+      );
+  }
+
+  checkDocumentIDValidity(id: string): Observable<boolean> {
+    return this.http.get(this.documentUrl + '/' + id + '/metadata', { observe: 'response' })
+      .pipe(
+        map(response => {
+          console.log('checkDocumentIDValidity: ' + response.status);
+          return response.status === HttpStatusCode.Ok;
+        }),
+        catchError(this.handleError<boolean>('checkDocumentIDValidity', false))
       );
   }
 
