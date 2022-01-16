@@ -61,7 +61,7 @@
         <mat-icon aria-label="Side nav toggle icon" matTooltip="Menu">menu</mat-icon>
       </button>
       <span class="fill-space">Blockade</span>
-      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="0px">
         <button type="button" fxFlex="auto" mat-icon-button (click)="changeTheme()">
           <mat-icon *ngIf="themeToggleControl.value" matTooltip="Dark theme">dark_mode</mat-icon>
           <mat-icon *ngIf="!themeToggleControl.value" matTooltip="Light theme">light_mode</mat-icon>
@@ -72,12 +72,14 @@
         </button>
         <span *ngIf="(isHandset$ | async) === false" class="mat-body-strong" [matTooltip]="detailedUserInfo"
           matTooltipClass="userinfo-tooltip">{{userInfo}}</span>
+        <div *ngIf="(isHandset$ | async) === false" style="width: 10px;"></div>
         <mat-divider vertical></mat-divider>
         <button type="button" fxFlex="auto" mat-icon-button (click)="checkConnectivity()">
           <mat-icon *ngIf="isConnected" matTooltip="Connected">check_circle</mat-icon>
           <mat-icon *ngIf="!isConnected" matTooltip="Not connected">error</mat-icon>
         </button>
         <span *ngIf="!isConnected" class="mat-body-strong">Not connected</span>
+        <div *ngIf="!isConnected" style="width: 10px;"></div>
       </div>
     </mat-toolbar>
     <div [ngSwitch]="getUrl()" fxFlex="auto">
