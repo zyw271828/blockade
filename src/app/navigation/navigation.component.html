@@ -61,17 +61,22 @@
         <mat-icon aria-label="Side nav toggle icon" matTooltip="Menu">menu</mat-icon>
       </button>
       <span class="fill-space">Blockade</span>
-      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-        <mat-icon matTooltip="Dark theme">dark_mode</mat-icon>
-        <mat-slide-toggle [formControl]="themeToggleControl"></mat-slide-toggle>
-        <mat-icon matTooltip="Light theme">light_mode</mat-icon>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+        <button type="button" fxFlex="auto" mat-icon-button (click)="changeTheme()">
+          <mat-icon *ngIf="themeToggleControl.value" matTooltip="Dark theme">dark_mode</mat-icon>
+          <mat-icon *ngIf="!themeToggleControl.value" matTooltip="Light theme">light_mode</mat-icon>
+        </button>
         <mat-divider vertical></mat-divider>
-        <mat-icon [matTooltip]="detailedUserInfo" matTooltipClass="userinfo-tooltip">person</mat-icon>
+        <button type="button" fxFlex="auto" mat-icon-button (click)="getUserInfo()">
+          <mat-icon [matTooltip]="detailedUserInfo" matTooltipClass="userinfo-tooltip">person</mat-icon>
+        </button>
         <span *ngIf="(isHandset$ | async) === false" class="mat-body-strong" [matTooltip]="detailedUserInfo"
           matTooltipClass="userinfo-tooltip">{{userInfo}}</span>
         <mat-divider vertical></mat-divider>
-        <mat-icon *ngIf="isConnected" matTooltip="Connected">check_circle</mat-icon>
-        <mat-icon *ngIf="!isConnected" matTooltip="Not connected">error</mat-icon>
+        <button type="button" fxFlex="auto" mat-icon-button (click)="checkConnectivity()">
+          <mat-icon *ngIf="isConnected" matTooltip="Connected">check_circle</mat-icon>
+          <mat-icon *ngIf="!isConnected" matTooltip="Not connected">error</mat-icon>
+        </button>
         <span *ngIf="!isConnected" class="mat-body-strong">Not connected</span>
       </div>
     </mat-toolbar>

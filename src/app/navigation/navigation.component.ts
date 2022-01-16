@@ -26,6 +26,8 @@ export class NavigationComponent {
   isConnected: boolean = false;
   userInfo: string = 'Unknown (Unknown)';
   detailedUserInfo: string = 'User Information\nUnknown';
+  themeToggleControl = new FormControl(false);
+  @HostBinding('class') className = '';
 
   constructor(private identityService: IdentityService, private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) {
     router.events.pipe(
@@ -35,9 +37,6 @@ export class NavigationComponent {
 
     setInterval(() => { this.checkConnectivity(); }, 5000);
   }
-
-  themeToggleControl = new FormControl(false);
-  @HostBinding('class') className = '';
 
   ngOnInit(): void {
     this.checkConnectivity();
@@ -58,9 +57,8 @@ export class NavigationComponent {
     return this.router.url;
   }
 
-  checkConnectivity(): void {
-    this.identityService.checkConnectivity()
-      .subscribe(isConnected => this.isConnected = isConnected);
+  changeTheme(): void {
+    this.themeToggleControl.setValue(!this.themeToggleControl.value);
   }
 
   getUserInfo(): void {
@@ -75,5 +73,10 @@ export class NavigationComponent {
           + '\nDeptName: ' + userIdentity.deptName
           + '\nSuperDeptName: ' + userIdentity.superDeptName;
       });
+  }
+
+  checkConnectivity(): void {
+    this.identityService.checkConnectivity()
+      .subscribe(isConnected => this.isConnected = isConnected);
   }
 }
