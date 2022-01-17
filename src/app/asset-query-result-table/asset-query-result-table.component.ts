@@ -48,6 +48,7 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
 
   showDetail(row: AssetQueryResultTableItem) {
     let authDialog = this.dialog.open(AuthDialogComponent, {
+      width: '350px',
       data: {
         title: 'Authentication',
         resourceID: row.resourceID
