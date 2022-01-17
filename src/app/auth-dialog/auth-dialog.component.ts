@@ -1,9 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { KeySwitchTrigger } from '../key-switch-trigger';
+import { KeySwitchService } from '../key-switch.service';
 
 export interface DialogData {
   title: string;
+  resourceID: string;
 }
 
 @Component({
@@ -13,21 +16,24 @@ export interface DialogData {
 })
 export class AuthDialogComponent implements OnInit {
   authDialogForm = this.fb.group({
-    authSessionID: [null, Validators.required]
+    resourceID: [this.data.resourceID, Validators.required],
+    authSessionID: null
   });
 
-  isAuthenticated = false;
+  keySwitchSessionID: string | undefined = undefined;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private fb: FormBuilder, private dialogRef: MatDialogRef<AuthDialogComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private keySwitchService: KeySwitchService, private fb: FormBuilder, private dialogRef: MatDialogRef<AuthDialogComponent>) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
     if (this.authDialogForm.valid) {
-      // TODO: submit authSessionID
-      this.isAuthenticated = true;
-      this.dialogRef.close();
+      this.keySwitchService.createKeySwitchTrigger(this.authDialogForm.value as KeySwitchTrigger)
+        .subscribe(resourceCreationInfo => {
+          this.keySwitchSessionID = resourceCreationInfo.transactionID;
+          this.dialogRef.close();
+        });
     }
   }
 }

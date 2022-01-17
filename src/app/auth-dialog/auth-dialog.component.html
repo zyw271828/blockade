@@ -6,10 +6,7 @@
     <div mat-dialog-content>
       <mat-form-field appearance="outline" fxFlex="auto">
         <mat-label>Auth Session ID</mat-label>
-        <input matInput required formControlName="authSessionID">
-        <mat-error *ngIf="authDialogForm.controls['authSessionID'].hasError('required')">
-          Auth Session ID is <strong>required</strong>
-        </mat-error>
+        <input matInput placeholder="Optional" formControlName="authSessionID">
       </mat-form-field>
     </div>
 

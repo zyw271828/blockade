@@ -49,12 +49,31 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
   showDetail(row: AssetQueryResultTableItem) {
     let authDialog = this.dialog.open(AuthDialogComponent, {
       data: {
-        title: 'Authentication'
+        title: 'Authentication',
+        resourceID: row.resourceID
       }
     });
 
     authDialog.afterClosed().subscribe(() => {
-      if (authDialog.componentInstance.isAuthenticated) {
+      if (authDialog.componentInstance.keySwitchSessionID !== undefined) {
+        this.dialog.open(AssetQueryResultDetailDialog, {
+          data: {
+            title: 'Detail',
+            content: [
+              { item: 'ResourceID', value: row.resourceID },
+              { item: 'Name', value: row.name },
+              { item: 'ResourceType', value: row.resourceType },
+              { item: 'Hash', value: row.hash },
+              { item: 'CiphertextHash', value: row.ciphertextHash },
+              { item: 'Size', value: row.size },
+              { item: 'CiphertextSize', value: row.ciphertextSize },
+              { item: 'Creator', value: row.creator },
+              { item: 'CreationTime', value: row.creationTime },
+              { item: 'DesignDocumentID', value: row.designDocumentID }
+            ]
+          }
+        });
+      } else { // authDialog.componentInstance.keySwitchSessionID is undefined
         this.dialog.open(AssetQueryResultDetailDialog, {
           data: {
             title: 'Detail',

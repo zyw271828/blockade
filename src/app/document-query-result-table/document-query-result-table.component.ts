@@ -49,12 +49,34 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   showDetail(row: DocumentQueryResultTableItem) {
     let authDialog = this.dialog.open(AuthDialogComponent, {
       data: {
-        title: 'Authentication'
+        title: 'Authentication',
+        resourceID: row.resourceID
       }
     });
 
     authDialog.afterClosed().subscribe(() => {
-      if (authDialog.componentInstance.isAuthenticated) {
+      if (authDialog.componentInstance.keySwitchSessionID !== undefined) {
+        this.dialog.open(DocumentQueryResultDetailDialog, {
+          data: {
+            title: 'Detail',
+            content: [
+              { item: 'ResourceID', value: row.resourceID },
+              { item: 'Name', value: row.name },
+              { item: 'ResourceType', value: row.resourceType },
+              { item: 'Hash', value: row.hash },
+              { item: 'CiphertextHash', value: row.ciphertextHash },
+              { item: 'Size', value: row.size },
+              { item: 'CiphertextSize', value: row.ciphertextSize },
+              { item: 'Creator', value: row.creator },
+              { item: 'CreationTime', value: row.creationTime },
+              { item: 'DocumentType', value: row.documentType },
+              { item: 'PrecedingDocumentID', value: row.precedingDocumentID },
+              { item: 'HeadDocumentID', value: row.headDocumentID },
+              { item: 'EntityAssetID', value: row.entityAssetID }
+            ]
+          }
+        });
+      } else { // authDialog.componentInstance.keySwitchSessionID is undefined
         this.dialog.open(DocumentQueryResultDetailDialog, {
           data: {
             title: 'Detail',
