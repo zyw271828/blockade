@@ -141,12 +141,18 @@ export class DocumentService {
       );
   }
 
-  getDocumentPropertiesById(id: string, keySwitchSessionID: string): Observable<DocumentProperties> {
-    let params = new HttpParams().set('keySwitchSessionID', keySwitchSessionID);
+  getDocumentPropertiesById(id: string, keySwitchSessionID?: string): Observable<DocumentProperties> {
+    let params = new HttpParams();
+    let logMsg = 'getDocumentPropertiesById';
+
+    if (keySwitchSessionID !== undefined) {
+      params = params.set('keySwitchSessionID', keySwitchSessionID);
+      logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
+    }
 
     return this.http.get<DocumentProperties>(this.documentUrl + '/' + id + '/properties', { params: params })
       .pipe(
-        tap(_ => console.log('getDocumentPropertiesById' + '\nkeySwitchSessionID: ' + keySwitchSessionID)),
+        tap(_ => console.log(logMsg)),
         catchError(this.handleError<DocumentProperties>('getDocumentPropertiesById'))
       );
   }
