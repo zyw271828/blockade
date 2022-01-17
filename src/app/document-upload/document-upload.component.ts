@@ -34,7 +34,7 @@ export class DocumentUploadComponent implements OnInit {
     isPrecedingDocumentIDPublic: false,
     headDocumentID: null,
     isHeadDocumentIDPublic: false,
-    content: [null, Validators.required],
+    contents: [null, Validators.required],
     policy: [null, Validators.required]
   });
 
@@ -107,7 +107,7 @@ export class DocumentUploadComponent implements OnInit {
     let fileData = await toFileData(fileInputEvent.target.files[0]);
 
     this.filename = fileInputEvent.target.files[0].name;
-    this.documentUploadForm.get('content')?.setValue(fileData);
+    this.documentUploadForm.get('contents')?.setValue(fileData);
   }
 
   documentUploadResetButtonClick() {

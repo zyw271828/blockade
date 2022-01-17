@@ -95,7 +95,7 @@ export class DocumentQueryResultDetailDialog {
 
   downloadDocument(resourceID: string, resourceType: string, keySwitchSessionID?: string) {
     this.documentService.getDocumentById(resourceID, resourceType, keySwitchSessionID).subscribe(document => {
-      let file = new File([document.content], document.name);
+      let file = new File([document.contents], document.name);
       let link = self.document.createElement('a');
 
       link.href = window.URL.createObjectURL(file);;

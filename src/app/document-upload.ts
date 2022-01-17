@@ -10,6 +10,6 @@ export interface DocumentUpload {
   isPrecedingDocumentIDPublic: boolean;
   headDocumentID: string;
   isHeadDocumentIDPublic: boolean;
-  content: ArrayBuffer;
+  contents: ArrayBuffer;
   policy: string;
 }

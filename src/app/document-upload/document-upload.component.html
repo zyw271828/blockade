@@ -121,16 +121,16 @@
                   </div>
                 </div>
 
-                <!-- Content -->
+                <!-- Contents -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
                   <div class="misc-margin">
                     <mat-icon fxFlex="auto">cloud_upload</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Content</mat-label>
-                    <input matInput required placeholder="Filename" [value]="filename" formControlName="content">
-                    <mat-error *ngIf="documentUploadForm.controls['content'].hasError('required')">
-                      Content is <strong>required</strong>
+                    <mat-label>Contents</mat-label>
+                    <input matInput required placeholder="Filename" [value]="filename" formControlName="contents">
+                    <mat-error *ngIf="documentUploadForm.controls['contents'].hasError('required')">
+                      Contents is <strong>required</strong>
                     </mat-error>
                   </mat-form-field>
                   <div class="misc-margin">
