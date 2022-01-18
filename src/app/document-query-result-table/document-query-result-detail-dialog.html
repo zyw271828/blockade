@@ -20,6 +20,8 @@
 </div>
 <div mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>
+  <button mat-button mat-dialog-close
+    (click)="decryptDocument(findInDataSource(data.content, 'ResourceID'))">Decrypt</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial
     (click)="downloadDocument(findInDataSource(data.content, 'ResourceID'), findInDataSource(data.content, 'ResourceType'))">Download</button>
 </div>

@@ -1,11 +1,13 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { DocumentQueryComponent } from '../document-query/document-query.component';
 import { DocumentService } from '../document.service';
+import { Utils } from '../utils';
 import { DocumentQueryResultTableDataSource, DocumentQueryResultTableItem } from './document-query-result-table-datasource';
 
 export interface DialogData {
@@ -36,6 +38,8 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
     'operation'
   ];
 
+  mask: string = Utils.mask;
+
   constructor(private documentQueryComponent: DocumentQueryComponent, private documentService: DocumentService, public dialog: MatDialog) {
     this.dataSource = new DocumentQueryResultTableDataSource(this.documentQueryComponent, this.documentService);
   }
@@ -47,57 +51,54 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   }
 
   showDetail(row: DocumentQueryResultTableItem) {
-    let authDialog = this.dialog.open(AuthDialogComponent, {
-      width: '350px',
-      data: {
-        title: 'Authentication',
-        resourceID: row.resourceID
-      }
-    });
+    if (row.name === undefined
+      || row.documentType === undefined
+      || row.precedingDocumentID === undefined
+      || row.headDocumentID === undefined
+      || row.entityAssetID === undefined) {
+      this.documentService.getDocumentPropertiesById(row.resourceID).subscribe((documentProperties) => {
+        if (row.name === undefined) {
+          row.name = documentProperties.name;
+        }
+        if (row.documentType === undefined) {
+          row.documentType = documentProperties.documentType;
+        }
+        if (row.precedingDocumentID === undefined) {
+          row.precedingDocumentID = documentProperties.precedingDocumentID;
+        }
+        if (row.headDocumentID === undefined) {
+          row.headDocumentID = documentProperties.headDocumentID;
+        }
+        if (row.entityAssetID === undefined) {
+          row.entityAssetID = documentProperties.entityAssetID;
+        }
 
-    authDialog.afterClosed().subscribe(() => {
-      if (authDialog.componentInstance.keySwitchSessionID !== undefined) {
-        this.dialog.open(DocumentQueryResultDetailDialog, {
-          data: {
-            title: 'Detail',
-            content: [
-              { item: 'ResourceID', value: row.resourceID },
-              { item: 'Name', value: row.name },
-              { item: 'ResourceType', value: row.resourceType },
-              { item: 'Hash', value: row.hash },
-              { item: 'CiphertextHash', value: row.ciphertextHash },
-              { item: 'Size', value: row.size },
-              { item: 'CiphertextSize', value: row.ciphertextSize },
-              { item: 'Creator', value: row.creator },
-              { item: 'CreationTime', value: row.creationTime },
-              { item: 'DocumentType', value: row.documentType },
-              { item: 'PrecedingDocumentID', value: row.precedingDocumentID },
-              { item: 'HeadDocumentID', value: row.headDocumentID },
-              { item: 'EntityAssetID', value: row.entityAssetID }
-            ]
-          }
-        });
-      } else { // authDialog.componentInstance.keySwitchSessionID is undefined
-        this.dialog.open(DocumentQueryResultDetailDialog, {
-          data: {
-            title: 'Detail',
-            content: [
-              { item: 'ResourceID', value: row.resourceID },
-              { item: 'Name', value: row.name },
-              { item: 'ResourceType', value: row.resourceType },
-              { item: 'Hash', value: row.hash },
-              { item: 'CiphertextHash', value: row.ciphertextHash },
-              { item: 'Size', value: row.size },
-              { item: 'CiphertextSize', value: row.ciphertextSize },
-              { item: 'Creator', value: row.creator },
-              { item: 'CreationTime', value: row.creationTime },
-              { item: 'DocumentType', value: row.documentType },
-              { item: 'PrecedingDocumentID', value: row.precedingDocumentID },
-              { item: 'HeadDocumentID', value: row.headDocumentID },
-              { item: 'EntityAssetID', value: row.entityAssetID }
-            ]
-          }
-        });
+        this.openDetailDialog(row);
+      });
+    } else { // row.name, row.documentType, row.precedingDocumentID, row.headDocumentID, row.entityAssetID are not undefined
+      this.openDetailDialog(row);
+    }
+  }
+
+  openDetailDialog(row: DocumentQueryResultTableItem) {
+    this.dialog.open(DocumentQueryResultDetailDialog, {
+      data: {
+        title: 'Detail',
+        content: [
+          { item: 'ResourceID', value: row.resourceID },
+          { item: 'Name', value: row.name === undefined ? this.mask : row.name },
+          { item: 'ResourceType', value: row.resourceType },
+          { item: 'Hash', value: row.hash },
+          { item: 'CiphertextHash', value: row.ciphertextHash },
+          { item: 'Size', value: row.size },
+          { item: 'CiphertextSize', value: row.ciphertextSize },
+          { item: 'Creator', value: row.creator },
+          { item: 'CreationTime', value: row.creationTime },
+          { item: 'DocumentType', value: row.documentType === undefined ? this.mask : row.documentType },
+          { item: 'PrecedingDocumentID', value: row.precedingDocumentID === undefined ? this.mask : row.precedingDocumentID },
+          { item: 'HeadDocumentID', value: row.headDocumentID === undefined ? this.mask : row.headDocumentID },
+          { item: 'EntityAssetID', value: row.entityAssetID === undefined ? this.mask : row.entityAssetID }
+        ]
       }
     });
   }
@@ -114,15 +115,59 @@ export class DocumentQueryResultDetailDialog {
     'value'
   ];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private documentService: DocumentService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private documentService: DocumentService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+
+  decryptDocument(resourceID: string) {
+    let authDialog = this.dialog.open(AuthDialogComponent, {
+      width: '350px',
+      data: {
+        title: 'Authentication',
+        resourceID: resourceID
+      }
+    });
+
+    authDialog.afterClosed().subscribe(() => {
+      this.documentService.getDocumentPropertiesById(resourceID, authDialog.componentInstance.keySwitchSessionID).subscribe((documentProperties) => {
+        // TODO: replace mask and open detail dialog
+      });
+    });
+  }
 
   downloadDocument(resourceID: string, resourceType: string, keySwitchSessionID?: string) {
-    this.documentService.getDocumentById(resourceID, resourceType, keySwitchSessionID).subscribe(document => {
-      let file = new File([document.contents], document.name);
-      let link = self.document.createElement('a');
+    resourceType = Utils.getRawResourceType('document', resourceType);
 
-      link.href = window.URL.createObjectURL(file);;
-      link.click();
+    this.documentService.getDocumentById(resourceID, resourceType, keySwitchSessionID).subscribe(document => {
+      if (document.contents !== undefined) {
+        let file = new File([document.contents], document.name);
+        let link = self.document.createElement('a');
+
+        link.href = window.URL.createObjectURL(file);;
+        link.click();
+      } else { // document.contents is undefined
+        let authDialog = this.dialog.open(AuthDialogComponent, {
+          width: '350px',
+          data: {
+            title: 'Authentication',
+            resourceID: resourceID
+          }
+        });
+
+        authDialog.afterClosed().subscribe(() => {
+          this.documentService.getDocumentById(resourceID, resourceType, authDialog.componentInstance.keySwitchSessionID).subscribe(document => {
+            if (document.contents !== undefined) {
+              let file = new File([document.contents], document.name);
+              let link = self.document.createElement('a');
+
+              link.href = window.URL.createObjectURL(file);;
+              link.click();
+            } else { // document.contents is undefined
+              this._snackBar.open('Failed to download document', 'DISMISS', {
+                duration: 5000
+              });
+            }
+          });
+        });
+      }
     });
   }
 

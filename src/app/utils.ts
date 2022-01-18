@@ -30,6 +30,8 @@ export class Utils {
     rejected: 'Deny'
   };
 
+  static mask: string = '***';
+
   static getResourceType(metaType: string, resourceType: string): string {
     if (metaType === 'document') {
       return this.documentResourceTypes[resourceType];
