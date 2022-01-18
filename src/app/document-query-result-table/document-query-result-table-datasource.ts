@@ -118,6 +118,8 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
       for (let key in this.documentQueryComponent.documentConditionalQueryForm.value) {
         if (key.startsWith('time')) { // time, timeAfterInclusive, timeBeforeExclusive
           formValues.push(this.documentQueryComponent.documentConditionalQueryForm.value[key]?.toJSON());
+        } else if (key === 'documentType' && this.documentQueryComponent.documentConditionalQueryForm.value[key] !== null) {
+          formValues.push(Utils.getRawDocumentType(this.documentQueryComponent.documentConditionalQueryForm.value[key]));
         } else {
           formValues.push(this.documentQueryComponent.documentConditionalQueryForm.value[key]);
         }

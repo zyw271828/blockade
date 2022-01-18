@@ -117,7 +117,12 @@ export class DocumentUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
-      this.documentService.uploadDocument(this.documentUploadForm.value as DocumentUpload)
+      let documentUpload = this.documentUploadForm.value as DocumentUpload;
+
+      documentUpload.resourceType = Utils.getRawResourceType('document', documentUpload.resourceType);
+      documentUpload.documentType = Utils.getRawDocumentType(documentUpload.documentType);
+
+      this.documentService.uploadDocument(documentUpload)
         .subscribe(resourceCreationInfo => {
           this.dialog.open(DocumentUploadPromptDialog, {
             disableClose: true,

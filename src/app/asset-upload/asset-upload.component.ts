@@ -95,7 +95,11 @@ export class AssetUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.assetUploadForm.valid) {
-      this.assetService.uploadAsset(this.assetUploadForm.value as AssetUpload)
+      let assetUpload = this.assetUploadForm.value as AssetUpload;
+
+      assetUpload.resourceType = Utils.getRawResourceType('asset', assetUpload.resourceType);
+
+      this.assetService.uploadAsset(assetUpload)
         .subscribe(resourceCreationInfo => {
           this.dialog.open(AssetUploadPromptDialog, {
             disableClose: true,

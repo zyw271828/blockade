@@ -56,6 +56,18 @@ export class Utils {
     return resourceTypes;
   }
 
+  static getRawResourceType(metaType: string, resourceType: string): string {
+    let rawResourceType;
+
+    if (metaType === 'document') {
+      rawResourceType = Object.keys(this.documentResourceTypes).find(key => this.documentResourceTypes[key] === resourceType);
+    } else if (metaType === 'asset') {
+      rawResourceType = Object.keys(this.assetResourceTypes).find(key => this.assetResourceTypes[key] === resourceType);
+    }
+
+    return rawResourceType === undefined ? '' : rawResourceType;
+  }
+
   static getDocumentType(documentType: string): string {
     return this.documentTypes[documentType];
   }
@@ -70,6 +82,12 @@ export class Utils {
     return documentTypes;
   }
 
+  static getRawDocumentType(documentType: string): string {
+    let rawDocumentType = Object.keys(this.documentTypes).find(key => this.documentTypes[key] === documentType);
+
+    return rawDocumentType === undefined ? '' : rawDocumentType;
+  }
+
   static getAuthSessionStatus(authSessionStatus: string): string {
     return this.authSessionStatuses[authSessionStatus];
   }
@@ -82,6 +100,12 @@ export class Utils {
     );
 
     return authSessionStatuses;
+  }
+
+  static getRawAuthSessionStatus(authSessionStatus: string): string {
+    let rawAuthSessionStatus = Object.keys(this.authSessionStatuses).find(key => this.authSessionStatuses[key] === authSessionStatus);
+
+    return rawAuthSessionStatus === undefined ? '' : rawAuthSessionStatus;
   }
 
   static formatDate(date: string): string {
