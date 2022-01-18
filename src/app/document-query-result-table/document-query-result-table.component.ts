@@ -115,20 +115,56 @@ export class DocumentQueryResultDetailDialog {
     'value'
   ];
 
+  mask: string = Utils.mask;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private documentService: DocumentService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
-  decryptDocument(resourceID: string) {
+  decryptDocument(dataSource: { item: string; value: string; }[]) {
     let authDialog = this.dialog.open(AuthDialogComponent, {
       width: '350px',
       data: {
         title: 'Authentication',
-        resourceID: resourceID
+        resourceID: this.findInDataSource(dataSource, 'ResourceID')
       }
     });
 
     authDialog.afterClosed().subscribe(() => {
-      this.documentService.getDocumentPropertiesById(resourceID, authDialog.componentInstance.keySwitchSessionID).subscribe((documentProperties) => {
-        // TODO: replace mask and open detail dialog
+      let content: { item: string; value: string; }[] = [];
+
+      this.documentService.getDocumentPropertiesById(
+        this.findInDataSource(dataSource, 'ResourceID'),
+        authDialog.componentInstance.keySwitchSessionID
+      ).subscribe((documentProperties) => {
+        dataSource.forEach(
+          ({ item, value }) => {
+            if (value === this.mask) {
+              if (item === 'Name') {
+                value = documentProperties.name === undefined ? this.mask : documentProperties.name;
+              }
+              if (item === 'DocumentType') {
+                value = documentProperties.documentType === undefined ? this.mask : documentProperties.documentType;
+              }
+              if (item === 'PrecedingDocumentID') {
+                value = documentProperties.precedingDocumentID === undefined ? this.mask : documentProperties.precedingDocumentID;
+              }
+              if (item === 'HeadDocumentID') {
+                value = documentProperties.headDocumentID === undefined ? this.mask : documentProperties.headDocumentID;
+              }
+              if (item === 'EntityAssetID') {
+                value = documentProperties.entityAssetID === undefined ? this.mask : documentProperties.entityAssetID;
+              }
+            }
+
+            content.push({ item, value });
+          }
+        );
+
+        this.dialog.open(DocumentQueryResultDetailDialog, {
+          data: {
+            title: 'Detail',
+            content: content
+          }
+        });
       });
     });
   }

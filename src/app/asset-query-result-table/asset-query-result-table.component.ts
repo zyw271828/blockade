@@ -101,22 +101,48 @@ export class AssetQueryResultDetailDialog {
     'value'
   ];
 
+  mask: string = Utils.mask;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private assetService: AssetService, public dialog: MatDialog) { }
 
-  decryptAsset(resourceID: string, resourceType: string) {
+  decryptAsset(dataSource: { item: string; value: string; }[]) {
     let authDialog = this.dialog.open(AuthDialogComponent, {
       width: '350px',
       data: {
         title: 'Authentication',
-        resourceID: resourceID
+        resourceID: this.findInDataSource(dataSource, 'ResourceID')
       }
     });
 
     authDialog.afterClosed().subscribe(() => {
-      resourceType = Utils.getRawResourceType('asset', resourceType);
+      let content: { item: string; value: string; }[] = [];
 
-      this.assetService.getAssetById(resourceID, resourceType, authDialog.componentInstance.keySwitchSessionID).subscribe((asset) => {
-        // TODO: replace mask and open detail dialog
+      this.assetService.getAssetById(
+        this.findInDataSource(dataSource, 'ResourceID'),
+        Utils.getRawResourceType('asset', this.findInDataSource(dataSource, 'ResourceType')),
+        authDialog.componentInstance.keySwitchSessionID
+      ).subscribe((asset) => {
+        dataSource.forEach(
+          ({ item, value }) => {
+            if (value === this.mask) {
+              if (item === 'Name') {
+                value = asset.name === undefined ? this.mask : asset.name;
+              }
+              if (item === 'DesignDocumentID') {
+                value = asset.designDocumentID === undefined ? this.mask : asset.designDocumentID;
+              }
+            }
+
+            content.push({ item, value });
+          }
+        );
+
+        this.dialog.open(AssetQueryResultDetailDialog, {
+          data: {
+            title: 'Detail',
+            content: content
+          }
+        });
       });
     });
   }
