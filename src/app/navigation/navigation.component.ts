@@ -2,11 +2,13 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, shareReplay, withLatestFrom } from 'rxjs/operators';
 import { IdentityService } from '../identity.service';
+import { ServerDialogComponent } from '../server-dialog/server-dialog.component';
 
 @Component({
   selector: 'app-navigation',
@@ -29,7 +31,7 @@ export class NavigationComponent {
   themeToggleControl = new FormControl(false);
   @HostBinding('class') className = '';
 
-  constructor(private identityService: IdentityService, private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) {
+  constructor(private identityService: IdentityService, private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router, public dialog: MatDialog) {
     router.events.pipe(
       withLatestFrom(this.isHandset$),
       filter(([a, b]) => b && a instanceof NavigationEnd)
@@ -78,5 +80,14 @@ export class NavigationComponent {
   checkConnectivity(): void {
     this.identityService.checkConnectivity()
       .subscribe(isConnected => this.isConnected = isConnected);
+  }
+
+  changeServer(): void {
+    this.dialog.open(ServerDialogComponent, {
+      width: '350px',
+      data: {
+        title: '更改服务器'
+      }
+    });
   }
 }

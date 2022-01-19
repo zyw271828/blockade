@@ -10,12 +10,12 @@ import { ResourceCreationInfo } from './resource-creation-info';
 })
 export class KeySwitchService {
 
-  private keySwitchTriggerUrl = environment.apiEndpoint + '/ks/trigger';
+  private keySwitchTriggerUrl = (): string => { return environment.apiEndpoint + '/ks/trigger' };
 
   constructor(private http: HttpClient) { }
 
   createKeySwitchTrigger(keySwitchTrigger: KeySwitchTrigger): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.keySwitchTriggerUrl, keySwitchTrigger)
+    return this.http.post<ResourceCreationInfo>(this.keySwitchTriggerUrl(), keySwitchTrigger)
       .pipe(
         tap(_ => console.log('createKeySwitchTrigger')),
         catchError(this.handleError<ResourceCreationInfo>('createKeySwitchTrigger'))

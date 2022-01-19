@@ -14,14 +14,14 @@ import { TableRecordData } from './table-record-data';
 })
 export class AssetService {
 
-  private assetUrl = environment.apiEndpoint + '/asset';
-  private assetQueryUrl = environment.apiEndpoint + '/assets/list';
-  private assetUploadRecordUrl = environment.apiEndpoint + '/identity/assets/list';
+  private assetUrl = (): string => { return environment.apiEndpoint + '/asset' };
+  private assetQueryUrl = (): string => { return environment.apiEndpoint + '/assets/list' };
+  private assetUploadRecordUrl = (): string => { return environment.apiEndpoint + '/identity/assets/list' };
 
   constructor(private http: HttpClient) { }
 
   uploadAsset(asset: AssetUpload): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.assetUrl, asset)
+    return this.http.post<ResourceCreationInfo>(this.assetUrl(), asset)
       .pipe(
         tap(_ => console.log('uploadAsset')),
         catchError(this.handleError<ResourceCreationInfo>('uploadAsset'))
@@ -37,7 +37,7 @@ export class AssetService {
       logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
     }
 
-    return this.http.get<Asset>(this.assetUrl + '/' + id, { params: params })
+    return this.http.get<Asset>(this.assetUrl() + '/' + id, { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
         catchError(this.handleError<Asset>('getAssetById'))
@@ -99,7 +99,7 @@ export class AssetService {
       logMsg += '\ndesignDocumentID: ' + designDocumentID;
     }
 
-    return this.http.get<TableRecordData>(this.assetQueryUrl, { params: params })
+    return this.http.get<TableRecordData>(this.assetQueryUrl(), { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
         catchError(this.handleError<TableRecordData>('queryAssetIDs'))
@@ -107,7 +107,7 @@ export class AssetService {
   }
 
   getAssetMetadataById(id: string): Observable<AssetMetadata> {
-    return this.http.get<AssetMetadata>(this.assetUrl + '/' + id + '/metadata')
+    return this.http.get<AssetMetadata>(this.assetUrl() + '/' + id + '/metadata')
       .pipe(
         tap(_ => console.log('getAssetMetadataById')),
         catchError(this.handleError<AssetMetadata>('getAssetMetadataById'))
@@ -115,7 +115,7 @@ export class AssetService {
   }
 
   getAssetUploadRecordIDs(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
-    return this.http.get<TableRecordData>(this.assetUploadRecordUrl, {
+    return this.http.get<TableRecordData>(this.assetUploadRecordUrl(), {
       params: new HttpParams()
         .set('isLatestFirst', isLatestFirst)
         .set('pageSize', pageSize)

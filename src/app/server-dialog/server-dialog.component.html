@@ -1,0 +1,25 @@
+<form [formGroup]="serverDialogForm" novalidate (ngSubmit)="onSubmit()">
+  <h1 mat-dialog-title>{{data.title}}</h1>
+  <div class="container">
+    <div style="height: 20px;"></div>
+
+    <div mat-dialog-content>
+      <mat-form-field appearance="outline" fxFlex="auto">
+        <mat-label>地址</mat-label>
+        <mat-select required formControlName="apiEndpoint">
+          <mat-option *ngFor="let apiEndpoint of apiEndpoints" [value]="apiEndpoint">
+            {{apiEndpoint}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="serverDialogForm.controls['apiEndpoint'].hasError('required')">
+          地址为<strong>必填项</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close type="button">取消</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit">确定</button>
+    </div>
+  </div>
+</form>

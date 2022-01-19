@@ -14,16 +14,16 @@ import { TableRecordData } from './table-record-data';
 })
 export class AuthService {
 
-  private authUrl = environment.apiEndpoint + '/auth';
-  private authRequestUrl = environment.apiEndpoint + '/auth/request';
-  private authResponseUrl = environment.apiEndpoint + '/auth/response';
-  private authRecordUrl = environment.apiEndpoint + '/identity/auths/request-list';
-  private authApproveUrl = environment.apiEndpoint + '/identity/auths/pending-list';
+  private authUrl = (): string => { return environment.apiEndpoint + '/auth' };
+  private authRequestUrl = (): string => { return environment.apiEndpoint + '/auth/request' };
+  private authResponseUrl = (): string => { return environment.apiEndpoint + '/auth/response' };
+  private authRecordUrl = (): string => { return environment.apiEndpoint + '/identity/auths/request-list' };
+  private authApproveUrl = (): string => { return environment.apiEndpoint + '/identity/auths/pending-list' };
 
   constructor(private http: HttpClient) { }
 
   requestAuth(authRequest: AuthRequest): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.authRequestUrl, authRequest)
+    return this.http.post<ResourceCreationInfo>(this.authRequestUrl(), authRequest)
       .pipe(
         tap(_ => console.log('requestAuth')),
         catchError(this.handleError<ResourceCreationInfo>('requestAuth'))
@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   responseAuth(authResponse: AuthResponse): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.authResponseUrl, authResponse)
+    return this.http.post<ResourceCreationInfo>(this.authResponseUrl(), authResponse)
       .pipe(
         tap(_ => console.log('responseAuth')),
         catchError(this.handleError<ResourceCreationInfo>('responseAuth'))
@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   getAuthSessionById(id: string): Observable<AuthSession> {
-    return this.http.get<AuthSession>(this.authUrl + '/' + id)
+    return this.http.get<AuthSession>(this.authUrl() + '/' + id)
       .pipe(
         tap(_ => console.log('getAuthSessionById')),
         catchError(this.handleError<AuthSession>('getAuthSessionById'))
@@ -47,7 +47,7 @@ export class AuthService {
   }
 
   getAuthSessionRecordIDs(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
-    return this.http.get<TableRecordData>(this.authRecordUrl, {
+    return this.http.get<TableRecordData>(this.authRecordUrl(), {
       params: new HttpParams()
         .set('isLatestFirst', isLatestFirst)
         .set('pageSize', pageSize)
@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   getAuthSessionApproveIDs(pageSize = 10, bookmark = ''): Observable<TableRecordData> {
-    return this.http.get<TableRecordData>(this.authApproveUrl, {
+    return this.http.get<TableRecordData>(this.authApproveUrl(), {
       params: new HttpParams()
         .set('pageSize', pageSize)
         .set('bookmark', bookmark)

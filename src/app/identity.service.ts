@@ -10,13 +10,13 @@ import { UserIdentity } from './user-identity';
 })
 export class IdentityService {
 
-  private connectivityUrl = environment.apiEndpoint + '/ping';
-  private identityUrl = environment.apiEndpoint + '/identity';
+  private connectivityUrl = (): string => { return environment.apiEndpoint + '/ping' };
+  private identityUrl = (): string => { return environment.apiEndpoint + '/identity' };
 
   constructor(private http: HttpClient) { }
 
   checkConnectivity(): Observable<boolean> {
-    return this.http.get(this.connectivityUrl, { observe: 'response' })
+    return this.http.get(this.connectivityUrl(), { observe: 'response' })
       .pipe(
         map(response => {
           console.log('[' + new Date().toISOString() + '] checkConnectivity: ' + response.status);
@@ -27,7 +27,7 @@ export class IdentityService {
   }
 
   getUserIdentity(): Observable<UserIdentity> {
-    return this.http.get<UserIdentity>(this.identityUrl)
+    return this.http.get<UserIdentity>(this.identityUrl())
       .pipe(
         tap(_ => console.log('getUserIdentity')),
         catchError(this.handleError<UserIdentity>('getUserIdentity'))

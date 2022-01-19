@@ -15,14 +15,14 @@ import { TableRecordData } from './table-record-data';
 })
 export class DocumentService {
 
-  private documentUrl = environment.apiEndpoint + '/document';
-  private documentQueryUrl = environment.apiEndpoint + '/documents/list';
-  private documentUploadRecordUrl = environment.apiEndpoint + '/identity/documents/list';
+  private documentUrl = (): string => { return environment.apiEndpoint + '/document' };
+  private documentQueryUrl = (): string => { return environment.apiEndpoint + '/documents/list' };
+  private documentUploadRecordUrl = (): string => { return environment.apiEndpoint + '/identity/documents/list' };
 
   constructor(private http: HttpClient) { }
 
   uploadDocument(document: DocumentUpload): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.documentUrl, document)
+    return this.http.post<ResourceCreationInfo>(this.documentUrl(), document)
       .pipe(
         tap(_ => console.log('uploadDocument')),
         catchError(this.handleError<ResourceCreationInfo>('uploadDocument'))
@@ -38,7 +38,7 @@ export class DocumentService {
       logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
     }
 
-    return this.http.get<Document>(this.documentUrl + '/' + id, { params: params })
+    return this.http.get<Document>(this.documentUrl() + '/' + id, { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
         catchError(this.handleError<Document>('getDocumentById'))
@@ -115,7 +115,7 @@ export class DocumentService {
       logMsg += '\nentityAssetID: ' + entityAssetID;
     }
 
-    return this.http.get<TableRecordData>(this.documentQueryUrl, { params: params })
+    return this.http.get<TableRecordData>(this.documentQueryUrl(), { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
         catchError(this.handleError<TableRecordData>('queryDocumentIDs'))
@@ -123,7 +123,7 @@ export class DocumentService {
   }
 
   getDocumentMetadataById(id: string): Observable<DocumentMetadata> {
-    return this.http.get<DocumentMetadata>(this.documentUrl + '/' + id + '/metadata')
+    return this.http.get<DocumentMetadata>(this.documentUrl() + '/' + id + '/metadata')
       .pipe(
         tap(_ => console.log('getDocumentMetadataById')),
         catchError(this.handleError<DocumentMetadata>('getDocumentMetadataById'))
@@ -131,7 +131,7 @@ export class DocumentService {
   }
 
   checkDocumentIDValidity(id: string): Observable<boolean> {
-    return this.http.get(this.documentUrl + '/' + id + '/metadata', { observe: 'response' })
+    return this.http.get(this.documentUrl() + '/' + id + '/metadata', { observe: 'response' })
       .pipe(
         map(response => {
           console.log('checkDocumentIDValidity: ' + response.status);
@@ -150,7 +150,7 @@ export class DocumentService {
       logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
     }
 
-    return this.http.get<DocumentProperties>(this.documentUrl + '/' + id + '/properties', { params: params })
+    return this.http.get<DocumentProperties>(this.documentUrl() + '/' + id + '/properties', { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
         catchError(this.handleError<DocumentProperties>('getDocumentPropertiesById'))
@@ -158,7 +158,7 @@ export class DocumentService {
   }
 
   getDocumentUploadRecordIDs(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
-    return this.http.get<TableRecordData>(this.documentUploadRecordUrl, {
+    return this.http.get<TableRecordData>(this.documentUploadRecordUrl(), {
       params: new HttpParams()
         .set('isLatestFirst', isLatestFirst)
         .set('pageSize', pageSize)

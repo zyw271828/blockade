@@ -53,6 +53,7 @@ import { DocumentUploadRecordComponent } from './document-upload-record/document
 import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-upload/document-upload.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ServerDialogComponent } from './server-dialog/server-dialog.component';
 
 registerLocaleData(localeZh);
 
@@ -83,7 +84,8 @@ registerLocaleData(localeZh);
     AuthApproveComponent,
     AuthApproveTableComponent,
     AuthDialogComponent,
-    FooterComponent
+    FooterComponent,
+    ServerDialogComponent
   ],
   imports: [
     BrowserModule,

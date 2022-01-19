@@ -60,6 +60,10 @@
       </button>
       <span class="fill-space">Blockade</span>
       <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="0px">
+        <button type="button" fxFlex="auto" mat-icon-button (click)="changeServer()">
+          <mat-icon matTooltip="更改服务器">storage</mat-icon>
+        </button>
+        <mat-divider vertical></mat-divider>
         <button type="button" fxFlex="auto" mat-icon-button (click)="changeTheme()">
           <mat-icon *ngIf="themeToggleControl.value" matTooltip="深色主题">dark_mode</mat-icon>
           <mat-icon *ngIf="!themeToggleControl.value" matTooltip="浅色主题">light_mode</mat-icon>
