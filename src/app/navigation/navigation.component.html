@@ -59,18 +59,25 @@
         <mat-icon aria-label="Side nav toggle icon" matTooltip="菜单">menu</mat-icon>
       </button>
       <span class="fill-space">Blockade</span>
-      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-        <mat-icon matTooltip="深色主题">dark_mode</mat-icon>
-        <mat-slide-toggle [formControl]="themeToggleControl"></mat-slide-toggle>
-        <mat-icon matTooltip="浅色主题 ">light_mode</mat-icon>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="0px">
+        <button type="button" fxFlex="auto" mat-icon-button (click)="changeTheme()">
+          <mat-icon *ngIf="themeToggleControl.value" matTooltip="深色主题">dark_mode</mat-icon>
+          <mat-icon *ngIf="!themeToggleControl.value" matTooltip="浅色主题">light_mode</mat-icon>
+        </button>
         <mat-divider vertical></mat-divider>
-        <mat-icon [matTooltip]="detailedUserInfo" matTooltipClass="userinfo-tooltip">person</mat-icon>
+        <button type="button" fxFlex="auto" mat-icon-button (click)="getUserInfo()">
+          <mat-icon [matTooltip]="detailedUserInfo" matTooltipClass="userinfo-tooltip">person</mat-icon>
+        </button>
         <span *ngIf="(isHandset$ | async) === false" class="mat-body-strong" [matTooltip]="detailedUserInfo"
           matTooltipClass="userinfo-tooltip">{{userInfo}}</span>
+        <div *ngIf="(isHandset$ | async) === false" style="width: 10px;"></div>
         <mat-divider vertical></mat-divider>
-        <mat-icon *ngIf="isConnected" matTooltip="已连接">check_circle</mat-icon>
-        <mat-icon *ngIf="!isConnected" matTooltip="未连接">error</mat-icon>
+        <button type="button" fxFlex="auto" mat-icon-button (click)="checkConnectivity()">
+          <mat-icon *ngIf="isConnected" matTooltip="已连接">check_circle</mat-icon>
+          <mat-icon *ngIf="!isConnected" matTooltip="未连接">error</mat-icon>
+        </button>
         <span *ngIf="!isConnected" class="mat-body-strong">未连接</span>
+        <div *ngIf="!isConnected" style="width: 10px;"></div>
       </div>
     </mat-toolbar>
     <div [ngSwitch]="getUrl()" fxFlex="auto">

@@ -37,7 +37,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
     'operation'
   ];
 
-  authSessionStatus: string[] = Utils.getAuthSessionStatus();
+  authSessionStatuses: string[] = Utils.getAuthSessionStatuses();
 
   constructor(private authService: AuthService, public dialog: MatDialog) {
     this.dataSource = new AuthRecordTableDataSource(this.authService);
@@ -62,7 +62,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
           { item: '大小', value: row.size },
           { item: '密文大小', value: row.ciphertextSize },
           { item: '创建者', value: row.creator },
-          { item: '创建时间', value: Utils.formatDate(row.creationTime) },
+          { item: '创建时间', value: row.creationTime },
           { item: '文档类型', value: row.documentType },
           { item: '前序文档 ID', value: row.precedingDocumentID },
           { item: '头文档 ID', value: row.headDocumentID },

@@ -72,7 +72,7 @@ export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem>
           resourceType: 'resourceType', // TODO: get resourceType
           name: 'name', // TODO: get name
           authSessionID: authSession.authSessionID,
-          status: Utils.getAuthSessionStatus()[authSession.status]
+          status: Utils.getAuthSessionStatus(authSession.status)
         };
       }));
   }

@@ -1,4 +1,4 @@
-export interface Document {
+export interface DocumentProperties {
   id: string;
   documentType: string;
   isDocumentTypePublic: boolean;
@@ -10,5 +10,4 @@ export interface Document {
   isPrecedingDocumentIDPublic: boolean;
   headDocumentID: string;
   isHeadDocumentIDPublic: boolean;
-  contents: ArrayBuffer;
 }

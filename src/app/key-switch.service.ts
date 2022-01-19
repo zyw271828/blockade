@@ -1,0 +1,31 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { catchError, Observable, of, tap } from 'rxjs';
+import { environment } from '../environments/environment';
+import { KeySwitchTrigger } from './key-switch-trigger';
+import { ResourceCreationInfo } from './resource-creation-info';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class KeySwitchService {
+
+  private keySwitchTriggerUrl = environment.apiEndpoint + '/ks/trigger';
+
+  constructor(private http: HttpClient) { }
+
+  createKeySwitchTrigger(keySwitchTrigger: KeySwitchTrigger): Observable<ResourceCreationInfo> {
+    return this.http.post<ResourceCreationInfo>(this.keySwitchTriggerUrl, keySwitchTrigger)
+      .pipe(
+        tap(_ => console.log('createKeySwitchTrigger')),
+        catchError(this.handleError<ResourceCreationInfo>('createKeySwitchTrigger'))
+      );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+}

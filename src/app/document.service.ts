@@ -1,10 +1,12 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { Document } from './document';
 import { DocumentMetadata } from './document-metadata';
+import { DocumentProperties } from './document-properties';
+import { DocumentUpload } from './document-upload';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
@@ -19,11 +21,27 @@ export class DocumentService {
 
   constructor(private http: HttpClient) { }
 
-  uploadDocument(document: Document): Observable<ResourceCreationInfo> {
+  uploadDocument(document: DocumentUpload): Observable<ResourceCreationInfo> {
     return this.http.post<ResourceCreationInfo>(this.documentUrl, document)
       .pipe(
         tap(_ => console.log('uploadDocument')),
         catchError(this.handleError<ResourceCreationInfo>('uploadDocument'))
+      );
+  }
+
+  getDocumentById(id: string, resourceType: string, keySwitchSessionID?: string): Observable<Document> {
+    let params = new HttpParams().set('resourceType', resourceType);
+    let logMsg = 'getDocumentById' + '\nresourceType: ' + resourceType;
+
+    if (keySwitchSessionID !== undefined) {
+      params = params.set('keySwitchSessionID', keySwitchSessionID);
+      logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
+    }
+
+    return this.http.get<Document>(this.documentUrl + '/' + id, { params: params })
+      .pipe(
+        tap(_ => console.log(logMsg)),
+        catchError(this.handleError<Document>('getDocumentById'))
       );
   }
 
@@ -109,6 +127,33 @@ export class DocumentService {
       .pipe(
         tap(_ => console.log('getDocumentMetadataById')),
         catchError(this.handleError<DocumentMetadata>('getDocumentMetadataById'))
+      );
+  }
+
+  checkDocumentIDValidity(id: string): Observable<boolean> {
+    return this.http.get(this.documentUrl + '/' + id + '/metadata', { observe: 'response' })
+      .pipe(
+        map(response => {
+          console.log('checkDocumentIDValidity: ' + response.status);
+          return response.status === HttpStatusCode.Ok;
+        }),
+        catchError(this.handleError<boolean>('checkDocumentIDValidity', false))
+      );
+  }
+
+  getDocumentPropertiesById(id: string, keySwitchSessionID?: string): Observable<DocumentProperties> {
+    let params = new HttpParams();
+    let logMsg = 'getDocumentPropertiesById';
+
+    if (keySwitchSessionID !== undefined) {
+      params = params.set('keySwitchSessionID', keySwitchSessionID);
+      logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
+    }
+
+    return this.http.get<DocumentProperties>(this.documentUrl + '/' + id + '/properties', { params: params })
+      .pipe(
+        tap(_ => console.log(logMsg)),
+        catchError(this.handleError<DocumentProperties>('getDocumentPropertiesById'))
       );
   }
 

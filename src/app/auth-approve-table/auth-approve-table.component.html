@@ -36,18 +36,18 @@
       <th mat-header-cell *matHeaderCellDef>操作</th>
       <td mat-cell *matCellDef="let row">
         <div [ngSwitch]="row.status">
-          <div *ngSwitchCase="authSessionStatus[1]">
+          <div *ngSwitchCase="authSessionStatuses[1]">
             已允许
           </div>
-          <div *ngSwitchCase="authSessionStatus[2]">
+          <div *ngSwitchCase="authSessionStatuses[2]">
             已拒绝
           </div>
-          <div *ngSwitchCase="authSessionStatus[0]" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <div *ngSwitchCase="authSessionStatuses[0]" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
             <button color="primary" mat-stroked-button type="button"
-              (click)="allowAuthSession(row.authSessionID)">{{authSessionStatus[1]}}</button>
+              (click)="allowAuthSession(row.authSessionID)">{{authSessionStatuses[1]}}</button>
             <mat-divider vertical></mat-divider>
             <button color="warn" mat-stroked-button type="button"
-              (click)="denyAuthSession(row.authSessionID)">{{authSessionStatus[2]}}</button>
+              (click)="denyAuthSession(row.authSessionID)">{{authSessionStatuses[2]}}</button>
           </div>
         </div>
       </td>

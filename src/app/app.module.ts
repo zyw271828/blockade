@@ -1,6 +1,8 @@
 import { LayoutModule } from '@angular/cdk/layout';
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import localeZh from '@angular/common/locales/zh';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -52,6 +54,7 @@ import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+registerLocaleData(localeZh);
 
 @NgModule({
   declarations: [
@@ -117,7 +120,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatSnackBarModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'zh-CN' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

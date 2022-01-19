@@ -78,15 +78,15 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
         return {
           id: index,
           resourceID: documentMetadata.resourceID,
-          resourceType: Utils.getResourceTypes('document')[documentMetadata.resourceType],
+          resourceType: Utils.getResourceType('document', documentMetadata.resourceType),
           name: documentMetadata.extensions.name,
           hash: documentMetadata.hash,
           ciphertextHash: documentMetadata.hashStored,
           size: documentMetadata.size,
           ciphertextSize: documentMetadata.sizeStored,
           creator: documentMetadata.creator,
-          creationTime: documentMetadata.timestamp,
-          documentType: documentMetadata.extensions.documentType,
+          creationTime: Utils.formatDate(documentMetadata.timestamp),
+          documentType: Utils.getDocumentType(documentMetadata.extensions.documentType),
           precedingDocumentID: documentMetadata.extensions.precedingDocumentID,
           headDocumentID: documentMetadata.extensions.headDocumentID,
           entityAssetID: documentMetadata.extensions.entityAssetID
@@ -118,6 +118,8 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
       for (let key in this.documentQueryComponent.documentConditionalQueryForm.value) {
         if (key.startsWith('time')) { // time, timeAfterInclusive, timeBeforeExclusive
           formValues.push(this.documentQueryComponent.documentConditionalQueryForm.value[key]?.toJSON());
+        } else if (key === 'documentType' && this.documentQueryComponent.documentConditionalQueryForm.value[key] !== null) {
+          formValues.push(Utils.getRawDocumentType(this.documentQueryComponent.documentConditionalQueryForm.value[key]));
         } else {
           formValues.push(this.documentQueryComponent.documentConditionalQueryForm.value[key]);
         }

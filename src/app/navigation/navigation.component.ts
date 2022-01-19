@@ -26,16 +26,17 @@ export class NavigationComponent {
   isConnected: boolean = false;
   userInfo: string = '未知（未知）';
   detailedUserInfo: string = '用户信息\n未知';
+  themeToggleControl = new FormControl(false);
+  @HostBinding('class') className = '';
 
   constructor(private identityService: IdentityService, private breakpointObserver: BreakpointObserver, private overlay: OverlayContainer, private router: Router) {
     router.events.pipe(
       withLatestFrom(this.isHandset$),
       filter(([a, b]) => b && a instanceof NavigationEnd)
     ).subscribe(_ => this.drawer.close());
-  }
 
-  themeToggleControl = new FormControl(false);
-  @HostBinding('class') className = '';
+    setInterval(() => { this.checkConnectivity(); }, 5000);
+  }
 
   ngOnInit(): void {
     this.checkConnectivity();
@@ -56,9 +57,8 @@ export class NavigationComponent {
     return this.router.url;
   }
 
-  checkConnectivity(): void {
-    this.identityService.checkConnectivity()
-      .subscribe(isConnected => this.isConnected = isConnected);
+  changeTheme(): void {
+    this.themeToggleControl.setValue(!this.themeToggleControl.value);
   }
 
   getUserInfo(): void {
@@ -73,5 +73,10 @@ export class NavigationComponent {
           + '\n部门名称：' + userIdentity.deptName
           + '\n上级部门名称：' + userIdentity.superDeptName;
       });
+  }
+
+  checkConnectivity(): void {
+    this.identityService.checkConnectivity()
+      .subscribe(isConnected => this.isConnected = isConnected);
   }
 }

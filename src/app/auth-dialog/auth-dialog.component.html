@@ -6,10 +6,7 @@
     <div mat-dialog-content>
       <mat-form-field appearance="outline" fxFlex="auto">
         <mat-label>授权会话 ID</mat-label>
-        <input matInput required formControlName="authSessionID">
-        <mat-error *ngIf="authDialogForm.controls['authSessionID'].hasError('required')">
-          授权会话为<strong>必填项</strong>
-        </mat-error>
+        <input matInput placeholder="选填" formControlName="authSessionID">
       </mat-form-field>
     </div>
 

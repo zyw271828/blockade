@@ -5,6 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { Asset } from './asset';
 import { AssetMetadata } from './asset-metadata';
+import { AssetUpload } from './asset-upload';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
@@ -19,11 +20,27 @@ export class AssetService {
 
   constructor(private http: HttpClient) { }
 
-  uploadAsset(asset: Asset): Observable<ResourceCreationInfo> {
+  uploadAsset(asset: AssetUpload): Observable<ResourceCreationInfo> {
     return this.http.post<ResourceCreationInfo>(this.assetUrl, asset)
       .pipe(
         tap(_ => console.log('uploadAsset')),
         catchError(this.handleError<ResourceCreationInfo>('uploadAsset'))
+      );
+  }
+
+  getAssetById(id: string, resourceType: string, keySwitchSessionID?: string): Observable<Asset> {
+    let params = new HttpParams().set('resourceType', resourceType);
+    let logMsg = 'getAssetById' + '\nresourceType: ' + resourceType;
+
+    if (keySwitchSessionID !== undefined) {
+      params = params.set('keySwitchSessionID', keySwitchSessionID);
+      logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
+    }
+
+    return this.http.get<Asset>(this.assetUrl + '/' + id, { params: params })
+      .pipe(
+        tap(_ => console.log(logMsg)),
+        catchError(this.handleError<Asset>('getAssetById'))
       );
   }
 

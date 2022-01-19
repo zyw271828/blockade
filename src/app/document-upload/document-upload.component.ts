@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Document } from '../document';
+import { DocumentUpload } from '../document-upload';
 import { DocumentService } from '../document.service';
 import { Utils } from '../utils';
 
@@ -34,7 +34,7 @@ export class DocumentUploadComponent implements OnInit {
     isPrecedingDocumentIDPublic: false,
     headDocumentID: null,
     isHeadDocumentIDPublic: false,
-    content: [null, Validators.required],
+    contents: [null, Validators.required],
     policy: [null, Validators.required]
   });
 
@@ -52,16 +52,36 @@ export class DocumentUploadComponent implements OnInit {
   }
 
   checkPrecedingDocumentID() {
-    // TODO: checkPrecedingDocumentID, change color instead of pop-up prompt
-    this._snackBar.open('前序文档 ID 已检查', '关闭', {
-      duration: 5000
+    // TODO: change color instead of pop-up prompt
+    let precedingDocumentID = this.documentUploadForm.get("precedingDocumentID")?.value;
+
+    this.documentService.checkDocumentIDValidity(precedingDocumentID).subscribe(isValid => {
+      if (isValid) {
+        this._snackBar.open('前序文档 ID「' + precedingDocumentID + '」有效', '关闭', {
+          duration: 5000
+        });
+      } else {
+        this._snackBar.open('前序文档 ID「' + precedingDocumentID + '」无效', '关闭', {
+          duration: 5000
+        });
+      }
     });
   }
 
   checkHeadDocumentID() {
-    // TODO: checkHeadDocumentID, change color instead of pop-up prompt
-    this._snackBar.open('头文档 ID 已检查', '关闭', {
-      duration: 5000
+    // TODO: change color instead of pop-up prompt
+    let headDocumentID = this.documentUploadForm.get("headDocumentID")?.value;
+
+    this.documentService.checkDocumentIDValidity(headDocumentID).subscribe(isValid => {
+      if (isValid) {
+        this._snackBar.open('头文档 ID「' + headDocumentID + '」有效', '关闭', {
+          duration: 5000
+        });
+      } else {
+        this._snackBar.open('头文档 ID「' + headDocumentID + '」无效', '关闭', {
+          duration: 5000
+        });
+      }
     });
   }
 
@@ -87,7 +107,7 @@ export class DocumentUploadComponent implements OnInit {
     let fileData = await toFileData(fileInputEvent.target.files[0]);
 
     this.filename = fileInputEvent.target.files[0].name;
-    this.documentUploadForm.get('content')?.setValue(fileData);
+    this.documentUploadForm.get('contents')?.setValue(fileData);
   }
 
   documentUploadResetButtonClick() {
@@ -97,7 +117,12 @@ export class DocumentUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
-      this.documentService.uploadDocument(this.documentUploadForm.value as Document)
+      let documentUpload = this.documentUploadForm.value as DocumentUpload;
+
+      documentUpload.resourceType = Utils.getRawResourceType('document', documentUpload.resourceType);
+      documentUpload.documentType = Utils.getRawDocumentType(documentUpload.documentType);
+
+      this.documentService.uploadDocument(documentUpload)
         .subscribe(resourceCreationInfo => {
           this.dialog.open(DocumentUploadPromptDialog, {
             disableClose: true,

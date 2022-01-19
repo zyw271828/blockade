@@ -75,14 +75,14 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
         return {
           id: index,
           resourceID: assetMetadata.resourceID,
-          resourceType: Utils.getResourceTypes('asset')[assetMetadata.resourceType],
+          resourceType: Utils.getResourceType('asset', assetMetadata.resourceType),
           name: assetMetadata.extensions.name,
           hash: assetMetadata.hash,
           ciphertextHash: assetMetadata.hashStored,
           size: assetMetadata.size,
           ciphertextSize: assetMetadata.sizeStored,
           creator: assetMetadata.creator,
-          creationTime: assetMetadata.timestamp,
+          creationTime: Utils.formatDate(assetMetadata.timestamp),
           designDocumentID: assetMetadata.extensions.designDocumentID
         };
       }));

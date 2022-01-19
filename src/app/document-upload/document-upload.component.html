@@ -120,15 +120,15 @@
                   </div>
                 </div>
 
-                <!-- Content -->
+                <!-- Contents -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
                   <div class="misc-margin">
                     <mat-icon fxFlex="auto">cloud_upload</mat-icon>
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>内容</mat-label>
-                    <input matInput required placeholder="文件名" [value]="filename" formControlName="content">
-                    <mat-error *ngIf="documentUploadForm.controls['content'].hasError('required')">
+                    <input matInput required placeholder="文件名" [value]="filename" formControlName="contents">
+                    <mat-error *ngIf="documentUploadForm.controls['contents'].hasError('required')">
                       内容为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>

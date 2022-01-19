@@ -82,15 +82,15 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
           resourceType: 'resourceType', // TODO: get resourceType
           name: 'name', // TODO: get name
           authSessionID: authSession.authSessionID,
-          status: Utils.getAuthSessionStatus()[authSession.status],
+          status: Utils.getAuthSessionStatus(authSession.status),
           // TODO: get details
           hash: 'hash',
           ciphertextHash: 'ciphertextHash',
           size: 0,
           ciphertextSize: 0,
           creator: 'creator',
-          creationTime: '1970-01-01T00:00:00.000Z',
-          documentType: 'documentType',
+          creationTime: Utils.formatDate('1970-01-01T00:00:00.000Z'),
+          documentType: Utils.getDocumentType('designDocument'),
           precedingDocumentID: 'precedingDocumentID',
           headDocumentID: 'headDocumentID',
           entityAssetID: 'entityAssetID'

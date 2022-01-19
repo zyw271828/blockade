@@ -1,6 +1,6 @@
 {
-  "connectivity": [
-    true
+  "ping": [
+    "pong"
   ],
   "identity": {
     "userID": "UserID",
@@ -10,15 +10,564 @@
     "deptName": "DeptName",
     "superDeptName": "SuperDeptName"
   },
-  "document": {
+  "document-upload": {
     "resourceID": "00000000000000000000",
     "transactionID": "0000000000000000000000000000000000000000000000000000000000000000",
     "symmetricKeyMaterial": "-----BEGIN PUBLIC KEY-----\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n00000000\n-----END PUBLIC KEY-----"
   },
+  "asset-upload": {
+    "resourceID": "00000000000000000000",
+    "transactionID": "0000000000000000000000000000000000000000000000000000000000000000",
+    "symmetricKeyMaterial": "-----BEGIN PUBLIC KEY-----\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n00000000\n-----END PUBLIC KEY-----"
+  },
+  "document": [
+    {
+      "id": 1,
+      "documentType": "designDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 2,
+      "documentType": "productionDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 3,
+      "documentType": "transferDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 4,
+      "documentType": "usageDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 5,
+      "documentType": "repairDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 6,
+      "documentType": "designDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 7,
+      "documentType": "productionDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 8,
+      "documentType": "transferDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 9,
+      "documentType": "usageDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 10,
+      "documentType": "repairDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 11,
+      "documentType": "designDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 12,
+      "documentType": "productionDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 13,
+      "documentType": "transferDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 14,
+      "documentType": "usageDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 15,
+      "documentType": "repairDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 16,
+      "documentType": "designDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 17,
+      "documentType": "productionDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 18,
+      "documentType": "transferDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 19,
+      "documentType": "usageDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    },
+    {
+      "id": 20,
+      "documentType": "repairDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true,
+      "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
+    }
+  ],
+  "document-properties": [
+    {
+      "id": 1,
+      "documentType": "designDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 2,
+      "documentType": "productionDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 3,
+      "documentType": "transferDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 4,
+      "documentType": "usageDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 5,
+      "documentType": "repairDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 6,
+      "documentType": "designDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 7,
+      "documentType": "productionDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 8,
+      "documentType": "transferDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 9,
+      "documentType": "usageDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 10,
+      "documentType": "repairDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 11,
+      "documentType": "designDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 12,
+      "documentType": "productionDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 13,
+      "documentType": "transferDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 14,
+      "documentType": "usageDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 15,
+      "documentType": "repairDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 16,
+      "documentType": "designDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 17,
+      "documentType": "productionDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 18,
+      "documentType": "transferDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 19,
+      "documentType": "usageDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    },
+    {
+      "id": 20,
+      "documentType": "repairDocument",
+      "isDocumentTypePublic": true,
+      "name": "name",
+      "isNamePublic": true,
+      "entityAssetID": "00000000000000000000",
+      "isEntityAssetIDPublic": true,
+      "precedingDocumentID": "00000000000000000000",
+      "isPrecedingDocumentIDPublic": true,
+      "headDocumentID": "00000000000000000000",
+      "isHeadDocumentIDPublic": true
+    }
+  ],
   "document-metadata": [
     {
       "id": 1,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "20",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -37,13 +586,13 @@
     },
     {
       "id": 2,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "19",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "productionDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -56,13 +605,13 @@
     },
     {
       "id": 3,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "18",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "transferDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -75,13 +624,13 @@
     },
     {
       "id": 4,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "17",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "usageDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -94,13 +643,13 @@
     },
     {
       "id": 5,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "16",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "repairDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -113,7 +662,7 @@
     },
     {
       "id": 6,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "15",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -132,13 +681,13 @@
     },
     {
       "id": 7,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "14",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "productionDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -151,13 +700,13 @@
     },
     {
       "id": 8,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "13",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "transferDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -170,13 +719,13 @@
     },
     {
       "id": 9,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "12",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "usageDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -189,13 +738,13 @@
     },
     {
       "id": 10,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "11",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "repairDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -208,7 +757,7 @@
     },
     {
       "id": 11,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "10",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -227,13 +776,13 @@
     },
     {
       "id": 12,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "9",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "productionDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -246,13 +795,13 @@
     },
     {
       "id": 13,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "8",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "transferDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -265,13 +814,13 @@
     },
     {
       "id": 14,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "7",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "usageDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -284,13 +833,13 @@
     },
     {
       "id": 15,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "6",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "repairDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -303,7 +852,7 @@
     },
     {
       "id": 16,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "5",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -322,13 +871,13 @@
     },
     {
       "id": 17,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "4",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "productionDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -341,13 +890,13 @@
     },
     {
       "id": 18,
-      "resourceType": 2,
+      "resourceType": "offchain",
       "resourceID": "3",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "transferDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -360,13 +909,13 @@
     },
     {
       "id": 19,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "2",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "usageDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -379,13 +928,13 @@
     },
     {
       "id": 20,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "1",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
-        "documentType": "designDocument",
+        "documentType": "repairDocument",
         "entityAssetID": "00000000000000000000",
         "headDocumentID": "00000000000000000000",
         "name": "name",
@@ -397,10 +946,252 @@
       "sizeStored": 0
     }
   ],
+  "asset": [
+    {
+      "id": 1,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "name",
+      "designDocumentID": "00000000000000000000",
+      "isNamePublic": true,
+      "isDesignDocumentIDPublic": true,
+      "componentIDs": [
+        "1",
+        "2",
+        "3"
+      ]
+    }
+  ],
   "asset-metadata": [
     {
       "id": 1,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "20",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -416,7 +1207,7 @@
     },
     {
       "id": 2,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "19",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -432,7 +1223,7 @@
     },
     {
       "id": 3,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "18",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -448,7 +1239,7 @@
     },
     {
       "id": 4,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "17",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -464,7 +1255,7 @@
     },
     {
       "id": 5,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "16",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -480,7 +1271,7 @@
     },
     {
       "id": 6,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "15",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -496,7 +1287,7 @@
     },
     {
       "id": 7,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "14",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -512,7 +1303,7 @@
     },
     {
       "id": 8,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "13",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -528,7 +1319,7 @@
     },
     {
       "id": 9,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "12",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -544,7 +1335,7 @@
     },
     {
       "id": 10,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "11",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -560,7 +1351,7 @@
     },
     {
       "id": 11,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "10",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -576,7 +1367,7 @@
     },
     {
       "id": 12,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "9",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -592,7 +1383,7 @@
     },
     {
       "id": 13,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "8",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -608,7 +1399,7 @@
     },
     {
       "id": 14,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "7",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -624,7 +1415,7 @@
     },
     {
       "id": 15,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "6",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -640,7 +1431,7 @@
     },
     {
       "id": 16,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "5",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -656,7 +1447,7 @@
     },
     {
       "id": 17,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "4",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -672,7 +1463,7 @@
     },
     {
       "id": 18,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "3",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -688,7 +1479,7 @@
     },
     {
       "id": 19,
-      "resourceType": 0,
+      "resourceType": "plain",
       "resourceID": "2",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -704,7 +1495,7 @@
     },
     {
       "id": 20,
-      "resourceType": 1,
+      "resourceType": "encrypted",
       "resourceID": "1",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
@@ -725,7 +1516,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "20",
       "reason": "reason",
-      "status": 0,
+      "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -736,7 +1527,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "19",
       "reason": "reason",
-      "status": 1,
+      "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -747,7 +1538,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "18",
       "reason": "reason",
-      "status": 2,
+      "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -758,7 +1549,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "17",
       "reason": "reason",
-      "status": 0,
+      "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -769,7 +1560,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "16",
       "reason": "reason",
-      "status": 1,
+      "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -780,7 +1571,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "15",
       "reason": "reason",
-      "status": 2,
+      "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -791,7 +1582,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "14",
       "reason": "reason",
-      "status": 0,
+      "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -802,7 +1593,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "13",
       "reason": "reason",
-      "status": 1,
+      "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -813,7 +1604,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "12",
       "reason": "reason",
-      "status": 2,
+      "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -824,7 +1615,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "11",
       "reason": "reason",
-      "status": 0,
+      "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -835,7 +1626,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "10",
       "reason": "reason",
-      "status": 1,
+      "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -846,7 +1637,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "9",
       "reason": "reason",
-      "status": 2,
+      "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -857,7 +1648,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "8",
       "reason": "reason",
-      "status": 0,
+      "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -868,7 +1659,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "7",
       "reason": "reason",
-      "status": 1,
+      "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -879,7 +1670,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "6",
       "reason": "reason",
-      "status": 2,
+      "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -890,7 +1681,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "5",
       "reason": "reason",
-      "status": 0,
+      "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -901,7 +1692,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "4",
       "reason": "reason",
-      "status": 1,
+      "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -912,7 +1703,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "3",
       "reason": "reason",
-      "status": 2,
+      "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -923,7 +1714,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "2",
       "reason": "reason",
-      "status": 0,
+      "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -934,7 +1725,7 @@
       "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
       "resourceID": "1",
       "reason": "reason",
-      "status": 1,
+      "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
       "responder": "cmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVycmVzcG9uZGVy",
       "requestTimestamp": "1970-01-01T00:00:00.000Z",
@@ -1041,15 +1832,13 @@
     ],
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
-  "asset": {
-    "resourceID": "00000000000000000000",
-    "transactionID": "0000000000000000000000000000000000000000000000000000000000000000",
-    "symmetricKeyMaterial": "-----BEGIN PUBLIC KEY-----\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n00000000\n-----END PUBLIC KEY-----"
-  },
   "auth-request": {
     "transactionID": "0000000000000000000000000000000000000000000000000000000000000000"
   },
   "auth-response": {
+    "transactionID": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "ks-trigger": {
     "transactionID": "0000000000000000000000000000000000000000000000000000000000000000"
   }
 }

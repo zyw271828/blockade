@@ -2,7 +2,7 @@ export interface AuthSession {
   authSessionID: string;
   resourceID: string;
   reason: string;
-  status: number;
+  status: string;
   requestor: string;
   responder: string;
   requestTimestamp: string;

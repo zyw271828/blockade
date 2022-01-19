@@ -1,5 +1,5 @@
-export interface Document {
-  id: string;
+export interface DocumentUpload {
+  resourceType: string;
   documentType: string;
   isDocumentTypePublic: boolean;
   name: string;
@@ -11,4 +11,5 @@ export interface Document {
   headDocumentID: string;
   isHeadDocumentIDPublic: boolean;
   contents: ArrayBuffer;
+  policy: string;
 }

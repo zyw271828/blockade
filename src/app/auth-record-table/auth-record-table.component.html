@@ -41,7 +41,7 @@
     <ng-container matColumnDef="operation">
       <th mat-header-cell *matHeaderCellDef>操作</th>
       <td mat-cell *matCellDef="let row">
-        <button *ngIf="row.status === authSessionStatus[1]" mat-stroked-button type="button"
+        <button *ngIf="row.status === authSessionStatuses[1]" mat-stroked-button type="button"
           (click)="showDetail(row)">查看</button>
       </td>
     </ng-container>
