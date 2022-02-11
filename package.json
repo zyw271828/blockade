@@ -34,7 +34,7 @@
     "@types/node": "^17.0.14",
     "jasmine-core": "~4.0.0",
     "json-server": "^0.17.0",
-    "karma": "~6.3.13",
+    "karma": "~6.3.14",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
