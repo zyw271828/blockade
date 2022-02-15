@@ -124,15 +124,20 @@ export class DocumentUploadComponent implements OnInit {
 
       this.documentService.uploadDocument(documentUpload, this.filename)
         .subscribe(resourceCreationInfo => {
+          let content = [
+            { item: '资源 ID', value: resourceCreationInfo.resourceId },
+            { item: '交易 ID', value: resourceCreationInfo.transactionId }
+          ];
+
+          if (resourceCreationInfo.symmetricKeyMaterial !== undefined) {
+            content.push({ item: '对称密钥材料', value: resourceCreationInfo.symmetricKeyMaterial });
+          }
+
           this.dialog.open(DocumentUploadPromptDialog, {
             disableClose: true,
             data: {
               title: '上传成功',
-              content: [
-                { item: '资源 ID', value: resourceCreationInfo.resourceId },
-                { item: '交易 ID', value: resourceCreationInfo.transactionId },
-                { item: '对称密钥材料', value: resourceCreationInfo.symmetricKeyMaterial }
-              ],
+              content: content,
               action: '关闭'
             }
           });
