@@ -122,7 +122,7 @@ export class DocumentUploadComponent implements OnInit {
       documentUpload.resourceType = Utils.getRawResourceType('document', documentUpload.resourceType);
       documentUpload.documentType = Utils.getRawDocumentType(documentUpload.documentType);
 
-      this.documentService.uploadDocument(documentUpload)
+      this.documentService.uploadDocument(documentUpload, this.filename)
         .subscribe(resourceCreationInfo => {
           this.dialog.open(DocumentUploadPromptDialog, {
             disableClose: true,

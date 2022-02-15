@@ -21,8 +21,22 @@ export class DocumentService {
 
   constructor(private http: HttpClient) { }
 
-  uploadDocument(document: DocumentUpload): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.documentUrl, document)
+  uploadDocument(document: DocumentUpload, filename: string): Observable<ResourceCreationInfo> {
+    let formData = new FormData();
+
+    (Object.keys(document) as Array<keyof typeof document>).map(name => {
+      if (typeof document[name] === typeof true) {
+        formData.set(name, String(document[name]));
+      } else if (name === 'contents') {
+        formData.set(name, new Blob([document[name]]), filename);
+      } else {
+        let value: any = document[name];
+
+        formData.set(name, value);
+      }
+    });
+
+    return this.http.post<ResourceCreationInfo>(this.documentUrl, formData)
       .pipe(
         tap(_ => console.log('uploadDocument')),
         catchError(this.handleError<ResourceCreationInfo>('uploadDocument'))
