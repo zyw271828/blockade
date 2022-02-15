@@ -9,7 +9,7 @@ import { Utils } from '../utils';
 // Data model type
 export interface AssetUploadRecordTableItem {
   id: number;
-  resourceID: string;
+  resourceId: string;
   resourceType: string;
   name: string;
   creationTime: string;
@@ -62,12 +62,12 @@ export class AssetUploadRecordTableDataSource extends DataSource<AssetUploadReco
    */
   disconnect(): void { }
 
-  private getTableItem(assetID: string, index: number): Observable<AssetUploadRecordTableItem> {
-    return this.assetService.getAssetMetadataById(assetID)
+  private getTableItem(assetId: string, index: number): Observable<AssetUploadRecordTableItem> {
+    return this.assetService.getAssetMetadataById(assetId)
       .pipe(map((assetMetadata) => {
         return {
           id: index,
-          resourceID: assetMetadata.resourceID,
+          resourceId: assetMetadata.resourceId,
           resourceType: Utils.getResourceType('asset', assetMetadata.resourceType),
           name: assetMetadata.extensions.name,
           creationTime: Utils.formatDate(assetMetadata.timestamp)
@@ -77,18 +77,18 @@ export class AssetUploadRecordTableDataSource extends DataSource<AssetUploadReco
 
   private getTableRecordData(isLatestFirst: boolean, pageSize: number, bookmark: string): Observable<AssetUploadRecordTableItem[]> {
     let index = 1;
-    let assetIDs: Observable<string[]>;
+    let assetIds: Observable<string[]>;
 
-    assetIDs = this.assetService.getAssetUploadRecordIDs(isLatestFirst, pageSize, bookmark)
+    assetIds = this.assetService.getAssetUploadRecordIds(isLatestFirst, pageSize, bookmark)
       .pipe(map((tableRecordData) => {
         this.bookmark = tableRecordData.bookmark;
-        return tableRecordData.IDs;
+        return tableRecordData.ids;
       }));
 
-    return assetIDs
-      .pipe(map((assetIDs) => {
-        return assetIDs.map(assetID => {
-          return this.getTableItem(assetID, index++);
+    return assetIds
+      .pipe(map((assetIds) => {
+        return assetIds.map(assetId => {
+          return this.getTableItem(assetId, index++);
         });
       }))
       .pipe(map((tableItems) => {

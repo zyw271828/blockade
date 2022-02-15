@@ -7,10 +7,10 @@
       <td mat-cell *matCellDef="let row">{{row.id}}</td>
     </ng-container>
 
-    <!-- ResourceID Column -->
-    <ng-container matColumnDef="resourceID">
+    <!-- ResourceId Column -->
+    <ng-container matColumnDef="resourceId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>资源 ID</th>
-      <td mat-cell *matCellDef="let row">{{row.resourceID}}</td>
+      <td mat-cell *matCellDef="let row">{{row.resourceId}}</td>
     </ng-container>
 
     <!-- ResourceType Column -->
@@ -25,10 +25,10 @@
       <td mat-cell *matCellDef="let row">{{row.name}}</td>
     </ng-container>
 
-    <!-- AuthSessionID Column -->
-    <ng-container matColumnDef="authSessionID">
+    <!-- AuthSessionId Column -->
+    <ng-container matColumnDef="authSessionId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>授权会话 ID</th>
-      <td mat-cell *matCellDef="let row">{{row.authSessionID}}</td>
+      <td mat-cell *matCellDef="let row">{{row.authSessionId}}</td>
     </ng-container>
 
     <!-- Operation Column -->
@@ -44,10 +44,10 @@
           </div>
           <div *ngSwitchCase="authSessionStatuses[0]" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
             <button color="primary" mat-stroked-button type="button"
-              (click)="allowAuthSession(row.authSessionID)">{{authSessionStatuses[1]}}</button>
+              (click)="allowAuthSession(row.authSessionId)">{{authSessionStatuses[1]}}</button>
             <mat-divider vertical></mat-divider>
             <button color="warn" mat-stroked-button type="button"
-              (click)="denyAuthSession(row.authSessionID)">{{authSessionStatuses[2]}}</button>
+              (click)="denyAuthSession(row.authSessionId)">{{authSessionStatuses[2]}}</button>
           </div>
         </div>
       </td>

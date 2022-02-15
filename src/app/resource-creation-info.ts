@@ -1,5 +1,5 @@
 export interface ResourceCreationInfo {
-  resourceID: string;
-  transactionID: string;
+  resourceId: string;
+  transactionId: string;
   symmetricKeyMaterial: string;
 }

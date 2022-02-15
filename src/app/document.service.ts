@@ -21,21 +21,35 @@ export class DocumentService {
 
   constructor(private http: HttpClient) { }
 
-  uploadDocument(document: DocumentUpload): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.documentUrl(), document)
+  uploadDocument(document: DocumentUpload, filename: string): Observable<ResourceCreationInfo> {
+    let formData = new FormData();
+
+    (Object.keys(document) as Array<keyof typeof document>).map(name => {
+      if (typeof document[name] === typeof true) {
+        formData.set(name, String(document[name]));
+      } else if (name === 'contents') {
+        formData.set(name, new Blob([document[name]]), filename);
+      } else {
+        let value: any = document[name];
+
+        formData.set(name, value);
+      }
+    });
+
+    return this.http.post<ResourceCreationInfo>(this.documentUrl(), formData)
       .pipe(
         tap(_ => console.log('uploadDocument')),
         catchError(this.handleError<ResourceCreationInfo>('uploadDocument'))
       );
   }
 
-  getDocumentById(id: string, resourceType: string, keySwitchSessionID?: string): Observable<Document> {
+  getDocumentById(id: string, resourceType: string, keySwitchSessionId?: string): Observable<Document> {
     let params = new HttpParams().set('resourceType', resourceType);
     let logMsg = 'getDocumentById' + '\nresourceType: ' + resourceType;
 
-    if (keySwitchSessionID !== undefined) {
-      params = params.set('keySwitchSessionID', keySwitchSessionID);
-      logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
+    if (keySwitchSessionId !== undefined) {
+      params = params.set('keySwitchSessionId', keySwitchSessionId);
+      logMsg += '\nkeySwitchSessionId: ' + keySwitchSessionId;
     }
 
     return this.http.get<Document>(this.documentUrl() + '/' + id, { params: params })
@@ -45,11 +59,11 @@ export class DocumentService {
       );
   }
 
-  queryDocumentIDs(
+  queryDocumentIds(
     isLatestFirst = true,
     pageSize = 10,
     bookmark = '',
-    resourceID?: string,
+    resourceId?: string,
     name?: string,
     isNameExact?: boolean,
     time?: string,
@@ -57,22 +71,22 @@ export class DocumentService {
     timeBeforeExclusive?: string,
     isTimeExact?: boolean,
     documentType?: string,
-    precedingDocumentID?: string,
-    headDocumentID?: string,
-    entityAssetID?: string
+    precedingDocumentId?: string,
+    headDocumentId?: string,
+    entityAssetId?: string
   ): Observable<TableRecordData> {
     let params = new HttpParams()
       .set('isLatestFirst', isLatestFirst)
       .set('pageSize', pageSize)
       .set('bookmark', bookmark);
-    let logMsg = 'queryDocumentIDs'
+    let logMsg = 'queryDocumentIds'
       + '\nisLatestFirst: ' + isLatestFirst
       + '\npageSize: ' + pageSize
       + '\nbookmark: ' + bookmark;
 
-    if (resourceID !== undefined) {
-      params = params.append('resourceID', resourceID);
-      logMsg += '\nresourceID: ' + resourceID;
+    if (resourceId !== undefined) {
+      params = params.append('resourceId', resourceId);
+      logMsg += '\nresourceId: ' + resourceId;
     }
     if (name !== undefined) {
       params = params.append('name', name);
@@ -102,23 +116,23 @@ export class DocumentService {
       params = params.append('documentType', documentType);
       logMsg += '\ndocumentType: ' + documentType;
     }
-    if (precedingDocumentID !== undefined) {
-      params = params.append('precedingDocumentID', precedingDocumentID);
-      logMsg += '\nprecedingDocumentID: ' + precedingDocumentID;
+    if (precedingDocumentId !== undefined) {
+      params = params.append('precedingDocumentId', precedingDocumentId);
+      logMsg += '\nprecedingDocumentId: ' + precedingDocumentId;
     }
-    if (headDocumentID !== undefined) {
-      params = params.append('headDocumentID', headDocumentID);
-      logMsg += '\nheadDocumentID: ' + headDocumentID;
+    if (headDocumentId !== undefined) {
+      params = params.append('headDocumentId', headDocumentId);
+      logMsg += '\nheadDocumentId: ' + headDocumentId;
     }
-    if (entityAssetID !== undefined) {
-      params = params.append('entityAssetID', entityAssetID);
-      logMsg += '\nentityAssetID: ' + entityAssetID;
+    if (entityAssetId !== undefined) {
+      params = params.append('entityAssetId', entityAssetId);
+      logMsg += '\nentityAssetId: ' + entityAssetId;
     }
 
     return this.http.get<TableRecordData>(this.documentQueryUrl(), { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
-        catchError(this.handleError<TableRecordData>('queryDocumentIDs'))
+        catchError(this.handleError<TableRecordData>('queryDocumentIds'))
       );
   }
 
@@ -130,24 +144,24 @@ export class DocumentService {
       );
   }
 
-  checkDocumentIDValidity(id: string): Observable<boolean> {
+  checkDocumentIdValidity(id: string): Observable<boolean> {
     return this.http.get(this.documentUrl() + '/' + id + '/metadata', { observe: 'response' })
       .pipe(
         map(response => {
-          console.log('checkDocumentIDValidity: ' + response.status);
+          console.log('checkDocumentIdValidity: ' + response.status);
           return response.status === HttpStatusCode.Ok;
         }),
-        catchError(this.handleError<boolean>('checkDocumentIDValidity', false))
+        catchError(this.handleError<boolean>('checkDocumentIdValidity', false))
       );
   }
 
-  getDocumentPropertiesById(id: string, keySwitchSessionID?: string): Observable<DocumentProperties> {
+  getDocumentPropertiesById(id: string, keySwitchSessionId?: string): Observable<DocumentProperties> {
     let params = new HttpParams();
     let logMsg = 'getDocumentPropertiesById';
 
-    if (keySwitchSessionID !== undefined) {
-      params = params.set('keySwitchSessionID', keySwitchSessionID);
-      logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
+    if (keySwitchSessionId !== undefined) {
+      params = params.set('keySwitchSessionId', keySwitchSessionId);
+      logMsg += '\nkeySwitchSessionId: ' + keySwitchSessionId;
     }
 
     return this.http.get<DocumentProperties>(this.documentUrl() + '/' + id + '/properties', { params: params })
@@ -157,7 +171,7 @@ export class DocumentService {
       );
   }
 
-  getDocumentUploadRecordIDs(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
+  getDocumentUploadRecordIds(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
     return this.http.get<TableRecordData>(this.documentUploadRecordUrl(), {
       params: new HttpParams()
         .set('isLatestFirst', isLatestFirst)
@@ -165,11 +179,11 @@ export class DocumentService {
         .set('bookmark', bookmark)
     })
       .pipe(
-        tap(_ => console.log('getDocumentUploadRecordIDs'
+        tap(_ => console.log('getDocumentUploadRecordIds'
           + '\nisLatestFirst: ' + isLatestFirst
           + '\npageSize: ' + pageSize
           + '\nbookmark: ' + bookmark)),
-        catchError(this.handleError<TableRecordData>('getDocumentUploadRecordIDs'))
+        catchError(this.handleError<TableRecordData>('getDocumentUploadRecordIds'))
       );
   }
 

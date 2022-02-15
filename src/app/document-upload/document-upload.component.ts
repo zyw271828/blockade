@@ -28,12 +28,12 @@ export class DocumentUploadComponent implements OnInit {
     isDocumentTypePublic: false,
     name: [null, Validators.required],
     isNamePublic: false,
-    entityAssetID: null,
-    isEntityAssetIDPublic: false,
-    precedingDocumentID: null,
-    isPrecedingDocumentIDPublic: false,
-    headDocumentID: null,
-    isHeadDocumentIDPublic: false,
+    entityAssetId: null,
+    isEntityAssetIdPublic: false,
+    precedingDocumentId: null,
+    isPrecedingDocumentIdPublic: false,
+    headDocumentId: null,
+    isHeadDocumentIdPublic: false,
     contents: [null, Validators.required],
     policy: [null, Validators.required]
   });
@@ -51,34 +51,34 @@ export class DocumentUploadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  checkPrecedingDocumentID() {
+  checkPrecedingDocumentId() {
     // TODO: change color instead of pop-up prompt
-    let precedingDocumentID = this.documentUploadForm.get("precedingDocumentID")?.value;
+    let precedingDocumentId = this.documentUploadForm.get("precedingDocumentId")?.value;
 
-    this.documentService.checkDocumentIDValidity(precedingDocumentID).subscribe(isValid => {
+    this.documentService.checkDocumentIdValidity(precedingDocumentId).subscribe(isValid => {
       if (isValid) {
-        this._snackBar.open('前序文档 ID「' + precedingDocumentID + '」有效', '关闭', {
+        this._snackBar.open('前序文档 ID「' + precedingDocumentId + '」有效', '关闭', {
           duration: 5000
         });
       } else {
-        this._snackBar.open('前序文档 ID「' + precedingDocumentID + '」无效', '关闭', {
+        this._snackBar.open('前序文档 ID「' + precedingDocumentId + '」无效', '关闭', {
           duration: 5000
         });
       }
     });
   }
 
-  checkHeadDocumentID() {
+  checkHeadDocumentId() {
     // TODO: change color instead of pop-up prompt
-    let headDocumentID = this.documentUploadForm.get("headDocumentID")?.value;
+    let headDocumentId = this.documentUploadForm.get("headDocumentId")?.value;
 
-    this.documentService.checkDocumentIDValidity(headDocumentID).subscribe(isValid => {
+    this.documentService.checkDocumentIdValidity(headDocumentId).subscribe(isValid => {
       if (isValid) {
-        this._snackBar.open('头文档 ID「' + headDocumentID + '」有效', '关闭', {
+        this._snackBar.open('头文档 ID「' + headDocumentId + '」有效', '关闭', {
           duration: 5000
         });
       } else {
-        this._snackBar.open('头文档 ID「' + headDocumentID + '」无效', '关闭', {
+        this._snackBar.open('头文档 ID「' + headDocumentId + '」无效', '关闭', {
           duration: 5000
         });
       }
@@ -122,15 +122,15 @@ export class DocumentUploadComponent implements OnInit {
       documentUpload.resourceType = Utils.getRawResourceType('document', documentUpload.resourceType);
       documentUpload.documentType = Utils.getRawDocumentType(documentUpload.documentType);
 
-      this.documentService.uploadDocument(documentUpload)
+      this.documentService.uploadDocument(documentUpload, this.filename)
         .subscribe(resourceCreationInfo => {
           this.dialog.open(DocumentUploadPromptDialog, {
             disableClose: true,
             data: {
               title: '上传成功',
               content: [
-                { item: '资源 ID', value: resourceCreationInfo.resourceID },
-                { item: '交易 ID', value: resourceCreationInfo.transactionID },
+                { item: '资源 ID', value: resourceCreationInfo.resourceId },
+                { item: '交易 ID', value: resourceCreationInfo.transactionId },
                 { item: '对称密钥材料', value: resourceCreationInfo.symmetricKeyMaterial }
               ],
               action: '关闭'

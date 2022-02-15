@@ -46,7 +46,7 @@ export class AuthService {
       );
   }
 
-  getAuthSessionRecordIDs(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
+  getAuthSessionRecordIds(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
     return this.http.get<TableRecordData>(this.authRecordUrl(), {
       params: new HttpParams()
         .set('isLatestFirst', isLatestFirst)
@@ -54,25 +54,25 @@ export class AuthService {
         .set('bookmark', bookmark)
     })
       .pipe(
-        tap(_ => console.log('getAuthSessionRecordIDs'
+        tap(_ => console.log('getAuthSessionRecordIds'
           + '\nisLatestFirst: ' + isLatestFirst
           + '\npageSize: ' + pageSize
           + '\nbookmark: ' + bookmark)),
-        catchError(this.handleError<TableRecordData>('getAuthSessionRecordIDs'))
+        catchError(this.handleError<TableRecordData>('getAuthSessionRecordIds'))
       );
   }
 
-  getAuthSessionApproveIDs(pageSize = 10, bookmark = ''): Observable<TableRecordData> {
+  getAuthSessionApproveIds(pageSize = 10, bookmark = ''): Observable<TableRecordData> {
     return this.http.get<TableRecordData>(this.authApproveUrl(), {
       params: new HttpParams()
         .set('pageSize', pageSize)
         .set('bookmark', bookmark)
     })
       .pipe(
-        tap(_ => console.log('getAuthSessionApproveIDs'
+        tap(_ => console.log('getAuthSessionApproveIds'
           + '\npageSize: ' + pageSize
           + '\nbookmark: ' + bookmark)),
-        catchError(this.handleError<TableRecordData>('getAuthSessionApproveIDs'))
+        catchError(this.handleError<TableRecordData>('getAuthSessionApproveIds'))
       );
   }
 

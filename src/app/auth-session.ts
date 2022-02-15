@@ -1,6 +1,6 @@
 export interface AuthSession {
-  authSessionID: string;
-  resourceID: string;
+  authSessionId: string;
+  resourceId: string;
   reason: string;
   status: string;
   requestor: string;

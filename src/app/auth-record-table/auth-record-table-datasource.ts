@@ -9,10 +9,10 @@ import { Utils } from '../utils';
 // Data model type
 export interface AuthRecordTableItem {
   id: number;
-  resourceID: string;
+  resourceId: string;
   resourceType: string;
   name: string;
-  authSessionID: string;
+  authSessionId: string;
   status: string;
   hash: string;
   ciphertextHash: string;
@@ -21,9 +21,9 @@ export interface AuthRecordTableItem {
   creator: string;
   creationTime: string;
   documentType: string;
-  precedingDocumentID: string;
-  headDocumentID: string;
-  entityAssetID: string;
+  precedingDocumentId: string;
+  headDocumentId: string;
+  entityAssetId: string;
 }
 
 /**
@@ -73,15 +73,15 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
    */
   disconnect(): void { }
 
-  private getTableItem(authSessionID: string, index: number): Observable<AuthRecordTableItem> {
-    return this.authService.getAuthSessionById(authSessionID)
+  private getTableItem(authSessionId: string, index: number): Observable<AuthRecordTableItem> {
+    return this.authService.getAuthSessionById(authSessionId)
       .pipe(map((authSession) => {
         return {
           id: index,
-          resourceID: authSession.resourceID,
+          resourceId: authSession.resourceId,
           resourceType: 'resourceType', // TODO: get resourceType
           name: 'name', // TODO: get name
-          authSessionID: authSession.authSessionID,
+          authSessionId: authSession.authSessionId,
           status: Utils.getAuthSessionStatus(authSession.status),
           // TODO: get details
           hash: 'hash',
@@ -91,27 +91,27 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
           creator: 'creator',
           creationTime: Utils.formatDate('1970-01-01T00:00:00.000Z'),
           documentType: Utils.getDocumentType('designDocument'),
-          precedingDocumentID: 'precedingDocumentID',
-          headDocumentID: 'headDocumentID',
-          entityAssetID: 'entityAssetID'
+          precedingDocumentId: 'precedingDocumentId',
+          headDocumentId: 'headDocumentId',
+          entityAssetId: 'entityAssetId'
         };
       }));
   }
 
   private getTableRecordData(isLatestFirst: boolean, pageSize: number, bookmark: string): Observable<AuthRecordTableItem[]> {
     let index = 1;
-    let authSessionIDs: Observable<string[]>;
+    let authSessionIds: Observable<string[]>;
 
-    authSessionIDs = this.authService.getAuthSessionRecordIDs(isLatestFirst, pageSize, bookmark)
+    authSessionIds = this.authService.getAuthSessionRecordIds(isLatestFirst, pageSize, bookmark)
       .pipe(map((tableRecordData) => {
         this.bookmark = tableRecordData.bookmark;
-        return tableRecordData.IDs;
+        return tableRecordData.ids;
       }));
 
-    return authSessionIDs
-      .pipe(map((authSessionIDs) => {
-        return authSessionIDs.map(authSessionID => {
-          return this.getTableItem(authSessionID, index++);
+    return authSessionIds
+      .pipe(map((authSessionIds) => {
+        return authSessionIds.map(authSessionId => {
+          return this.getTableItem(authSessionId, index++);
         });
       }))
       .pipe(map((tableItems) => {

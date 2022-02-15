@@ -1,4 +1,4 @@
 export interface AuthRequest {
-  resourceID: string;
+  resourceId: string;
   reason: string;
 }
