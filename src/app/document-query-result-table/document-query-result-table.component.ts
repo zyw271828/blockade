@@ -51,11 +51,12 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   }
 
   showDetail(row: DocumentQueryResultTableItem) {
-    if (row.name === undefined
-      || row.documentType === undefined
-      || row.precedingDocumentId === undefined
-      || row.headDocumentId === undefined
-      || row.entityAssetId === undefined) {
+    if (row.resourceType != Utils.getRawDocumentType(Utils.getResourceTypes('document')[0])
+      && (row.name === undefined
+        || row.documentType === undefined
+        || row.precedingDocumentId === undefined
+        || row.headDocumentId === undefined
+        || row.entityAssetId === undefined)) {
       this.documentService.getDocumentPropertiesById(row.resourceId).subscribe((documentProperties) => {
         if (row.name === undefined) {
           row.name = documentProperties.name;
