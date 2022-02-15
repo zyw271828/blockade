@@ -28,13 +28,13 @@ export class AssetService {
       );
   }
 
-  getAssetById(id: string, resourceType: string, keySwitchSessionID?: string): Observable<Asset> {
+  getAssetById(id: string, resourceType: string, keySwitchSessionId?: string): Observable<Asset> {
     let params = new HttpParams().set('resourceType', resourceType);
     let logMsg = 'getAssetById' + '\nresourceType: ' + resourceType;
 
-    if (keySwitchSessionID !== undefined) {
-      params = params.set('keySwitchSessionID', keySwitchSessionID);
-      logMsg += '\nkeySwitchSessionID: ' + keySwitchSessionID;
+    if (keySwitchSessionId !== undefined) {
+      params = params.set('keySwitchSessionId', keySwitchSessionId);
+      logMsg += '\nkeySwitchSessionId: ' + keySwitchSessionId;
     }
 
     return this.http.get<Asset>(this.assetUrl + '/' + id, { params: params })
@@ -44,31 +44,31 @@ export class AssetService {
       );
   }
 
-  queryAssetIDs(
+  queryAssetIds(
     isLatestFirst = true,
     pageSize = 10,
     bookmark = '',
-    resourceID?: string,
+    resourceId?: string,
     name?: string,
     isNameExact?: boolean,
     time?: string,
     timeAfterInclusive?: string,
     timeBeforeExclusive?: string,
     isTimeExact?: boolean,
-    designDocumentID?: string
+    designDocumentId?: string
   ): Observable<TableRecordData> {
     let params = new HttpParams()
       .set('isLatestFirst', isLatestFirst)
       .set('pageSize', pageSize)
       .set('bookmark', bookmark);
-    let logMsg = 'queryAssetIDs'
+    let logMsg = 'queryAssetIds'
       + '\nisLatestFirst: ' + isLatestFirst
       + '\npageSize: ' + pageSize
       + '\nbookmark: ' + bookmark;
 
-    if (resourceID !== undefined) {
-      params = params.append('resourceID', resourceID);
-      logMsg += '\nresourceID: ' + resourceID;
+    if (resourceId !== undefined) {
+      params = params.append('resourceId', resourceId);
+      logMsg += '\nresourceId: ' + resourceId;
     }
     if (name !== undefined) {
       params = params.append('name', name);
@@ -94,15 +94,15 @@ export class AssetService {
       params = params.append('isTimeExact', isTimeExact);
       logMsg += '\nisTimeExact: ' + isTimeExact;
     }
-    if (designDocumentID !== undefined) {
-      params = params.append('designDocumentID', designDocumentID);
-      logMsg += '\ndesignDocumentID: ' + designDocumentID;
+    if (designDocumentId !== undefined) {
+      params = params.append('designDocumentId', designDocumentId);
+      logMsg += '\ndesignDocumentId: ' + designDocumentId;
     }
 
     return this.http.get<TableRecordData>(this.assetQueryUrl, { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
-        catchError(this.handleError<TableRecordData>('queryAssetIDs'))
+        catchError(this.handleError<TableRecordData>('queryAssetIds'))
       );
   }
 
@@ -114,7 +114,7 @@ export class AssetService {
       );
   }
 
-  getAssetUploadRecordIDs(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
+  getAssetUploadRecordIds(isLatestFirst = true, pageSize = 10, bookmark = ''): Observable<TableRecordData> {
     return this.http.get<TableRecordData>(this.assetUploadRecordUrl, {
       params: new HttpParams()
         .set('isLatestFirst', isLatestFirst)
@@ -122,11 +122,11 @@ export class AssetService {
         .set('bookmark', bookmark)
     })
       .pipe(
-        tap(_ => console.log('getAssetUploadRecordIDs'
+        tap(_ => console.log('getAssetUploadRecordIds'
           + '\nisLatestFirst: ' + isLatestFirst
           + '\npageSize: ' + pageSize
           + '\nbookmark: ' + bookmark)),
-        catchError(this.handleError<TableRecordData>('getAssetUploadRecordIDs'))
+        catchError(this.handleError<TableRecordData>('getAssetUploadRecordIds'))
       );
   }
 

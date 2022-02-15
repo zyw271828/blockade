@@ -29,10 +29,10 @@ export class AuthRecordTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
     'id',
-    'resourceID',
+    'resourceId',
     'resourceType',
     'name',
-    'authSessionID',
+    'authSessionId',
     'status',
     'operation'
   ];
@@ -54,7 +54,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
       data: {
         title: '详细信息',
         content: [
-          { item: '资源 ID', value: row.resourceID },
+          { item: '资源 ID', value: row.resourceId },
           { item: '名称', value: row.name },
           { item: '资源类型', value: row.resourceType },
           { item: '散列', value: row.hash },
@@ -64,9 +64,9 @@ export class AuthRecordTableComponent implements AfterViewInit {
           { item: '创建者', value: row.creator },
           { item: '创建时间', value: row.creationTime },
           { item: '文档类型', value: row.documentType },
-          { item: '前序文档 ID', value: row.precedingDocumentID },
-          { item: '头文档 ID', value: row.headDocumentID },
-          { item: '实体资产 ID', value: row.entityAssetID }
+          { item: '前序文档 ID', value: row.precedingDocumentId },
+          { item: '头文档 ID', value: row.headDocumentId },
+          { item: '实体资产 ID', value: row.entityAssetId }
         ]
       }
     });
@@ -86,8 +86,8 @@ export class AuthRecordDetailDialog {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
-  downloadDocument(resourceID: number) {
-    // TODO: download document by resourceID
+  downloadDocument(resourceId: number) {
+    // TODO: download document by resourceId
   }
 
   findInDataSource(dataSource: { item: string; value: string; }[], target: string): string {

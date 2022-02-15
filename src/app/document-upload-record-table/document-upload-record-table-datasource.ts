@@ -9,7 +9,7 @@ import { Utils } from '../utils';
 // Data model type
 export interface DocumentUploadRecordTableItem {
   id: number;
-  resourceID: string;
+  resourceId: string;
   resourceType: string;
   name: string;
   creationTime: string;
@@ -62,12 +62,12 @@ export class DocumentUploadRecordTableDataSource extends DataSource<DocumentUplo
    */
   disconnect(): void { }
 
-  private getTableItem(documentID: string, index: number): Observable<DocumentUploadRecordTableItem> {
-    return this.documentService.getDocumentMetadataById(documentID)
+  private getTableItem(documentId: string, index: number): Observable<DocumentUploadRecordTableItem> {
+    return this.documentService.getDocumentMetadataById(documentId)
       .pipe(map((documentMetadata) => {
         return {
           id: index,
-          resourceID: documentMetadata.resourceID,
+          resourceId: documentMetadata.resourceId,
           resourceType: Utils.getResourceType('document', documentMetadata.resourceType),
           name: documentMetadata.extensions.name,
           creationTime: Utils.formatDate(documentMetadata.timestamp)
@@ -77,18 +77,18 @@ export class DocumentUploadRecordTableDataSource extends DataSource<DocumentUplo
 
   private getTableRecordData(isLatestFirst: boolean, pageSize: number, bookmark: string): Observable<DocumentUploadRecordTableItem[]> {
     let index = 1;
-    let documentIDs: Observable<string[]>;
+    let documentIds: Observable<string[]>;
 
-    documentIDs = this.documentService.getDocumentUploadRecordIDs(isLatestFirst, pageSize, bookmark)
+    documentIds = this.documentService.getDocumentUploadRecordIds(isLatestFirst, pageSize, bookmark)
       .pipe(map((tableRecordData) => {
         this.bookmark = tableRecordData.bookmark;
-        return tableRecordData.IDs;
+        return tableRecordData.ids;
       }));
 
-    return documentIDs
-      .pipe(map((documentIDs) => {
-        return documentIDs.map(documentID => {
-          return this.getTableItem(documentID, index++);
+    return documentIds
+      .pipe(map((documentIds) => {
+        return documentIds.map(documentId => {
+          return this.getTableItem(documentId, index++);
         });
       }))
       .pipe(map((tableItems) => {

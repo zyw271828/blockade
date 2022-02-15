@@ -3,7 +3,7 @@
     "pong"
   ],
   "identity": {
-    "userID": "UserID",
+    "userId": "UserId",
     "orgName": "OrgName",
     "deptType": "DeptType",
     "deptLevel": 0,
@@ -11,13 +11,13 @@
     "superDeptName": "SuperDeptName"
   },
   "document-upload": {
-    "resourceID": "00000000000000000000",
-    "transactionID": "0000000000000000000000000000000000000000000000000000000000000000",
+    "resourceId": "00000000000000000000",
+    "transactionId": "0000000000000000000000000000000000000000000000000000000000000000",
     "symmetricKeyMaterial": "-----BEGIN PUBLIC KEY-----\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n00000000\n-----END PUBLIC KEY-----"
   },
   "asset-upload": {
-    "resourceID": "00000000000000000000",
-    "transactionID": "0000000000000000000000000000000000000000000000000000000000000000",
+    "resourceId": "00000000000000000000",
+    "transactionId": "0000000000000000000000000000000000000000000000000000000000000000",
     "symmetricKeyMaterial": "-----BEGIN PUBLIC KEY-----\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000\n00000000\n-----END PUBLIC KEY-----"
   },
   "document": [
@@ -27,12 +27,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -41,12 +41,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -55,12 +55,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -69,12 +69,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -83,12 +83,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -97,12 +97,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -111,12 +111,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -125,12 +125,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -139,12 +139,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -153,12 +153,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -167,12 +167,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -181,12 +181,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -195,12 +195,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -209,12 +209,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -223,12 +223,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -237,12 +237,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -251,12 +251,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -265,12 +265,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -279,12 +279,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     },
     {
@@ -293,12 +293,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true,
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true,
       "contents": "Y29udGVudGNvbnRlbnRjb250ZW50Y29udGVudGNvbnRlbnQ="
     }
   ],
@@ -309,12 +309,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 2,
@@ -322,12 +322,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 3,
@@ -335,12 +335,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 4,
@@ -348,12 +348,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 5,
@@ -361,12 +361,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 6,
@@ -374,12 +374,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 7,
@@ -387,12 +387,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 8,
@@ -400,12 +400,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 9,
@@ -413,12 +413,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 10,
@@ -426,12 +426,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 11,
@@ -439,12 +439,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 12,
@@ -452,12 +452,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 13,
@@ -465,12 +465,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 14,
@@ -478,12 +478,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 15,
@@ -491,12 +491,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 16,
@@ -504,12 +504,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 17,
@@ -517,12 +517,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 18,
@@ -530,12 +530,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 19,
@@ -543,12 +543,12 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     },
     {
       "id": 20,
@@ -556,28 +556,28 @@
       "isDocumentTypePublic": true,
       "name": "name",
       "isNamePublic": true,
-      "entityAssetID": "00000000000000000000",
-      "isEntityAssetIDPublic": true,
-      "precedingDocumentID": "00000000000000000000",
-      "isPrecedingDocumentIDPublic": true,
-      "headDocumentID": "00000000000000000000",
-      "isHeadDocumentIDPublic": true
+      "entityAssetId": "00000000000000000000",
+      "isEntityAssetIdPublic": true,
+      "precedingDocumentId": "00000000000000000000",
+      "isPrecedingDocumentIdPublic": true,
+      "headDocumentId": "00000000000000000000",
+      "isHeadDocumentIdPublic": true
     }
   ],
   "document-metadata": [
     {
       "id": 1,
       "resourceType": "plain",
-      "resourceID": "20",
+      "resourceId": "20",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "designDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -587,16 +587,16 @@
     {
       "id": 2,
       "resourceType": "encrypted",
-      "resourceID": "19",
+      "resourceId": "19",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "productionDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -606,16 +606,16 @@
     {
       "id": 3,
       "resourceType": "offchain",
-      "resourceID": "18",
+      "resourceId": "18",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "transferDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -625,16 +625,16 @@
     {
       "id": 4,
       "resourceType": "plain",
-      "resourceID": "17",
+      "resourceId": "17",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "usageDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -644,16 +644,16 @@
     {
       "id": 5,
       "resourceType": "encrypted",
-      "resourceID": "16",
+      "resourceId": "16",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "repairDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -663,16 +663,16 @@
     {
       "id": 6,
       "resourceType": "offchain",
-      "resourceID": "15",
+      "resourceId": "15",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "designDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -682,16 +682,16 @@
     {
       "id": 7,
       "resourceType": "plain",
-      "resourceID": "14",
+      "resourceId": "14",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "productionDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -701,16 +701,16 @@
     {
       "id": 8,
       "resourceType": "encrypted",
-      "resourceID": "13",
+      "resourceId": "13",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "transferDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -720,16 +720,16 @@
     {
       "id": 9,
       "resourceType": "offchain",
-      "resourceID": "12",
+      "resourceId": "12",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "usageDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -739,16 +739,16 @@
     {
       "id": 10,
       "resourceType": "plain",
-      "resourceID": "11",
+      "resourceId": "11",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "repairDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -758,16 +758,16 @@
     {
       "id": 11,
       "resourceType": "encrypted",
-      "resourceID": "10",
+      "resourceId": "10",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "designDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -777,16 +777,16 @@
     {
       "id": 12,
       "resourceType": "offchain",
-      "resourceID": "9",
+      "resourceId": "9",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "productionDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -796,16 +796,16 @@
     {
       "id": 13,
       "resourceType": "plain",
-      "resourceID": "8",
+      "resourceId": "8",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "transferDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -815,16 +815,16 @@
     {
       "id": 14,
       "resourceType": "encrypted",
-      "resourceID": "7",
+      "resourceId": "7",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "usageDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -834,16 +834,16 @@
     {
       "id": 15,
       "resourceType": "offchain",
-      "resourceID": "6",
+      "resourceId": "6",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "repairDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -853,16 +853,16 @@
     {
       "id": 16,
       "resourceType": "plain",
-      "resourceID": "5",
+      "resourceId": "5",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "designDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -872,16 +872,16 @@
     {
       "id": 17,
       "resourceType": "encrypted",
-      "resourceID": "4",
+      "resourceId": "4",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "productionDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -891,16 +891,16 @@
     {
       "id": 18,
       "resourceType": "offchain",
-      "resourceID": "3",
+      "resourceId": "3",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "transferDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -910,16 +910,16 @@
     {
       "id": 19,
       "resourceType": "plain",
-      "resourceID": "2",
+      "resourceId": "2",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "usageDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -929,16 +929,16 @@
     {
       "id": 20,
       "resourceType": "encrypted",
-      "resourceID": "1",
+      "resourceId": "1",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "document",
         "documentType": "repairDocument",
-        "entityAssetID": "00000000000000000000",
-        "headDocumentID": "00000000000000000000",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
         "name": "name",
-        "precedingDocumentID": "00000000000000000000"
+        "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -950,10 +950,10 @@
     {
       "id": 1,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -962,10 +962,10 @@
     {
       "id": 2,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -974,10 +974,10 @@
     {
       "id": 3,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -986,10 +986,10 @@
     {
       "id": 4,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -998,10 +998,10 @@
     {
       "id": 5,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1010,10 +1010,10 @@
     {
       "id": 6,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1022,10 +1022,10 @@
     {
       "id": 7,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1034,10 +1034,10 @@
     {
       "id": 8,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1046,10 +1046,10 @@
     {
       "id": 9,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1058,10 +1058,10 @@
     {
       "id": 10,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1070,10 +1070,10 @@
     {
       "id": 11,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1082,10 +1082,10 @@
     {
       "id": 12,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1094,10 +1094,10 @@
     {
       "id": 13,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1106,10 +1106,10 @@
     {
       "id": 14,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1118,10 +1118,10 @@
     {
       "id": 15,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1130,10 +1130,10 @@
     {
       "id": 16,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1142,10 +1142,10 @@
     {
       "id": 17,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1154,10 +1154,10 @@
     {
       "id": 18,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1166,10 +1166,10 @@
     {
       "id": 19,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1178,10 +1178,10 @@
     {
       "id": 20,
       "name": "name",
-      "designDocumentID": "00000000000000000000",
+      "designDocumentId": "00000000000000000000",
       "isNamePublic": true,
-      "isDesignDocumentIDPublic": true,
-      "componentIDs": [
+      "isDesignDocumentIdPublic": true,
+      "componentIds": [
         "1",
         "2",
         "3"
@@ -1192,12 +1192,12 @@
     {
       "id": 1,
       "resourceType": "plain",
-      "resourceID": "20",
+      "resourceId": "20",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1208,12 +1208,12 @@
     {
       "id": 2,
       "resourceType": "encrypted",
-      "resourceID": "19",
+      "resourceId": "19",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1224,12 +1224,12 @@
     {
       "id": 3,
       "resourceType": "plain",
-      "resourceID": "18",
+      "resourceId": "18",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1240,12 +1240,12 @@
     {
       "id": 4,
       "resourceType": "encrypted",
-      "resourceID": "17",
+      "resourceId": "17",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1256,12 +1256,12 @@
     {
       "id": 5,
       "resourceType": "plain",
-      "resourceID": "16",
+      "resourceId": "16",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1272,12 +1272,12 @@
     {
       "id": 6,
       "resourceType": "encrypted",
-      "resourceID": "15",
+      "resourceId": "15",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1288,12 +1288,12 @@
     {
       "id": 7,
       "resourceType": "plain",
-      "resourceID": "14",
+      "resourceId": "14",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1304,12 +1304,12 @@
     {
       "id": 8,
       "resourceType": "encrypted",
-      "resourceID": "13",
+      "resourceId": "13",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1320,12 +1320,12 @@
     {
       "id": 9,
       "resourceType": "plain",
-      "resourceID": "12",
+      "resourceId": "12",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1336,12 +1336,12 @@
     {
       "id": 10,
       "resourceType": "encrypted",
-      "resourceID": "11",
+      "resourceId": "11",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1352,12 +1352,12 @@
     {
       "id": 11,
       "resourceType": "plain",
-      "resourceID": "10",
+      "resourceId": "10",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1368,12 +1368,12 @@
     {
       "id": 12,
       "resourceType": "encrypted",
-      "resourceID": "9",
+      "resourceId": "9",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1384,12 +1384,12 @@
     {
       "id": 13,
       "resourceType": "plain",
-      "resourceID": "8",
+      "resourceId": "8",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1400,12 +1400,12 @@
     {
       "id": 14,
       "resourceType": "encrypted",
-      "resourceID": "7",
+      "resourceId": "7",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1416,12 +1416,12 @@
     {
       "id": 15,
       "resourceType": "plain",
-      "resourceID": "6",
+      "resourceId": "6",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1432,12 +1432,12 @@
     {
       "id": 16,
       "resourceType": "encrypted",
-      "resourceID": "5",
+      "resourceId": "5",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1448,12 +1448,12 @@
     {
       "id": 17,
       "resourceType": "plain",
-      "resourceID": "4",
+      "resourceId": "4",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1464,12 +1464,12 @@
     {
       "id": 18,
       "resourceType": "encrypted",
-      "resourceID": "3",
+      "resourceId": "3",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1480,12 +1480,12 @@
     {
       "id": 19,
       "resourceType": "plain",
-      "resourceID": "2",
+      "resourceId": "2",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1496,12 +1496,12 @@
     {
       "id": 20,
       "resourceType": "encrypted",
-      "resourceID": "1",
+      "resourceId": "1",
       "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
       "size": 0,
       "extensions": {
         "dataType": "asset",
-        "designDocumentID": "00000000000000000000",
+        "designDocumentId": "00000000000000000000",
         "name": "name"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1513,8 +1513,8 @@
   "auth": [
     {
       "id": 1,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "20",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "20",
       "reason": "reason",
       "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1524,8 +1524,8 @@
     },
     {
       "id": 2,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "19",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "19",
       "reason": "reason",
       "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1535,8 +1535,8 @@
     },
     {
       "id": 3,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "18",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "18",
       "reason": "reason",
       "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1546,8 +1546,8 @@
     },
     {
       "id": 4,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "17",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "17",
       "reason": "reason",
       "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1557,8 +1557,8 @@
     },
     {
       "id": 5,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "16",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "16",
       "reason": "reason",
       "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1568,8 +1568,8 @@
     },
     {
       "id": 6,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "15",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "15",
       "reason": "reason",
       "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1579,8 +1579,8 @@
     },
     {
       "id": 7,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "14",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "14",
       "reason": "reason",
       "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1590,8 +1590,8 @@
     },
     {
       "id": 8,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "13",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "13",
       "reason": "reason",
       "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1601,8 +1601,8 @@
     },
     {
       "id": 9,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "12",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "12",
       "reason": "reason",
       "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1612,8 +1612,8 @@
     },
     {
       "id": 10,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "11",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "11",
       "reason": "reason",
       "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1623,8 +1623,8 @@
     },
     {
       "id": 11,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "10",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "10",
       "reason": "reason",
       "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1634,8 +1634,8 @@
     },
     {
       "id": 12,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "9",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "9",
       "reason": "reason",
       "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1645,8 +1645,8 @@
     },
     {
       "id": 13,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "8",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "8",
       "reason": "reason",
       "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1656,8 +1656,8 @@
     },
     {
       "id": 14,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "7",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "7",
       "reason": "reason",
       "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1667,8 +1667,8 @@
     },
     {
       "id": 15,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "6",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "6",
       "reason": "reason",
       "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1678,8 +1678,8 @@
     },
     {
       "id": 16,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "5",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "5",
       "reason": "reason",
       "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1689,8 +1689,8 @@
     },
     {
       "id": 17,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "4",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "4",
       "reason": "reason",
       "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1700,8 +1700,8 @@
     },
     {
       "id": 18,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "3",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "3",
       "reason": "reason",
       "status": "rejected",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1711,8 +1711,8 @@
     },
     {
       "id": 19,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "2",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "2",
       "reason": "reason",
       "status": "pending",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1722,8 +1722,8 @@
     },
     {
       "id": 20,
-      "authSessionID": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
-      "resourceID": "1",
+      "authSessionId": "YXV0aFNlc3Npb25JRGF1dGhTZXNzaW9uSURhdXRoU2Vzc2lvbklE",
+      "resourceId": "1",
       "reason": "reason",
       "status": "approved",
       "requestor": "cmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9ycmVxdWVzdG9y",
@@ -1733,7 +1733,7 @@
     }
   ],
   "ids-list-asc-5": {
-    "IDs": [
+    "ids": [
       "1",
       "2",
       "3",
@@ -1743,7 +1743,7 @@
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
   "ids-list-asc-10": {
-    "IDs": [
+    "ids": [
       "1",
       "2",
       "3",
@@ -1758,7 +1758,7 @@
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
   "ids-list-asc-20": {
-    "IDs": [
+    "ids": [
       "1",
       "2",
       "3",
@@ -1783,7 +1783,7 @@
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
   "ids-list-desc-5": {
-    "IDs": [
+    "ids": [
       "20",
       "19",
       "18",
@@ -1793,7 +1793,7 @@
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
   "ids-list-desc-10": {
-    "IDs": [
+    "ids": [
       "20",
       "19",
       "18",
@@ -1808,7 +1808,7 @@
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
   "ids-list-desc-20": {
-    "IDs": [
+    "ids": [
       "20",
       "19",
       "18",
@@ -1833,12 +1833,12 @@
     "bookmark": "Ym9va21hcmtib29rbWFya2Jvb2ttYXJrYm9va21hcmtib29rbWFyaw=="
   },
   "auth-request": {
-    "transactionID": "0000000000000000000000000000000000000000000000000000000000000000"
+    "transactionId": "0000000000000000000000000000000000000000000000000000000000000000"
   },
   "auth-response": {
-    "transactionID": "0000000000000000000000000000000000000000000000000000000000000000"
+    "transactionId": "0000000000000000000000000000000000000000000000000000000000000000"
   },
   "ks-trigger": {
-    "transactionID": "0000000000000000000000000000000000000000000000000000000000000000"
+    "transactionId": "0000000000000000000000000000000000000000000000000000000000000000"
   }
 }

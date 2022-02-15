@@ -1,15 +1,15 @@
 export interface DocumentMetadata {
   resourceType: string;
-  resourceID: string;
+  resourceId: string;
   hash: string;
   size: number;
   extensions: {
     dataType: string;
     documentType: string;
-    entityAssetID: string;
-    headDocumentID: string;
+    entityAssetId: string;
+    headDocumentId: string;
     name: string;
-    precedingDocumentID: string;
+    precedingDocumentId: string;
   };
   creator: string;
   timestamp: string;

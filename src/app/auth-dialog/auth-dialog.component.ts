@@ -6,7 +6,7 @@ import { KeySwitchService } from '../key-switch.service';
 
 export interface DialogData {
   title: string;
-  resourceID: string;
+  resourceId: string;
 }
 
 @Component({
@@ -16,11 +16,11 @@ export interface DialogData {
 })
 export class AuthDialogComponent implements OnInit {
   authDialogForm = this.fb.group({
-    resourceID: [this.data.resourceID, Validators.required],
-    authSessionID: null
+    resourceId: [this.data.resourceId, Validators.required],
+    authSessionId: null
   });
 
-  keySwitchSessionID: string | undefined = undefined;
+  keySwitchSessionId: string | undefined = undefined;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private keySwitchService: KeySwitchService, private fb: FormBuilder, private dialogRef: MatDialogRef<AuthDialogComponent>) { }
 
@@ -31,7 +31,7 @@ export class AuthDialogComponent implements OnInit {
     if (this.authDialogForm.valid) {
       this.keySwitchService.createKeySwitchTrigger(this.authDialogForm.value as KeySwitchTrigger)
         .subscribe(resourceCreationInfo => {
-          this.keySwitchSessionID = resourceCreationInfo.transactionID;
+          this.keySwitchSessionId = resourceCreationInfo.transactionId;
           this.dialogRef.close();
         });
     }

@@ -31,7 +31,7 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
     'id',
-    'resourceID',
+    'resourceId',
     'resourceType',
     'name',
     'operation'
@@ -51,20 +51,20 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
 
   showDetail(row: AssetQueryResultTableItem) {
     if (row.name === undefined
-      || row.designDocumentID === undefined) {
+      || row.designDocumentId === undefined) {
       row.resourceType = Utils.getRawResourceType('asset', row.resourceType);
 
-      this.assetService.getAssetById(row.resourceID, row.resourceType).subscribe((asset) => {
+      this.assetService.getAssetById(row.resourceId, row.resourceType).subscribe((asset) => {
         if (row.name === undefined) {
           row.name = asset.name;
         }
-        if (row.designDocumentID === undefined) {
-          row.designDocumentID = asset.designDocumentID;
+        if (row.designDocumentId === undefined) {
+          row.designDocumentId = asset.designDocumentId;
         }
       });
 
       this.openDetailDialog(row);
-    } else { // row.name, row.designDocumentID are not undefined
+    } else { // row.name, row.designDocumentId are not undefined
       this.openDetailDialog(row);
     }
   }
@@ -74,7 +74,7 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
       data: {
         title: '详细信息',
         content: [
-          { item: '资源 ID', value: row.resourceID },
+          { item: '资源 ID', value: row.resourceId },
           { item: '名称', value: row.name === undefined ? this.mask : row.name },
           { item: '资源类型', value: row.resourceType },
           { item: '散列', value: row.hash },
@@ -83,7 +83,7 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
           { item: '密文大小', value: row.ciphertextSize },
           { item: '创建者', value: row.creator },
           { item: '创建时间', value: row.creationTime },
-          { item: '设计文档 ID', value: row.designDocumentID === undefined ? this.mask : row.designDocumentID }
+          { item: '设计文档 ID', value: row.designDocumentId === undefined ? this.mask : row.designDocumentId }
         ]
       }
     });
@@ -110,7 +110,7 @@ export class AssetQueryResultDetailDialog {
       width: '350px',
       data: {
         title: '身份验证',
-        resourceID: this.findInDataSource(dataSource, '资源 ID')
+        resourceId: this.findInDataSource(dataSource, '资源 ID')
       }
     });
 
@@ -120,7 +120,7 @@ export class AssetQueryResultDetailDialog {
       this.assetService.getAssetById(
         this.findInDataSource(dataSource, '资源 ID'),
         Utils.getRawResourceType('asset', this.findInDataSource(dataSource, '资源类型')),
-        authDialog.componentInstance.keySwitchSessionID
+        authDialog.componentInstance.keySwitchSessionId
       ).subscribe((asset) => {
         dataSource.forEach(
           ({ item, value }) => {
@@ -129,7 +129,7 @@ export class AssetQueryResultDetailDialog {
                 value = asset.name === undefined ? this.mask : asset.name;
               }
               if (item === '设计文档 ID') {
-                value = asset.designDocumentID === undefined ? this.mask : asset.designDocumentID;
+                value = asset.designDocumentId === undefined ? this.mask : asset.designDocumentId;
               }
             }
 
@@ -147,11 +147,11 @@ export class AssetQueryResultDetailDialog {
     });
   }
 
-  downloadAsset(resourceID: string, resourceType: string, keySwitchSessionID?: string) {
+  downloadAsset(resourceId: string, resourceType: string, keySwitchSessionId?: string) {
     resourceType = Utils.getRawResourceType('asset', resourceType);
 
-    this.assetService.getAssetById(resourceID, resourceType, keySwitchSessionID).subscribe(asset => {
-      let file = new File([], asset.name); // TODO: download asset by resourceID
+    this.assetService.getAssetById(resourceId, resourceType, keySwitchSessionId).subscribe(asset => {
+      let file = new File([], asset.name); // TODO: download asset by resourceId
       let link = self.document.createElement('a');
 
       link.href = window.URL.createObjectURL(file);;

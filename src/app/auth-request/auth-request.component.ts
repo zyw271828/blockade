@@ -22,7 +22,7 @@ export interface DialogData {
 })
 export class AuthRequestComponent implements OnInit {
   authRequestForm = this.fb.group({
-    resourceID: [null, Validators.required],
+    resourceId: [null, Validators.required],
     reason: null
   });
 
@@ -42,7 +42,7 @@ export class AuthRequestComponent implements OnInit {
             data: {
               title: '申请成功',
               content: [
-                { item: '交易 ID', value: resourceCreationInfo.transactionID }
+                { item: '交易 ID', value: resourceCreationInfo.transactionId }
               ],
               action: '关闭'
             }

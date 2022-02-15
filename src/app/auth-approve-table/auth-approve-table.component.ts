@@ -22,10 +22,10 @@ export class AuthApproveTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
     'id',
-    'resourceID',
+    'resourceId',
     'resourceType',
     'name',
-    'authSessionID',
+    'authSessionId',
     'operation'
   ];
 
@@ -41,30 +41,30 @@ export class AuthApproveTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
-  allowAuthSession(authSessionID: string) {
+  allowAuthSession(authSessionId: string) {
     this.authService.responseAuth({
-      authSessionID: authSessionID,
+      authSessionId: authSessionId,
       result: true
     } as AuthResponse).subscribe(resourceCreationInfo => {
       this._snackBar.open('已允许：'
-        + authSessionID.match(/.{1,4}/g)?.join(' ')
+        + authSessionId.match(/.{1,4}/g)?.join(' ')
         + '\n交易 ID：'
-        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), '关闭', {
+        + resourceCreationInfo.transactionId.match(/.{1,4}/g)?.join(' '), '关闭', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });
     });
   }
 
-  denyAuthSession(authSessionID: string) {
+  denyAuthSession(authSessionId: string) {
     this.authService.responseAuth({
-      authSessionID: authSessionID,
+      authSessionId: authSessionId,
       result: false
     } as AuthResponse).subscribe(resourceCreationInfo => {
       this._snackBar.open('已拒绝：'
-        + authSessionID.match(/.{1,4}/g)?.join(' ')
+        + authSessionId.match(/.{1,4}/g)?.join(' ')
         + '\n交易 ID：'
-        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), '关闭', {
+        + resourceCreationInfo.transactionId.match(/.{1,4}/g)?.join(' '), '关闭', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });

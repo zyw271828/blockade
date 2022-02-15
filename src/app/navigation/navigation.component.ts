@@ -64,9 +64,9 @@ export class NavigationComponent {
   getUserInfo(): void {
     this.identityService.getUserIdentity()
       .subscribe(userIdentity => {
-        this.userInfo = userIdentity.userID + '（' + userIdentity.orgName + '）';
+        this.userInfo = userIdentity.userId + '（' + userIdentity.orgName + '）';
         this.detailedUserInfo = '用户信息'
-          + '\n用户 ID：' + userIdentity.userID
+          + '\n用户 ID：' + userIdentity.userId
           + '\n组织名称：' + userIdentity.orgName
           + '\n部门类型：' + userIdentity.deptType
           + '\n部门级别：' + userIdentity.deptLevel

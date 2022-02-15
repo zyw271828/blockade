@@ -27,7 +27,7 @@
             <div style="height: 10px;"></div>
 
             <!-- ID Query -->
-            <form [formGroup]="assetIDQueryForm" novalidate (ngSubmit)="onIDQuerySubmit()">
+            <form [formGroup]="assetIdQueryForm" novalidate (ngSubmit)="onIdQuerySubmit()">
               <div *ngIf="currentQueryMethod === this.queryMethods[0]" fxLayout="column"
                 fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
@@ -43,7 +43,7 @@
                         {{resourceType}}
                       </mat-option>
                     </mat-select>
-                    <mat-error *ngIf="assetIDQueryForm.controls['resourceType'].hasError('required')">
+                    <mat-error *ngIf="assetIdQueryForm.controls['resourceType'].hasError('required')">
                       资源类型为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
@@ -56,8 +56,8 @@
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>资源 ID</mat-label>
-                    <input matInput required formControlName="resourceID">
-                    <mat-error *ngIf="assetIDQueryForm.controls['resourceID'].hasError('required')">
+                    <input matInput required formControlName="resourceId">
+                    <mat-error *ngIf="assetIdQueryForm.controls['resourceId'].hasError('required')">
                       资源 ID 为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
@@ -67,7 +67,7 @@
 
                 <!-- Reset & Query -->
                 <div class="asset-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-                  <button mat-button color="warn" type="button" (click)="resetIDQueryForm()">重置</button>
+                  <button mat-button color="warn" type="button" (click)="resetIdQueryForm()">重置</button>
                   <button mat-raised-button color="primary" type="submit">ID 查询</button>
                 </div>
 
@@ -86,7 +86,7 @@
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>资源 ID</mat-label>
-                    <input matInput placeholder="选填" formControlName="resourceID">
+                    <input matInput placeholder="选填" formControlName="resourceId">
                   </mat-form-field>
                 </div>
 
@@ -138,7 +138,7 @@
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>设计文档 ID</mat-label>
-                    <input matInput placeholder="选填" formControlName="designDocumentID">
+                    <input matInput placeholder="选填" formControlName="designDocumentId">
                   </mat-form-field>
                 </div>
 
