@@ -95,16 +95,7 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
     if (this.assetQueryComponent.currentQueryMethod === this.assetQueryComponent.queryMethods[0]) {
       // ID query
       // TODO: filter resourceType
-      assetIds = this.assetService.queryAssetIds(
-        isLatestFirst,
-        pageSize,
-        bookmark,
-        this.assetQueryComponent.assetIdQueryForm.get('resourceId')?.value
-      )
-        .pipe(map((tableRecordData) => {
-          this.bookmark = tableRecordData.bookmark;
-          return tableRecordData.ids;
-        }));
+      assetIds = observableOf([String(this.assetQueryComponent.assetIdQueryForm.get('resourceId')?.value)]);
     } else {
       // Conditional query
       let formValues = [];
