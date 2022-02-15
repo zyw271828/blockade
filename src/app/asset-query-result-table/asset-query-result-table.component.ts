@@ -31,7 +31,7 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
     'id',
-    'resourceID',
+    'resourceId',
     'resourceType',
     'name',
     'operation'
@@ -51,20 +51,20 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
 
   showDetail(row: AssetQueryResultTableItem) {
     if (row.name === undefined
-      || row.designDocumentID === undefined) {
+      || row.designDocumentId === undefined) {
       row.resourceType = Utils.getRawResourceType('asset', row.resourceType);
 
-      this.assetService.getAssetById(row.resourceID, row.resourceType).subscribe((asset) => {
+      this.assetService.getAssetById(row.resourceId, row.resourceType).subscribe((asset) => {
         if (row.name === undefined) {
           row.name = asset.name;
         }
-        if (row.designDocumentID === undefined) {
-          row.designDocumentID = asset.designDocumentID;
+        if (row.designDocumentId === undefined) {
+          row.designDocumentId = asset.designDocumentId;
         }
       });
 
       this.openDetailDialog(row);
-    } else { // row.name, row.designDocumentID are not undefined
+    } else { // row.name, row.designDocumentId are not undefined
       this.openDetailDialog(row);
     }
   }
@@ -74,7 +74,7 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
       data: {
         title: 'Detail',
         content: [
-          { item: 'ResourceID', value: row.resourceID },
+          { item: 'ResourceId', value: row.resourceId },
           { item: 'Name', value: row.name === undefined ? this.mask : row.name },
           { item: 'ResourceType', value: row.resourceType },
           { item: 'Hash', value: row.hash },
@@ -83,7 +83,7 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
           { item: 'CiphertextSize', value: row.ciphertextSize },
           { item: 'Creator', value: row.creator },
           { item: 'CreationTime', value: row.creationTime },
-          { item: 'DesignDocumentID', value: row.designDocumentID === undefined ? this.mask : row.designDocumentID }
+          { item: 'DesignDocumentId', value: row.designDocumentId === undefined ? this.mask : row.designDocumentId }
         ]
       }
     });
@@ -110,7 +110,7 @@ export class AssetQueryResultDetailDialog {
       width: '350px',
       data: {
         title: 'Authentication',
-        resourceID: this.findInDataSource(dataSource, 'ResourceID')
+        resourceId: this.findInDataSource(dataSource, 'ResourceId')
       }
     });
 
@@ -118,9 +118,9 @@ export class AssetQueryResultDetailDialog {
       let content: { item: string; value: string; }[] = [];
 
       this.assetService.getAssetById(
-        this.findInDataSource(dataSource, 'ResourceID'),
+        this.findInDataSource(dataSource, 'ResourceId'),
         Utils.getRawResourceType('asset', this.findInDataSource(dataSource, 'ResourceType')),
-        authDialog.componentInstance.keySwitchSessionID
+        authDialog.componentInstance.keySwitchSessionId
       ).subscribe((asset) => {
         dataSource.forEach(
           ({ item, value }) => {
@@ -128,8 +128,8 @@ export class AssetQueryResultDetailDialog {
               if (item === 'Name') {
                 value = asset.name === undefined ? this.mask : asset.name;
               }
-              if (item === 'DesignDocumentID') {
-                value = asset.designDocumentID === undefined ? this.mask : asset.designDocumentID;
+              if (item === 'DesignDocumentId') {
+                value = asset.designDocumentId === undefined ? this.mask : asset.designDocumentId;
               }
             }
 
@@ -147,11 +147,11 @@ export class AssetQueryResultDetailDialog {
     });
   }
 
-  downloadAsset(resourceID: string, resourceType: string, keySwitchSessionID?: string) {
+  downloadAsset(resourceId: string, resourceType: string, keySwitchSessionId?: string) {
     resourceType = Utils.getRawResourceType('asset', resourceType);
 
-    this.assetService.getAssetById(resourceID, resourceType, keySwitchSessionID).subscribe(asset => {
-      let file = new File([], asset.name); // TODO: download asset by resourceID
+    this.assetService.getAssetById(resourceId, resourceType, keySwitchSessionId).subscribe(asset => {
+      let file = new File([], asset.name); // TODO: download asset by resourceId
       let link = self.document.createElement('a');
 
       link.href = window.URL.createObjectURL(file);;

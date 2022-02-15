@@ -16,20 +16,20 @@ export class AssetQueryComponent implements OnInit {
 
   currentQueryMethod: string = this.queryMethods[0];
 
-  assetIDQueryForm = this.fb.group({
+  assetIdQueryForm = this.fb.group({
     resourceType: [null, Validators.required],
-    resourceID: [null, Validators.required]
+    resourceId: [null, Validators.required]
   });
 
   assetConditionalQueryForm = this.fb.group({
-    resourceID: null,
+    resourceId: null,
     name: null,
     isNameExact: null,
     time: null,
     timeAfterInclusive: null,
     timeBeforeExclusive: null,
     isTimeExact: null,
-    designDocumentID: null
+    designDocumentId: null
   });
 
   resourceTypes: string[] = Utils.getResourceTypes('asset');
@@ -43,12 +43,12 @@ export class AssetQueryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onIDQuerySubmit(): void {
-    if (this.assetIDQueryForm.valid) {
+  onIdQuerySubmit(): void {
+    if (this.assetIdQueryForm.valid) {
       this.isResultShow = false;
       this.changeDetector.detectChanges();
       this.isResultShow = true;
-    } else { // assetIDQueryForm is invalid
+    } else { // assetIdQueryForm is invalid
       this._snackBar.open('Please check your input', 'DISMISS', {
         duration: 5000
       });
@@ -139,8 +139,8 @@ export class AssetQueryComponent implements OnInit {
     }
   }
 
-  resetIDQueryForm(): void {
-    this.assetIDQueryForm.reset();
+  resetIdQueryForm(): void {
+    this.assetIdQueryForm.reset();
     this.isResultShow = false;
   }
 

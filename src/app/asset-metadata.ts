@@ -1,11 +1,11 @@
 export interface AssetMetadata {
   resourceType: string;
-  resourceID: string;
+  resourceId: string;
   hash: string;
   size: number;
   extensions: {
     dataType: string;
-    designDocumentID: string;
+    designDocumentId: string;
     name: string;
   };
   creator: string;

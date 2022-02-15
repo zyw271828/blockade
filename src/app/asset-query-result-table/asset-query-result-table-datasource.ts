@@ -10,7 +10,7 @@ import { Utils } from '../utils';
 // Data model type
 export interface AssetQueryResultTableItem {
   id: number;
-  resourceID: string;
+  resourceId: string;
   resourceType: string;
   name: string;
   hash: string;
@@ -19,7 +19,7 @@ export interface AssetQueryResultTableItem {
   ciphertextSize: number;
   creator: string;
   creationTime: string;
-  designDocumentID: string;
+  designDocumentId: string;
 }
 
 /**
@@ -69,12 +69,12 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
    */
   disconnect(): void { }
 
-  private getTableItem(assetID: string, index: number): Observable<AssetQueryResultTableItem> {
-    return this.assetService.getAssetMetadataById(assetID)
+  private getTableItem(assetId: string, index: number): Observable<AssetQueryResultTableItem> {
+    return this.assetService.getAssetMetadataById(assetId)
       .pipe(map((assetMetadata) => {
         return {
           id: index,
-          resourceID: assetMetadata.resourceID,
+          resourceId: assetMetadata.resourceId,
           resourceType: Utils.getResourceType('asset', assetMetadata.resourceType),
           name: assetMetadata.extensions.name,
           hash: assetMetadata.hash,
@@ -83,27 +83,27 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
           ciphertextSize: assetMetadata.sizeStored,
           creator: assetMetadata.creator,
           creationTime: Utils.formatDate(assetMetadata.timestamp),
-          designDocumentID: assetMetadata.extensions.designDocumentID
+          designDocumentId: assetMetadata.extensions.designDocumentId
         };
       }));
   }
 
   private getTableRecordData(isLatestFirst: boolean, pageSize: number, bookmark: string): Observable<AssetQueryResultTableItem[]> {
     let index = 1;
-    let assetIDs: Observable<string[]>;
+    let assetIds: Observable<string[]>;
 
     if (this.assetQueryComponent.currentQueryMethod === this.assetQueryComponent.queryMethods[0]) {
       // ID query
       // TODO: filter resourceType
-      assetIDs = this.assetService.queryAssetIDs(
+      assetIds = this.assetService.queryAssetIds(
         isLatestFirst,
         pageSize,
         bookmark,
-        this.assetQueryComponent.assetIDQueryForm.get('resourceID')?.value
+        this.assetQueryComponent.assetIdQueryForm.get('resourceId')?.value
       )
         .pipe(map((tableRecordData) => {
           this.bookmark = tableRecordData.bookmark;
-          return tableRecordData.IDs;
+          return tableRecordData.ids;
         }));
     } else {
       // Conditional query
@@ -117,7 +117,7 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
         }
       }
 
-      assetIDs = this.assetService.queryAssetIDs(
+      assetIds = this.assetService.queryAssetIds(
         isLatestFirst,
         pageSize,
         bookmark,
@@ -125,14 +125,14 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
       )
         .pipe(map((tableRecordData) => {
           this.bookmark = tableRecordData.bookmark;
-          return tableRecordData.IDs;
+          return tableRecordData.ids;
         }));
     }
 
-    return assetIDs
-      .pipe(map((assetIDs) => {
-        return assetIDs.map(assetID => {
-          return this.getTableItem(assetID, index++);
+    return assetIds
+      .pipe(map((assetIds) => {
+        return assetIds.map(assetId => {
+          return this.getTableItem(assetId, index++);
         });
       }))
       .pipe(map((tableItems) => {

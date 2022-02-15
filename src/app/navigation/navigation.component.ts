@@ -64,9 +64,9 @@ export class NavigationComponent {
   getUserInfo(): void {
     this.identityService.getUserIdentity()
       .subscribe(userIdentity => {
-        this.userInfo = userIdentity.userID + ' (' + userIdentity.orgName + ')';
+        this.userInfo = userIdentity.userId + ' (' + userIdentity.orgName + ')';
         this.detailedUserInfo = 'User Information'
-          + '\nUserID: ' + userIdentity.userID
+          + '\nUserId: ' + userIdentity.userId
           + '\nOrgName: ' + userIdentity.orgName
           + '\nDeptType: ' + userIdentity.deptType
           + '\nDeptLevel: ' + userIdentity.deptLevel

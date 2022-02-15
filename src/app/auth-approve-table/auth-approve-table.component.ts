@@ -22,10 +22,10 @@ export class AuthApproveTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
     'id',
-    'resourceID',
+    'resourceId',
     'resourceType',
     'name',
-    'authSessionID',
+    'authSessionId',
     'operation'
   ];
 
@@ -41,30 +41,30 @@ export class AuthApproveTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
-  allowAuthSession(authSessionID: string) {
+  allowAuthSession(authSessionId: string) {
     this.authService.responseAuth({
-      authSessionID: authSessionID,
+      authSessionId: authSessionId,
       result: true
     } as AuthResponse).subscribe(resourceCreationInfo => {
       this._snackBar.open('Allowed: '
-        + authSessionID.match(/.{1,4}/g)?.join(' ')
-        + '\nTransactionID: '
-        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
+        + authSessionId.match(/.{1,4}/g)?.join(' ')
+        + '\nTransactionId: '
+        + resourceCreationInfo.transactionId.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });
     });
   }
 
-  denyAuthSession(authSessionID: string) {
+  denyAuthSession(authSessionId: string) {
     this.authService.responseAuth({
-      authSessionID: authSessionID,
+      authSessionId: authSessionId,
       result: false
     } as AuthResponse).subscribe(resourceCreationInfo => {
       this._snackBar.open('Denied: '
-        + authSessionID.match(/.{1,4}/g)?.join(' ')
-        + '\nTransactionID: '
-        + resourceCreationInfo.transactionID.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
+        + authSessionId.match(/.{1,4}/g)?.join(' ')
+        + '\nTransactionId: '
+        + resourceCreationInfo.transactionId.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });

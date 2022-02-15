@@ -10,7 +10,7 @@ import { Utils } from '../utils';
 // Data model type
 export interface DocumentQueryResultTableItem {
   id: number;
-  resourceID: string;
+  resourceId: string;
   resourceType: string;
   name: string;
   hash: string;
@@ -20,9 +20,9 @@ export interface DocumentQueryResultTableItem {
   creator: string;
   creationTime: string;
   documentType: string;
-  precedingDocumentID: string;
-  headDocumentID: string;
-  entityAssetID: string;
+  precedingDocumentId: string;
+  headDocumentId: string;
+  entityAssetId: string;
 }
 
 /**
@@ -72,12 +72,12 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
    */
   disconnect(): void { }
 
-  private getTableItem(documentID: string, index: number): Observable<DocumentQueryResultTableItem> {
-    return this.documentService.getDocumentMetadataById(documentID)
+  private getTableItem(documentId: string, index: number): Observable<DocumentQueryResultTableItem> {
+    return this.documentService.getDocumentMetadataById(documentId)
       .pipe(map((documentMetadata) => {
         return {
           id: index,
-          resourceID: documentMetadata.resourceID,
+          resourceId: documentMetadata.resourceId,
           resourceType: Utils.getResourceType('document', documentMetadata.resourceType),
           name: documentMetadata.extensions.name,
           hash: documentMetadata.hash,
@@ -87,29 +87,29 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
           creator: documentMetadata.creator,
           creationTime: Utils.formatDate(documentMetadata.timestamp),
           documentType: Utils.getDocumentType(documentMetadata.extensions.documentType),
-          precedingDocumentID: documentMetadata.extensions.precedingDocumentID,
-          headDocumentID: documentMetadata.extensions.headDocumentID,
-          entityAssetID: documentMetadata.extensions.entityAssetID
+          precedingDocumentId: documentMetadata.extensions.precedingDocumentId,
+          headDocumentId: documentMetadata.extensions.headDocumentId,
+          entityAssetId: documentMetadata.extensions.entityAssetId
         };
       }));
   }
 
   private getTableRecordData(isLatestFirst: boolean, pageSize: number, bookmark: string): Observable<DocumentQueryResultTableItem[]> {
     let index = 1;
-    let documentIDs: Observable<string[]>;
+    let documentIds: Observable<string[]>;
 
     if (this.documentQueryComponent.currentQueryMethod === this.documentQueryComponent.queryMethods[0]) {
       // ID query
       // TODO: filter resourceType
-      documentIDs = this.documentService.queryDocumentIDs(
+      documentIds = this.documentService.queryDocumentIds(
         isLatestFirst,
         pageSize,
         bookmark,
-        this.documentQueryComponent.documentIDQueryForm.get('resourceID')?.value
+        this.documentQueryComponent.documentIdQueryForm.get('resourceId')?.value
       )
         .pipe(map((tableRecordData) => {
           this.bookmark = tableRecordData.bookmark;
-          return tableRecordData.IDs;
+          return tableRecordData.ids;
         }));
     } else {
       // Conditional query
@@ -125,7 +125,7 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
         }
       }
 
-      documentIDs = this.documentService.queryDocumentIDs(
+      documentIds = this.documentService.queryDocumentIds(
         isLatestFirst,
         pageSize,
         bookmark,
@@ -133,14 +133,14 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
       )
         .pipe(map((tableRecordData) => {
           this.bookmark = tableRecordData.bookmark;
-          return tableRecordData.IDs;
+          return tableRecordData.ids;
         }));
     }
 
-    return documentIDs
-      .pipe(map((documentIDs) => {
-        return documentIDs.map(documentID => {
-          return this.getTableItem(documentID, index++);
+    return documentIds
+      .pipe(map((documentIds) => {
+        return documentIds.map(documentId => {
+          return this.getTableItem(documentId, index++);
         });
       }))
       .pipe(map((tableItems) => {

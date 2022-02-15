@@ -1,4 +1,4 @@
 export interface AuthResponse {
-  authSessionID: string;
+  authSessionId: string;
   result: boolean;
 }

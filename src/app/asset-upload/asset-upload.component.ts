@@ -27,7 +27,7 @@ export class AssetUploadComponent implements OnInit {
   assetUploadForm = this.fb.group({
     resourceType: [null, Validators.required],
     name: [null, Validators.required],
-    componentIDs: [[], Validators.required],
+    componentIds: [[], Validators.required],
     policy: [null, Validators.required]
   });
 
@@ -50,47 +50,47 @@ export class AssetUploadComponent implements OnInit {
     }
   }
 
-  get componentIDs() {
-    return this.assetUploadForm.get('componentIDs');
+  get componentIds() {
+    return this.assetUploadForm.get('componentIds');
   }
 
-  addComponentID(event: MatChipInputEvent): void {
+  addComponentId(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
     if (value) {
-      this.componentIDs?.value.push(value);
+      this.componentIds?.value.push(value);
     }
 
     event.chipInput!.clear();
-    this.componentIDs?.updateValueAndValidity();
+    this.componentIds?.updateValueAndValidity();
   }
 
-  removeComponentID(componentID: string): void {
-    const index = this.componentIDs?.value.indexOf(componentID);
+  removeComponentId(componentId: string): void {
+    const index = this.componentIds?.value.indexOf(componentId);
 
     if (index >= 0) {
-      this.componentIDs?.value.splice(index, 1);
+      this.componentIds?.value.splice(index, 1);
     }
 
-    this.componentIDs?.updateValueAndValidity();
+    this.componentIds?.updateValueAndValidity();
   }
 
-  pasteComponentID(event: ClipboardEvent): void {
+  pasteComponentId(event: ClipboardEvent): void {
     event.preventDefault();
     event.clipboardData?.getData('text').split(/\n|,|\ /)
       .forEach(value => {
         if (value.trim()) {
-          this.componentIDs?.value.push(value.trim());
+          this.componentIds?.value.push(value.trim());
         }
       })
 
-    this.componentIDs?.updateValueAndValidity();
+    this.componentIds?.updateValueAndValidity();
   }
 
   assetUploadResetButtonClick() {
     this.assetUploadForm.get("policy")?.enable();
     this.assetUploadForm.reset();
-    this.componentIDs?.setValue([]);
+    this.componentIds?.setValue([]);
   }
 
   onSubmit(): void {
@@ -106,8 +106,8 @@ export class AssetUploadComponent implements OnInit {
             data: {
               title: 'Upload successfully',
               content: [
-                { item: 'ResourceID', value: resourceCreationInfo.resourceID },
-                { item: 'TransactionID', value: resourceCreationInfo.transactionID },
+                { item: 'ResourceId', value: resourceCreationInfo.resourceId },
+                { item: 'TransactionId', value: resourceCreationInfo.transactionId },
                 { item: 'SymmetricKeyMaterial', value: resourceCreationInfo.symmetricKeyMaterial }
               ],
               action: 'Close'

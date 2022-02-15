@@ -32,7 +32,7 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
     'id',
-    'resourceID',
+    'resourceId',
     'resourceType',
     'name',
     'operation'
@@ -53,29 +53,29 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   showDetail(row: DocumentQueryResultTableItem) {
     if (row.name === undefined
       || row.documentType === undefined
-      || row.precedingDocumentID === undefined
-      || row.headDocumentID === undefined
-      || row.entityAssetID === undefined) {
-      this.documentService.getDocumentPropertiesById(row.resourceID).subscribe((documentProperties) => {
+      || row.precedingDocumentId === undefined
+      || row.headDocumentId === undefined
+      || row.entityAssetId === undefined) {
+      this.documentService.getDocumentPropertiesById(row.resourceId).subscribe((documentProperties) => {
         if (row.name === undefined) {
           row.name = documentProperties.name;
         }
         if (row.documentType === undefined) {
           row.documentType = documentProperties.documentType;
         }
-        if (row.precedingDocumentID === undefined) {
-          row.precedingDocumentID = documentProperties.precedingDocumentID;
+        if (row.precedingDocumentId === undefined) {
+          row.precedingDocumentId = documentProperties.precedingDocumentId;
         }
-        if (row.headDocumentID === undefined) {
-          row.headDocumentID = documentProperties.headDocumentID;
+        if (row.headDocumentId === undefined) {
+          row.headDocumentId = documentProperties.headDocumentId;
         }
-        if (row.entityAssetID === undefined) {
-          row.entityAssetID = documentProperties.entityAssetID;
+        if (row.entityAssetId === undefined) {
+          row.entityAssetId = documentProperties.entityAssetId;
         }
 
         this.openDetailDialog(row);
       });
-    } else { // row.name, row.documentType, row.precedingDocumentID, row.headDocumentID, row.entityAssetID are not undefined
+    } else { // row.name, row.documentType, row.precedingDocumentId, row.headDocumentId, row.entityAssetId are not undefined
       this.openDetailDialog(row);
     }
   }
@@ -85,7 +85,7 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
       data: {
         title: 'Detail',
         content: [
-          { item: 'ResourceID', value: row.resourceID },
+          { item: 'ResourceId', value: row.resourceId },
           { item: 'Name', value: row.name === undefined ? this.mask : row.name },
           { item: 'ResourceType', value: row.resourceType },
           { item: 'Hash', value: row.hash },
@@ -95,9 +95,9 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
           { item: 'Creator', value: row.creator },
           { item: 'CreationTime', value: row.creationTime },
           { item: 'DocumentType', value: row.documentType === undefined ? this.mask : row.documentType },
-          { item: 'PrecedingDocumentID', value: row.precedingDocumentID === undefined ? this.mask : row.precedingDocumentID },
-          { item: 'HeadDocumentID', value: row.headDocumentID === undefined ? this.mask : row.headDocumentID },
-          { item: 'EntityAssetID', value: row.entityAssetID === undefined ? this.mask : row.entityAssetID }
+          { item: 'PrecedingDocumentId', value: row.precedingDocumentId === undefined ? this.mask : row.precedingDocumentId },
+          { item: 'HeadDocumentId', value: row.headDocumentId === undefined ? this.mask : row.headDocumentId },
+          { item: 'EntityAssetId', value: row.entityAssetId === undefined ? this.mask : row.entityAssetId }
         ]
       }
     });
@@ -124,7 +124,7 @@ export class DocumentQueryResultDetailDialog {
       width: '350px',
       data: {
         title: 'Authentication',
-        resourceID: this.findInDataSource(dataSource, 'ResourceID')
+        resourceId: this.findInDataSource(dataSource, 'ResourceId')
       }
     });
 
@@ -132,8 +132,8 @@ export class DocumentQueryResultDetailDialog {
       let content: { item: string; value: string; }[] = [];
 
       this.documentService.getDocumentPropertiesById(
-        this.findInDataSource(dataSource, 'ResourceID'),
-        authDialog.componentInstance.keySwitchSessionID
+        this.findInDataSource(dataSource, 'ResourceId'),
+        authDialog.componentInstance.keySwitchSessionId
       ).subscribe((documentProperties) => {
         dataSource.forEach(
           ({ item, value }) => {
@@ -144,14 +144,14 @@ export class DocumentQueryResultDetailDialog {
               if (item === 'DocumentType') {
                 value = documentProperties.documentType === undefined ? this.mask : documentProperties.documentType;
               }
-              if (item === 'PrecedingDocumentID') {
-                value = documentProperties.precedingDocumentID === undefined ? this.mask : documentProperties.precedingDocumentID;
+              if (item === 'PrecedingDocumentId') {
+                value = documentProperties.precedingDocumentId === undefined ? this.mask : documentProperties.precedingDocumentId;
               }
-              if (item === 'HeadDocumentID') {
-                value = documentProperties.headDocumentID === undefined ? this.mask : documentProperties.headDocumentID;
+              if (item === 'HeadDocumentId') {
+                value = documentProperties.headDocumentId === undefined ? this.mask : documentProperties.headDocumentId;
               }
-              if (item === 'EntityAssetID') {
-                value = documentProperties.entityAssetID === undefined ? this.mask : documentProperties.entityAssetID;
+              if (item === 'EntityAssetId') {
+                value = documentProperties.entityAssetId === undefined ? this.mask : documentProperties.entityAssetId;
               }
             }
 
@@ -169,10 +169,10 @@ export class DocumentQueryResultDetailDialog {
     });
   }
 
-  downloadDocument(resourceID: string, resourceType: string, keySwitchSessionID?: string) {
+  downloadDocument(resourceId: string, resourceType: string, keySwitchSessionId?: string) {
     resourceType = Utils.getRawResourceType('document', resourceType);
 
-    this.documentService.getDocumentById(resourceID, resourceType, keySwitchSessionID).subscribe(document => {
+    this.documentService.getDocumentById(resourceId, resourceType, keySwitchSessionId).subscribe(document => {
       if (document.contents !== undefined) {
         let file = new File([document.contents], document.name);
         let link = self.document.createElement('a');
@@ -184,12 +184,12 @@ export class DocumentQueryResultDetailDialog {
           width: '350px',
           data: {
             title: 'Authentication',
-            resourceID: resourceID
+            resourceId: resourceId
           }
         });
 
         authDialog.afterClosed().subscribe(() => {
-          this.documentService.getDocumentById(resourceID, resourceType, authDialog.componentInstance.keySwitchSessionID).subscribe(document => {
+          this.documentService.getDocumentById(resourceId, resourceType, authDialog.componentInstance.keySwitchSessionId).subscribe(document => {
             if (document.contents !== undefined) {
               let file = new File([document.contents], document.name);
               let link = self.document.createElement('a');

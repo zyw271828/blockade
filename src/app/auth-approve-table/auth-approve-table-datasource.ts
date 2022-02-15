@@ -9,10 +9,10 @@ import { Utils } from '../utils';
 // Data model type
 export interface AuthApproveTableItem {
   id: number;
-  resourceID: string;
+  resourceId: string;
   resourceType: string;
   name: string;
-  authSessionID: string;
+  authSessionId: string;
   status: string;
 }
 
@@ -63,15 +63,15 @@ export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem>
    */
   disconnect(): void { }
 
-  private getTableItem(authSessionID: string, index: number): Observable<AuthApproveTableItem> {
-    return this.authService.getAuthSessionById(authSessionID)
+  private getTableItem(authSessionId: string, index: number): Observable<AuthApproveTableItem> {
+    return this.authService.getAuthSessionById(authSessionId)
       .pipe(map((authSession) => {
         return {
           id: index,
-          resourceID: authSession.resourceID,
+          resourceId: authSession.resourceId,
           resourceType: 'resourceType', // TODO: get resourceType
           name: 'name', // TODO: get name
-          authSessionID: authSession.authSessionID,
+          authSessionId: authSession.authSessionId,
           status: Utils.getAuthSessionStatus(authSession.status)
         };
       }));
@@ -79,18 +79,18 @@ export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem>
 
   private getTableRecordData(pageSize: number, bookmark: string): Observable<AuthApproveTableItem[]> {
     let index = 1;
-    let authSessionIDs: Observable<string[]>;
+    let authSessionIds: Observable<string[]>;
 
-    authSessionIDs = this.authService.getAuthSessionApproveIDs(pageSize, bookmark)
+    authSessionIds = this.authService.getAuthSessionApproveIds(pageSize, bookmark)
       .pipe(map((tableRecordData) => {
         this.bookmark = tableRecordData.bookmark;
-        return tableRecordData.IDs;
+        return tableRecordData.ids;
       }));
 
-    return authSessionIDs
-      .pipe(map((authSessionIDs) => {
-        return authSessionIDs.map(authSessionID => {
-          return this.getTableItem(authSessionID, index++);
+    return authSessionIds
+      .pipe(map((authSessionIds) => {
+        return authSessionIds.map(authSessionId => {
+          return this.getTableItem(authSessionId, index++);
         });
       }))
       .pipe(map((tableItems) => {

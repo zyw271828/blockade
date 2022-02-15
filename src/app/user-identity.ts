@@ -1,5 +1,5 @@
 export interface UserIdentity {
-  userID: string;
+  userId: string;
   orgName: string;
   deptType: string;
   deptLevel: number;

@@ -1,6 +1,6 @@
 export interface AssetUpload {
   resourceType: string;
   name: string;
-  componentIDs: string[];
+  componentIds: string[];
   policy: string;
 }

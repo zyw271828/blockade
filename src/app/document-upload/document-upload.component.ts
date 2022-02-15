@@ -28,12 +28,12 @@ export class DocumentUploadComponent implements OnInit {
     isDocumentTypePublic: false,
     name: [null, Validators.required],
     isNamePublic: false,
-    entityAssetID: null,
-    isEntityAssetIDPublic: false,
-    precedingDocumentID: null,
-    isPrecedingDocumentIDPublic: false,
-    headDocumentID: null,
-    isHeadDocumentIDPublic: false,
+    entityAssetId: null,
+    isEntityAssetIdPublic: false,
+    precedingDocumentId: null,
+    isPrecedingDocumentIdPublic: false,
+    headDocumentId: null,
+    isHeadDocumentIdPublic: false,
     contents: [null, Validators.required],
     policy: [null, Validators.required]
   });
@@ -51,34 +51,34 @@ export class DocumentUploadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  checkPrecedingDocumentID() {
+  checkPrecedingDocumentId() {
     // TODO: change color instead of pop-up prompt
-    let precedingDocumentID = this.documentUploadForm.get("precedingDocumentID")?.value;
+    let precedingDocumentId = this.documentUploadForm.get("precedingDocumentId")?.value;
 
-    this.documentService.checkDocumentIDValidity(precedingDocumentID).subscribe(isValid => {
+    this.documentService.checkDocumentIdValidity(precedingDocumentId).subscribe(isValid => {
       if (isValid) {
-        this._snackBar.open('Preceding Document ID \"' + precedingDocumentID + '\" is valid', 'DISMISS', {
+        this._snackBar.open('Preceding Document ID \"' + precedingDocumentId + '\" is valid', 'DISMISS', {
           duration: 5000
         });
       } else {
-        this._snackBar.open('Preceding Document ID \"' + precedingDocumentID + '\" is invalid', 'DISMISS', {
+        this._snackBar.open('Preceding Document ID \"' + precedingDocumentId + '\" is invalid', 'DISMISS', {
           duration: 5000
         });
       }
     });
   }
 
-  checkHeadDocumentID() {
+  checkHeadDocumentId() {
     // TODO: change color instead of pop-up prompt
-    let headDocumentID = this.documentUploadForm.get("headDocumentID")?.value;
+    let headDocumentId = this.documentUploadForm.get("headDocumentId")?.value;
 
-    this.documentService.checkDocumentIDValidity(headDocumentID).subscribe(isValid => {
+    this.documentService.checkDocumentIdValidity(headDocumentId).subscribe(isValid => {
       if (isValid) {
-        this._snackBar.open('Head Document ID \"' + headDocumentID + '\" is valid', 'DISMISS', {
+        this._snackBar.open('Head Document ID \"' + headDocumentId + '\" is valid', 'DISMISS', {
           duration: 5000
         });
       } else {
-        this._snackBar.open('Head Document ID \"' + headDocumentID + '\" is invalid', 'DISMISS', {
+        this._snackBar.open('Head Document ID \"' + headDocumentId + '\" is invalid', 'DISMISS', {
           duration: 5000
         });
       }
@@ -129,8 +129,8 @@ export class DocumentUploadComponent implements OnInit {
             data: {
               title: 'Upload successfully',
               content: [
-                { item: 'ResourceID', value: resourceCreationInfo.resourceID },
-                { item: 'TransactionID', value: resourceCreationInfo.transactionID },
+                { item: 'ResourceId', value: resourceCreationInfo.resourceId },
+                { item: 'TransactionId', value: resourceCreationInfo.transactionId },
                 { item: 'SymmetricKeyMaterial', value: resourceCreationInfo.symmetricKeyMaterial }
               ],
               action: 'Close'

@@ -27,7 +27,7 @@
             <div style="height: 10px;"></div>
 
             <!-- ID Query -->
-            <form [formGroup]="assetIDQueryForm" novalidate (ngSubmit)="onIDQuerySubmit()">
+            <form [formGroup]="assetIdQueryForm" novalidate (ngSubmit)="onIdQuerySubmit()">
               <div *ngIf="currentQueryMethod === this.queryMethods[0]" fxLayout="column"
                 fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
@@ -43,7 +43,7 @@
                         {{resourceType}}
                       </mat-option>
                     </mat-select>
-                    <mat-error *ngIf="assetIDQueryForm.controls['resourceType'].hasError('required')">
+                    <mat-error *ngIf="assetIdQueryForm.controls['resourceType'].hasError('required')">
                       Resource Type is <strong>required</strong>
                     </mat-error>
                   </mat-form-field>
@@ -56,8 +56,8 @@
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Resource ID</mat-label>
-                    <input matInput required formControlName="resourceID">
-                    <mat-error *ngIf="assetIDQueryForm.controls['resourceID'].hasError('required')">
+                    <input matInput required formControlName="resourceId">
+                    <mat-error *ngIf="assetIdQueryForm.controls['resourceId'].hasError('required')">
                       Resource ID is <strong>required</strong>
                     </mat-error>
                   </mat-form-field>
@@ -67,7 +67,7 @@
 
                 <!-- Reset & Query -->
                 <div class="asset-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
-                  <button mat-button color="warn" type="button" (click)="resetIDQueryForm()">Reset</button>
+                  <button mat-button color="warn" type="button" (click)="resetIdQueryForm()">Reset</button>
                   <button mat-raised-button color="primary" type="submit">ID Query</button>
                 </div>
 
@@ -86,7 +86,7 @@
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Resource ID</mat-label>
-                    <input matInput placeholder="Optional" formControlName="resourceID">
+                    <input matInput placeholder="Optional" formControlName="resourceId">
                   </mat-form-field>
                 </div>
 
@@ -138,7 +138,7 @@
                   </div>
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>Design Document ID</mat-label>
-                    <input matInput placeholder="Optional" formControlName="designDocumentID">
+                    <input matInput placeholder="Optional" formControlName="designDocumentId">
                   </mat-form-field>
                 </div>
 

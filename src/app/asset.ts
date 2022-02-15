@@ -1,8 +1,8 @@
 export interface Asset {
   id: string;
   name: string;
-  designDocumentID: string;
+  designDocumentId: string;
   isNamePublic: boolean;
-  isDesignDocumentIDPublic: boolean;
-  componentIDs: string[];
+  isDesignDocumentIdPublic: boolean;
+  componentIds: string[];
 }

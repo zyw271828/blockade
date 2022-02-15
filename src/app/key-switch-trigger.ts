@@ -1,4 +1,4 @@
 export interface KeySwitchTrigger {
-  resourceID: string;
-  authSessionID: string;
+  resourceId: string;
+  authSessionId: string;
 }
