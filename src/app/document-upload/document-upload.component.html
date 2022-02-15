@@ -49,7 +49,8 @@
                       Document Type is <strong>required</strong>
                     </mat-error>
                   </mat-form-field>
-                  <div class="misc-margin">
+                  <div *ngIf="documentUploadForm.get('resourceType')?.value !== this.resourceTypes[0]"
+                    class="misc-margin">
                     <mat-checkbox fxFlex="auto" formControlName="isDocumentTypePublic">IsPublic</mat-checkbox>
                   </div>
                 </div>
@@ -66,7 +67,8 @@
                       Name is <strong>required</strong>
                     </mat-error>
                   </mat-form-field>
-                  <div class="misc-margin">
+                  <div *ngIf="documentUploadForm.get('resourceType')?.value !== this.resourceTypes[0]"
+                    class="misc-margin">
                     <mat-checkbox fxFlex="auto" formControlName="isNamePublic">IsPublic</mat-checkbox>
                   </div>
                 </div>
@@ -80,7 +82,8 @@
                     <mat-label>Entity Asset ID</mat-label>
                     <input matInput placeholder="Optional" formControlName="entityAssetId">
                   </mat-form-field>
-                  <div class="misc-margin">
+                  <div *ngIf="documentUploadForm.get('resourceType')?.value !== this.resourceTypes[0]"
+                    class="misc-margin">
                     <mat-checkbox fxFlex="auto" formControlName="isEntityAssetIdPublic">IsPublic</mat-checkbox>
                   </div>
                 </div>
@@ -98,7 +101,8 @@
                     <button mat-stroked-button type="button" fxFlex="auto"
                       (click)="checkPrecedingDocumentId()">Check</button>
                   </div>
-                  <div class="misc-margin">
+                  <div *ngIf="documentUploadForm.get('resourceType')?.value !== this.resourceTypes[0]"
+                    class="misc-margin">
                     <mat-checkbox fxFlex="auto" formControlName="isPrecedingDocumentIdPublic">IsPublic</mat-checkbox>
                   </div>
                 </div>
@@ -116,7 +120,8 @@
                     <button mat-stroked-button type="button" fxFlex="auto"
                       (click)="checkHeadDocumentId()">Check</button>
                   </div>
-                  <div class="misc-margin">
+                  <div *ngIf="documentUploadForm.get('resourceType')?.value !== this.resourceTypes[0]"
+                    class="misc-margin">
                     <mat-checkbox fxFlex="auto" formControlName="isHeadDocumentIdPublic">IsPublic</mat-checkbox>
                   </div>
                 </div>
