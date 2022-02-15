@@ -67,7 +67,7 @@ export class Utils {
       rawResourceType = Object.keys(this.assetResourceTypes).find(key => this.assetResourceTypes[key] === resourceType);
     }
 
-    return rawResourceType === undefined ? '' : rawResourceType;
+    return rawResourceType === undefined ? resourceType : rawResourceType;
   }
 
   static getDocumentType(documentType: string): string {
@@ -87,7 +87,7 @@ export class Utils {
   static getRawDocumentType(documentType: string): string {
     let rawDocumentType = Object.keys(this.documentTypes).find(key => this.documentTypes[key] === documentType);
 
-    return rawDocumentType === undefined ? '' : rawDocumentType;
+    return rawDocumentType === undefined ? documentType : rawDocumentType;
   }
 
   static getAuthSessionStatus(authSessionStatus: string): string {
@@ -107,7 +107,7 @@ export class Utils {
   static getRawAuthSessionStatus(authSessionStatus: string): string {
     let rawAuthSessionStatus = Object.keys(this.authSessionStatuses).find(key => this.authSessionStatuses[key] === authSessionStatus);
 
-    return rawAuthSessionStatus === undefined ? '' : rawAuthSessionStatus;
+    return rawAuthSessionStatus === undefined ? authSessionStatus : rawAuthSessionStatus;
   }
 
   static formatDate(date: string): string {
