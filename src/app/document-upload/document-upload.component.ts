@@ -117,6 +117,8 @@ export class DocumentUploadComponent implements OnInit {
 
   onSubmit(): void {
     if (this.documentUploadForm.valid) {
+      this.checkDocumentUploadForm();
+
       let documentUpload = this.documentUploadForm.value as DocumentUpload;
 
       documentUpload.resourceType = Utils.getRawResourceType('document', documentUpload.resourceType);
@@ -146,6 +148,16 @@ export class DocumentUploadComponent implements OnInit {
       this._snackBar.open('Please check your input', 'DISMISS', {
         duration: 5000
       });
+    }
+  }
+
+  checkDocumentUploadForm(): void {
+    if (this.documentUploadForm.get('resourceType')?.value === this.resourceTypes[0]) {
+      this.documentUploadForm.get('isDocumentTypePublic')?.setValue(true);
+      this.documentUploadForm.get('isNamePublic')?.setValue(true);
+      this.documentUploadForm.get('isEntityAssetIdPublic')?.setValue(true);
+      this.documentUploadForm.get('isPrecedingDocumentIdPublic')?.setValue(true);
+      this.documentUploadForm.get('isHeadDocumentIdPublic')?.setValue(true);
     }
   }
 }
