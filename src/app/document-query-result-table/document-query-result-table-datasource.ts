@@ -101,16 +101,7 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
     if (this.documentQueryComponent.currentQueryMethod === this.documentQueryComponent.queryMethods[0]) {
       // ID query
       // TODO: filter resourceType
-      documentIds = this.documentService.queryDocumentIds(
-        isLatestFirst,
-        pageSize,
-        bookmark,
-        this.documentQueryComponent.documentIdQueryForm.get('resourceId')?.value
-      )
-        .pipe(map((tableRecordData) => {
-          this.bookmark = tableRecordData.bookmark;
-          return tableRecordData.ids;
-        }));
+      documentIds = observableOf([String(this.documentQueryComponent.documentIdQueryForm.get('resourceId')?.value)]);
     } else {
       // Conditional query
       let formValues = [];
