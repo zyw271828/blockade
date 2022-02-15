@@ -124,15 +124,20 @@ export class DocumentUploadComponent implements OnInit {
 
       this.documentService.uploadDocument(documentUpload, this.filename)
         .subscribe(resourceCreationInfo => {
+          let content = [
+            { item: 'ResourceId', value: resourceCreationInfo.resourceId },
+            { item: 'TransactionId', value: resourceCreationInfo.transactionId }
+          ];
+
+          if (resourceCreationInfo.symmetricKeyMaterial !== undefined) {
+            content.push({ item: 'SymmetricKeyMaterial', value: resourceCreationInfo.symmetricKeyMaterial });
+          }
+
           this.dialog.open(DocumentUploadPromptDialog, {
             disableClose: true,
             data: {
               title: 'Upload successfully',
-              content: [
-                { item: 'ResourceId', value: resourceCreationInfo.resourceId },
-                { item: 'TransactionId', value: resourceCreationInfo.transactionId },
-                { item: 'SymmetricKeyMaterial', value: resourceCreationInfo.symmetricKeyMaterial }
-              ],
+              content: content,
               action: 'Close'
             }
           });
