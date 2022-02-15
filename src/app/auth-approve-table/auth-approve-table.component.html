@@ -57,6 +57,9 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
+  <div *ngIf="!dataSource.data.length" style="height: 20px;"></div>
+  <div *ngIf="!dataSource.data.length" style="text-align: center;">No data</div>
+
   <mat-paginator #paginator [length]="dataSource?.data?.length" [pageIndex]="0" [pageSize]="10"
     [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
   </mat-paginator>
