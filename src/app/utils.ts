@@ -6,28 +6,28 @@ interface Dictionary<T> {
 
 export class Utils {
   private static documentResourceTypes: Dictionary<string> = {
-    plain: '明文',
-    encrypted: '加密（链上）',
-    offchain: '加密（链下）'
+    Plain: '明文',
+    Encrypted: '加密（链上）',
+    Offchain: '加密（链下）'
   };
 
   private static documentTypes: Dictionary<string> = {
-    designDocument: '设计',
-    productionDocument: '生产',
-    transferDocument: '转移',
-    usageDocument: '使用',
-    repairDocument: '维修'
+    DesignDocument: '设计',
+    ProductionDocument: '生产',
+    TransferDocument: '转移',
+    UsageDocument: '使用',
+    RepairDocument: '维修'
   };
 
   private static assetResourceTypes: Dictionary<string> = {
-    plain: '明文',
-    encrypted: '加密'
+    Plain: '明文',
+    Encrypted: '加密'
   };
 
   private static authSessionStatuses: Dictionary<string> = {
-    pending: '未批复',
-    approved: '允许',
-    rejected: '拒绝'
+    Pending: '未批复',
+    Approved: '允许',
+    Rejected: '拒绝'
   };
 
   static mask: string = '***';

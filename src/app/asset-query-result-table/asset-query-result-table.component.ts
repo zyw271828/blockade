@@ -70,21 +70,33 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
   }
 
   openDetailDialog(row: AssetQueryResultTableItem) {
+    let content = [
+      { item: '资源 ID', value: row.resourceId },
+      { item: '名称', value: row.name === undefined ? this.mask : row.name },
+      { item: '资源类型', value: row.resourceType },
+      { item: '散列', value: row.hash }
+    ];
+
+    if (row.resourceType !== Utils.getResourceTypes('asset')[0]) {
+      content.push({ item: '密文散列', value: row.ciphertextHash });
+    }
+
+    content.push({ item: '大小', value: String(row.size) });
+
+    if (row.resourceType !== Utils.getResourceTypes('asset')[0]) {
+      content.push({ item: '密文大小', value: String(row.ciphertextSize) });
+    }
+
+    content.push(
+      { item: '创建者', value: row.creator },
+      { item: '创建时间', value: row.creationTime },
+      { item: '设计文档 ID', value: row.designDocumentId === undefined ? this.mask : row.designDocumentId }
+    );
+
     this.dialog.open(AssetQueryResultDetailDialog, {
       data: {
         title: '详细信息',
-        content: [
-          { item: '资源 ID', value: row.resourceId },
-          { item: '名称', value: row.name === undefined ? this.mask : row.name },
-          { item: '资源类型', value: row.resourceType },
-          { item: '散列', value: row.hash },
-          { item: '密文散列', value: row.ciphertextHash },
-          { item: '大小', value: row.size },
-          { item: '密文大小', value: row.ciphertextSize },
-          { item: '创建者', value: row.creator },
-          { item: '创建时间', value: row.creationTime },
-          { item: '设计文档 ID', value: row.designDocumentId === undefined ? this.mask : row.designDocumentId }
-        ]
+        content: content
       }
     });
   }
@@ -100,6 +112,8 @@ export class AssetQueryResultDetailDialog {
     'item',
     'value'
   ];
+
+  resourceTypes: string[] = Utils.getResourceTypes('asset');
 
   mask: string = Utils.mask;
 
@@ -151,10 +165,11 @@ export class AssetQueryResultDetailDialog {
     resourceType = Utils.getRawResourceType('asset', resourceType);
 
     this.assetService.getAssetById(resourceId, resourceType, keySwitchSessionId).subscribe(asset => {
-      let file = new File([], asset.name); // TODO: download asset by resourceId
+      let file = new File([window.atob(String())], asset.name); // TODO: download asset by resourceId
       let link = self.document.createElement('a');
 
-      link.href = window.URL.createObjectURL(file);;
+      link.href = window.URL.createObjectURL(file);
+      link.download = asset.name;
       link.click();
     });
   }
