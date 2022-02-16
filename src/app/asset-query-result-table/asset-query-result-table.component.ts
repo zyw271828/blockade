@@ -165,10 +165,11 @@ export class AssetQueryResultDetailDialog {
     resourceType = Utils.getRawResourceType('asset', resourceType);
 
     this.assetService.getAssetById(resourceId, resourceType, keySwitchSessionId).subscribe(asset => {
-      let file = new File([], asset.name); // TODO: download asset by resourceId
+      let file = new File([window.atob(String())], asset.name); // TODO: download asset by resourceId
       let link = self.document.createElement('a');
 
-      link.href = window.URL.createObjectURL(file);;
+      link.href = window.URL.createObjectURL(file);
+      link.download = asset.name;
       link.click();
     });
   }

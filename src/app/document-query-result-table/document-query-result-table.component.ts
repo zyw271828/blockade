@@ -189,10 +189,11 @@ export class DocumentQueryResultDetailDialog {
 
     this.documentService.getDocumentById(resourceId, resourceType, keySwitchSessionId).subscribe(document => {
       if (document.contents !== undefined) {
-        let file = new File([document.contents], document.name);
+        let file = new File([window.atob(String(document.contents))], document.name);
         let link = self.document.createElement('a');
 
-        link.href = window.URL.createObjectURL(file);;
+        link.href = window.URL.createObjectURL(file);
+        link.download = document.name;
         link.click();
       } else { // document.contents is undefined
         let authDialog = this.dialog.open(AuthDialogComponent, {
@@ -206,10 +207,11 @@ export class DocumentQueryResultDetailDialog {
         authDialog.afterClosed().subscribe(() => {
           this.documentService.getDocumentById(resourceId, resourceType, authDialog.componentInstance.keySwitchSessionId).subscribe(document => {
             if (document.contents !== undefined) {
-              let file = new File([document.contents], document.name);
+              let file = new File([window.atob(String(document.contents))], document.name);
               let link = self.document.createElement('a');
 
-              link.href = window.URL.createObjectURL(file);;
+              link.href = window.URL.createObjectURL(file);
+              link.download = document.name;
               link.click();
             } else { // document.contents is undefined
               this._snackBar.open('Failed to download document', 'DISMISS', {
