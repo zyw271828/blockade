@@ -6,28 +6,28 @@ interface Dictionary<T> {
 
 export class Utils {
   private static documentResourceTypes: Dictionary<string> = {
-    plain: 'Plaintext',
-    encrypted: 'Encryption (on chain)',
-    offchain: 'Encryption (off chain)'
+    Plain: 'Plaintext',
+    Encrypted: 'Encryption (on chain)',
+    Offchain: 'Encryption (off chain)'
   };
 
   private static documentTypes: Dictionary<string> = {
-    designDocument: 'Design',
-    productionDocument: 'Production',
-    transferDocument: 'Transfer',
-    usageDocument: 'Usage',
-    repairDocument: 'Repair'
+    DesignDocument: 'Design',
+    ProductionDocument: 'Production',
+    TransferDocument: 'Transfer',
+    UsageDocument: 'Usage',
+    RepairDocument: 'Repair'
   };
 
   private static assetResourceTypes: Dictionary<string> = {
-    plain: 'Plaintext',
-    encrypted: 'Encryption'
+    Plain: 'Plaintext',
+    Encrypted: 'Encryption'
   };
 
   private static authSessionStatuses: Dictionary<string> = {
-    pending: 'Unknown',
-    approved: 'Allow',
-    rejected: 'Deny'
+    Pending: 'Unknown',
+    Approved: 'Allow',
+    Rejected: 'Deny'
   };
 
   static mask: string = '***';
