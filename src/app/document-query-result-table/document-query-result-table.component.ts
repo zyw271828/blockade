@@ -82,24 +82,36 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   }
 
   openDetailDialog(row: DocumentQueryResultTableItem) {
+    let content = [
+      { item: 'ResourceId', value: row.resourceId },
+      { item: 'Name', value: row.name === undefined ? this.mask : row.name },
+      { item: 'ResourceType', value: row.resourceType },
+      { item: 'Hash', value: row.hash }
+    ];
+
+    if (row.resourceType !== Utils.getResourceTypes('document')[0]) {
+      content.push({ item: 'CiphertextHash', value: row.ciphertextHash });
+    }
+
+    content.push({ item: 'Size', value: String(row.size) });
+
+    if (row.resourceType !== Utils.getResourceTypes('document')[0]) {
+      content.push({ item: 'CiphertextSize', value: String(row.ciphertextSize) });
+    }
+
+    content.push(
+      { item: 'Creator', value: row.creator },
+      { item: 'CreationTime', value: row.creationTime },
+      { item: 'DocumentType', value: row.documentType === undefined ? this.mask : row.documentType },
+      { item: 'PrecedingDocumentId', value: row.precedingDocumentId === undefined ? this.mask : row.precedingDocumentId },
+      { item: 'HeadDocumentId', value: row.headDocumentId === undefined ? this.mask : row.headDocumentId },
+      { item: 'EntityAssetId', value: row.entityAssetId === undefined ? this.mask : row.entityAssetId }
+    );
+
     this.dialog.open(DocumentQueryResultDetailDialog, {
       data: {
         title: 'Detail',
-        content: [
-          { item: 'ResourceId', value: row.resourceId },
-          { item: 'Name', value: row.name === undefined ? this.mask : row.name },
-          { item: 'ResourceType', value: row.resourceType },
-          { item: 'Hash', value: row.hash },
-          { item: 'CiphertextHash', value: row.ciphertextHash },
-          { item: 'Size', value: row.size },
-          { item: 'CiphertextSize', value: row.ciphertextSize },
-          { item: 'Creator', value: row.creator },
-          { item: 'CreationTime', value: row.creationTime },
-          { item: 'DocumentType', value: row.documentType === undefined ? this.mask : row.documentType },
-          { item: 'PrecedingDocumentId', value: row.precedingDocumentId === undefined ? this.mask : row.precedingDocumentId },
-          { item: 'HeadDocumentId', value: row.headDocumentId === undefined ? this.mask : row.headDocumentId },
-          { item: 'EntityAssetId', value: row.entityAssetId === undefined ? this.mask : row.entityAssetId }
-        ]
+        content: content
       }
     });
   }
