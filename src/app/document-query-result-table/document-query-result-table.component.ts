@@ -116,6 +116,8 @@ export class DocumentQueryResultDetailDialog {
     'value'
   ];
 
+  resourceTypes: string[] = Utils.getResourceTypes('document');
+
   mask: string = Utils.mask;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private documentService: DocumentService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }

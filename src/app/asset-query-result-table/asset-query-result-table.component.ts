@@ -101,6 +101,8 @@ export class AssetQueryResultDetailDialog {
     'value'
   ];
 
+  resourceTypes: string[] = Utils.getResourceTypes('asset');
+
   mask: string = Utils.mask;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private assetService: AssetService, public dialog: MatDialog) { }
