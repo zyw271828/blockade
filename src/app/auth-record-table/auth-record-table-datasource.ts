@@ -79,21 +79,21 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
         return {
           id: index,
           resourceId: authSession.resourceId,
-          resourceType: 'resourceType', // TODO: get resourceType
-          name: 'name', // TODO: get name
+          resourceType: 'ResourceType', // TODO: get resourceType
+          name: 'Name', // TODO: get name
           authSessionId: authSession.authSessionId,
           status: Utils.getAuthSessionStatus(authSession.status),
           // TODO: get details
-          hash: 'hash',
-          ciphertextHash: 'ciphertextHash',
+          hash: 'Hash',
+          ciphertextHash: 'CiphertextHash',
           size: 0,
           ciphertextSize: 0,
-          creator: 'creator',
+          creator: 'Creator',
           creationTime: Utils.formatDate('1970-01-01T00:00:00.000Z'),
-          documentType: Utils.getDocumentType('designDocument'),
-          precedingDocumentId: 'precedingDocumentId',
-          headDocumentId: 'headDocumentId',
-          entityAssetId: 'entityAssetId'
+          documentType: Utils.getDocumentType('DesignDocument'),
+          precedingDocumentId: 'PrecedingDocumentId',
+          headDocumentId: 'HeadDocumentId',
+          entityAssetId: 'EntityAssetId'
         };
       }));
   }
