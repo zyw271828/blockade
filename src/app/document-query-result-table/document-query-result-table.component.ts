@@ -82,24 +82,36 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   }
 
   openDetailDialog(row: DocumentQueryResultTableItem) {
+    let content = [
+      { item: '资源 ID', value: row.resourceId },
+      { item: '名称', value: row.name === undefined ? this.mask : row.name },
+      { item: '资源类型', value: row.resourceType },
+      { item: '散列', value: row.hash }
+    ];
+
+    if (row.resourceType !== Utils.getResourceTypes('document')[0]) {
+      content.push({ item: '密文散列', value: row.ciphertextHash });
+    }
+
+    content.push({ item: '大小', value: String(row.size) });
+
+    if (row.resourceType !== Utils.getResourceTypes('document')[0]) {
+      content.push({ item: '密文大小', value: String(row.ciphertextSize) });
+    }
+
+    content.push(
+      { item: '创建者', value: row.creator },
+      { item: '创建时间', value: row.creationTime },
+      { item: '文档类型', value: row.documentType === undefined ? this.mask : row.documentType },
+      { item: '前序文档 ID', value: row.precedingDocumentId === undefined ? this.mask : row.precedingDocumentId },
+      { item: '头文档 ID', value: row.headDocumentId === undefined ? this.mask : row.headDocumentId },
+      { item: '实体资产 ID', value: row.entityAssetId === undefined ? this.mask : row.entityAssetId }
+    );
+
     this.dialog.open(DocumentQueryResultDetailDialog, {
       data: {
         title: '详细信息',
-        content: [
-          { item: '资源 ID', value: row.resourceId },
-          { item: '名称', value: row.name === undefined ? this.mask : row.name },
-          { item: '资源类型', value: row.resourceType },
-          { item: '散列', value: row.hash },
-          { item: '密文散列', value: row.ciphertextHash },
-          { item: '大小', value: row.size },
-          { item: '密文大小', value: row.ciphertextSize },
-          { item: '创建者', value: row.creator },
-          { item: '创建时间', value: row.creationTime },
-          { item: '文档类型', value: row.documentType === undefined ? this.mask : row.documentType },
-          { item: '前序文档 ID', value: row.precedingDocumentId === undefined ? this.mask : row.precedingDocumentId },
-          { item: '头文档 ID', value: row.headDocumentId === undefined ? this.mask : row.headDocumentId },
-          { item: '实体资产 ID', value: row.entityAssetId === undefined ? this.mask : row.entityAssetId }
-        ]
+        content: content
       }
     });
   }
@@ -115,6 +127,8 @@ export class DocumentQueryResultDetailDialog {
     'item',
     'value'
   ];
+
+  resourceTypes: string[] = Utils.getResourceTypes('document');
 
   mask: string = Utils.mask;
 
@@ -175,10 +189,11 @@ export class DocumentQueryResultDetailDialog {
 
     this.documentService.getDocumentById(resourceId, resourceType, keySwitchSessionId).subscribe(document => {
       if (document.contents !== undefined) {
-        let file = new File([document.contents], document.name);
+        let file = new File([window.atob(String(document.contents))], document.name);
         let link = self.document.createElement('a');
 
-        link.href = window.URL.createObjectURL(file);;
+        link.href = window.URL.createObjectURL(file);
+        link.download = document.name;
         link.click();
       } else { // document.contents is undefined
         let authDialog = this.dialog.open(AuthDialogComponent, {
@@ -192,10 +207,11 @@ export class DocumentQueryResultDetailDialog {
         authDialog.afterClosed().subscribe(() => {
           this.documentService.getDocumentById(resourceId, resourceType, authDialog.componentInstance.keySwitchSessionId).subscribe(document => {
             if (document.contents !== undefined) {
-              let file = new File([document.contents], document.name);
+              let file = new File([window.atob(String(document.contents))], document.name);
               let link = self.document.createElement('a');
 
-              link.href = window.URL.createObjectURL(file);;
+              link.href = window.URL.createObjectURL(file);
+              link.download = document.name;
               link.click();
             } else { // document.contents is undefined
               this._snackBar.open('下载文档失败', '关闭', {

@@ -20,7 +20,8 @@
 </div>
 <div mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>关闭</button>
-  <button mat-button mat-dialog-close (click)="decryptDocument(data.content)">解密</button>
+  <button *ngIf="findInDataSource(data.content, '资源类型') !== this.resourceTypes[0]" mat-button mat-dialog-close
+    (click)="decryptDocument(data.content)">解密</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial
     (click)="downloadDocument(findInDataSource(data.content, '资源 ID'), findInDataSource(data.content, '资源类型'))">下载</button>
 </div>
