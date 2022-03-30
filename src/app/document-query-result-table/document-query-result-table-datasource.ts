@@ -32,7 +32,7 @@ export interface DocumentQueryResultTableItem {
  */
 export class DocumentQueryResultTableDataSource extends DataSource<DocumentQueryResultTableItem> {
   data: DocumentQueryResultTableItem[] = [];
-  bookmark: string = '';
+  bookmarks: string[] = [''];
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
@@ -46,13 +46,12 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
    * @returns A stream of the items to be rendered.
    */
   connect(): Observable<DocumentQueryResultTableItem[]> {
-    // TODO: fix the page turning of MatPaginator
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
       return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
         .pipe(map(() => {
-          return this.getTableRecordData(this.sort!.direction === 'desc', this.paginator!.pageSize, this.bookmark)
+          return this.getTableRecordData(this.sort!.direction === 'desc', this.paginator!.pageSize, this.bookmarks[this.paginator!.pageIndex])
             .pipe(map((tableRecordData) => {
               this.data = tableRecordData;
               return this.data;
@@ -123,7 +122,7 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
         ...formValues
       )
         .pipe(map((tableRecordData) => {
-          this.bookmark = tableRecordData.bookmark;
+          this.bookmarks[this.paginator?.pageIndex! + 1] = tableRecordData.bookmark;
           return tableRecordData.ids;
         }));
     }
