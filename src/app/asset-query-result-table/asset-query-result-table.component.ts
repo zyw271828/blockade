@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { AssetQueryComponent } from '../asset-query/asset-query.component';
@@ -39,6 +39,10 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
 
   mask: string = Utils.mask;
 
+  infinity: number = Number.MAX_SAFE_INTEGER;
+
+  currentPageSize: number = 10;
+
   constructor(private assetQueryComponent: AssetQueryComponent, private assetService: AssetService, public dialog: MatDialog) {
     this.dataSource = new AssetQueryResultTableDataSource(this.assetQueryComponent, this.assetService);
   }
@@ -47,6 +51,14 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  onPaginationChange(event: PageEvent) {
+    if (event.pageSize !== this.currentPageSize) {
+      this.paginator.pageIndex = 0;
+      this.dataSource.bookmarks = [''];
+      this.currentPageSize = event.pageSize;
+    }
   }
 
   showDetail(row: AssetQueryResultTableItem) {

@@ -5,3 +5,7 @@
 .full-width-table {
   width: 100%;
 }
+
+::ng-deep .mat-paginator-range-label {
+  display: none !important;
+}

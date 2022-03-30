@@ -23,7 +23,7 @@ export interface AuthApproveTableItem {
  */
 export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem> {
   data: AuthApproveTableItem[] = [];
-  bookmark: string = '';
+  bookmarks: string[] = [''];
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
@@ -37,13 +37,12 @@ export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem>
    * @returns A stream of the items to be rendered.
    */
   connect(): Observable<AuthApproveTableItem[]> {
-    // TODO: fix the page turning of MatPaginator
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
       return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
         .pipe(map(() => {
-          return this.getTableRecordData(this.paginator!.pageSize, this.bookmark)
+          return this.getTableRecordData(this.paginator!.pageSize, this.bookmarks[this.paginator!.pageIndex])
             .pipe(map((tableRecordData) => {
               this.data = tableRecordData;
               return this.data;
@@ -83,7 +82,7 @@ export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem>
 
     authSessionIds = this.authService.getAuthSessionApproveIds(pageSize, bookmark)
       .pipe(map((tableRecordData) => {
-        this.bookmark = tableRecordData.bookmark;
+        this.bookmarks[this.paginator?.pageIndex! + 1] = tableRecordData.bookmark;
         return tableRecordData.ids;
       }));
 

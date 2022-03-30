@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+::ng-deep .mat-paginator-range-label {
+  display: none !important;
+}
+
 .mat-divider.mat-divider-vertical {
   height: 30px;
 }
