@@ -20,7 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -53,6 +53,7 @@ import { DocumentUploadRecordComponent } from './document-upload-record/document
 import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-upload/document-upload.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { getPaginatorIntl } from './paginator-intl';
 
 registerLocaleData(localeZh);
 
@@ -121,7 +122,8 @@ registerLocaleData(localeZh);
     HttpClientModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'zh-CN' }
+    { provide: LOCALE_ID, useValue: 'zh-CN' },
+    { provide: MatPaginatorIntl, useValue: getPaginatorIntl() }
   ],
   bootstrap: [AppComponent]
 })
