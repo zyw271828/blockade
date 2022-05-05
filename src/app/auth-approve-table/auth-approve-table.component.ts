@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -31,6 +31,10 @@ export class AuthApproveTableComponent implements AfterViewInit {
 
   authSessionStatuses: string[] = Utils.getAuthSessionStatuses();
 
+  infinity: number = Number.MAX_SAFE_INTEGER;
+
+  currentPageSize: number = 10;
+
   constructor(private authService: AuthService, private _snackBar: MatSnackBar) {
     this.dataSource = new AuthApproveTableDataSource(this.authService);
   }
@@ -39,6 +43,14 @@ export class AuthApproveTableComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  onPaginationChange(event: PageEvent) {
+    if (event.pageSize !== this.currentPageSize) {
+      this.paginator.pageIndex = 0;
+      this.dataSource.bookmarks = [''];
+      this.currentPageSize = event.pageSize;
+    }
   }
 
   allowAuthSession(authSessionId: string) {

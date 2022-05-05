@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { DocumentService } from '../document.service';
@@ -25,6 +25,10 @@ export class DocumentUploadRecordTableComponent implements AfterViewInit {
     'creationTime'
   ];
 
+  infinity: number = Number.MAX_SAFE_INTEGER;
+
+  currentPageSize: number = 10;
+
   constructor(private documentService: DocumentService) {
     this.dataSource = new DocumentUploadRecordTableDataSource(this.documentService);
   }
@@ -33,5 +37,13 @@ export class DocumentUploadRecordTableComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  onPaginationChange(event: PageEvent) {
+    if (event.pageSize !== this.currentPageSize) {
+      this.paginator.pageIndex = 0;
+      this.dataSource.bookmarks = [''];
+      this.currentPageSize = event.pageSize;
+    }
   }
 }
