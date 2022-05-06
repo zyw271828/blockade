@@ -53,6 +53,7 @@ import { DocumentUploadRecordComponent } from './document-upload-record/document
 import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-upload/document-upload.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { NotificationComponent } from './notification/notification.component';
 import { getPaginatorIntl } from './paginator-intl';
 import { ServerDialogComponent } from './server-dialog/server-dialog.component';
 
@@ -86,7 +87,8 @@ registerLocaleData(localeZh);
     AuthApproveTableComponent,
     AuthDialogComponent,
     FooterComponent,
-    ServerDialogComponent
+    ServerDialogComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

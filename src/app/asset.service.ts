@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 import { Asset } from './asset';
 import { AssetMetadata } from './asset-metadata';
 import { AssetUpload } from './asset-upload';
+import { NotificationComponent } from './notification/notification.component';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
@@ -18,7 +19,7 @@ export class AssetService {
   private assetQueryUrl = (): string => { return environment.apiEndpoint + '/assets/list' };
   private assetUploadRecordUrl = (): string => { return environment.apiEndpoint + '/identity/assets/list' };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private notificationComponent: NotificationComponent) { }
 
   uploadAsset(asset: AssetUpload): Observable<ResourceCreationInfo> {
     return this.http.post<ResourceCreationInfo>(this.assetUrl(), asset)
@@ -132,7 +133,14 @@ export class AssetService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(`${operation} failed: ${error.message}`);
+      if (error.error) {
+        console.error(`${operation} failed: ${error.message}\n${error.error}`);
+        this.notificationComponent.showError(`${error.status} ${error.statusText}：${error.error}`);
+      } else {
+        console.error(`${operation} failed: ${error.message}`);
+        this.notificationComponent.showError(`${error.status} ${error.statusText}`);
+      }
+
       return of(result as T);
     };
   }
