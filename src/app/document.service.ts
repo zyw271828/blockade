@@ -7,6 +7,7 @@ import { Document } from './document';
 import { DocumentMetadata } from './document-metadata';
 import { DocumentProperties } from './document-properties';
 import { DocumentUpload } from './document-upload';
+import { NotificationComponent } from './notification/notification.component';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
@@ -19,7 +20,7 @@ export class DocumentService {
   private documentQueryUrl = environment.apiEndpoint + '/documents/list';
   private documentUploadRecordUrl = environment.apiEndpoint + '/identity/documents/list';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private notificationComponent: NotificationComponent) { }
 
   uploadDocument(document: DocumentUpload, filename: string): Observable<ResourceCreationInfo> {
     let formData = new FormData();
@@ -190,6 +191,7 @@ export class DocumentService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(`${operation} failed: ${error.message}`);
+      this.notificationComponent.showError(`${operation} failed: ${error.message}`);
       return of(result as T);
     };
   }
