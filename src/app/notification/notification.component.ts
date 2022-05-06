@@ -17,7 +17,7 @@ export class NotificationComponent implements OnInit {
   }
 
   showError(message: string): void {
-    this._snackBar.open(message, 'DISMISS', {
+    this._snackBar.open(message, '关闭', {
       duration: 5000
     });
   }
