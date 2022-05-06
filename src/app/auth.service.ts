@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 import { AuthRequest } from './auth-request';
 import { AuthResponse } from './auth-response';
 import { AuthSession } from './auth-session';
+import { NotificationComponent } from './notification/notification.component';
 import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
@@ -20,7 +21,7 @@ export class AuthService {
   private authRecordUrl = environment.apiEndpoint + '/identity/auths/request-list';
   private authApproveUrl = environment.apiEndpoint + '/identity/auths/pending-list';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private notificationComponent: NotificationComponent) { }
 
   requestAuth(authRequest: AuthRequest): Observable<ResourceCreationInfo> {
     return this.http.post<ResourceCreationInfo>(this.authRequestUrl, authRequest)
@@ -78,7 +79,14 @@ export class AuthService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(`${operation} failed: ${error.message}`);
+      if (error.error) {
+        console.error(`${operation} failed: ${error.message}\n${error.error}`);
+        this.notificationComponent.showError(`${error.status} ${error.statusText}: ${error.error}`);
+      } else {
+        console.error(`${operation} failed: ${error.message}`);
+        this.notificationComponent.showError(`${error.status} ${error.statusText}`);
+      }
+
       return of(result as T);
     };
   }
