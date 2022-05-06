@@ -190,8 +190,14 @@ export class DocumentService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(`${operation} failed: ${error.message}`);
-      this.notificationComponent.showError(`${operation} failed: ${error.message}`);
+      if (error.error) {
+        console.error(`${operation} failed: ${error.message}\n${error.error}`);
+        this.notificationComponent.showError(`${error.status} ${error.statusText}: ${error.error}`);
+      } else {
+        console.error(`${operation} failed: ${error.message}`);
+        this.notificationComponent.showError(`${error.status} ${error.statusText}`);
+      }
+
       return of(result as T);
     };
   }
