@@ -22,7 +22,15 @@ export class AssetService {
   constructor(private http: HttpClient, private notificationComponent: NotificationComponent) { }
 
   uploadAsset(asset: AssetUpload): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.assetUrl, asset)
+    let formData = new FormData();
+
+    (Object.keys(asset) as Array<keyof typeof asset>).map(name => {
+      let value: any = asset[name];
+
+      formData.set(name, value);
+    });
+
+    return this.http.post<ResourceCreationInfo>(this.assetUrl, formData)
       .pipe(
         tap(_ => console.log('uploadAsset')),
         catchError(this.handleError<ResourceCreationInfo>('uploadAsset'))
