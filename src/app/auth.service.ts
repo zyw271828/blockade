@@ -24,7 +24,15 @@ export class AuthService {
   constructor(private http: HttpClient, private notificationComponent: NotificationComponent) { }
 
   requestAuth(authRequest: AuthRequest): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.authRequestUrl(), authRequest)
+    let formData = new FormData();
+
+    (Object.keys(authRequest) as Array<keyof typeof authRequest>).map(name => {
+      let value: any = authRequest[name];
+
+      formData.set(name, value);
+    });
+
+    return this.http.post<ResourceCreationInfo>(this.authRequestUrl(), formData)
       .pipe(
         tap(_ => console.log('requestAuth')),
         catchError(this.handleError<ResourceCreationInfo>('requestAuth'))
@@ -32,7 +40,15 @@ export class AuthService {
   }
 
   responseAuth(authResponse: AuthResponse): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.authResponseUrl(), authResponse)
+    let formData = new FormData();
+
+    (Object.keys(authResponse) as Array<keyof typeof authResponse>).map(name => {
+      let value: any = authResponse[name];
+
+      formData.set(name, value);
+    });
+
+    return this.http.post<ResourceCreationInfo>(this.authResponseUrl(), formData)
       .pipe(
         tap(_ => console.log('responseAuth')),
         catchError(this.handleError<ResourceCreationInfo>('responseAuth'))

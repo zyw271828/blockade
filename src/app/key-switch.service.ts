@@ -16,7 +16,15 @@ export class KeySwitchService {
   constructor(private http: HttpClient, private notificationComponent: NotificationComponent) { }
 
   createKeySwitchTrigger(keySwitchTrigger: KeySwitchTrigger): Observable<ResourceCreationInfo> {
-    return this.http.post<ResourceCreationInfo>(this.keySwitchTriggerUrl(), keySwitchTrigger)
+    let formData = new FormData();
+
+    (Object.keys(keySwitchTrigger) as Array<keyof typeof keySwitchTrigger>).map(name => {
+      let value: any = keySwitchTrigger[name];
+
+      formData.set(name, value);
+    });
+
+    return this.http.post<ResourceCreationInfo>(this.keySwitchTriggerUrl(), formData)
       .pipe(
         tap(_ => console.log('createKeySwitchTrigger')),
         catchError(this.handleError<ResourceCreationInfo>('createKeySwitchTrigger'))

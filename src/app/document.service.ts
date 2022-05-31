@@ -48,7 +48,7 @@ export class DocumentService {
     let params = new HttpParams().set('resourceType', resourceType);
     let logMsg = 'getDocumentById' + '\nresourceType: ' + resourceType;
 
-    if (keySwitchSessionId !== undefined) {
+    if (keySwitchSessionId) {
       params = params.set('keySwitchSessionId', keySwitchSessionId);
       logMsg += '\nkeySwitchSessionId: ' + keySwitchSessionId;
     }
@@ -85,47 +85,47 @@ export class DocumentService {
       + '\npageSize: ' + pageSize
       + '\nbookmark: ' + bookmark;
 
-    if (resourceId !== undefined) {
+    if (resourceId) {
       params = params.append('resourceId', resourceId);
       logMsg += '\nresourceId: ' + resourceId;
     }
-    if (name !== undefined) {
+    if (name) {
       params = params.append('name', name);
       logMsg += '\nname: ' + name;
     }
-    if (isNameExact !== undefined) {
+    if (isNameExact) {
       params = params.append('isNameExact', isNameExact);
       logMsg += '\nisNameExact: ' + isNameExact;
     }
-    if (time !== undefined) {
+    if (time) {
       params = params.append('time', time);
       logMsg += '\ntime: ' + time;
     }
-    if (timeAfterInclusive !== undefined) {
+    if (timeAfterInclusive) {
       params = params.append('timeAfterInclusive', timeAfterInclusive);
       logMsg += '\ntimeAfterInclusive: ' + timeAfterInclusive;
     }
-    if (timeBeforeExclusive !== undefined) {
+    if (timeBeforeExclusive) {
       params = params.append('timeBeforeExclusive', timeBeforeExclusive);
       logMsg += '\ntimeBeforeExclusive: ' + timeBeforeExclusive;
     }
-    if (isTimeExact !== undefined) {
+    if (isTimeExact) {
       params = params.append('isTimeExact', isTimeExact);
       logMsg += '\nisTimeExact: ' + isTimeExact;
     }
-    if (documentType !== undefined) {
+    if (documentType) {
       params = params.append('documentType', documentType);
       logMsg += '\ndocumentType: ' + documentType;
     }
-    if (precedingDocumentId !== undefined) {
+    if (precedingDocumentId) {
       params = params.append('precedingDocumentId', precedingDocumentId);
       logMsg += '\nprecedingDocumentId: ' + precedingDocumentId;
     }
-    if (headDocumentId !== undefined) {
+    if (headDocumentId) {
       params = params.append('headDocumentId', headDocumentId);
       logMsg += '\nheadDocumentId: ' + headDocumentId;
     }
-    if (entityAssetId !== undefined) {
+    if (entityAssetId) {
       params = params.append('entityAssetId', entityAssetId);
       logMsg += '\nentityAssetId: ' + entityAssetId;
     }
@@ -160,7 +160,7 @@ export class DocumentService {
     let params = new HttpParams();
     let logMsg = 'getDocumentPropertiesById';
 
-    if (keySwitchSessionId !== undefined) {
+    if (keySwitchSessionId) {
       params = params.set('keySwitchSessionId', keySwitchSessionId);
       logMsg += '\nkeySwitchSessionId: ' + keySwitchSessionId;
     }
