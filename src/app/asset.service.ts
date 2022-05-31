@@ -33,7 +33,7 @@ export class AssetService {
     let params = new HttpParams().set('resourceType', resourceType);
     let logMsg = 'getAssetById' + '\nresourceType: ' + resourceType;
 
-    if (keySwitchSessionId !== undefined) {
+    if (keySwitchSessionId) {
       params = params.set('keySwitchSessionId', keySwitchSessionId);
       logMsg += '\nkeySwitchSessionId: ' + keySwitchSessionId;
     }
@@ -67,35 +67,35 @@ export class AssetService {
       + '\npageSize: ' + pageSize
       + '\nbookmark: ' + bookmark;
 
-    if (resourceId !== undefined) {
+    if (resourceId) {
       params = params.append('resourceId', resourceId);
       logMsg += '\nresourceId: ' + resourceId;
     }
-    if (name !== undefined) {
+    if (name) {
       params = params.append('name', name);
       logMsg += '\nname: ' + name;
     }
-    if (isNameExact !== undefined) {
+    if (isNameExact) {
       params = params.append('isNameExact', isNameExact);
       logMsg += '\nisNameExact: ' + isNameExact;
     }
-    if (time !== undefined) {
+    if (time) {
       params = params.append('time', time);
       logMsg += '\ntime: ' + time;
     }
-    if (timeAfterInclusive !== undefined) {
+    if (timeAfterInclusive) {
       params = params.append('timeAfterInclusive', timeAfterInclusive);
       logMsg += '\ntimeAfterInclusive: ' + timeAfterInclusive;
     }
-    if (timeBeforeExclusive !== undefined) {
+    if (timeBeforeExclusive) {
       params = params.append('timeBeforeExclusive', timeBeforeExclusive);
       logMsg += '\ntimeBeforeExclusive: ' + timeBeforeExclusive;
     }
-    if (isTimeExact !== undefined) {
+    if (isTimeExact) {
       params = params.append('isTimeExact', isTimeExact);
       logMsg += '\nisTimeExact: ' + isTimeExact;
     }
-    if (designDocumentId !== undefined) {
+    if (designDocumentId) {
       params = params.append('designDocumentId', designDocumentId);
       logMsg += '\ndesignDocumentId: ' + designDocumentId;
     }
