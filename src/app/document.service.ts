@@ -44,13 +44,21 @@ export class DocumentService {
       );
   }
 
-  getDocumentById(id: string, resourceType: string, keySwitchSessionId?: string): Observable<Document> {
+  getDocumentById(id: string, resourceType: string, keySwitchSessionId?: string, numSharesExpected?: string): Observable<Document> {
     let params = new HttpParams().set('resourceType', resourceType);
     let logMsg = 'getDocumentById' + '\nresourceType: ' + resourceType;
 
     if (keySwitchSessionId) {
       params = params.set('keySwitchSessionId', keySwitchSessionId);
       logMsg += '\nkeySwitchSessionId: ' + keySwitchSessionId;
+    }
+
+    // Temporarily set numSharesExpected to '2'
+    numSharesExpected = '2';
+
+    if (numSharesExpected) {
+      params = params.set('numSharesExpected', numSharesExpected);
+      logMsg += '\nnumSharesExpected: ' + numSharesExpected;
     }
 
     return this.http.get<Document>(this.documentUrl + '/' + id, { params: params })
@@ -156,13 +164,21 @@ export class DocumentService {
       );
   }
 
-  getDocumentPropertiesById(id: string, keySwitchSessionId?: string): Observable<DocumentProperties> {
+  getDocumentPropertiesById(id: string, keySwitchSessionId?: string, numSharesExpected?: string): Observable<DocumentProperties> {
     let params = new HttpParams();
     let logMsg = 'getDocumentPropertiesById';
 
     if (keySwitchSessionId) {
       params = params.set('keySwitchSessionId', keySwitchSessionId);
       logMsg += '\nkeySwitchSessionId: ' + keySwitchSessionId;
+    }
+
+    // Temporarily set numSharesExpected to '2'
+    numSharesExpected = '2';
+
+    if (numSharesExpected) {
+      params = params.set('numSharesExpected', numSharesExpected);
+      logMsg += '\nnumSharesExpected: ' + numSharesExpected;
     }
 
     return this.http.get<DocumentProperties>(this.documentUrl + '/' + id + '/properties', { params: params })
