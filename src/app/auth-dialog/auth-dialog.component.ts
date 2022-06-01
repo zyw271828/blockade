@@ -30,7 +30,10 @@ export class AuthDialogComponent implements OnInit {
   onSubmit(): void {
     if (this.authDialogForm.valid) {
       this.keySwitchService.createKeySwitchTrigger(this.authDialogForm.value as KeySwitchTrigger)
-        .subscribe(resourceCreationInfo => {
+        .subscribe(async resourceCreationInfo => {
+          // Waiting for backend processing
+          await new Promise(f => setTimeout(f, 3000));
+
           this.keySwitchSessionId = resourceCreationInfo.transactionId;
           this.dialogRef.close();
         });
