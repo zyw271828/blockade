@@ -85,9 +85,9 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
         if (row.entityAssetId === undefined) {
           row.entityAssetId = documentProperties.entityAssetId;
         }
-
-        this.openDetailDialog(row);
       });
+
+      this.openDetailDialog(row);
     } else { // row.name, row.documentType, row.precedingDocumentId, row.headDocumentId, row.entityAssetId are not undefined
       this.openDetailDialog(row);
     }
