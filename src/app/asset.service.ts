@@ -37,13 +37,21 @@ export class AssetService {
       );
   }
 
-  getAssetById(id: string, resourceType: string, keySwitchSessionId?: string): Observable<Asset> {
+  getAssetById(id: string, resourceType: string, keySwitchSessionId?: string, numSharesExpected?: string): Observable<Asset> {
     let params = new HttpParams().set('resourceType', resourceType);
     let logMsg = 'getAssetById' + '\nresourceType: ' + resourceType;
 
     if (keySwitchSessionId) {
       params = params.set('keySwitchSessionId', keySwitchSessionId);
       logMsg += '\nkeySwitchSessionId: ' + keySwitchSessionId;
+    }
+
+    // Temporarily set numSharesExpected to '2'
+    numSharesExpected = '2';
+
+    if (numSharesExpected) {
+      params = params.set('numSharesExpected', numSharesExpected);
+      logMsg += '\nnumSharesExpected: ' + numSharesExpected;
     }
 
     return this.http.get<Asset>(this.assetUrl() + '/' + id, { params: params })
