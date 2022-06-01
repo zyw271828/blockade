@@ -151,7 +151,7 @@ export class DocumentQueryResultDetailDialog {
       width: '350px',
       data: {
         title: '身份验证',
-        resourceID: this.findInDataSource(dataSource, '资源 ID')
+        resourceId: this.findInDataSource(dataSource, '资源 ID')
       }
     });
 
