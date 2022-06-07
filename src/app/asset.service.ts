@@ -47,7 +47,9 @@ export class AssetService {
     }
 
     // Temporarily set numSharesExpected to '2'
-    numSharesExpected = '2';
+    if (resourceType != 'Plain') {
+      numSharesExpected = '2';
+    }
 
     if (numSharesExpected) {
       params = params.set('numSharesExpected', numSharesExpected);
@@ -57,7 +59,7 @@ export class AssetService {
     return this.http.get<Asset>(this.assetUrl() + '/' + id, { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
-        catchError(this.handleError<Asset>('getAssetById'))
+        catchError(this.handleError<Asset>('getAssetById', <Asset>{}))
       );
   }
 
