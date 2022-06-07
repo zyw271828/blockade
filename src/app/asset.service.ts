@@ -93,7 +93,7 @@ export class AssetService {
       params = params.append('name', name);
       logMsg += '\nname: ' + name;
     }
-    if (isNameExact !== undefined) {
+    if (isNameExact !== undefined && isNameExact !== null) {
       params = params.append('isNameExact', isNameExact);
       logMsg += '\nisNameExact: ' + isNameExact;
     }
@@ -109,7 +109,7 @@ export class AssetService {
       params = params.append('timeBeforeExclusive', timeBeforeExclusive);
       logMsg += '\ntimeBeforeExclusive: ' + timeBeforeExclusive;
     }
-    if (isTimeExact !== undefined) {
+    if (isTimeExact !== undefined && isTimeExact !== null) {
       params = params.append('isTimeExact', isTimeExact);
       logMsg += '\nisTimeExact: ' + isTimeExact;
     }
