@@ -57,7 +57,7 @@ export class AssetService {
     return this.http.get<Asset>(this.assetUrl + '/' + id, { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
-        catchError(this.handleError<Asset>('getAssetById'))
+        catchError(this.handleError<Asset>('getAssetById', <Asset>{}))
       );
   }
 
