@@ -103,7 +103,7 @@ export class DocumentService {
       params = params.append('name', name);
       logMsg += '\nname: ' + name;
     }
-    if (isNameExact) {
+    if (isNameExact !== undefined) {
       params = params.append('isNameExact', isNameExact);
       logMsg += '\nisNameExact: ' + isNameExact;
     }
@@ -119,7 +119,7 @@ export class DocumentService {
       params = params.append('timeBeforeExclusive', timeBeforeExclusive);
       logMsg += '\ntimeBeforeExclusive: ' + timeBeforeExclusive;
     }
-    if (isTimeExact) {
+    if (isTimeExact !== undefined) {
       params = params.append('isTimeExact', isTimeExact);
       logMsg += '\nisTimeExact: ' + isTimeExact;
     }
