@@ -54,7 +54,9 @@ export class DocumentService {
     }
 
     // Temporarily set numSharesExpected to '2'
-    numSharesExpected = '2';
+    if (resourceType != 'Plain') {
+      numSharesExpected = '2';
+    }
 
     if (numSharesExpected) {
       params = params.set('numSharesExpected', numSharesExpected);
@@ -64,7 +66,7 @@ export class DocumentService {
     return this.http.get<Document>(this.documentUrl + '/' + id, { params: params })
       .pipe(
         tap(_ => console.log(logMsg)),
-        catchError(this.handleError<Document>('getDocumentById'))
+        catchError(this.handleError<Document>('getDocumentById', <Document>{}))
       );
   }
 
