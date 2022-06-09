@@ -22,6 +22,8 @@ export class AuthDialogComponent implements OnInit {
 
   keySwitchSessionId: string | undefined = undefined;
 
+  showProgressSpinner: boolean = false;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private keySwitchService: KeySwitchService, private fb: FormBuilder, private dialogRef: MatDialogRef<AuthDialogComponent>) { }
 
   ngOnInit(): void {
@@ -32,7 +34,9 @@ export class AuthDialogComponent implements OnInit {
       this.keySwitchService.createKeySwitchTrigger(this.authDialogForm.value as KeySwitchTrigger)
         .subscribe(async resourceCreationInfo => {
           // Waiting for backend processing
-          await new Promise(f => setTimeout(f, 3000));
+          this.showProgressSpinner = true;
+          await new Promise(f => setTimeout(f, 15000));
+          this.showProgressSpinner = false;
 
           this.keySwitchSessionId = resourceCreationInfo.transactionId;
           this.dialogRef.close();

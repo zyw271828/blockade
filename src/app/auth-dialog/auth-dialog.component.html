@@ -14,7 +14,13 @@
       <button mat-button mat-dialog-close type="button" routerLink="/auth/request">申请</button>
       <div fxFlex></div>
       <button mat-button mat-dialog-close type="button">取消</button>
-      <button mat-button cdkFocusInitial type="submit">提交</button>
+      <button [disabled]="showProgressSpinner" mat-button cdkFocusInitial type="submit">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          提交
+          <div *ngIf="showProgressSpinner" style="width: 8px;"></div>
+          <mat-spinner *ngIf="showProgressSpinner" [diameter]="20"></mat-spinner>
+        </div>
+      </button>
     </div>
   </div>
 </form>
