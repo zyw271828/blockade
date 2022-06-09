@@ -12,6 +12,7 @@
   "*&pageSize=20*": "$1-20$2",
   "*&bookmark=*": "$1",
   "*?keySwitchSessionId=*": "$1",
+  "*?numSharesExpected=*": "$1",
   "/documents/list*": "/ids-list$1",
   "/document/:id/properties": "/document-properties/:id",
   "/document/:id/metadata": "/document-metadata/:id",
