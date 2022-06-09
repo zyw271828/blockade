@@ -35,7 +35,7 @@ export class AuthDialogComponent implements OnInit {
         .subscribe(async resourceCreationInfo => {
           // Waiting for backend processing
           this.showProgressSpinner = true;
-          await new Promise(f => setTimeout(f, 3000));
+          await new Promise(f => setTimeout(f, 15000));
           this.showProgressSpinner = false;
 
           this.keySwitchSessionId = resourceCreationInfo.transactionId;
