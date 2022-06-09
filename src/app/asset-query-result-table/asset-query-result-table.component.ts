@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { AssetQueryComponent } from '../asset-query/asset-query.component';
@@ -129,7 +130,7 @@ export class AssetQueryResultDetailDialog {
 
   mask: string = Utils.mask;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private assetService: AssetService, public dialog: MatDialog) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private assetService: AssetService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   decryptAsset(dataSource: { item: string; value: string; }[]) {
     let authDialog = this.dialog.open(AuthDialogComponent, {
@@ -177,12 +178,39 @@ export class AssetQueryResultDetailDialog {
     resourceType = Utils.getRawResourceType('asset', resourceType);
 
     this.assetService.getAssetById(resourceId, resourceType, keySwitchSessionId).subscribe(asset => {
-      let file = new File([window.atob(String())], asset.name); // TODO: download asset by resourceId
-      let link = self.document.createElement('a');
+      if (asset.componentIds !== undefined) {
+        let file = new File([String(asset.componentIds)], asset.name);
+        let link = self.document.createElement('a');
 
-      link.href = window.URL.createObjectURL(file);
-      link.download = asset.name;
-      link.click();
+        link.href = window.URL.createObjectURL(file);
+        link.download = asset.name;
+        link.click();
+      } else { // asset.componentIds is undefined
+        let authDialog = this.dialog.open(AuthDialogComponent, {
+          width: '350px',
+          data: {
+            title: 'Authentication',
+            resourceId: resourceId
+          }
+        });
+
+        authDialog.afterClosed().subscribe(() => {
+          this.assetService.getAssetById(resourceId, resourceType, authDialog.componentInstance.keySwitchSessionId).subscribe(asset => {
+            if (asset.componentIds !== undefined) {
+              let file = new File([String(asset.componentIds)], asset.name);
+              let link = self.document.createElement('a');
+
+              link.href = window.URL.createObjectURL(file);
+              link.download = asset.name;
+              link.click();
+            } else { // asset.componentIds is undefined
+              this._snackBar.open('Failed to download asset', 'DISMISS', {
+                duration: 5000
+              });
+            }
+          });
+        });
+      }
     });
   }
 
