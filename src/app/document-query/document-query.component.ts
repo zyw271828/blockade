@@ -17,22 +17,22 @@ export class DocumentQueryComponent implements OnInit {
   currentQueryMethod: string = this.queryMethods[0];
 
   documentIdQueryForm = this.fb.group({
-    resourceType: [null, Validators.required],
-    resourceId: [null, Validators.required]
+    resourceType: [<string | null>null, Validators.required],
+    resourceId: [<string | null>null, Validators.required]
   });
 
   documentConditionalQueryForm = this.fb.group({
-    resourceId: null,
-    name: null,
-    isNameExact: null,
-    time: null,
-    timeAfterInclusive: null,
-    timeBeforeExclusive: null,
-    isTimeExact: null,
-    documentType: null,
-    precedingDocumentId: null,
-    headDocumentId: null,
-    entityAssetId: null
+    resourceId: <string | null>null,
+    name: <string | null>null,
+    isNameExact: <boolean | null>null,
+    time: <string | null>null,
+    timeAfterInclusive: <string | null>null,
+    timeBeforeExclusive: <string | null>null,
+    isTimeExact: <boolean | null>null,
+    documentType: <string | null>null,
+    precedingDocumentId: <string | null>null,
+    headDocumentId: <string | null>null,
+    entityAssetId: <string | null>null
   });
 
   resourceTypes: string[] = Utils.getResourceTypes('document');
@@ -49,7 +49,7 @@ export class DocumentQueryComponent implements OnInit {
   }
 
   clearDocumentType() {
-    this.documentConditionalQueryForm.get("documentType")?.setValue(null);
+    this.documentConditionalQueryForm.get('documentType')?.setValue(null);
   }
 
   onIdQuerySubmit(): void {

@@ -1,4 +1,4 @@
-import { formatDate } from "@angular/common";
+import { formatDate } from '@angular/common';
 
 interface Dictionary<T> {
   [key: string]: T;

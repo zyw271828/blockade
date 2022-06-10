@@ -25,6 +25,10 @@ export interface DocumentQueryResultTableItem {
   entityAssetId: string;
 }
 
+interface Dictionary<T> {
+  [key: string]: T;
+}
+
 /**
  * Data source for the DocumentQueryResultTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
@@ -107,11 +111,11 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
 
       for (let key in this.documentQueryComponent.documentConditionalQueryForm.value) {
         if (key.startsWith('time')) { // time, timeAfterInclusive, timeBeforeExclusive
-          formValues.push(this.documentQueryComponent.documentConditionalQueryForm.value[key]?.toJSON());
-        } else if (key === 'documentType' && this.documentQueryComponent.documentConditionalQueryForm.value[key] !== null) {
-          formValues.push(Utils.getRawDocumentType(this.documentQueryComponent.documentConditionalQueryForm.value[key]));
+          formValues.push((this.documentQueryComponent.documentConditionalQueryForm.value as Dictionary<Date>)[key]?.toJSON());
+        } else if (key === 'documentType' && (this.documentQueryComponent.documentConditionalQueryForm.value as Dictionary<string>)[key] !== null) {
+          formValues.push(Utils.getRawDocumentType((this.documentQueryComponent.documentConditionalQueryForm.value as Dictionary<string>)[key]));
         } else {
-          formValues.push(this.documentQueryComponent.documentConditionalQueryForm.value[key]);
+          formValues.push((this.documentQueryComponent.documentConditionalQueryForm.value as Dictionary<string>)[key]);
         }
       }
 

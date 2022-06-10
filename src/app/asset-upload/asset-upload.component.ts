@@ -25,13 +25,15 @@ export interface DialogData {
 })
 export class AssetUploadComponent implements OnInit {
   assetUploadForm = this.fb.group({
-    resourceType: [null, Validators.required],
-    name: [null, Validators.required],
-    componentIds: [[], Validators.required],
-    policy: [null, Validators.required]
+    resourceType: [<string | null>null, Validators.required],
+    name: [<string | null>null, Validators.required],
+    componentIds: [<string[]>[], Validators.required],
+    policy: [<string | null>null, Validators.required]
   });
 
   resourceTypes: string[] = Utils.getResourceTypes('asset');
+
+  componentIds: string[] = this.assetUploadForm.get('componentIds')?.value as string[];
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
 
@@ -44,13 +46,13 @@ export class AssetUploadComponent implements OnInit {
 
   resourceTypeChange(value: string) {
     if (value === this.resourceTypes[0]) {
-      this.assetUploadForm.get("policy")?.disable();
+      this.assetUploadForm.get('policy')?.disable();
     } else {
-      this.assetUploadForm.get("policy")?.enable();
+      this.assetUploadForm.get('policy')?.enable();
     }
   }
 
-  get componentIds() {
+  get componentIdsControl() {
     return this.assetUploadForm.get('componentIds');
   }
 
@@ -58,21 +60,21 @@ export class AssetUploadComponent implements OnInit {
     const value = (event.value || '').trim();
 
     if (value) {
-      this.componentIds?.value.push(value);
+      (this.componentIdsControl?.value as string[]).push(value);
     }
 
     event.chipInput!.clear();
-    this.componentIds?.updateValueAndValidity();
+    this.componentIdsControl?.updateValueAndValidity();
   }
 
   removeComponentId(componentId: string): void {
-    const index = this.componentIds?.value.indexOf(componentId);
+    const index = (this.componentIdsControl?.value as string[]).indexOf(componentId);
 
     if (index >= 0) {
-      this.componentIds?.value.splice(index, 1);
+      (this.componentIdsControl?.value as string[]).splice(index, 1);
     }
 
-    this.componentIds?.updateValueAndValidity();
+    this.componentIdsControl?.updateValueAndValidity();
   }
 
   pasteComponentId(event: ClipboardEvent): void {
@@ -80,17 +82,17 @@ export class AssetUploadComponent implements OnInit {
     event.clipboardData?.getData('text').split(/\n|,|\ /)
       .forEach(value => {
         if (value.trim()) {
-          this.componentIds?.value.push(value.trim());
+          (this.componentIdsControl?.value as string[]).push(value.trim());
         }
       })
 
-    this.componentIds?.updateValueAndValidity();
+    this.componentIdsControl?.updateValueAndValidity();
   }
 
   assetUploadResetButtonClick() {
-    this.assetUploadForm.get("policy")?.enable();
+    this.assetUploadForm.get('policy')?.enable();
     this.assetUploadForm.reset();
-    this.componentIds?.setValue([]);
+    this.componentIdsControl?.setValue([]);
   }
 
   onSubmit(): void {

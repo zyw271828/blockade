@@ -17,19 +17,19 @@ export class AssetQueryComponent implements OnInit {
   currentQueryMethod: string = this.queryMethods[0];
 
   assetIdQueryForm = this.fb.group({
-    resourceType: [null, Validators.required],
-    resourceId: [null, Validators.required]
+    resourceType: [<string | null>null, Validators.required],
+    resourceId: [<string | null>null, Validators.required]
   });
 
   assetConditionalQueryForm = this.fb.group({
-    resourceId: null,
-    name: null,
-    isNameExact: null,
-    time: null,
-    timeAfterInclusive: null,
-    timeBeforeExclusive: null,
-    isTimeExact: null,
-    designDocumentId: null
+    resourceId: <string | null>null,
+    name: <string | null>null,
+    isNameExact: <boolean | null>null,
+    time: <string | null>null,
+    timeAfterInclusive: <string | null>null,
+    timeBeforeExclusive: <string | null>null,
+    isTimeExact: <boolean | null>null,
+    designDocumentId: <string | null>null
   });
 
   resourceTypes: string[] = Utils.getResourceTypes('asset');

@@ -22,8 +22,8 @@ export interface DialogData {
 })
 export class AuthRequestComponent implements OnInit {
   authRequestForm = this.fb.group({
-    resourceId: [null, Validators.required],
-    reason: null
+    resourceId: [<string | null>null, Validators.required],
+    reason: <string | null>null
   });
 
   instruction: string = 'Some instructions on the auth request page.';
