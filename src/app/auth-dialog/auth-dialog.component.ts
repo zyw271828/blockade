@@ -16,8 +16,8 @@ export interface DialogData {
 })
 export class AuthDialogComponent implements OnInit {
   authDialogForm = this.fb.group({
-    resourceId: [this.data.resourceId, Validators.required],
-    authSessionId: null
+    resourceId: [<string | null>this.data.resourceId, Validators.required],
+    authSessionId: <string | null>null
   });
 
   keySwitchSessionId: string | undefined = undefined;

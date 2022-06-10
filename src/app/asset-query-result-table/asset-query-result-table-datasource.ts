@@ -22,6 +22,10 @@ export interface AssetQueryResultTableItem {
   designDocumentId: string;
 }
 
+interface Dictionary<T> {
+  [key: string]: T;
+}
+
 /**
  * Data source for the AssetQueryResultTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
@@ -101,9 +105,9 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
 
       for (let key in this.assetQueryComponent.assetConditionalQueryForm.value) {
         if (key.startsWith('time')) { // time, timeAfterInclusive, timeBeforeExclusive
-          formValues.push(this.assetQueryComponent.assetConditionalQueryForm.value[key]?.toJSON());
+          formValues.push((this.assetQueryComponent.assetConditionalQueryForm.value as Dictionary<Date>)[key]?.toJSON());
         } else {
-          formValues.push(this.assetQueryComponent.assetConditionalQueryForm.value[key]);
+          formValues.push((this.assetQueryComponent.assetConditionalQueryForm.value as Dictionary<string>)[key]);
         }
       }
 

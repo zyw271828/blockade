@@ -55,8 +55,8 @@
                   <mat-form-field appearance="outline" fxFlex="auto">
                     <mat-label>组件 ID</mat-label>
                     <mat-chip-list required formControlName="componentIds" #chipList>
-                      <mat-chip *ngFor="let componentId of assetUploadForm.get('componentIds')?.value"
-                        [selectable]="true" [removable]="true" (removed)="removeComponentId(componentId)">
+                      <mat-chip *ngFor="let componentId of componentIds" [selectable]="true" [removable]="true"
+                        (removed)="removeComponentId(componentId)">
                         {{componentId}}
                         <mat-icon matChipRemove>cancel</mat-icon>
                       </mat-chip>

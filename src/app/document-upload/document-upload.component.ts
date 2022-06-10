@@ -23,26 +23,26 @@ export interface DialogData {
 })
 export class DocumentUploadComponent implements OnInit {
   documentUploadForm = this.fb.group({
-    resourceType: [null, Validators.required],
-    documentType: [null, Validators.required],
-    isDocumentTypePublic: false,
-    name: [null, Validators.required],
-    isNamePublic: false,
-    entityAssetId: null,
-    isEntityAssetIdPublic: false,
-    precedingDocumentId: null,
-    isPrecedingDocumentIdPublic: false,
-    headDocumentId: null,
-    isHeadDocumentIdPublic: false,
-    contents: [null, Validators.required],
-    policy: [null, Validators.required]
+    resourceType: [<string | null>null, Validators.required],
+    documentType: [<string | null>null, Validators.required],
+    isDocumentTypePublic: <boolean | null>false,
+    name: [<string | null>null, Validators.required],
+    isNamePublic: <boolean | null>false,
+    entityAssetId: <string | null>null,
+    isEntityAssetIdPublic: <boolean | null>false,
+    precedingDocumentId: <string | null>null,
+    isPrecedingDocumentIdPublic: <boolean | null>false,
+    headDocumentId: <string | null>null,
+    isHeadDocumentIdPublic: <boolean | null>false,
+    contents: [<ArrayBuffer | null>null, Validators.required],
+    policy: [<string | null>null, Validators.required]
   });
 
   resourceTypes: string[] = Utils.getResourceTypes('document');
 
   documentTypes: string[] = Utils.getDocumentTypes();
 
-  filename: string = "";
+  filename: string = '';
 
   instruction: string = '文档上传页面上的一些说明。';
 
@@ -53,43 +53,47 @@ export class DocumentUploadComponent implements OnInit {
 
   checkPrecedingDocumentId() {
     // TODO: change color instead of pop-up prompt
-    let precedingDocumentId = this.documentUploadForm.get("precedingDocumentId")?.value;
+    let precedingDocumentId = this.documentUploadForm.get('precedingDocumentId')?.value;
 
-    this.documentService.checkDocumentIdValidity(precedingDocumentId).subscribe(isValid => {
-      if (isValid) {
-        this._snackBar.open('前序文档 ID「' + precedingDocumentId + '」有效', '关闭', {
-          duration: 5000
-        });
-      } else {
-        this._snackBar.open('前序文档 ID「' + precedingDocumentId + '」无效', '关闭', {
-          duration: 5000
-        });
-      }
-    });
+    if (precedingDocumentId) {
+      this.documentService.checkDocumentIdValidity(precedingDocumentId).subscribe(isValid => {
+        if (isValid) {
+          this._snackBar.open('前序文档 ID「' + precedingDocumentId + '」有效', '关闭', {
+            duration: 5000
+          });
+        } else {
+          this._snackBar.open('前序文档 ID「' + precedingDocumentId + '」无效', '关闭', {
+            duration: 5000
+          });
+        }
+      });
+    }
   }
 
   checkHeadDocumentId() {
     // TODO: change color instead of pop-up prompt
-    let headDocumentId = this.documentUploadForm.get("headDocumentId")?.value;
+    let headDocumentId = this.documentUploadForm.get('headDocumentId')?.value;
 
-    this.documentService.checkDocumentIdValidity(headDocumentId).subscribe(isValid => {
-      if (isValid) {
-        this._snackBar.open('头文档 ID「' + headDocumentId + '」有效', '关闭', {
-          duration: 5000
-        });
-      } else {
-        this._snackBar.open('头文档 ID「' + headDocumentId + '」无效', '关闭', {
-          duration: 5000
-        });
-      }
-    });
+    if (headDocumentId) {
+      this.documentService.checkDocumentIdValidity(headDocumentId).subscribe(isValid => {
+        if (isValid) {
+          this._snackBar.open('头文档 ID「' + headDocumentId + '」有效', '关闭', {
+            duration: 5000
+          });
+        } else {
+          this._snackBar.open('头文档 ID「' + headDocumentId + '」无效', '关闭', {
+            duration: 5000
+          });
+        }
+      });
+    }
   }
 
   resourceTypeChange(value: string) {
     if (value === this.resourceTypes[0]) {
-      this.documentUploadForm.get("policy")?.disable();
+      this.documentUploadForm.get('policy')?.disable();
     } else {
-      this.documentUploadForm.get("policy")?.enable();
+      this.documentUploadForm.get('policy')?.enable();
     }
   }
 
@@ -107,11 +111,11 @@ export class DocumentUploadComponent implements OnInit {
     let fileData = await toFileData(fileInputEvent.target.files[0]);
 
     this.filename = fileInputEvent.target.files[0].name;
-    this.documentUploadForm.get('contents')?.setValue(fileData);
+    this.documentUploadForm.get('contents')?.setValue(fileData as ArrayBuffer);
   }
 
   documentUploadResetButtonClick() {
-    this.documentUploadForm.get("policy")?.enable();
+    this.documentUploadForm.get('policy')?.enable();
     this.documentUploadForm.reset();
   }
 
