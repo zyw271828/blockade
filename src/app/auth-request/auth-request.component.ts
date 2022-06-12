@@ -36,13 +36,15 @@ export class AuthRequestComponent implements OnInit {
   onSubmit(): void {
     if (this.authRequestForm.valid) {
       this.authService.requestAuth(this.authRequestForm.value as AuthRequest)
-        .subscribe(resourceCreationInfo => {
+        .subscribe(authCreationInfo => {
           this.dialog.open(AuthRequestPromptDialog, {
             disableClose: true,
             data: {
               title: '申请成功',
               content: [
-                { item: '交易 ID', value: resourceCreationInfo.transactionId }
+                { item: '授权会话 ID', value: authCreationInfo.authSessionId },
+                { item: '交易 ID', value: authCreationInfo.transactionId },
+                { item: '区块 ID', value: authCreationInfo.blockId }
               ],
               action: '关闭'
             }
