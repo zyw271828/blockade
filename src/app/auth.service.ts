@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { AuthCreationInfo } from './auth-creation-info';
 import { AuthRequest } from './auth-request';
 import { AuthResponse } from './auth-response';
 import { AuthSession } from './auth-session';
 import { NotificationComponent } from './notification/notification.component';
-import { ResourceCreationInfo } from './resource-creation-info';
 import { TableRecordData } from './table-record-data';
 
 @Injectable({
@@ -23,7 +23,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private notificationComponent: NotificationComponent) { }
 
-  requestAuth(authRequest: AuthRequest): Observable<ResourceCreationInfo> {
+  requestAuth(authRequest: AuthRequest): Observable<AuthCreationInfo> {
     let formData = new FormData();
 
     (Object.keys(authRequest) as Array<keyof typeof authRequest>).map(name => {
@@ -32,14 +32,14 @@ export class AuthService {
       formData.set(name, value);
     });
 
-    return this.http.post<ResourceCreationInfo>(this.authRequestUrl(), formData)
+    return this.http.post<AuthCreationInfo>(this.authRequestUrl(), formData)
       .pipe(
         tap(_ => console.log('requestAuth')),
-        catchError(this.handleError<ResourceCreationInfo>('requestAuth'))
+        catchError(this.handleError<AuthCreationInfo>('requestAuth'))
       );
   }
 
-  responseAuth(authResponse: AuthResponse): Observable<ResourceCreationInfo> {
+  responseAuth(authResponse: AuthResponse): Observable<AuthCreationInfo> {
     let formData = new FormData();
 
     (Object.keys(authResponse) as Array<keyof typeof authResponse>).map(name => {
@@ -48,10 +48,10 @@ export class AuthService {
       formData.set(name, value);
     });
 
-    return this.http.post<ResourceCreationInfo>(this.authResponseUrl(), formData)
+    return this.http.post<AuthCreationInfo>(this.authResponseUrl(), formData)
       .pipe(
         tap(_ => console.log('responseAuth')),
-        catchError(this.handleError<ResourceCreationInfo>('responseAuth'))
+        catchError(this.handleError<AuthCreationInfo>('responseAuth'))
       );
   }
 

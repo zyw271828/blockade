@@ -57,11 +57,13 @@ export class AuthApproveTableComponent implements AfterViewInit {
     this.authService.responseAuth({
       authSessionId: authSessionId,
       result: true
-    } as AuthResponse).subscribe(resourceCreationInfo => {
+    } as AuthResponse).subscribe(authCreationInfo => {
       this._snackBar.open('已允许：'
         + authSessionId.match(/.{1,4}/g)?.join(' ')
         + '\n交易 ID：'
-        + resourceCreationInfo.transactionId.match(/.{1,4}/g)?.join(' '), '关闭', {
+        + authCreationInfo.transactionId.match(/.{1,4}/g)?.join(' ')
+        + '\n区块 ID：'
+        + authCreationInfo.blockId.match(/.{1,4}/g)?.join(' '), '关闭', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });
@@ -72,11 +74,13 @@ export class AuthApproveTableComponent implements AfterViewInit {
     this.authService.responseAuth({
       authSessionId: authSessionId,
       result: false
-    } as AuthResponse).subscribe(resourceCreationInfo => {
+    } as AuthResponse).subscribe(authCreationInfo => {
       this._snackBar.open('已拒绝：'
         + authSessionId.match(/.{1,4}/g)?.join(' ')
         + '\n交易 ID：'
-        + resourceCreationInfo.transactionId.match(/.{1,4}/g)?.join(' '), '关闭', {
+        + authCreationInfo.transactionId.match(/.{1,4}/g)?.join(' ')
+        + '\n区块 ID：'
+        + authCreationInfo.blockId.match(/.{1,4}/g)?.join(' '), '关闭', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });

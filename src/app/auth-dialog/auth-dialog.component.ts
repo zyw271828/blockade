@@ -16,8 +16,8 @@ export interface DialogData {
 })
 export class AuthDialogComponent implements OnInit {
   authDialogForm = this.fb.group({
-    resourceId: [this.data.resourceId, Validators.required],
-    authSessionId: null
+    resourceId: [<string | null>this.data.resourceId, Validators.required],
+    authSessionId: <string | null>null
   });
 
   keySwitchSessionId: string | undefined = undefined;
@@ -32,13 +32,13 @@ export class AuthDialogComponent implements OnInit {
   onSubmit(): void {
     if (this.authDialogForm.valid) {
       this.keySwitchService.createKeySwitchTrigger(this.authDialogForm.value as KeySwitchTrigger)
-        .subscribe(async resourceCreationInfo => {
+        .subscribe(async keySwitchCreationInfo => {
           // Waiting for backend processing
           this.showProgressSpinner = true;
           await new Promise(f => setTimeout(f, 15000));
           this.showProgressSpinner = false;
 
-          this.keySwitchSessionId = resourceCreationInfo.transactionId;
+          this.keySwitchSessionId = keySwitchCreationInfo.keySwitchSessionId;
           this.dialogRef.close();
         });
     }

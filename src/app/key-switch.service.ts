@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { environment } from '../environments/environment';
+import { KeySwitchCreationInfo } from './key-switch-creation-info';
 import { KeySwitchTrigger } from './key-switch-trigger';
 import { NotificationComponent } from './notification/notification.component';
-import { ResourceCreationInfo } from './resource-creation-info';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class KeySwitchService {
 
   constructor(private http: HttpClient, private notificationComponent: NotificationComponent) { }
 
-  createKeySwitchTrigger(keySwitchTrigger: KeySwitchTrigger): Observable<ResourceCreationInfo> {
+  createKeySwitchTrigger(keySwitchTrigger: KeySwitchTrigger): Observable<KeySwitchCreationInfo> {
     let formData = new FormData();
 
     (Object.keys(keySwitchTrigger) as Array<keyof typeof keySwitchTrigger>).map(name => {
@@ -24,10 +24,10 @@ export class KeySwitchService {
       formData.set(name, value);
     });
 
-    return this.http.post<ResourceCreationInfo>(this.keySwitchTriggerUrl(), formData)
+    return this.http.post<KeySwitchCreationInfo>(this.keySwitchTriggerUrl(), formData)
       .pipe(
         tap(_ => console.log('createKeySwitchTrigger')),
-        catchError(this.handleError<ResourceCreationInfo>('createKeySwitchTrigger'))
+        catchError(this.handleError<KeySwitchCreationInfo>('createKeySwitchTrigger'))
       );
   }
 
