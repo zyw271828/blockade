@@ -57,11 +57,13 @@ export class AuthApproveTableComponent implements AfterViewInit {
     this.authService.responseAuth({
       authSessionId: authSessionId,
       result: true
-    } as AuthResponse).subscribe(resourceCreationInfo => {
+    } as AuthResponse).subscribe(authCreationInfo => {
       this._snackBar.open('Allowed: '
         + authSessionId.match(/.{1,4}/g)?.join(' ')
         + '\nTransactionId: '
-        + resourceCreationInfo.transactionId.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
+        + authCreationInfo.transactionId.match(/.{1,4}/g)?.join(' ')
+        + '\nBlockId: '
+        + authCreationInfo.blockId.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });
@@ -72,11 +74,13 @@ export class AuthApproveTableComponent implements AfterViewInit {
     this.authService.responseAuth({
       authSessionId: authSessionId,
       result: false
-    } as AuthResponse).subscribe(resourceCreationInfo => {
+    } as AuthResponse).subscribe(authCreationInfo => {
       this._snackBar.open('Denied: '
         + authSessionId.match(/.{1,4}/g)?.join(' ')
         + '\nTransactionId: '
-        + resourceCreationInfo.transactionId.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
+        + authCreationInfo.transactionId.match(/.{1,4}/g)?.join(' ')
+        + '\nBlockId: '
+        + authCreationInfo.blockId.match(/.{1,4}/g)?.join(' '), 'DISMISS', {
         duration: 5000,
         panelClass: ['result-snackbar']
       });

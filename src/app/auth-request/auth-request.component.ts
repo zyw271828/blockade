@@ -36,13 +36,15 @@ export class AuthRequestComponent implements OnInit {
   onSubmit(): void {
     if (this.authRequestForm.valid) {
       this.authService.requestAuth(this.authRequestForm.value as AuthRequest)
-        .subscribe(resourceCreationInfo => {
+        .subscribe(authCreationInfo => {
           this.dialog.open(AuthRequestPromptDialog, {
             disableClose: true,
             data: {
               title: 'Request successfully',
               content: [
-                { item: 'TransactionId', value: resourceCreationInfo.transactionId }
+                { item: 'AuthSessionId', value: authCreationInfo.authSessionId },
+                { item: 'TransactionId', value: authCreationInfo.transactionId },
+                { item: 'BlockId', value: authCreationInfo.blockId }
               ],
               action: 'Close'
             }

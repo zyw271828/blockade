@@ -105,7 +105,8 @@ export class AssetUploadComponent implements OnInit {
         .subscribe(resourceCreationInfo => {
           let content = [
             { item: 'ResourceId', value: resourceCreationInfo.resourceId },
-            { item: 'TransactionId', value: resourceCreationInfo.transactionId }
+            { item: 'TransactionId', value: resourceCreationInfo.transactionId },
+            { item: 'BlockId', value: resourceCreationInfo.blockId }
           ];
 
           if (resourceCreationInfo.symmetricKeyMaterial !== undefined) {
