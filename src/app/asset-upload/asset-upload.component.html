@@ -45,6 +45,26 @@
                       名称为<strong>必填项</strong>
                     </mat-error>
                   </mat-form-field>
+                  <div *ngIf="assetUploadForm.get('resourceType')?.value !== this.resourceTypes[0]" class="misc-margin">
+                    <mat-checkbox fxFlex="auto" formControlName="isNamePublic">IsPublic</mat-checkbox>
+                  </div>
+                </div>
+
+                <!-- Design Document ID -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">pin</mat-icon>
+                  </div>
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Design Document ID</mat-label>
+                    <input matInput required formControlName="designDocumentId">
+                    <mat-error *ngIf="assetUploadForm.controls['designDocumentId'].hasError('required')">
+                      Design Document ID is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  <div *ngIf="assetUploadForm.get('resourceType')?.value !== this.resourceTypes[0]" class="misc-margin">
+                    <mat-checkbox fxFlex="auto" formControlName="isDesignDocumentIdPublic">IsPublic</mat-checkbox>
+                  </div>
                 </div>
 
                 <!-- Component IDs -->
