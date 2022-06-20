@@ -91,8 +91,13 @@ export class AssetUploadComponent implements OnInit {
 
   assetUploadResetButtonClick() {
     this.assetUploadForm.get('policy')?.enable();
-    this.assetUploadForm.reset();
-    this.componentIdsControl?.setValue([]);
+    this.assetUploadForm.reset({
+      resourceType: <string | null>null,
+      name: <string | null>null,
+      componentIds: <string[]>[],
+      policy: <string | null>null
+    });
+    this.componentIds = this.componentIdsControl?.value as string[];
   }
 
   onSubmit(): void {
