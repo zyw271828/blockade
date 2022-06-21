@@ -27,6 +27,9 @@ export class AssetUploadComponent implements OnInit {
   assetUploadForm = this.fb.group({
     resourceType: [<string | null>null, Validators.required],
     name: [<string | null>null, Validators.required],
+    isNamePublic: <boolean | null>false,
+    designDocumentId: [<string | null>null, Validators.required],
+    isDesignDocumentIdPublic: <boolean | null>false,
     componentIds: [<string[]>[], Validators.required],
     policy: [<string | null>null, Validators.required]
   });
@@ -91,8 +94,16 @@ export class AssetUploadComponent implements OnInit {
 
   assetUploadResetButtonClick() {
     this.assetUploadForm.get('policy')?.enable();
-    this.assetUploadForm.reset();
-    this.componentIdsControl?.setValue([]);
+    this.assetUploadForm.reset({
+      resourceType: <string | null>null,
+      name: <string | null>null,
+      isNamePublic: <boolean | null>false,
+      designDocumentId: <string | null>null,
+      isDesignDocumentIdPublic: <boolean | null>false,
+      componentIds: <string[]>[],
+      policy: <string | null>null
+    });
+    this.componentIds = this.componentIdsControl?.value as string[];
   }
 
   onSubmit(): void {
