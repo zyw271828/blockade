@@ -73,13 +73,13 @@ export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem>
               id: index,
               resourceId: authSession.resourceId,
               resourceType: Utils.getResourceType(
-                (resourceMetadata.extensions.dataType === 'Document') ? 'document' : 'asset',
+                (resourceMetadata.extensions.dataType === Utils.getRawDataType(Utils.getDataTypes()[0])) ? 'document' : 'asset',
                 resourceMetadata.resourceType
               ),
               name: resourceMetadata.extensions.name,
               authSessionId: authSession.authSessionId,
               status: Utils.getAuthSessionStatus(authSession.status),
-              dataType: resourceMetadata.extensions.dataType
+              dataType: Utils.getDataType(resourceMetadata.extensions.dataType)
             };
           }));
       }))

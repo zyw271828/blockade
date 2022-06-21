@@ -86,7 +86,7 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
               id: index,
               resourceId: authSession.resourceId,
               resourceType: Utils.getResourceType(
-                (resourceMetadata.extensions.dataType === 'Document') ? 'document' : 'asset',
+                (resourceMetadata.extensions.dataType === Utils.getRawDataType(Utils.getDataTypes()[0])) ? 'document' : 'asset',
                 resourceMetadata.resourceType
               ),
               name: resourceMetadata.extensions.name,
@@ -98,7 +98,7 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
               ciphertextSize: resourceMetadata.sizeStored,
               creator: resourceMetadata.creator,
               creationTime: Utils.formatDate(resourceMetadata.timestamp),
-              dataType: resourceMetadata.extensions.dataType,
+              dataType: Utils.getDataType(resourceMetadata.extensions.dataType),
               documentType: Utils.getDocumentType((resourceMetadata as DocumentMetadata).extensions.documentType),
               precedingDocumentId: (resourceMetadata as DocumentMetadata).extensions.precedingDocumentId,
               headDocumentId: (resourceMetadata as DocumentMetadata).extensions.headDocumentId,

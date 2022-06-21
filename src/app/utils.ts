@@ -24,6 +24,11 @@ export class Utils {
     Encrypted: 'Encryption'
   };
 
+  private static dataTypes: Dictionary<string> = {
+    Document: 'Document',
+    EntityAsset: 'EntityAsset'
+  };
+
   private static authSessionStatuses: Dictionary<string> = {
     Pending: 'Unknown',
     Approved: 'Allow',
@@ -88,6 +93,26 @@ export class Utils {
     let rawDocumentType = Object.keys(this.documentTypes).find(key => this.documentTypes[key] === documentType);
 
     return rawDocumentType === undefined ? documentType : rawDocumentType;
+  }
+
+  static getDataType(dataType: string): string {
+    return this.dataTypes[dataType];
+  }
+
+  static getDataTypes(): string[] {
+    let dataTypes: string[] = [];
+
+    Object.entries(this.dataTypes).forEach(
+      ([_, value]) => dataTypes.push(value)
+    );
+
+    return dataTypes;
+  }
+
+  static getRawDataType(dataType: string): string {
+    let rawDataType = Object.keys(this.dataTypes).find(key => this.dataTypes[key] === dataType);
+
+    return rawDataType === undefined ? dataType : rawDataType;
   }
 
   static getAuthSessionStatus(authSessionStatus: string): string {

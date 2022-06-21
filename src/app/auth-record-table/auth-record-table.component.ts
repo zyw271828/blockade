@@ -64,6 +64,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
 
   showDetail(row: AuthRecordTableItem) {
     let content = [
+      { item: 'DataType', value: row.dataType },
       { item: 'ResourceId', value: row.resourceId },
       { item: 'Name', value: row.name },
       { item: 'ResourceType', value: row.resourceType },
@@ -75,16 +76,14 @@ export class AuthRecordTableComponent implements AfterViewInit {
       { item: 'CreationTime', value: row.creationTime }
     ];
 
-    if (row.dataType === 'Document') {
+    if (row.dataType === Utils.getRawDataType(Utils.getDataTypes()[0])) { // dataType is Document
       content.push(
         { item: 'DocumentType', value: row.documentType },
         { item: 'PrecedingDocumentId', value: row.precedingDocumentId },
         { item: 'HeadDocumentId', value: row.headDocumentId },
         { item: 'EntityAssetId', value: row.entityAssetId }
       );
-    }
-
-    if (row.dataType === 'EntityAsset') {
+    } else { // dataType is EntityAsset
       content.push({ item: 'DesignDocumentId', value: row.designDocumentId });
     }
 
