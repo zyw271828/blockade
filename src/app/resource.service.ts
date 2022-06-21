@@ -12,12 +12,12 @@ import { NotificationComponent } from './notification/notification.component';
 })
 export class ResourceService {
 
-  private resourceUrl = environment.apiEndpoint + '/resource';
+  private resourceUrl = (): string => { return environment.apiEndpoint + '/resource' };
 
   constructor(private http: HttpClient, private notificationComponent: NotificationComponent) { }
 
   getResourceMetadataById(id: string): Observable<DocumentMetadata | AssetMetadata> {
-    return this.http.get<DocumentMetadata | AssetMetadata>(this.resourceUrl + '/' + id + '/metadata')
+    return this.http.get<DocumentMetadata | AssetMetadata>(this.resourceUrl() + '/' + id + '/metadata')
       .pipe(
         tap(_ => console.log('getResourceMetadataById')),
         catchError(this.handleError<DocumentMetadata | AssetMetadata>('getResourceMetadataById'))
