@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { AuthResponse } from '../auth-response';
 import { AuthService } from '../auth.service';
+import { ResourceService } from '../resource.service';
 import { Utils } from '../utils';
 import { AuthApproveTableDataSource, AuthApproveTableItem } from './auth-approve-table-datasource';
 
@@ -35,8 +36,8 @@ export class AuthApproveTableComponent implements AfterViewInit {
 
   currentPageSize: number = 10;
 
-  constructor(private authService: AuthService, private _snackBar: MatSnackBar) {
-    this.dataSource = new AuthApproveTableDataSource(this.authService);
+  constructor(private authService: AuthService, private resourceService: ResourceService, private _snackBar: MatSnackBar) {
+    this.dataSource = new AuthApproveTableDataSource(this.authService, this.resourceService);
   }
 
   ngAfterViewInit(): void {

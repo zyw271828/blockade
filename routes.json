@@ -19,6 +19,7 @@
   "/identity/documents/list*": "/ids-list$1",
   "/assets/list*": "/ids-list$1",
   "/asset/:id/metadata": "/asset-metadata/:id",
+  "/resource/:id/metadata": "/resource-metadata/:id",
   "/identity/assets/list*": "/ids-list$1",
   "/identity/auths/request-list*": "/ids-list$1",
   "*?pageSize=5*": "$1-5$2",

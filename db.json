@@ -1512,6 +1512,358 @@
       "sizeStored": 0
     }
   ],
+  "resource-metadata": [
+    {
+      "id": 1,
+      "resourceType": "Plain",
+      "resourceId": "20",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "DesignDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 2,
+      "resourceType": "Encrypted",
+      "resourceId": "19",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 3,
+      "resourceType": "Offchain",
+      "resourceId": "18",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "TransferDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 4,
+      "resourceType": "Plain",
+      "resourceId": "17",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 5,
+      "resourceType": "Encrypted",
+      "resourceId": "16",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "RepairDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 6,
+      "resourceType": "Encrypted",
+      "resourceId": "15",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 7,
+      "resourceType": "Plain",
+      "resourceId": "14",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "ProductionDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 8,
+      "resourceType": "Encrypted",
+      "resourceId": "13",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 9,
+      "resourceType": "Offchain",
+      "resourceId": "12",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "UsageDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 10,
+      "resourceType": "Plain",
+      "resourceId": "11",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 11,
+      "resourceType": "Encrypted",
+      "resourceId": "10",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "DesignDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 12,
+      "resourceType": "Encrypted",
+      "resourceId": "9",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 13,
+      "resourceType": "Plain",
+      "resourceId": "8",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "TransferDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 14,
+      "resourceType": "Encrypted",
+      "resourceId": "7",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 15,
+      "resourceType": "Offchain",
+      "resourceId": "6",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "RepairDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 16,
+      "resourceType": "Plain",
+      "resourceId": "5",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 17,
+      "resourceType": "Encrypted",
+      "resourceId": "4",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "ProductionDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 18,
+      "resourceType": "Encrypted",
+      "resourceId": "3",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 19,
+      "resourceType": "Plain",
+      "resourceId": "2",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "Document",
+        "documentType": "UsageDocument",
+        "entityAssetId": "00000000000000000000",
+        "headDocumentId": "00000000000000000000",
+        "name": "Name",
+        "precedingDocumentId": "00000000000000000000"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    },
+    {
+      "id": 20,
+      "resourceType": "Encrypted",
+      "resourceId": "1",
+      "hash": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "size": 0,
+      "extensions": {
+        "dataType": "EntityAsset",
+        "designDocumentId": "00000000000000000000",
+        "name": "Name"
+      },
+      "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
+      "timestamp": "1970-01-01T00:00:00.000Z",
+      "hashStored": "aGFzaGhhc2hoYXNoaGFzaGhhc2g=",
+      "sizeStored": 0
+    }
+  ],
   "auth": [
     {
       "id": 1,

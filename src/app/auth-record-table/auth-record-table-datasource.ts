@@ -3,7 +3,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { forkJoin, merge, Observable, of as observableOf } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+import { AssetMetadata } from '../asset-metadata';
 import { AuthService } from '../auth.service';
+import { DocumentMetadata } from '../document-metadata';
+import { ResourceService } from '../resource.service';
 import { Utils } from '../utils';
 
 // Data model type
@@ -20,10 +23,12 @@ export interface AuthRecordTableItem {
   ciphertextSize: number;
   creator: string;
   creationTime: string;
+  dataType: string;
   documentType: string;
   precedingDocumentId: string;
   headDocumentId: string;
   entityAssetId: string;
+  designDocumentId: string;
 }
 
 /**
@@ -37,7 +42,7 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private resourceService: ResourceService) {
     super();
   }
 
@@ -75,26 +80,36 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
   private getTableItem(authSessionId: string, index: number): Observable<AuthRecordTableItem> {
     return this.authService.getAuthSessionById(authSessionId)
       .pipe(map((authSession) => {
-        return {
-          id: index,
-          resourceId: authSession.resourceId,
-          resourceType: 'ResourceType', // TODO: get resourceType
-          name: 'Name', // TODO: get name
-          authSessionId: authSession.authSessionId,
-          status: Utils.getAuthSessionStatus(authSession.status),
-          // TODO: get details
-          hash: 'Hash',
-          ciphertextHash: 'CiphertextHash',
-          size: 0,
-          ciphertextSize: 0,
-          creator: 'Creator',
-          creationTime: Utils.formatDate('1970-01-01T00:00:00.000Z'),
-          documentType: Utils.getDocumentType('DesignDocument'),
-          precedingDocumentId: 'PrecedingDocumentId',
-          headDocumentId: 'HeadDocumentId',
-          entityAssetId: 'EntityAssetId'
-        };
-      }));
+        return this.resourceService.getResourceMetadataById(authSession.resourceId)
+          .pipe(map((resourceMetadata) => {
+            return {
+              id: index,
+              resourceId: authSession.resourceId,
+              resourceType: Utils.getResourceType(
+                (resourceMetadata.extensions.dataType === Utils.getRawDataType(Utils.getDataTypes()[0])) ? 'document' : 'asset',
+                resourceMetadata.resourceType
+              ),
+              name: resourceMetadata.extensions.name,
+              authSessionId: authSession.authSessionId,
+              status: Utils.getAuthSessionStatus(authSession.status),
+              hash: resourceMetadata.hash,
+              ciphertextHash: resourceMetadata.hashStored,
+              size: resourceMetadata.size,
+              ciphertextSize: resourceMetadata.sizeStored,
+              creator: resourceMetadata.creator,
+              creationTime: Utils.formatDate(resourceMetadata.timestamp),
+              dataType: Utils.getDataType(resourceMetadata.extensions.dataType),
+              documentType: Utils.getDocumentType((resourceMetadata as DocumentMetadata).extensions.documentType),
+              precedingDocumentId: (resourceMetadata as DocumentMetadata).extensions.precedingDocumentId,
+              headDocumentId: (resourceMetadata as DocumentMetadata).extensions.headDocumentId,
+              entityAssetId: (resourceMetadata as DocumentMetadata).extensions.entityAssetId,
+              designDocumentId: (resourceMetadata as AssetMetadata).extensions.designDocumentId
+            };
+          }));
+      }))
+      .pipe(
+        mergeMap(result => result)
+      );
   }
 
   private getTableRecordData(isLatestFirst: boolean, pageSize: number, bookmark: string): Observable<AuthRecordTableItem[]> {

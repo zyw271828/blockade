@@ -21,5 +21,5 @@
 <div mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>关闭</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial
-    (click)="downloadDocument(+findInDataSource(data.content, '资源 ID'))">下载</button>
+    (click)="downloadResource(findInDataSource(data.content, '资源 ID'), findInDataSource(data.content, '数据类型'), findInDataSource(data.content, '资源类型'))">下载</button>
 </div>
