@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { forkJoin, merge, Observable, of as observableOf } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
+import { ResourceService } from '../resource.service';
 import { Utils } from '../utils';
 
 // Data model type
@@ -14,6 +15,7 @@ export interface AuthApproveTableItem {
   name: string;
   authSessionId: string;
   status: string;
+  dataType: string;
 }
 
 /**
@@ -27,7 +29,7 @@ export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem>
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private resourceService: ResourceService) {
     super();
   }
 
@@ -65,15 +67,25 @@ export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem>
   private getTableItem(authSessionId: string, index: number): Observable<AuthApproveTableItem> {
     return this.authService.getAuthSessionById(authSessionId)
       .pipe(map((authSession) => {
-        return {
-          id: index,
-          resourceId: authSession.resourceId,
-          resourceType: 'ResourceType', // TODO: get resourceType
-          name: 'Name', // TODO: get name
-          authSessionId: authSession.authSessionId,
-          status: Utils.getAuthSessionStatus(authSession.status)
-        };
-      }));
+        return this.resourceService.getResourceMetadataById(authSession.resourceId)
+          .pipe(map((resourceMetadata) => {
+            return {
+              id: index,
+              resourceId: authSession.resourceId,
+              resourceType: Utils.getResourceType(
+                (resourceMetadata.extensions.dataType === 'Document') ? 'document' : 'asset',
+                resourceMetadata.resourceType
+              ),
+              name: resourceMetadata.extensions.name,
+              authSessionId: authSession.authSessionId,
+              status: Utils.getAuthSessionStatus(authSession.status),
+              dataType: resourceMetadata.extensions.dataType
+            };
+          }));
+      }))
+      .pipe(
+        mergeMap(result => result)
+      );
   }
 
   private getTableRecordData(pageSize: number, bookmark: string): Observable<AuthApproveTableItem[]> {

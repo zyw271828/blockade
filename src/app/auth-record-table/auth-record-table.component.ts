@@ -4,6 +4,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { AuthService } from '../auth.service';
+import { ResourceService } from '../resource.service';
 import { Utils } from '../utils';
 import { AuthRecordTableDataSource, AuthRecordTableItem } from './auth-record-table-datasource';
 
@@ -43,8 +44,8 @@ export class AuthRecordTableComponent implements AfterViewInit {
 
   currentPageSize: number = 10;
 
-  constructor(private authService: AuthService, public dialog: MatDialog) {
-    this.dataSource = new AuthRecordTableDataSource(this.authService);
+  constructor(private authService: AuthService, private resourceService: ResourceService, public dialog: MatDialog) {
+    this.dataSource = new AuthRecordTableDataSource(this.authService, this.resourceService);
   }
 
   ngAfterViewInit(): void {
@@ -62,24 +63,35 @@ export class AuthRecordTableComponent implements AfterViewInit {
   }
 
   showDetail(row: AuthRecordTableItem) {
+    let content = [
+      { item: 'ResourceId', value: row.resourceId },
+      { item: 'Name', value: row.name },
+      { item: 'ResourceType', value: row.resourceType },
+      { item: 'Hash', value: row.hash },
+      { item: 'CiphertextHash', value: row.ciphertextHash },
+      { item: 'Size', value: row.size },
+      { item: 'CiphertextSize', value: row.ciphertextSize },
+      { item: 'Creator', value: row.creator },
+      { item: 'CreationTime', value: row.creationTime }
+    ];
+
+    if (row.dataType === 'Document') {
+      content.push(
+        { item: 'DocumentType', value: row.documentType },
+        { item: 'PrecedingDocumentId', value: row.precedingDocumentId },
+        { item: 'HeadDocumentId', value: row.headDocumentId },
+        { item: 'EntityAssetId', value: row.entityAssetId }
+      );
+    }
+
+    if (row.dataType === 'EntityAsset') {
+      content.push({ item: 'DesignDocumentId', value: row.designDocumentId });
+    }
+
     this.dialog.open(AuthRecordDetailDialog, {
       data: {
         title: 'Detail',
-        content: [
-          { item: 'ResourceId', value: row.resourceId },
-          { item: 'Name', value: row.name },
-          { item: 'ResourceType', value: row.resourceType },
-          { item: 'Hash', value: row.hash },
-          { item: 'CiphertextHash', value: row.ciphertextHash },
-          { item: 'Size', value: row.size },
-          { item: 'CiphertextSize', value: row.ciphertextSize },
-          { item: 'Creator', value: row.creator },
-          { item: 'CreationTime', value: row.creationTime },
-          { item: 'DocumentType', value: row.documentType },
-          { item: 'PrecedingDocumentId', value: row.precedingDocumentId },
-          { item: 'HeadDocumentId', value: row.headDocumentId },
-          { item: 'EntityAssetId', value: row.entityAssetId }
-        ]
+        content: content
       }
     });
   }
