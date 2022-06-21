@@ -3,7 +3,9 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { AssetService } from '../asset.service';
 import { AuthService } from '../auth.service';
+import { DocumentService } from '../document.service';
 import { ResourceService } from '../resource.service';
 import { Utils } from '../utils';
 import { AuthRecordTableDataSource, AuthRecordTableItem } from './auth-record-table-datasource';
@@ -107,10 +109,36 @@ export class AuthRecordDetailDialog {
     'value'
   ];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private documentService: DocumentService, private assetService: AssetService) { }
 
-  downloadDocument(resourceId: number) {
-    // TODO: download document by resourceId
+  downloadResource(resourceId: string, dataType: string, resourceType: string) {
+    if (dataType === Utils.getDataTypes()[0]) { // dataType is Document
+      resourceType = Utils.getRawResourceType('document', resourceType);
+
+      this.documentService.getDocumentById(resourceId, resourceType).subscribe(document => {
+        if (document.contents !== undefined) {
+          let file = new File([window.atob(String(document.contents))], document.name);
+          let link = self.document.createElement('a');
+
+          link.href = window.URL.createObjectURL(file);
+          link.download = document.name;
+          link.click();
+        }
+      });
+    } else { // dataType is EntityAsset
+      resourceType = Utils.getRawResourceType('asset', resourceType);
+
+      this.assetService.getAssetById(resourceId, resourceType).subscribe(asset => {
+        if (asset.componentIds !== undefined) {
+          let file = new File([String(asset.componentIds)], asset.name);
+          let link = self.document.createElement('a');
+
+          link.href = window.URL.createObjectURL(file);
+          link.download = asset.name;
+          link.click();
+        }
+      });
+    }
   }
 
   findInDataSource(dataSource: { item: string; value: string; }[], target: string): string {
