@@ -78,7 +78,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
       { item: 'CreationTime', value: row.creationTime }
     ];
 
-    if (row.dataType === Utils.getRawDataType(Utils.getDataTypes()[0])) { // dataType is Document
+    if (row.dataType === Utils.getDataTypes()[0]) { // dataType is Document
       content.push(
         { item: 'DocumentType', value: row.documentType },
         { item: 'PrecedingDocumentId', value: row.precedingDocumentId },
