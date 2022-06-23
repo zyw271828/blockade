@@ -25,9 +25,13 @@ export class AssetService {
     let formData = new FormData();
 
     (Object.keys(asset) as Array<keyof typeof asset>).map(name => {
-      let value: any = asset[name];
+      if (name === 'componentIds') {
+        formData.set(name, '[\"' + asset[name].join('\",\"') + '\"]');
+      } else {
+        let value: any = asset[name];
 
-      formData.set(name, value);
+        formData.set(name, value);
+      }
     });
 
     return this.http.post<ResourceCreationInfo>(this.assetUrl, formData)
