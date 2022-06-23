@@ -3,6 +3,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { DocumentService } from '../document.service';
+import { Utils } from '../utils';
 import { DocumentUploadRecordTableDataSource, DocumentUploadRecordTableItem } from './document-upload-record-table-datasource';
 
 @Component({
@@ -24,6 +25,8 @@ export class DocumentUploadRecordTableComponent implements AfterViewInit {
     'name',
     'creationTime'
   ];
+
+  mask: string = Utils.mask;
 
   infinity: number = Number.MAX_SAFE_INTEGER;
 
