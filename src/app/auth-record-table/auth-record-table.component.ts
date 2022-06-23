@@ -40,6 +40,8 @@ export class AuthRecordTableComponent implements AfterViewInit {
     'operation'
   ];
 
+  mask: string = Utils.mask;
+
   authSessionStatuses: string[] = Utils.getAuthSessionStatuses();
 
   infinity: number = Number.MAX_SAFE_INTEGER;
@@ -68,7 +70,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
     let content = [
       { item: 'DataType', value: row.dataType },
       { item: 'ResourceId', value: row.resourceId },
-      { item: 'Name', value: row.name },
+      { item: 'Name', value: row.name === undefined ? this.mask : row.name },
       { item: 'ResourceType', value: row.resourceType },
       { item: 'Hash', value: row.hash },
       { item: 'CiphertextHash', value: row.ciphertextHash },
@@ -80,13 +82,13 @@ export class AuthRecordTableComponent implements AfterViewInit {
 
     if (row.dataType === Utils.getDataTypes()[0]) { // dataType is Document
       content.push(
-        { item: 'DocumentType', value: row.documentType },
-        { item: 'PrecedingDocumentId', value: row.precedingDocumentId },
-        { item: 'HeadDocumentId', value: row.headDocumentId },
-        { item: 'EntityAssetId', value: row.entityAssetId }
+        { item: 'DocumentType', value: row.documentType === undefined ? this.mask : row.documentType },
+        { item: 'PrecedingDocumentId', value: row.precedingDocumentId === undefined ? this.mask : row.precedingDocumentId },
+        { item: 'HeadDocumentId', value: row.headDocumentId === undefined ? this.mask : row.headDocumentId },
+        { item: 'EntityAssetId', value: row.entityAssetId === undefined ? this.mask : row.entityAssetId }
       );
     } else { // dataType is EntityAsset
-      content.push({ item: 'DesignDocumentId', value: row.designDocumentId });
+      content.push({ item: 'DesignDocumentId', value: row.designDocumentId === undefined ? this.mask : row.designDocumentId });
     }
 
     this.dialog.open(AuthRecordDetailDialog, {
