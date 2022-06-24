@@ -22,7 +22,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>名称</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+      <td mat-cell *matCellDef="let row">{{row.name === undefined ? mask : row.name}}</td>
     </ng-container>
 
     <!-- AuthSessionId Column -->
