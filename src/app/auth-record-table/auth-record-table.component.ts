@@ -40,6 +40,8 @@ export class AuthRecordTableComponent implements AfterViewInit {
     'operation'
   ];
 
+  mask: string = Utils.mask;
+
   authSessionStatuses: string[] = Utils.getAuthSessionStatuses();
 
   infinity: number = Number.MAX_SAFE_INTEGER;
@@ -68,7 +70,7 @@ export class AuthRecordTableComponent implements AfterViewInit {
     let content = [
       { item: '数据类型', value: row.dataType },
       { item: '资源 ID', value: row.resourceId },
-      { item: '名称', value: row.name },
+      { item: '名称', value: row.name === undefined ? this.mask : row.name },
       { item: '资源类型', value: row.resourceType },
       { item: '散列', value: row.hash },
       { item: '密文散列', value: row.ciphertextHash },
@@ -80,13 +82,13 @@ export class AuthRecordTableComponent implements AfterViewInit {
 
     if (row.dataType === Utils.getDataTypes()[0]) { // dataType is Document
       content.push(
-        { item: '文档类型', value: row.documentType },
-        { item: '前序文档 ID', value: row.precedingDocumentId },
-        { item: '头文档 ID', value: row.headDocumentId },
-        { item: '实体资产 ID', value: row.entityAssetId }
+        { item: '文档类型', value: row.documentType === undefined ? this.mask : row.documentType },
+        { item: '前序文档 ID', value: row.precedingDocumentId === undefined ? this.mask : row.precedingDocumentId },
+        { item: '头文档 ID', value: row.headDocumentId === undefined ? this.mask : row.headDocumentId },
+        { item: '实体资产 ID', value: row.entityAssetId === undefined ? this.mask : row.entityAssetId }
       );
     } else { // dataType is EntityAsset
-      content.push({ item: '设计文档 ID', value: row.designDocumentId });
+      content.push({ item: '设计文档 ID', value: row.designDocumentId === undefined ? this.mask : row.designDocumentId });
     }
 
     this.dialog.open(AuthRecordDetailDialog, {

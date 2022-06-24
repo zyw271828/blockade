@@ -30,6 +30,8 @@ export class AuthApproveTableComponent implements AfterViewInit {
     'operation'
   ];
 
+  mask: string = Utils.mask;
+
   authSessionStatuses: string[] = Utils.getAuthSessionStatuses();
 
   infinity: number = Number.MAX_SAFE_INTEGER;
