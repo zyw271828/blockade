@@ -53,7 +53,8 @@ export class AuthRecordTableComponent implements AfterViewInit {
     private documentService: DocumentService,
     private assetService: AssetService,
     private resourceService: ResourceService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog
+  ) {
     this.dataSource = new AuthRecordTableDataSource(this.authService, this.resourceService);
   }
 
