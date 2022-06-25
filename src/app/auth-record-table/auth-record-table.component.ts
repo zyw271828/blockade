@@ -48,7 +48,12 @@ export class AuthRecordTableComponent implements AfterViewInit {
 
   currentPageSize: number = 10;
 
-  constructor(private authService: AuthService, private resourceService: ResourceService, public dialog: MatDialog) {
+  constructor(
+    private authService: AuthService,
+    private documentService: DocumentService,
+    private assetService: AssetService,
+    private resourceService: ResourceService,
+    public dialog: MatDialog) {
     this.dataSource = new AuthRecordTableDataSource(this.authService, this.resourceService);
   }
 
@@ -67,6 +72,57 @@ export class AuthRecordTableComponent implements AfterViewInit {
   }
 
   showDetail(row: AuthRecordTableItem) {
+    if (row.dataType === Utils.getDataTypes()[0]) { // dataType is Document
+      if (row.resourceType != Utils.getRawDocumentType(Utils.getResourceTypes('document')[0])
+        && (row.name === undefined
+          || row.documentType === undefined
+          || row.precedingDocumentId === undefined
+          || row.headDocumentId === undefined
+          || row.entityAssetId === undefined)) {
+        this.documentService.getDocumentPropertiesById(row.resourceId).subscribe((documentProperties) => {
+          if (row.name === undefined) {
+            row.name = documentProperties.name;
+          }
+          if (row.documentType === undefined) {
+            row.documentType = documentProperties.documentType;
+          }
+          if (row.precedingDocumentId === undefined) {
+            row.precedingDocumentId = documentProperties.precedingDocumentId;
+          }
+          if (row.headDocumentId === undefined) {
+            row.headDocumentId = documentProperties.headDocumentId;
+          }
+          if (row.entityAssetId === undefined) {
+            row.entityAssetId = documentProperties.entityAssetId;
+          }
+        });
+
+        this.openDetailDialog(row);
+      } else { // row.name, row.documentType, row.precedingDocumentId, row.headDocumentId, row.entityAssetId are not undefined
+        this.openDetailDialog(row);
+      }
+    } else { // dataType is EntityAsset
+      if (row.name === undefined
+        || row.designDocumentId === undefined) {
+        row.resourceType = Utils.getRawResourceType('asset', row.resourceType);
+
+        this.assetService.getAssetById(row.resourceId, row.resourceType).subscribe((asset) => {
+          if (row.name === undefined) {
+            row.name = asset.name;
+          }
+          if (row.designDocumentId === undefined) {
+            row.designDocumentId = asset.designDocumentId;
+          }
+        });
+
+        this.openDetailDialog(row);
+      } else { // row.name, row.designDocumentId are not undefined
+        this.openDetailDialog(row);
+      }
+    }
+  }
+
+  openDetailDialog(row: AuthRecordTableItem) {
     let content = [
       { item: 'DataType', value: row.dataType },
       { item: 'ResourceId', value: row.resourceId },
