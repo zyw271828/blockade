@@ -31,24 +31,6 @@
               <div *ngIf="currentQueryMethod === this.queryMethods[0]" fxLayout="column"
                 fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
 
-                <!-- Resource Type -->
-                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-                  <div class="misc-margin">
-                    <mat-icon fxFlex="auto">lock</mat-icon>
-                  </div>
-                  <mat-form-field appearance="outline" fxFlex="auto">
-                    <mat-label>Resource Type</mat-label>
-                    <mat-select required formControlName="resourceType">
-                      <mat-option *ngFor="let resourceType of resourceTypes" [value]="resourceType">
-                        {{resourceType}}
-                      </mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="assetIdQueryForm.controls['resourceType'].hasError('required')">
-                      Resource Type is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
-                </div>
-
                 <!-- Resource ID -->
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
                   <div class="misc-margin">

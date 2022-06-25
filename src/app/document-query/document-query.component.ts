@@ -17,7 +17,6 @@ export class DocumentQueryComponent implements OnInit {
   currentQueryMethod: string = this.queryMethods[0];
 
   documentIdQueryForm = this.fb.group({
-    resourceType: [<string | null>null, Validators.required],
     resourceId: [<string | null>null, Validators.required]
   });
 

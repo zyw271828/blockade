@@ -17,7 +17,6 @@ export class AssetQueryComponent implements OnInit {
   currentQueryMethod: string = this.queryMethods[0];
 
   assetIdQueryForm = this.fb.group({
-    resourceType: [<string | null>null, Validators.required],
     resourceId: [<string | null>null, Validators.required]
   });
 

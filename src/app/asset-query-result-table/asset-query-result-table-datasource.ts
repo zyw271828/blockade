@@ -97,7 +97,6 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
 
     if (this.assetQueryComponent.currentQueryMethod === this.assetQueryComponent.queryMethods[0]) {
       // ID query
-      // TODO: filter resourceType
       assetIds = observableOf([String(this.assetQueryComponent.assetIdQueryForm.get('resourceId')?.value)]);
     } else {
       // Conditional query
