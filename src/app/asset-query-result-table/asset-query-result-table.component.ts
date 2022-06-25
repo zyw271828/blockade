@@ -7,6 +7,7 @@ import { MatTable } from '@angular/material/table';
 import { AssetQueryComponent } from '../asset-query/asset-query.component';
 import { AssetService } from '../asset.service';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
+import { DetailHelper } from '../detail-helper';
 import { Utils } from '../utils';
 import { AssetQueryResultTableDataSource, AssetQueryResultTableItem } from './asset-query-result-table-datasource';
 
@@ -63,55 +64,9 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
   }
 
   showDetail(row: AssetQueryResultTableItem) {
-    if (row.name === undefined
-      || row.designDocumentId === undefined) {
-      row.resourceType = Utils.getRawResourceType('asset', row.resourceType);
+    let detailHelper = new DetailHelper(this.dialog, undefined, this.assetService);
 
-      this.assetService.getAssetById(row.resourceId, row.resourceType).subscribe((asset) => {
-        if (row.name === undefined) {
-          row.name = asset.name;
-        }
-        if (row.designDocumentId === undefined) {
-          row.designDocumentId = asset.designDocumentId;
-        }
-      });
-
-      this.openDetailDialog(row);
-    } else { // row.name, row.designDocumentId are not undefined
-      this.openDetailDialog(row);
-    }
-  }
-
-  openDetailDialog(row: AssetQueryResultTableItem) {
-    let content = [
-      { item: '资源 ID', value: row.resourceId },
-      { item: '名称', value: row.name === undefined ? this.mask : row.name },
-      { item: '资源类型', value: row.resourceType },
-      { item: '散列', value: row.hash }
-    ];
-
-    if (row.resourceType !== Utils.getResourceTypes('asset')[0]) {
-      content.push({ item: '密文散列', value: row.ciphertextHash });
-    }
-
-    content.push({ item: '大小', value: String(row.size) });
-
-    if (row.resourceType !== Utils.getResourceTypes('asset')[0]) {
-      content.push({ item: '密文大小', value: String(row.ciphertextSize) });
-    }
-
-    content.push(
-      { item: '创建者', value: row.creator },
-      { item: '创建时间', value: row.creationTime },
-      { item: '设计文档 ID', value: row.designDocumentId === undefined ? this.mask : row.designDocumentId }
-    );
-
-    this.dialog.open(AssetQueryResultDetailDialog, {
-      data: {
-        title: '详细信息',
-        content: content
-      }
-    });
+    detailHelper.showAssetDetail(row, AssetQueryResultDetailDialog);
   }
 }
 
