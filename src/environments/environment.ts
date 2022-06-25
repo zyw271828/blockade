@@ -3,11 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const apiEndpoints: string[] = [
-  "http://localhost:3000/api/v1",
-  "http://localhost:3001/api/v1",
-  "http://localhost:3002/api/v1",
-  "http://localhost:3003/api/v1",
-  "http://localhost:3004/api/v1"
+  "http://localhost:8081/api/v1",
+  "http://localhost:8082/api/v1",
+  "http://localhost:8083/api/v1",
+  "http://localhost:8084/api/v1",
+  "http://localhost:8085/api/v1"
 ];
 
 export let environment = {
