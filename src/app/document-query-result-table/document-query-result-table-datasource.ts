@@ -103,7 +103,6 @@ export class DocumentQueryResultTableDataSource extends DataSource<DocumentQuery
 
     if (this.documentQueryComponent.currentQueryMethod === this.documentQueryComponent.queryMethods[0]) {
       // ID query
-      // TODO: filter resourceType
       documentIds = observableOf([String(this.documentQueryComponent.documentIdQueryForm.get('resourceId')?.value)]);
     } else {
       // Conditional query

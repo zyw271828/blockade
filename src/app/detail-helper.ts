@@ -81,9 +81,7 @@ export class DetailHelper {
   showAssetDetail(row: AssetQueryResultTableItem | AuthRecordTableItem, component: ComponentType<any>) {
     if (row.name === undefined
       || row.designDocumentId === undefined) {
-      row.resourceType = Utils.getRawResourceType('asset', row.resourceType);
-
-      this.assetService?.getAssetById(row.resourceId, row.resourceType).subscribe((asset) => {
+      this.assetService?.getAssetById(row.resourceId, Utils.getRawResourceType('asset', row.resourceType)).subscribe((asset) => {
         if (row.name === undefined) {
           row.name = asset.name;
         }
