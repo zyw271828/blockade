@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
+import { DetailHelper } from '../detail-helper';
 import { DocumentQueryComponent } from '../document-query/document-query.component';
 import { DocumentService } from '../document.service';
 import { Utils } from '../utils';
@@ -63,69 +64,9 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
   }
 
   showDetail(row: DocumentQueryResultTableItem) {
-    if (row.resourceType != Utils.getRawDocumentType(Utils.getResourceTypes('document')[0])
-      && (row.name === undefined
-        || row.documentType === undefined
-        || row.precedingDocumentId === undefined
-        || row.headDocumentId === undefined
-        || row.entityAssetId === undefined)) {
-      this.documentService.getDocumentPropertiesById(row.resourceId).subscribe((documentProperties) => {
-        if (row.name === undefined) {
-          row.name = documentProperties.name;
-        }
-        if (row.documentType === undefined) {
-          row.documentType = documentProperties.documentType;
-        }
-        if (row.precedingDocumentId === undefined) {
-          row.precedingDocumentId = documentProperties.precedingDocumentId;
-        }
-        if (row.headDocumentId === undefined) {
-          row.headDocumentId = documentProperties.headDocumentId;
-        }
-        if (row.entityAssetId === undefined) {
-          row.entityAssetId = documentProperties.entityAssetId;
-        }
-      });
+    let detailHelper = new DetailHelper(this.dialog, this.documentService, undefined);
 
-      this.openDetailDialog(row);
-    } else { // row.name, row.documentType, row.precedingDocumentId, row.headDocumentId, row.entityAssetId are not undefined
-      this.openDetailDialog(row);
-    }
-  }
-
-  openDetailDialog(row: DocumentQueryResultTableItem) {
-    let content = [
-      { item: 'ResourceId', value: row.resourceId },
-      { item: 'Name', value: row.name === undefined ? this.mask : row.name },
-      { item: 'ResourceType', value: row.resourceType },
-      { item: 'Hash', value: row.hash }
-    ];
-
-    if (row.resourceType !== Utils.getResourceTypes('document')[0]) {
-      content.push({ item: 'CiphertextHash', value: row.ciphertextHash });
-    }
-
-    content.push({ item: 'Size', value: String(row.size) });
-
-    if (row.resourceType !== Utils.getResourceTypes('document')[0]) {
-      content.push({ item: 'CiphertextSize', value: String(row.ciphertextSize) });
-    }
-
-    content.push(
-      { item: 'Creator', value: row.creator },
-      { item: 'CreationTime', value: row.creationTime },
-      { item: 'DocumentType', value: row.documentType === undefined ? this.mask : row.documentType },
-      { item: 'PrecedingDocumentId', value: row.precedingDocumentId === undefined ? this.mask : row.precedingDocumentId },
-      { item: 'HeadDocumentId', value: row.headDocumentId === undefined ? this.mask : row.headDocumentId },
-      { item: 'EntityAssetId', value: row.entityAssetId === undefined ? this.mask : row.entityAssetId }
-    );
-
-    this.dialog.open(DocumentQueryResultDetailDialog, {
-      data: {
-        title: 'Detail',
-        content: content
-      }
-    });
+    detailHelper.showDocumentDetail(row, DocumentQueryResultDetailDialog);
   }
 }
 

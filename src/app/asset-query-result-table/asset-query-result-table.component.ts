@@ -7,6 +7,7 @@ import { MatTable } from '@angular/material/table';
 import { AssetQueryComponent } from '../asset-query/asset-query.component';
 import { AssetService } from '../asset.service';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
+import { DetailHelper } from '../detail-helper';
 import { Utils } from '../utils';
 import { AssetQueryResultTableDataSource, AssetQueryResultTableItem } from './asset-query-result-table-datasource';
 
@@ -63,55 +64,9 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
   }
 
   showDetail(row: AssetQueryResultTableItem) {
-    if (row.name === undefined
-      || row.designDocumentId === undefined) {
-      row.resourceType = Utils.getRawResourceType('asset', row.resourceType);
+    let detailHelper = new DetailHelper(this.dialog, undefined, this.assetService);
 
-      this.assetService.getAssetById(row.resourceId, row.resourceType).subscribe((asset) => {
-        if (row.name === undefined) {
-          row.name = asset.name;
-        }
-        if (row.designDocumentId === undefined) {
-          row.designDocumentId = asset.designDocumentId;
-        }
-      });
-
-      this.openDetailDialog(row);
-    } else { // row.name, row.designDocumentId are not undefined
-      this.openDetailDialog(row);
-    }
-  }
-
-  openDetailDialog(row: AssetQueryResultTableItem) {
-    let content = [
-      { item: 'ResourceId', value: row.resourceId },
-      { item: 'Name', value: row.name === undefined ? this.mask : row.name },
-      { item: 'ResourceType', value: row.resourceType },
-      { item: 'Hash', value: row.hash }
-    ];
-
-    if (row.resourceType !== Utils.getResourceTypes('asset')[0]) {
-      content.push({ item: 'CiphertextHash', value: row.ciphertextHash });
-    }
-
-    content.push({ item: 'Size', value: String(row.size) });
-
-    if (row.resourceType !== Utils.getResourceTypes('asset')[0]) {
-      content.push({ item: 'CiphertextSize', value: String(row.ciphertextSize) });
-    }
-
-    content.push(
-      { item: 'Creator', value: row.creator },
-      { item: 'CreationTime', value: row.creationTime },
-      { item: 'DesignDocumentId', value: row.designDocumentId === undefined ? this.mask : row.designDocumentId }
-    );
-
-    this.dialog.open(AssetQueryResultDetailDialog, {
-      data: {
-        title: 'Detail',
-        content: content
-      }
-    });
+    detailHelper.showAssetDetail(row, AssetQueryResultDetailDialog);
   }
 }
 
