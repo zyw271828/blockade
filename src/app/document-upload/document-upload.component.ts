@@ -52,7 +52,6 @@ export class DocumentUploadComponent implements OnInit {
   }
 
   checkPrecedingDocumentId() {
-    // TODO: change color instead of pop-up prompt
     let precedingDocumentId = this.documentUploadForm.get('precedingDocumentId')?.value;
 
     if (precedingDocumentId) {
@@ -71,7 +70,6 @@ export class DocumentUploadComponent implements OnInit {
   }
 
   checkHeadDocumentId() {
-    // TODO: change color instead of pop-up prompt
     let headDocumentId = this.documentUploadForm.get('headDocumentId')?.value;
 
     if (headDocumentId) {
