@@ -24,7 +24,7 @@ export class DetailHelper {
           row.name = documentProperties.name;
         }
         if (row.documentType === undefined) {
-          row.documentType = documentProperties.documentType;
+          row.documentType = Utils.getDocumentType(documentProperties.documentType);
         }
         if (row.precedingDocumentId === undefined) {
           row.precedingDocumentId = documentProperties.precedingDocumentId;
