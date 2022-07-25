@@ -4,6 +4,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { Buffer } from 'buffer';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { DetailHelper } from '../detail-helper';
 import { DocumentQueryComponent } from '../document-query/document-query.component';
@@ -110,7 +111,7 @@ export class DocumentQueryResultDetailDialog {
                 value = documentProperties.name === undefined ? this.mask : documentProperties.name;
               }
               if (item === '文档类型') {
-                value = documentProperties.documentType === undefined ? this.mask : documentProperties.documentType;
+                value = documentProperties.documentType === undefined ? this.mask : Utils.getDocumentType(documentProperties.documentType);
               }
               if (item === '前序文档 ID') {
                 value = documentProperties.precedingDocumentId === undefined ? this.mask : documentProperties.precedingDocumentId;
@@ -142,7 +143,7 @@ export class DocumentQueryResultDetailDialog {
 
     this.documentService.getDocumentById(resourceId, resourceType, keySwitchSessionId).subscribe(document => {
       if (document.contents !== undefined) {
-        let file = new File([window.atob(String(document.contents))], document.name);
+        let file = new File([Buffer.from(String(document.contents), 'base64')], document.name);
         let link = self.document.createElement('a');
 
         link.href = window.URL.createObjectURL(file);
@@ -160,7 +161,7 @@ export class DocumentQueryResultDetailDialog {
         authDialog.afterClosed().subscribe(() => {
           this.documentService.getDocumentById(resourceId, resourceType, authDialog.componentInstance.keySwitchSessionId).subscribe(document => {
             if (document.contents !== undefined) {
-              let file = new File([window.atob(String(document.contents))], document.name);
+              let file = new File([Buffer.from(String(document.contents), 'base64')], document.name);
               let link = self.document.createElement('a');
 
               link.href = window.URL.createObjectURL(file);
