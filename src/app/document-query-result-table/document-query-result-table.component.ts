@@ -111,7 +111,7 @@ export class DocumentQueryResultDetailDialog {
                 value = documentProperties.name === undefined ? this.mask : documentProperties.name;
               }
               if (item === 'DocumentType') {
-                value = documentProperties.documentType === undefined ? this.mask : documentProperties.documentType;
+                value = documentProperties.documentType === undefined ? this.mask : Utils.getDocumentType(documentProperties.documentType);
               }
               if (item === 'PrecedingDocumentId') {
                 value = documentProperties.precedingDocumentId === undefined ? this.mask : documentProperties.precedingDocumentId;
