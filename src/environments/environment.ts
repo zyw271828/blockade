@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: 'http://localhost:3000/api/v1',
+  apiEndpoint: 'http://localhost:8081/api/v1',
   contractsNodeWsPort: 9944,
   version: require('../../package.json').version + '-dev'
 };
