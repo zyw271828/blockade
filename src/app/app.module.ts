@@ -55,6 +55,7 @@ import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NotificationComponent } from './notification/notification.component';
+import { SafePipe } from './safe.pipe';
 
 registerLocaleData(localeZh);
 
@@ -85,7 +86,8 @@ registerLocaleData(localeZh);
     AuthApproveTableComponent,
     AuthDialogComponent,
     FooterComponent,
-    NotificationComponent
+    NotificationComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

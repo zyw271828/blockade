@@ -2,6 +2,12 @@
   <div fxLayout="column">
     <h1 class="mat-h1">Dashboard</h1>
 
+    <div fxLayout="column">
+      <iframe height="600px" [src]="url | safe" sandbox="allow-forms allow-same-origin allow-scripts"></iframe>
+    </div>
+
+    <div style="height: 15px;"></div>
+
     <!-- Card 1 -->
     <mat-card class="dashboard-card">
       <mat-card-header>
