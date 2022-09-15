@@ -49,7 +49,7 @@
             [ngClass]="authRequestRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Request</a>
           <a mat-list-item routerLink="/auth/record" routerLinkActive #authRecordRla="routerLinkActive"
             [ngClass]="authRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Record</a>
-          <a mat-list-item routerLink="/auth/approve" routerLinkActive #authApproveRla="routerLinkActive"
+          <a *ngIf="userCanApprove" mat-list-item routerLink="/auth/approve" routerLinkActive #authApproveRla="routerLinkActive"
             [ngClass]="authApproveRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">Approve</a>
         </mat-expansion-panel>
       </mat-accordion>

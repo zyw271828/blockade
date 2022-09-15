@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AssetQueryComponent } from './asset-query/asset-query.component';
 import { AssetUploadRecordComponent } from './asset-upload-record/asset-upload-record.component';
 import { AssetUploadComponent } from './asset-upload/asset-upload.component';
+import { AuthApproveGuard } from './auth-approve-guard';
 import { AuthApproveComponent } from './auth-approve/auth-approve.component';
 import { AuthRecordComponent } from './auth-record/auth-record.component';
 import { AuthRequestComponent } from './auth-request/auth-request.component';
@@ -21,12 +22,13 @@ const routes: Routes = [
   { path: 'asset/upload-record', component: AssetUploadRecordComponent },
   { path: 'auth/request', component: AuthRequestComponent },
   { path: 'auth/record', component: AuthRecordComponent },
-  { path: 'auth/approve', component: AuthApproveComponent },
+  { path: 'auth/approve', component: AuthApproveComponent, canActivate: [AuthApproveGuard] },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthApproveGuard]
 })
 export class AppRoutingModule { }

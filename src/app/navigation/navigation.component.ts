@@ -7,6 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, shareReplay, withLatestFrom } from 'rxjs/operators';
 import { IdentityService } from '../identity.service';
+import { Utils } from '../utils';
 
 @Component({
   selector: 'app-navigation',
@@ -26,6 +27,7 @@ export class NavigationComponent {
   isConnected: boolean = false;
   userInfo: string = 'Unknown (Unknown)';
   detailedUserInfo: string = 'User Information\nUnknown';
+  userCanApprove: boolean = false;
   themeToggleControl = new FormControl(false);
   @HostBinding('class') className = '';
 
@@ -72,6 +74,7 @@ export class NavigationComponent {
           + '\nDeptLevel: ' + userIdentity.deptLevel
           + '\nDeptName: ' + userIdentity.deptName
           + '\nSuperDeptName: ' + userIdentity.superDeptName;
+        this.userCanApprove = Utils.isUserCanApprove(userIdentity);
       });
   }
 

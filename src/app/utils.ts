@@ -1,4 +1,5 @@
 import { formatDate } from '@angular/common';
+import { UserIdentity } from './user-identity';
 
 interface Dictionary<T> {
   [key: string]: T;
@@ -133,6 +134,12 @@ export class Utils {
     let rawAuthSessionStatus = Object.keys(this.authSessionStatuses).find(key => this.authSessionStatuses[key] === authSessionStatus);
 
     return rawAuthSessionStatus === undefined ? authSessionStatus : rawAuthSessionStatus;
+  }
+
+  static isUserCanApprove(userIdentity: UserIdentity): boolean {
+    // TODO: determine if the user has permission to access the Auth Approve page, for example:
+    // return userIdentity.userId === 'admin';
+    return true;
   }
 
   static formatDate(date: string): string {
