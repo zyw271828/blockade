@@ -1,11 +1,11 @@
-import { ComponentType } from "@angular/cdk/portal";
-import { MatDialog } from "@angular/material/dialog";
-import { AssetQueryResultTableItem } from "./asset-query-result-table/asset-query-result-table-datasource";
-import { AssetService } from "./asset.service";
-import { AuthRecordTableItem } from "./auth-record-table/auth-record-table-datasource";
-import { DocumentQueryResultTableItem } from "./document-query-result-table/document-query-result-table-datasource";
-import { DocumentService } from "./document.service";
-import { Utils } from "./utils";
+import { ComponentType } from '@angular/cdk/portal';
+import { MatDialog } from '@angular/material/dialog';
+import { AssetQueryResultTableItem } from './asset-query-result-table/asset-query-result-table-datasource';
+import { AssetService } from './asset.service';
+import { AuthRecordTableItem } from './auth-record-table/auth-record-table-datasource';
+import { DocumentQueryResultTableItem } from './document-query-result-table/document-query-result-table-datasource';
+import { DocumentService } from './document.service';
+import { Utils } from './utils';
 
 export class DetailHelper {
   mask: string = Utils.mask;
