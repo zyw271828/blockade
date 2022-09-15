@@ -47,7 +47,7 @@
             [ngClass]="authRequestRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">申请</a>
           <a mat-list-item routerLink="/auth/record" routerLinkActive #authRecordRla="routerLinkActive"
             [ngClass]="authRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">申请记录</a>
-          <a mat-list-item routerLink="/auth/approve" routerLinkActive #authApproveRla="routerLinkActive"
+          <a *ngIf="userCanApprove" mat-list-item routerLink="/auth/approve" routerLinkActive #authApproveRla="routerLinkActive"
             [ngClass]="authApproveRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">批复</a>
         </mat-expansion-panel>
       </mat-accordion>
