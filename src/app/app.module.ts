@@ -56,6 +56,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NotificationComponent } from './notification/notification.component';
 import { getPaginatorIntl } from './paginator-intl';
+import { SafePipe } from './safe.pipe';
 import { ServerDialogComponent } from './server-dialog/server-dialog.component';
 
 registerLocaleData(localeZh);
@@ -88,7 +89,8 @@ registerLocaleData(localeZh);
     AuthDialogComponent,
     FooterComponent,
     ServerDialogComponent,
-    NotificationComponent
+    NotificationComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ export const apiEndpoints: string[] = [
 export let environment = {
   production: true,
   apiEndpoint: apiEndpoints[0],
+  contractsNodeWsPort: 9944,
   version: require('../../package.json').version
 };
 
