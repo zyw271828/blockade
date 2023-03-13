@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { forkJoin, merge, Observable, of as observableOf } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+import { CitRecord } from '../cit-record';
 import { DocumentService } from '../document.service';
 import { Utils } from '../utils';
 
@@ -64,12 +65,21 @@ export class DocumentUploadRecordTableDataSource extends DataSource<DocumentUplo
   private getTableItem(documentId: string, index: number): Observable<DocumentUploadRecordTableItem> {
     return this.documentService.getDocumentMetadataById(documentId)
       .pipe(map((documentMetadata) => {
+        let split = documentMetadata.extensions.name.split(',');
+        let citRecord: CitRecord = {
+          id: split[0],
+          date: split[1],
+          user: split[2],
+          pc: split[3],
+          activity: split[4]
+        };
+
         return {
           id: index,
           resourceId: documentMetadata.resourceId,
           resourceType: Utils.getResourceType('document', documentMetadata.resourceType),
-          name: documentMetadata.extensions.name,
-          creationTime: Utils.formatDate(documentMetadata.timestamp)
+          name: citRecord.id,
+          creationTime: Utils.formatDate(citRecord.date)
         };
       }));
   }
