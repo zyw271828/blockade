@@ -37,6 +37,10 @@ export class DocumentQueryResultTableComponent implements AfterViewInit {
     'resourceId',
     'resourceType',
     'name',
+    'creationTime',
+    'creator',
+    'device',
+    'activity',
     'operation'
   ];
 
