@@ -5,6 +5,7 @@ import { forkJoin, merge, Observable, of as observableOf } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { AssetQueryComponent } from '../asset-query/asset-query.component';
 import { AssetService } from '../asset.service';
+import { Tce3Record } from '../tce3-record';
 import { Utils } from '../utils';
 
 // Data model type
@@ -20,6 +21,9 @@ export interface AssetQueryResultTableItem {
   creator: string;
   creationTime: string;
   designDocumentId: string;
+  datum: string;
+  cdmVersion: string;
+  source: string;
 }
 
 interface Dictionary<T> {
@@ -75,18 +79,30 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
   private getTableItem(assetId: string, index: number): Observable<AssetQueryResultTableItem> {
     return this.assetService.getAssetMetadataById(assetId)
       .pipe(map((assetMetadata) => {
+        let json = JSON.parse(assetMetadata.extensions.name);
+        let uuidIndex = assetMetadata.extensions.name.indexOf('uuid');
+        let tce3Record: Tce3Record = {
+          uuid: assetMetadata.extensions.name.substring(uuidIndex + 7, uuidIndex + 7 + 36),
+          datum: JSON.stringify(json.datum),
+          cdmVersion: json.CDMVersion,
+          source: json.source
+        };
+
         return {
           id: index,
           resourceId: assetMetadata.resourceId,
           resourceType: Utils.getResourceType('asset', assetMetadata.resourceType),
-          name: assetMetadata.extensions.name,
+          name: tce3Record.uuid,
           hash: assetMetadata.hash,
           ciphertextHash: assetMetadata.hashStored,
           size: assetMetadata.size,
           ciphertextSize: assetMetadata.sizeStored,
           creator: assetMetadata.creator,
           creationTime: Utils.formatDate(assetMetadata.timestamp),
-          designDocumentId: assetMetadata.extensions.designDocumentId
+          designDocumentId: assetMetadata.extensions.designDocumentId,
+          datum: tce3Record.datum,
+          cdmVersion: tce3Record.cdmVersion,
+          source: tce3Record.source
         };
       }));
   }

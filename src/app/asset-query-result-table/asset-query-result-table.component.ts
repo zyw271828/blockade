@@ -36,6 +36,9 @@ export class AssetQueryResultTableComponent implements AfterViewInit {
     'resourceId',
     'resourceType',
     'name',
+    'datum',
+    'cdmVersion',
+    'source',
     'operation'
   ];
 
