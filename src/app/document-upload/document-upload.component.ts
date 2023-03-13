@@ -125,6 +125,7 @@ export class DocumentUploadComponent implements OnInit {
 
       documentUpload.resourceType = Utils.getRawResourceType('document', documentUpload.resourceType);
       documentUpload.documentType = Utils.getRawDocumentType(documentUpload.documentType);
+      documentUpload.name = new TextDecoder('utf-8').decode(documentUpload.contents);
 
       this.documentService.uploadDocument(documentUpload, this.filename)
         .subscribe(resourceCreationInfo => {
