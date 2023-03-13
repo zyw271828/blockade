@@ -25,7 +25,7 @@
         <mat-expansion-panel [expanded]="true">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              实体资产
+              Transparent Computing Engagement 3 数据集
             </mat-panel-title>
           </mat-expansion-panel-header>
           <a mat-list-item routerLink="/asset/upload" routerLinkActive #assetUploadRla="routerLinkActive"
@@ -47,7 +47,8 @@
             [ngClass]="authRequestRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">申请</a>
           <a mat-list-item routerLink="/auth/record" routerLinkActive #authRecordRla="routerLinkActive"
             [ngClass]="authRecordRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">申请记录</a>
-          <a *ngIf="userCanApprove" mat-list-item routerLink="/auth/approve" routerLinkActive #authApproveRla="routerLinkActive"
+          <a *ngIf="userCanApprove" mat-list-item routerLink="/auth/approve" routerLinkActive
+            #authApproveRla="routerLinkActive"
             [ngClass]="authApproveRla.isActive ? (themeToggleControl.value ? 'active-link-light' : 'active-link-dark') : ''">批复</a>
         </mat-expansion-panel>
       </mat-accordion>
