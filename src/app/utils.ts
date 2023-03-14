@@ -1,4 +1,6 @@
 import { formatDate } from '@angular/common';
+import { CitRecord } from './cit-record';
+import { Tce3Record } from './tce3-record';
 import { UserIdentity } from './user-identity';
 
 interface Dictionary<T> {
@@ -144,5 +146,31 @@ export class Utils {
 
   static formatDate(date: string): string {
     return formatDate(date, 'long', 'zh-CN');
+  }
+
+  static getCitRecord(str: string): CitRecord {
+    let split = str.split(',');
+    let citRecord: CitRecord = {
+      id: split[0],
+      date: split[1],
+      user: split[2],
+      pc: split[3],
+      activity: split[4]
+    };
+
+    return citRecord;
+  }
+
+  static getTce3Record(str: string): Tce3Record {
+    let json = JSON.parse(str);
+    let uuidIndex = str.indexOf('uuid');
+    let tce3Record: Tce3Record = {
+      uuid: str.substring(uuidIndex + 7, uuidIndex + 7 + 36),
+      datum: JSON.stringify(json.datum),
+      cdmVersion: json.CDMVersion,
+      source: json.source
+    };
+
+    return tce3Record;
   }
 }

@@ -65,14 +65,7 @@ export class DocumentUploadRecordTableDataSource extends DataSource<DocumentUplo
   private getTableItem(documentId: string, index: number): Observable<DocumentUploadRecordTableItem> {
     return this.documentService.getDocumentMetadataById(documentId)
       .pipe(map((documentMetadata) => {
-        let split = documentMetadata.extensions.name.split(',');
-        let citRecord: CitRecord = {
-          id: split[0],
-          date: split[1],
-          user: split[2],
-          pc: split[3],
-          activity: split[4]
-        };
+        let citRecord: CitRecord = Utils.getCitRecord(documentMetadata.extensions.name);
 
         return {
           id: index,

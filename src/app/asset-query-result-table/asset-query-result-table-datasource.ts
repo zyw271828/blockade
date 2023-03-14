@@ -79,14 +79,7 @@ export class AssetQueryResultTableDataSource extends DataSource<AssetQueryResult
   private getTableItem(assetId: string, index: number): Observable<AssetQueryResultTableItem> {
     return this.assetService.getAssetMetadataById(assetId)
       .pipe(map((assetMetadata) => {
-        let json = JSON.parse(assetMetadata.extensions.name);
-        let uuidIndex = assetMetadata.extensions.name.indexOf('uuid');
-        let tce3Record: Tce3Record = {
-          uuid: assetMetadata.extensions.name.substring(uuidIndex + 7, uuidIndex + 7 + 36),
-          datum: JSON.stringify(json.datum),
-          cdmVersion: json.CDMVersion,
-          source: json.source
-        };
+        let tce3Record: Tce3Record = Utils.getTce3Record(assetMetadata.extensions.name);
 
         return {
           id: index,
