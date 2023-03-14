@@ -1524,7 +1524,7 @@
         "documentType": "DesignDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{Y6O4-A7KC67IN-0899AOZK},01/04/2010 00:10:37,DTAA/KEE0997,PC-1914,Logon",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1541,7 +1541,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.FileObject\":{\"uuid\":\"42DD2C9E-36C2-11E8-BF66-D9AA8AFF4A69\",\"baseObject\":{\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"permission\":null,\"epoch\":null,\"properties\":{\"map\":{}}},\"type\":\"FILE_OBJECT_FILE\",\"fileDescriptor\":null,\"localPrincipal\":null,\"size\":null,\"peInfo\":null,\"hashes\":null}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -1559,7 +1559,7 @@
         "documentType": "TransferDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{D2D1-C6EB14QJ-2100RSZO},01/04/2010 01:17:20,DTAA/KEE0997,PC-3363,Logon",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1576,7 +1576,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.Subject\":{\"uuid\":\"72FB0406-3678-11E8-BF66-D9AA8AFF4A69\",\"type\":\"SUBJECT_PROCESS\",\"cid\":787,\"parentSubject\":null,\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"localPrincipal\":\"7DCA248E-1BBA-59F5-9227-B25D5F253594\",\"startTimestampNanos\":0,\"unitId\":null,\"iteration\":null,\"count\":null,\"cmdLine\":null,\"privilegeLevel\":null,\"importedLibraries\":null,\"exportedLibraries\":null,\"properties\":{\"map\":{\"host\":\"83c8ed1f-5045-dbcd-b39f-918f0df4f851\"}}}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -1594,7 +1594,7 @@
         "documentType": "RepairDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{H3H4-S5AZ00AZ-9560IYHC},01/04/2010 01:57:30,DTAA/BJM0992,PC-3058,Logon",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1611,7 +1611,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.FileObject\":{\"uuid\":\"42DD2DBA-36C2-11E8-BF66-D9AA8AFF4A69\",\"baseObject\":{\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"permission\":null,\"epoch\":null,\"properties\":{\"map\":{}}},\"type\":\"FILE_OBJECT_FILE\",\"fileDescriptor\":null,\"localPrincipal\":null,\"size\":null,\"peInfo\":null,\"hashes\":null}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -1629,7 +1629,7 @@
         "documentType": "ProductionDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{G7A8-G1OB94NR-3006NTXH},01/04/2010 07:35:40,DTAA/BJC0569,PC-2588,Connect",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1646,7 +1646,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.FileObject\":{\"uuid\":\"4375DD69-36C2-11E8-BF66-D9AA8AFF4A69\",\"baseObject\":{\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"permission\":null,\"epoch\":null,\"properties\":{\"map\":{}}},\"type\":\"FILE_OBJECT_UNIX_SOCKET\",\"fileDescriptor\":null,\"localPrincipal\":null,\"size\":null,\"peInfo\":null,\"hashes\":null}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -1664,7 +1664,7 @@
         "documentType": "UsageDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{I2F1-B5FB51FL-3128HBUL},01/04/2010 08:02:14,DTAA/ZKH0388,PC-1021,Connect",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1681,7 +1681,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.Event\":{\"uuid\":\"5CABA334-5FCC-5353-9A76-D039DC87DAFE\",\"sequence\":{\"long\":2},\"type\":\"EVENT_CREATE_OBJECT\",\"threadId\":{\"int\":100117},\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"subject\":{\"com.bbn.tc.schema.avro.cdm18.UUID\":\"72FB0406-3678-11E8-BF66-D9AA8AFF4A69\"},\"predicateObject\":{\"com.bbn.tc.schema.avro.cdm18.UUID\":\"4375DCB0-36C2-11E8-BF66-D9AA8AFF4A69\"},\"predicateObjectPath\":null,\"predicateObject2\":{\"com.bbn.tc.schema.avro.cdm18.UUID\":\"4375DD69-36C2-11E8-BF66-D9AA8AFF4A69\"},\"predicateObject2Path\":null,\"timestampNanos\":1522706861813350340,\"name\":{\"string\":\"aue_socketpair\"},\"parameters\":{\"array\":[]},\"location\":null,\"size\":null,\"programPoint\":null,\"properties\":{\"map\":{\"host\":\"83c8ed1f-5045-dbcd-b39f-918f0df4f851\",\"ret_fd2\":\"28\",\"ret_fd1\":\"17\",\"return_value\":\"0\",\"exec\":\"python2.7\",\"ppid\":\"1\"}}}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -1699,7 +1699,7 @@
         "documentType": "DesignDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{M8H9-W9NL75TH-1322KOLO},01/04/2010 07:08:47,DTAA/AMA0606,PC-1514,\"http://cnet.com\"",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1716,7 +1716,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.Event\":{\"uuid\":\"9964F506-0FA0-5AA8-924C-63FEDAC0D36B\",\"sequence\":{\"long\":4},\"type\":\"EVENT_FCNTL\",\"threadId\":{\"int\":100117},\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"subject\":{\"com.bbn.tc.schema.avro.cdm18.UUID\":\"72FB0406-3678-11E8-BF66-D9AA8AFF4A69\"},\"predicateObject\":null,\"predicateObjectPath\":null,\"predicateObject2\":null,\"predicateObject2Path\":null,\"timestampNanos\":1522706861813350340,\"name\":{\"string\":\"aue_fcntl\"},\"parameters\":{\"array\":[{\"size\":-1,\"type\":\"VALUE_TYPE_CONTROL\",\"valueDataType\":\"VALUE_DATA_TYPE_INT\",\"isNull\":false,\"name\":{\"string\":\"cmd\"},\"runtimeDataType\":null,\"valueBytes\":{\"bytes\":\"04\"},\"provenance\":null,\"tag\":null,\"components\":null}]},\"location\":null,\"size\":null,\"programPoint\":null,\"properties\":{\"map\":{\"host\":\"83c8ed1f-5045-dbcd-b39f-918f0df4f851\",\"return_value\":\"0\",\"fd\":\"4\",\"exec\":\"python2.7\",\"ppid\":\"1\"}}}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -1734,7 +1734,7 @@
         "documentType": "TransferDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{V7C8-H6KA39YG-3352HMOW},01/04/2010 07:40:40,DTAA/HBF0035,PC-0991,\"http://tendencystem.org\"",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1751,7 +1751,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.Event\":{\"uuid\":\"CF1478A9-72E4-5D8E-ABD9-A93B56BB434C\",\"sequence\":{\"long\":6},\"type\":\"EVENT_FCNTL\",\"threadId\":{\"int\":100117},\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"subject\":{\"com.bbn.tc.schema.avro.cdm18.UUID\":\"72FB0406-3678-11E8-BF66-D9AA8AFF4A69\"},\"predicateObject\":null,\"predicateObjectPath\":null,\"predicateObject2\":null,\"predicateObject2Path\":null,\"timestampNanos\":1522706861813350340,\"name\":{\"string\":\"aue_fcntl\"},\"parameters\":{\"array\":[{\"size\":-1,\"type\":\"VALUE_TYPE_CONTROL\",\"valueDataType\":\"VALUE_DATA_TYPE_INT\",\"isNull\":false,\"name\":{\"string\":\"cmd\"},\"runtimeDataType\":null,\"valueBytes\":{\"bytes\":\"04\"},\"provenance\":null,\"tag\":null,\"components\":null}]},\"location\":null,\"size\":null,\"programPoint\":null,\"properties\":{\"map\":{\"host\":\"83c8ed1f-5045-dbcd-b39f-918f0df4f851\",\"return_value\":\"0\",\"fd\":\"4\",\"exec\":\"python2.7\",\"ppid\":\"1\"}}}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -1769,7 +1769,7 @@
         "documentType": "RepairDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{L3J0-E4RF05KN-7341OQVW},01/04/2010 07:55:50,DTAA/CMU0028,PC-4253,\"http://taxpotato.east.org\"",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1786,7 +1786,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.Event\":{\"uuid\":\"30B3A036-2CF4-5950-9768-301A8144D037\",\"sequence\":{\"long\":7},\"type\":\"EVENT_FCNTL\",\"threadId\":{\"int\":100221},\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"subject\":{\"com.bbn.tc.schema.avro.cdm18.UUID\":\"0C0CC0C3-3680-11E8-BF66-D9AA8AFF4A69\"},\"predicateObject\":null,\"predicateObjectPath\":null,\"predicateObject2\":null,\"predicateObject2Path\":null,\"timestampNanos\":1522706861923350864,\"name\":{\"string\":\"aue_fcntl\"},\"parameters\":{\"array\":[{\"size\":-1,\"type\":\"VALUE_TYPE_CONTROL\",\"valueDataType\":\"VALUE_DATA_TYPE_INT\",\"isNull\":false,\"name\":{\"string\":\"cmd\"},\"runtimeDataType\":null,\"valueBytes\":{\"bytes\":\"03\"},\"provenance\":null,\"tag\":null,\"components\":null}]},\"location\":null,\"size\":null,\"programPoint\":null,\"properties\":{\"map\":{\"host\":\"83c8ed1f-5045-dbcd-b39f-918f0df4f851\",\"return_value\":\"2\",\"fd\":\"3\",\"exec\":\"master\",\"ppid\":\"1\"}}}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -1804,7 +1804,7 @@
         "documentType": "ProductionDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{T9F3-X3BD63FM-9227UCDE},01/04/2010 08:46:59,DTAA/ICF0629,PC-3067,\"http://craigslist.org\"",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1821,7 +1821,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.FileObject\":{\"uuid\":\"438736C4-36C2-11E8-BF66-D9AA8AFF4A69\",\"baseObject\":{\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"permission\":null,\"epoch\":null,\"properties\":{\"map\":{}}},\"type\":\"FILE_OBJECT_UNIX_SOCKET\",\"fileDescriptor\":null,\"localPrincipal\":null,\"size\":null,\"peInfo\":null,\"hashes\":null}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
@@ -1839,7 +1839,7 @@
         "documentType": "UsageDocument",
         "entityAssetId": "00000000000000000000",
         "headDocumentId": "00000000000000000000",
-        "name": "CitRecord",
+        "name": "{L6U5-J8UI71LN-9348VKUE},01/04/2010 08:58:36,DTAA/AEC0750,PC-2926,\"http://google.com\"",
         "precedingDocumentId": "00000000000000000000"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
@@ -1856,7 +1856,7 @@
       "extensions": {
         "dataType": "EntityAsset",
         "designDocumentId": "00000000000000000000",
-        "name": "Tce3Record"
+        "name": "{\"datum\":{\"com.bbn.tc.schema.avro.cdm18.FileObject\":{\"uuid\":\"43877862-36C2-11E8-BF66-D9AA8AFF4A69\",\"baseObject\":{\"hostId\":\"83C8ED1F-5045-DBCD-B39F-918F0DF4F851\",\"permission\":null,\"epoch\":null,\"properties\":{\"map\":{}}},\"type\":\"FILE_OBJECT_UNIX_SOCKET\",\"fileDescriptor\":null,\"localPrincipal\":null,\"size\":null,\"peInfo\":null,\"hashes\":null}},\"CDMVersion\":\"18\",\"source\":\"SOURCE_FREEBSD_DTRACE_CADETS\"}"
       },
       "creator": "Y3JlYXRvcmNyZWF0b3JjcmVhdG9yY3JlYXRvcmNyZWF0b3I=",
       "timestamp": "1970-01-01T00:00:00.000Z",
