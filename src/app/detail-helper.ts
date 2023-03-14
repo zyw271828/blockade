@@ -62,8 +62,10 @@ export class DetailHelper {
     }
 
     content.push(
-      { item: '创建者', value: row.creator },
       { item: '创建时间', value: row.creationTime },
+      { item: '创建者', value: row.creator },
+      { item: '设备', value: row.device === undefined ? this.mask : row.device },
+      { item: '活动', value: row.activity === undefined ? this.mask : row.activity },
       { item: '文档类型', value: row.documentType === undefined ? this.mask : row.documentType },
       { item: '前序文档 ID', value: row.precedingDocumentId === undefined ? this.mask : row.precedingDocumentId },
       { item: '头文档 ID', value: row.headDocumentId === undefined ? this.mask : row.headDocumentId },
@@ -115,8 +117,11 @@ export class DetailHelper {
     }
 
     content.push(
-      { item: '创建者', value: row.creator },
       { item: '创建时间', value: row.creationTime },
+      { item: '创建者', value: row.creator },
+      { item: '数据', value: row.datum === undefined ? this.mask : row.datum },
+      { item: 'CDM 版本', value: row.cdmVersion === undefined ? this.mask : row.cdmVersion },
+      { item: '来源', value: row.source === undefined ? this.mask : row.source },
       { item: '设计文档 ID', value: row.designDocumentId === undefined ? this.mask : row.designDocumentId }
     );
 

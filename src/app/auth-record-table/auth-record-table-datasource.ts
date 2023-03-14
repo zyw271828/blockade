@@ -29,6 +29,11 @@ export interface AuthRecordTableItem {
   headDocumentId: string;
   entityAssetId: string;
   designDocumentId: string;
+  device: string | undefined;
+  activity: string | undefined;
+  datum: string | undefined;
+  cdmVersion: string | undefined;
+  source: string | undefined;
 }
 
 /**
@@ -82,28 +87,32 @@ export class AuthRecordTableDataSource extends DataSource<AuthRecordTableItem> {
       .pipe(map((authSession) => {
         return this.resourceService.getResourceMetadataById(authSession.resourceId)
           .pipe(map((resourceMetadata) => {
+            let isDocument = resourceMetadata.extensions.dataType === Utils.getRawDataType(Utils.getDataTypes()[0]);
+
             return {
               id: index,
               resourceId: authSession.resourceId,
-              resourceType: Utils.getResourceType(
-                (resourceMetadata.extensions.dataType === Utils.getRawDataType(Utils.getDataTypes()[0])) ? 'document' : 'asset',
-                resourceMetadata.resourceType
-              ),
-              name: resourceMetadata.extensions.name,
+              resourceType: Utils.getResourceType(isDocument ? 'document' : 'asset', resourceMetadata.resourceType),
+              name: isDocument ? Utils.getCitRecord(resourceMetadata.extensions.name).id : Utils.getTce3Record(resourceMetadata.extensions.name).uuid,
               authSessionId: authSession.authSessionId,
               status: Utils.getAuthSessionStatus(authSession.status),
               hash: resourceMetadata.hash,
               ciphertextHash: resourceMetadata.hashStored,
               size: resourceMetadata.size,
               ciphertextSize: resourceMetadata.sizeStored,
-              creator: resourceMetadata.creator,
-              creationTime: Utils.formatDate(resourceMetadata.timestamp),
+              creator: isDocument ? Utils.getCitRecord(resourceMetadata.extensions.name).user : resourceMetadata.creator,
+              creationTime: isDocument ? Utils.formatDate(Utils.getCitRecord(resourceMetadata.extensions.name).date) : Utils.formatDate(resourceMetadata.timestamp),
               dataType: Utils.getDataType(resourceMetadata.extensions.dataType),
               documentType: Utils.getDocumentType((resourceMetadata as DocumentMetadata).extensions.documentType),
               precedingDocumentId: (resourceMetadata as DocumentMetadata).extensions.precedingDocumentId,
               headDocumentId: (resourceMetadata as DocumentMetadata).extensions.headDocumentId,
               entityAssetId: (resourceMetadata as DocumentMetadata).extensions.entityAssetId,
-              designDocumentId: (resourceMetadata as AssetMetadata).extensions.designDocumentId
+              designDocumentId: (resourceMetadata as AssetMetadata).extensions.designDocumentId,
+              device: isDocument ? Utils.getCitRecord(resourceMetadata.extensions.name).pc : undefined,
+              activity: isDocument ? Utils.getCitRecord(resourceMetadata.extensions.name).activity : undefined,
+              datum: isDocument ? undefined : Utils.getTce3Record(resourceMetadata.extensions.name).datum,
+              cdmVersion: isDocument ? undefined : Utils.getTce3Record(resourceMetadata.extensions.name).cdmVersion,
+              source: isDocument ? undefined : Utils.getTce3Record(resourceMetadata.extensions.name).source
             };
           }));
       }))

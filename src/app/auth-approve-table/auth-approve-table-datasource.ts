@@ -69,14 +69,13 @@ export class AuthApproveTableDataSource extends DataSource<AuthApproveTableItem>
       .pipe(map((authSession) => {
         return this.resourceService.getResourceMetadataById(authSession.resourceId)
           .pipe(map((resourceMetadata) => {
+            let isDocument = resourceMetadata.extensions.dataType === Utils.getRawDataType(Utils.getDataTypes()[0]);
+
             return {
               id: index,
               resourceId: authSession.resourceId,
-              resourceType: Utils.getResourceType(
-                (resourceMetadata.extensions.dataType === Utils.getRawDataType(Utils.getDataTypes()[0])) ? 'document' : 'asset',
-                resourceMetadata.resourceType
-              ),
-              name: resourceMetadata.extensions.name,
+              resourceType: Utils.getResourceType(isDocument ? 'document' : 'asset', resourceMetadata.resourceType),
+              name: isDocument ? Utils.getCitRecord(resourceMetadata.extensions.name).id : Utils.getTce3Record(resourceMetadata.extensions.name).uuid,
               authSessionId: authSession.authSessionId,
               status: Utils.getAuthSessionStatus(authSession.status),
               dataType: Utils.getDataType(resourceMetadata.extensions.dataType)
