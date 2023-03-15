@@ -137,11 +137,12 @@ export class AssetQueryResultDetailDialog {
 
     this.assetService.getAssetById(resourceId, resourceType, keySwitchSessionId).subscribe(asset => {
       if (asset.componentIds !== undefined) {
-        let file = new File([String(asset.componentIds)], asset.name);
+        let id = Utils.getTce3Record(asset.name).uuid;
+        let file = new File([String(asset.name)], id);
         let link = self.document.createElement('a');
 
         link.href = window.URL.createObjectURL(file);
-        link.download = asset.name;
+        link.download = id;
         link.click();
       } else { // asset.componentIds is undefined
         let authDialog = this.dialog.open(AuthDialogComponent, {
@@ -155,11 +156,12 @@ export class AssetQueryResultDetailDialog {
         authDialog.afterClosed().subscribe(() => {
           this.assetService.getAssetById(resourceId, resourceType, authDialog.componentInstance.keySwitchSessionId).subscribe(asset => {
             if (asset.componentIds !== undefined) {
-              let file = new File([String(asset.componentIds)], asset.name);
+              let id = Utils.getTce3Record(asset.name).uuid;
+              let file = new File([String(asset.name)], id);
               let link = self.document.createElement('a');
 
               link.href = window.URL.createObjectURL(file);
-              link.download = asset.name;
+              link.download = id;
               link.click();
             } else { // asset.componentIds is undefined
               this._snackBar.open('下载实体资产失败', '关闭', {

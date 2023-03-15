@@ -147,11 +147,12 @@ export class DocumentQueryResultDetailDialog {
 
     this.documentService.getDocumentById(resourceId, resourceType, keySwitchSessionId).subscribe(document => {
       if (document.contents !== undefined) {
-        let file = new File([Buffer.from(String(document.contents), 'base64')], document.name);
+        let id = Utils.getCitRecord(document.name).id;
+        let file = new File([Buffer.from(String(document.contents), 'base64')], id);
         let link = self.document.createElement('a');
 
         link.href = window.URL.createObjectURL(file);
-        link.download = document.name;
+        link.download = id;
         link.click();
       } else { // document.contents is undefined
         let authDialog = this.dialog.open(AuthDialogComponent, {
@@ -165,11 +166,12 @@ export class DocumentQueryResultDetailDialog {
         authDialog.afterClosed().subscribe(() => {
           this.documentService.getDocumentById(resourceId, resourceType, authDialog.componentInstance.keySwitchSessionId).subscribe(document => {
             if (document.contents !== undefined) {
-              let file = new File([Buffer.from(String(document.contents), 'base64')], document.name);
+              let id = Utils.getCitRecord(document.name).id;
+              let file = new File([Buffer.from(String(document.contents), 'base64')], id);
               let link = self.document.createElement('a');
 
               link.href = window.URL.createObjectURL(file);
-              link.download = document.name;
+              link.download = id;
               link.click();
             } else { // document.contents is undefined
               this._snackBar.open('下载文档失败', '关闭', {
