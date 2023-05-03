@@ -46,6 +46,7 @@ import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 import { AuthRecordTableComponent } from './auth-record-table/auth-record-table.component';
 import { AuthRecordComponent } from './auth-record/auth-record.component';
 import { AuthRequestComponent, AuthRequestPromptDialog } from './auth-request/auth-request.component';
+import { CatalogDialogComponent } from './catalog-dialog/catalog-dialog.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DocumentQueryResultDetailDialog, DocumentQueryResultTableComponent } from './document-query-result-table/document-query-result-table.component';
 import { DocumentQueryComponent } from './document-query/document-query.component';
@@ -53,6 +54,7 @@ import { DocumentUploadRecordTableComponent } from './document-upload-record-tab
 import { DocumentUploadRecordComponent } from './document-upload-record/document-upload-record.component';
 import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-upload/document-upload.component';
 import { FooterComponent } from './footer/footer.component';
+import { HashCheckDialogComponent } from './hash-check-dialog/hash-check-dialog.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NotificationComponent } from './notification/notification.component';
 import { getPaginatorIntl } from './paginator-intl';
@@ -87,7 +89,9 @@ registerLocaleData(localeZh);
     AuthApproveComponent,
     AuthApproveTableComponent,
     AuthDialogComponent,
+    CatalogDialogComponent,
     FooterComponent,
+    HashCheckDialogComponent,
     ServerDialogComponent,
     NotificationComponent,
     SafePipe

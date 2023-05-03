@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DocumentQueryComponent } from './document-query.component';
+import { CatalogDialogComponent } from './catalog-dialog.component';
 
-describe('DocumentQueryComponent', () => {
-  let component: DocumentQueryComponent;
-  let fixture: ComponentFixture<DocumentQueryComponent>;
+describe('CatalogDialogComponent', () => {
+  let component: CatalogDialogComponent;
+  let fixture: ComponentFixture<CatalogDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DocumentQueryComponent]
+      declarations: [CatalogDialogComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DocumentQueryComponent);
+    fixture = TestBed.createComponent(CatalogDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

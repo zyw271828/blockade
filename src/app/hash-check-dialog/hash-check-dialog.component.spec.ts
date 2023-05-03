@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DocumentQueryComponent } from './document-query.component';
+import { HashCheckDialogComponent } from './hash-check-dialog.component';
 
-describe('DocumentQueryComponent', () => {
-  let component: DocumentQueryComponent;
-  let fixture: ComponentFixture<DocumentQueryComponent>;
+describe('HashCheckDialogComponent', () => {
+  let component: HashCheckDialogComponent;
+  let fixture: ComponentFixture<HashCheckDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DocumentQueryComponent]
+      declarations: [HashCheckDialogComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DocumentQueryComponent);
+    fixture = TestBed.createComponent(HashCheckDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

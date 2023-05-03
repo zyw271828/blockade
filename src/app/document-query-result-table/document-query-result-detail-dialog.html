@@ -11,7 +11,14 @@
     <!-- Value Column -->
     <ng-container matColumnDef="value">
       <th mat-header-cell *matHeaderCellDef>值</th>
-      <td class="break-line" mat-cell *matCellDef="let row">{{row.value}}</td>
+      <td class="break-line" mat-cell *matCellDef="let row">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-label>{{row.value}}</mat-label>
+          <mat-divider *ngIf="row.item === '散列' || row.item === '密文散列'" vertical></mat-divider>
+          <button *ngIf="row.item === '散列' || row.item === '密文散列'" mat-stroked-button type="button"
+            (click)="checkHash(row.item, row.value)">校验</button>
+        </div>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

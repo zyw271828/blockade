@@ -8,6 +8,7 @@
   padding-right: 10px;
 }
 
-.mat-divider.mat-divider-vertical {
-  height: 30px;
+.mat-icon {
+  display: flex;
+  justify-content: center;
 }

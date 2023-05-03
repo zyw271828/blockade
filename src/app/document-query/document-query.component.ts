@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CatalogDialogComponent } from '../catalog-dialog/catalog-dialog.component';
 import { Utils } from '../utils';
 
 @Component({
@@ -11,7 +13,8 @@ import { Utils } from '../utils';
 export class DocumentQueryComponent implements OnInit {
   queryMethods: string[] = [
     'ID',
-    '条件'
+    '条件',
+    '资源目录'
   ];
 
   currentQueryMethod: string = this.queryMethods[0];
@@ -34,6 +37,10 @@ export class DocumentQueryComponent implements OnInit {
     entityAssetId: <string | null>null
   });
 
+  documentCatalogQueryForm = this.fb.group({
+    catalog: [<string | null>null, Validators.required]
+  });
+
   resourceTypes: string[] = Utils.getResourceTypes('document');
 
   documentTypes: string[] = Utils.getDocumentTypes();
@@ -42,7 +49,7 @@ export class DocumentQueryComponent implements OnInit {
 
   instruction: string = '文档查询页面上的一些说明。';
 
-  constructor(private changeDetector: ChangeDetectorRef, private fb: FormBuilder, private _snackBar: MatSnackBar) { }
+  constructor(private changeDetector: ChangeDetectorRef, private fb: FormBuilder, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -70,6 +77,21 @@ export class DocumentQueryComponent implements OnInit {
       this.changeDetector.detectChanges();
       this.isResultShow = true;
     } else { // documentConditionalQueryForm is invalid
+      this._snackBar.open('请检查您的输入', '关闭', {
+        duration: 5000
+      });
+    }
+  }
+
+  onCatalogQuerySubmit(): void {
+    if (this.documentCatalogQueryForm.valid) {
+      this.dialog.open(CatalogDialogComponent, {
+        data: {
+          title: '资源目录验证',
+          catalog: this.documentCatalogQueryForm.get('catalog')?.value
+        }
+      });
+    } else { // documentCatalogQueryForm is invalid
       this._snackBar.open('请检查您的输入', '关闭', {
         duration: 5000
       });
@@ -154,6 +176,11 @@ export class DocumentQueryComponent implements OnInit {
 
   resetConditionalQueryForm(): void {
     this.documentConditionalQueryForm.reset();
+    this.isResultShow = false;
+  }
+
+  resetCatalogQueryForm(): void {
+    this.documentCatalogQueryForm.reset();
     this.isResultShow = false;
   }
 }
