@@ -46,6 +46,7 @@ import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 import { AuthRecordTableComponent } from './auth-record-table/auth-record-table.component';
 import { AuthRecordComponent } from './auth-record/auth-record.component';
 import { AuthRequestComponent, AuthRequestPromptDialog } from './auth-request/auth-request.component';
+import { CatalogDialogComponent } from './catalog-dialog/catalog-dialog.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DocumentQueryResultDetailDialog, DocumentQueryResultTableComponent } from './document-query-result-table/document-query-result-table.component';
 import { DocumentQueryComponent } from './document-query/document-query.component';
@@ -85,6 +86,7 @@ registerLocaleData(localeZh);
     AuthApproveComponent,
     AuthApproveTableComponent,
     AuthDialogComponent,
+    CatalogDialogComponent,
     FooterComponent,
     NotificationComponent,
     SafePipe

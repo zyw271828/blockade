@@ -175,6 +175,36 @@
               </div>
             </form>
 
+            <!-- Catalog Query -->
+            <form [formGroup]="documentCatalogQueryForm" novalidate (ngSubmit)="onCatalogQuerySubmit()">
+              <div *ngIf="currentQueryMethod === this.queryMethods[2]" fxLayout="column"
+                fxLayoutAlign="space-around stretch" fxLayoutGap="0px">
+
+                <!-- Catalog -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+                  <div class="misc-margin">
+                    <mat-icon fxFlex="auto">notes</mat-icon>
+                  </div>
+                  <mat-form-field appearance="outline" fxFlex="auto">
+                    <mat-label>Catalog</mat-label>
+                    <textarea matInput required cdkTextareaAutosize formControlName="catalog"></textarea>
+                    <mat-error *ngIf="documentCatalogQueryForm.controls['catalog'].hasError('required')">
+                      Catalog is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div style="height: 10px;"></div>
+
+                <!-- Reset & Query -->
+                <div class="document-card-margin" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="8px">
+                  <button mat-button color="warn" type="button" (click)="resetCatalogQueryForm()">Reset</button>
+                  <button mat-raised-button color="primary" type="submit">Catalog Verify</button>
+                </div>
+
+              </div>
+            </form>
+
           </mat-card-content>
         </mat-card>
 
