@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface DialogData {
@@ -14,7 +14,7 @@ export interface DialogData {
 })
 export class HashCheckDialogComponent implements OnInit {
   hashCheckDialogForm = this.fb.group({
-    hash: <string | null>null
+    hash: [<string | null>null, Validators.pattern(this.data.hash)]
   });
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private fb: FormBuilder) { }
