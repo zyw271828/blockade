@@ -1,0 +1,22 @@
+<form [formGroup]="hashCheckDialogForm" novalidate>
+  <h1 mat-dialog-title>{{data.title}}</h1>
+  <div class="container">
+    <div style="height: 20px;"></div>
+
+    <div mat-dialog-content>
+      <mat-form-field appearance="outline" fxFlex="auto">
+        <mat-label *ngIf="!checkHash()">
+          Hash <strong>not matched</strong>
+        </mat-label>
+        <mat-label *ngIf="checkHash()">
+          Hash <strong>matched</strong>
+        </mat-label>
+        <input matInput placeholder="Hash" formControlName="hash">
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions align="end">
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+    </div>
+  </div>
+</form>

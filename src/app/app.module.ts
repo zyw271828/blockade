@@ -54,6 +54,7 @@ import { DocumentUploadRecordTableComponent } from './document-upload-record-tab
 import { DocumentUploadRecordComponent } from './document-upload-record/document-upload-record.component';
 import { DocumentUploadComponent, DocumentUploadPromptDialog } from './document-upload/document-upload.component';
 import { FooterComponent } from './footer/footer.component';
+import { HashCheckDialogComponent } from './hash-check-dialog/hash-check-dialog.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NotificationComponent } from './notification/notification.component';
 import { SafePipe } from './safe.pipe';
@@ -88,6 +89,7 @@ registerLocaleData(localeZh);
     AuthDialogComponent,
     CatalogDialogComponent,
     FooterComponent,
+    HashCheckDialogComponent,
     NotificationComponent,
     SafePipe
   ],
