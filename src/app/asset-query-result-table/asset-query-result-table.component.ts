@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
@@ -8,6 +8,7 @@ import { AssetQueryComponent } from '../asset-query/asset-query.component';
 import { AssetService } from '../asset.service';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { DetailHelper } from '../detail-helper';
+import { HashCheckDialogComponent } from '../hash-check-dialog/hash-check-dialog.component';
 import { Utils } from '../utils';
 import { AssetQueryResultTableDataSource, AssetQueryResultTableItem } from './asset-query-result-table-datasource';
 
@@ -165,6 +166,16 @@ export class AssetQueryResultDetailDialog {
             }
           });
         });
+      }
+    });
+  }
+
+  checkHash(item: string, hash: string): void {
+    this.dialog.open(HashCheckDialogComponent, {
+      width: '350px',
+      data: {
+        title: item + ' Check',
+        hash: hash
       }
     });
   }
