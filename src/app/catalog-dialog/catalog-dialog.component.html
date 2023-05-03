@@ -11,7 +11,12 @@
     <!-- Value Column -->
     <ng-container matColumnDef="value">
       <th mat-header-cell *matHeaderCellDef>Value</th>
-      <td class="break-line" mat-cell *matCellDef="let row">{{row.value}}</td>
+      <td class="break-line" mat-cell *matCellDef="let row">
+        <mat-icon *ngIf="row.value; else warnIcon">check_circle</mat-icon>
+        <ng-template #warnIcon>
+          <mat-icon color="warn">cancel</mat-icon>
+        </ng-template>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -31,7 +31,7 @@ export class CatalogDialogComponent implements OnInit {
   }
 
   catalogVerify(): void {
-    const documentIds = this.data.catalog.split(/\n|,|\ /);
+    const documentIds = this.data.catalog.split(/\n|,|\ /).filter(Boolean);
 
     const requests = documentIds.map(documentId => {
       return this.documentService.checkDocumentIdValidity(documentId);
