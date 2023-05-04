@@ -8,7 +8,7 @@
         <mat-label>Hash</mat-label>
         <input matInput placeholder="Hash" formControlName="hash">
         <mat-icon matSuffix *ngIf="checkHash()">check_circle</mat-icon>
-        <mat-error *ngIf="hashCheckDialogForm.controls['hash'].hasError('pattern')">
+        <mat-error *ngIf="hashCheckDialogForm.controls['hash'].hasError('hashMismatch')">
           Hash <strong>not matched</strong>
         </mat-error>
       </mat-form-field>
