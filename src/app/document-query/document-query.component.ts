@@ -183,4 +183,8 @@ export class DocumentQueryComponent implements OnInit {
     this.documentCatalogQueryForm.reset();
     this.isResultShow = false;
   }
+
+  getCatalogQueryTooltip(): string {
+    return 'Catalog format:\nEntityAssetId:\n  - DocumentType\n\nExample:\n1:\n  - Design\n  - Production\n  - Transfer\n  - Usage\n  - Repair\n2:\n  - Design\n  - Production\n';
+  }
 }
