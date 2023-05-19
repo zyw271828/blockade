@@ -87,7 +87,7 @@ export class DocumentQueryComponent implements OnInit {
     if (this.documentCatalogQueryForm.valid) {
       this.dialog.open(CatalogDialogComponent, {
         data: {
-          title: 'Catalog',
+          title: 'Catalog Verify',
           catalog: this.documentCatalogQueryForm.get('catalog')?.value
         }
       });
