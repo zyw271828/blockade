@@ -1,11 +1,18 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { forkJoin } from 'rxjs';
+import { load } from 'js-yaml';
+import { Observable, catchError, forkJoin, map, of, switchMap } from 'rxjs';
+import { DocumentMetadata } from '../document-metadata';
 import { DocumentService } from '../document.service';
+import { Utils } from '../utils';
 
 export interface DialogData {
   title: string;
   catalog: string;
+}
+
+interface Catalog {
+  [key: string]: string[];
 }
 
 @Component({
@@ -31,16 +38,61 @@ export class CatalogDialogComponent implements OnInit {
   }
 
   catalogVerify(): void {
-    const documentIds = this.data.catalog.split(/\n|,|\ /).filter(Boolean);
+    const catalog = load(this.data.catalog) as Catalog;
+    const entityAssetIds = Object.keys(catalog);
+    const requests: Observable<boolean>[] = [];
 
-    const requests = documentIds.map(documentId => {
-      return this.documentService.checkDocumentIdValidity(documentId);
+    entityAssetIds.forEach((entityAssetId) => {
+      const documentTypes = catalog[entityAssetId];
+
+      const request = this.documentService.queryDocumentIds(
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        entityAssetId
+      ).pipe(
+        switchMap((tableRecordData) => {
+          const documentIds = tableRecordData.ids;
+
+          if (documentIds.length === 0) {
+            return of(false);
+          }
+
+          const documentMetadataRequests: Observable<DocumentMetadata>[] = documentIds.map((documentId) =>
+            this.documentService.getDocumentMetadataById(documentId)
+          );
+
+          return forkJoin(documentMetadataRequests).pipe(
+            map((documentMetadataList) => {
+              const documentTypesFound = documentMetadataList
+                .map((documentMetadata) => documentMetadata.extensions.documentType)
+                .filter((documentType) => documentTypes.includes(Utils.getDocumentType(documentType)));
+
+              return documentTypesFound.length === documentTypes.length;
+            }),
+            catchError(() => of(false))
+          );
+        })
+      );
+
+      requests.push(request);
     });
 
     forkJoin(requests).subscribe((responses) => {
       this.catalogVerifyResult = responses.map((isValid, index) => {
-        const documentId = documentIds[index];
-        return { item: documentId, value: isValid };
+        const entityAssetId = entityAssetIds[index];
+
+        return { item: entityAssetId, value: isValid };
       });
     });
   }

@@ -23,6 +23,10 @@
   justify-content: space-around;
 }
 
+::ng-deep .help-tooltip {
+  white-space: pre-line;
+}
+
 ::ng-deep .instruction {
   white-space: pre-line;
 }

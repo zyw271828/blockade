@@ -183,4 +183,8 @@ export class DocumentQueryComponent implements OnInit {
     this.documentCatalogQueryForm.reset();
     this.isResultShow = false;
   }
+
+  getCatalogQueryTooltip(): string {
+    return '目录格式：\n实体资产 ID:\n  - 文档类型\n\n例子：\n1:\n  - 设计\n  - 生产\n  - 转移\n  - 使用\n  - 维修\n2:\n  - 设计\n  - 生产\n';
+  }
 }
