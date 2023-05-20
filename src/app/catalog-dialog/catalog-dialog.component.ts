@@ -78,7 +78,11 @@ export class CatalogDialogComponent implements OnInit {
                 .map((documentMetadata) => documentMetadata.extensions.documentType)
                 .filter((documentType) => documentTypes.includes(Utils.getDocumentType(documentType)));
 
-              return documentTypesFound.length === documentTypes.length;
+              const allDocumentTypesFound = documentTypes.every((documentType) =>
+                documentTypesFound.includes(Utils.getRawDocumentType(documentType))
+              );
+
+              return allDocumentTypesFound;
             }),
             catchError(() => of(false))
           );
