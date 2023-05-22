@@ -137,7 +137,9 @@ export class Utils {
   }
 
   static isUserCanApprove(userIdentity: UserIdentity): boolean {
-    return userIdentity.deptType === 'admin';
+    // Determine if the user has permission to access the Auth Approve page, for example:
+    // return userIdentity.deptType === 'admin';
+    return true;
   }
 
   static formatDate(date: string): string {
