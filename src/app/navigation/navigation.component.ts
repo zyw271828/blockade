@@ -27,7 +27,7 @@ export class NavigationComponent {
   isConnected: boolean = false;
   userInfo: string = '未知（未知）';
   detailedUserInfo: string = '用户信息\n未知';
-  userCanApprove: boolean = false;
+  userCanApprove: boolean = true;
   themeToggleControl = new FormControl(false);
   @HostBinding('class') className = '';
 
