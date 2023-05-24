@@ -8,7 +8,13 @@ export const apiEndpoints: string[] = [
   "http://localhost:8083/api/v1",
   "http://localhost:8084/api/v1",
   "http://localhost:8085/api/v1",
-  "http://localhost:8086/api/v1"
+  "http://localhost:8086/api/v1",
+  "http://localhost:8087/api/v1",
+  "http://localhost:8088/api/v1",
+  "http://localhost:8089/api/v1",
+  "http://localhost:8090/api/v1",
+  "http://localhost:8091/api/v1",
+  "http://localhost:8092/api/v1"
 ];
 
 export let environment = {
